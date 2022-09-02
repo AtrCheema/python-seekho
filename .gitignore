@@ -1,0 +1,19 @@
+
+
+.ipynb_checkpoints/
+__pycache__/
+.idea/
+.vscode/
+.eggs/
+
+# docs
+site/
+docs/build/
+docs/source/auto_examples/
+docs/source/gen_modules/
+
+*.txt
+*.json
+*.csv
+*.pq
+*.xlsx
