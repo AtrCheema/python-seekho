@@ -1,7 +1,8 @@
 """
-===============================
-7. public vs private attribtues
-===============================
+=================================
+3.7 public vs private attribtues
+=================================
+
 Based on accessibility, attributes can be categorized into 3 categories:
 * Public
 * Protected

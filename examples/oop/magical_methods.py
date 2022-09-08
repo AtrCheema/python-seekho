@@ -1,7 +1,8 @@
 """
-===================
-17. magical methods
-===================
+=====================
+3.17 magical methods
+=====================
+
 This file describes the so called magical methods in python. Magical methods are
 those methods which start with double underscore ``__`` sign. We have already
 seen some of the magical methods such as ``__init__`` or ``__call__`` etc.

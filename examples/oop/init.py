@@ -1,7 +1,8 @@
 """
-==============
-5. init method
-==============
+================
+3.5 init method
+================
+
 """
 # %% md
 # This method is used to define the attributes of a class which we want that class

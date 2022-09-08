@@ -1,6 +1,6 @@
 """
 =============================
-2. stacking vs concatenating
+4.2 stacking vs concatenating
 =============================
 
 This file illustrates difference between ``stack``, ``vstack``, ``hstack``,

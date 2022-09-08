@@ -1,10 +1,10 @@
 """
-=======================
-2. indexing and slicing
-=======================
+=========================
+5.2 indexing and slicing
+=========================
 """
 import pandas as pd
-pd.__version__
+print(pd.__version__)
 
 #%%
 

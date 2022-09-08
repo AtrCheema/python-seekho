@@ -1,7 +1,7 @@
 """
-===============
-12. Descriptors
-===============
+=================
+3.12 Descriptors
+=================
 """
 
 # Descriptors are another way to control, what happens when a value of an attribute

@@ -1,7 +1,7 @@
 """
-==================
-3. sequantial data
-==================
+=====================
+1.3 sequantial data
+=====================
 """
 
 # Sequential data types

@@ -1,7 +1,7 @@
 """
-==============
-10. for loops
-==============
+=================
+1.10 for loops
+=================
 Just like while loops, `for` loops allow an instruction to be executed
 a certain number of times. How many times? It depends upon iterator.
 As per wikipedia 11 peaple have received Nishan-e-Haider [1]_

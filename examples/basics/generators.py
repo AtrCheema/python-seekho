@@ -1,7 +1,7 @@
 """
-==============
-19. generators
-==============
+=================
+1.19 generators
+=================
 This lesson explains the concept of generators in python and the use of keyword
 ``yield``.
 """

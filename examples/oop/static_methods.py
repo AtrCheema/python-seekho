@@ -1,7 +1,8 @@
 """
-=================
-9. static methods
-=================
+===================
+3.9 static methods
+===================
+
 In previous section we wrote a code to count number of instances of class using
 a public attribute of a class. If we make this attribute `private` , we can create
 a method inside the class to acquire its value. In following example, we do it

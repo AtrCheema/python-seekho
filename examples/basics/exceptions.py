@@ -1,6 +1,6 @@
 """
 ==================
-18. Exceptions
+1.18 Exceptions
 ==================
 This lesson shows the usage of Exceptions in python
 """

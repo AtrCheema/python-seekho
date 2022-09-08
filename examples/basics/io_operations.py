@@ -1,7 +1,8 @@
 """
-==================
-17. input/output
-==================
+===========================
+1.17 read/write operations
+===========================
+
 This lesson shows how to read/write files using python.
 """
 
@@ -37,7 +38,7 @@ print(new_file.closed)
 
 #####################################
 # Instead of manually closing the file everytime, we can automatically close it
-# using the context manager ``with``. Context manager ``with`` makes sure that
+# using ``with`` keyword. ``with`` is called context manager which makes sure that
 # whenever we are out of it, the file is closed.
 
 with open("NewFile.txt", "w") as fp:
@@ -46,8 +47,18 @@ with open("NewFile.txt", "w") as fp:
 print(fp.closed)
 
 # %%
-# Even if there is an error during writing/reading the file
-# the context manager makes sure that the file is closed after the error.
+# Even if there is an error during writing/reading the file,
+# the context manager makes sure that the file is closed despite the error.
+
+# uncomment following lines
+# with open("NewFile.txt", 'w') as fp:
+#     fp.write("Bajwa chor hai")
+#     raise NotImplementedError(f"You are not allowed to utter this.")
+
+# %%
+# If we uncomment and run the above cell, it will result in error but we can confirm that
+# the file is still closed. We can verify this using following statement
+print(fp.closed) # --> True
 
 ##############################
 # writing to a new file
@@ -59,6 +70,8 @@ with open("NewFile.txt", "w") as fp:
     fp.write("My Name is Ali")
 
 ##############################
+# Here, ``fp`` is file handler, which can can use to modify file.
+
 # The ``write`` function is for writing a string. If we want to write a list
 # of strings, we can make use of ``writelines`` function.
 
@@ -69,7 +82,7 @@ with open("NewFile.txt", "w") as fp:
 
 # %%
 # If we write something to an existing file and open the file
-# with ``w``, the file will be overwritten. This can also cause
+# with ``w``, the previous file will be overwritten. This can also cause
 # loss of data.
 
 lines = ['His name was Ali.\n', 'He was very brave\n']
@@ -91,14 +104,20 @@ with open("NewFile.txt", "a") as fp:
 ##############################
 # writing with specific separator
 # ---------------------------------
+# Consider that we want to write following data into a file.
 lines = ["1 2 3", "1 2 3", "1 2 3"]
+
+# %%
+# We can do this using following lines of code.
+
+# %%
 with open("NewFile", 'w') as fp:
     for line in lines:
         line = ','.join(line.split())
         fp.write(line + '\n')
 
 # %%
-# Above we used comma ``,`` to separateeach value in a line. However, we can
+# Above we used comma ``,`` to separate each value in a line. However, we can
 # use any other separator that we wish e.g. a tab.
 
 with open("NewFile", 'w') as fp:
@@ -110,7 +129,7 @@ with open("NewFile", 'w') as fp:
 # reading a file
 # -------------------
 # If we want to read a file, the second argument to ``open`` function must be
-# ``r``. However, the file must exist.
+# ``r``. However, the file must exist at the location which is specified.
 
 text = """Nb  C  O Cr 
  1.0000000000000000
@@ -133,6 +152,10 @@ with open('NewFile', 'r') as fp:
         if idx > 7:
             line = ' '.join(line.split()).split(' ')
             lines.append([float(num) for num in line])
+
+#%%
+# Above we are only writing file name which means that the file exists
+# in current folder (working directory).
 
 ##############################
 # reading large files
@@ -166,23 +189,24 @@ with open('NewFile', 'w') as fp:
     fp.writelines(lines)
 
 ##############################
-# writing binary format
-# ----------------------
-# When we wrote data above, the saved data was human readable. This means
-# that you can open the file and see/read the data. However, there is cost of doing this.
+# writing in binary format
+# -------------------------
+# Above when we wrote the data, the saved file was human readable. This means
+# that you can open the file and see/read the data. However, there is a cost of doing this.
 # If the data is large, the file size gets extremely large and the process of reading
 # and writing becomes slow. This can be avoided by writing the data into binary format.
 # The downside here is that the written file is not human readable unless you have specific
 # softwares. These softwares actually convert the binary data into human readable and show it.
 # Saving the data into binary format is a very large topic and there are many
-# built-in and third-party libraries in python for it. However, here we will cover
-# only basics of ``pickle`` module of python.
+# built-in and third-party libraries in python for it. However, here we will only cover
+# basics of ``pickle`` module of python.
 
 import pickle
 
 #%%
 # When we want to save the data into binary format/file, the second argument
-# to ``open`` function must be ``wb``. Here, ``w`` stands for writing.
+# to ``open`` function must be ``wb``. Here, ``w`` means that we are creating
+# a new file and ``b`` represents that the data will be written in binary format.
 
 mybytes = [120, 3, 255, 0, 1000]
 with open("NewFile", "wb") as mypicklefile:
@@ -196,13 +220,14 @@ with open("NewFile", "wb") as mypicklefile:
     pickle.dump(mybytes, mypicklefile)
 
 # %%
-# also string data can be saved as binary using pickle.
+# also string data can be saved as binary using pickle module.
 
 mybytes = [120, 3, 255, 0, 1000.0, 'a']
 with open("NewFile", "wb") as mypicklefile:
     pickle.dump(mybytes, mypicklefile)
 
 # %%
+# Similary we can write ``tuple`` or ``dictionary`` data into binary format.
 
 mybytes = [120, 3, 255, 0, 1000.0, 'a', (1,2), None]
 with open("NewFile", "wb") as mypicklefile:
@@ -217,7 +242,8 @@ with open("NewFile", "wb") as mypicklefile:
 ##############################
 # reading binary format
 # -----------------------
-# for reading binary file we will use ``rb``
+# If we want to read binary file, we can use ``rb`` keyword in ``open``
+# function as second argument.
 
 with open("NewFile", "rb") as mypicklefile:
     mybytes = pickle.load(mypicklefile)
@@ -225,7 +251,8 @@ with open("NewFile", "rb") as mypicklefile:
 print(mybytes)
 
 #%%
-# The pickle module covers a wide range of types
+# The pickle module can read/write a wide range of data types.
+
 import numpy as np
 
 mybytes = np.array([120, 3, 255, 0, 1000.0])
@@ -236,6 +263,9 @@ with open("NewFile", "rb") as mypicklefile:
     mybytes = pickle.load(mypicklefile)
 
 print(type(mybytes))
+
+# Above we wrote numpy data type which is not python's native data type.
+# Moreover, when we read binary file, we still got numpy data type.
 
 ##############################
 # writing json format
@@ -252,13 +282,13 @@ with open("NewFile.json", "w") as fp:
 
 ##############################
 # By setting the ``indent`` keyword argument, we can make sure that all the data
-# is not saved on a single line and it is more readable.
+# is not saved on a single line. This makes the json file more readable.
 
 with open("NewFile.json", "w") as fp:
     json.dump(data, fp, indent=True)
 
 ##############################
-# We can sort the keys of saved dictionary in json by setting ``sort_keys`` to True.
+# We can sort the keys of saved dictionary in json file by setting ``sort_keys`` to True.
 
 with open("NewFile.json", "w") as fp:
     json.dump(data, fp, indent=True, sort_keys=True)
@@ -277,7 +307,7 @@ data = np.array([2])
 
 #%%
 # The error message very explicity says that the data we are trying to save
-# is ``ndarray`` and it can not be serialized.
+# is ``ndarray`` and it can not be `serialized`.
 
 ##############################
 # We can verify this by checking the type of ``data``.
@@ -298,7 +328,7 @@ data_0 = data[0]
 print(type(data_0))
 
 ##############################
-# This is because ``int32`` is not python's native type but is from numpy library.
+# This is because ``int32`` is also not python's native type but is from numpy library.
 #
 # We can convert ``int32`` into python's ``int`` type and then we can save it into
 # json file format.
@@ -321,7 +351,7 @@ data = np.array([2, 3, 4])
 
 ##############################
 # The ``tolist`` method of numpy array converts the numpy array into list
-# which is python native type and can be saved as json
+# which is python native type and can be saved as json.
 
 data_list = data.tolist()
 
@@ -332,7 +362,7 @@ with open("NewFile.json", "w") as fp:
 # reading json format
 # ---------------------
 # In order to read the json file, we can make use of ``json.load()`` function.
-# The first arguemnt must by file handle
+# The first argument must be file path.
 
 with open("NewFile.json", "r") as fp:
     data = json.load(fp)
@@ -343,39 +373,3 @@ print(data)
 # The type of the data is preserved when we load the json file
 
 print(type(data))
-
-#%%
-# finding files
-#---------------
-
-for i in range(5):
-    with open(f'TextFile_{i}.txt', 'w'):
-        pass
-for i in range(5):
-    with open(f'CsvFile_{i}.csv', 'w'):
-        pass
-
-#%%
-# If we want to find all files and folders within a specific path
-
-import os
-
-path_to_look = os.getcwd()
-
-print(os.listdir(path_to_look))
-
-#%%
-# If want to find only files and not folders/directories, we can do following
-# list comprehension.
-
-print([f for f in os.listdir(path_to_look) if os.path.isfile(f)])
-
-#%%
-# If we want to find files with a specific extension, we can do as following
-
-print([f for f in os.listdir(path_to_look) if os.path.isfile(f) and f.endswith(".txt")])
-
-#%%
-# If we want to find files with a specific extension, and starting with a
-# specific name, we can do as following
-print([f for f in os.listdir(path_to_look) if os.path.isfile(f) and f.endswith(".txt") and f.startswith('TextFile_')])

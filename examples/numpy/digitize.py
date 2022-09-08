@@ -1,6 +1,6 @@
 """
 =========================
-3. quantile and digitize
+4.3 quantile and digitize
 =========================
 
 This file describes the concept of quantile and how to cclculate it in numpy

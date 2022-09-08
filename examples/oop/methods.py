@@ -1,8 +1,9 @@
 """
-==========
-4. methods
-==========
-This class discusses the concept of method in python.
+============
+3.4 methods
+============
+
+This lesson discusses the concept of method in python.
 """
 
 

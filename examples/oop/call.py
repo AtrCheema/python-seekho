@@ -1,6 +1,6 @@
 """
 =============
-14. __call__
+3.14 __call__
 =============
 This lesson shows the usage of ``__call__`` method of a class.
 

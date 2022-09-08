@@ -63,16 +63,16 @@ exclude_patterns = []
 
 class ExampleTitleSortKeyWithNumber(ExampleTitleSortKey):
     """Sort examples in src_dir by example title considering that the title
-    starts with a number followed by . (dot).
+    starts with a number followed by space
     """
 
     def __call__(self, filename):
         """extract the title and convert numbers before "." ("dot) to integer
-        1. FirstTitle  -> 1
+        1.1 FirstTitle  -> 11
         """
         title = super().__call__(filename)
-        number = title.split('.')[0]
-        return int(number)
+        number = title.split(' ')[0]
+        return int(number.replace('.', ''))
 
 
 examples_dirs = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'examples')
@@ -88,11 +88,11 @@ sphinx_gallery_conf = {
     'compress_images': ('images', 'thumbnails'),
     #'subsection_order': SubSectionTitleOrder(examples_dirs),
     'filename_pattern': '',
-    'line_numbers': True,
+    #'line_numbers': False,
 
     'binder': {'org': 'AtrCheema',
                'repo': 'python-seekho',
-               'branch': 'master',
+               'branch': 'dev',
                'binderhub_url': 'https://mybinder.org',
                'dependencies': os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), '.binder', 'requirements.txt'),
                'notebooks_dir': 'notebooks',
@@ -108,9 +108,13 @@ sphinx_gallery_conf = {
 
     'within_subsection_order': ExampleTitleSortKeyWithNumber,
     #'examples_dirs': ['../examples', '../tutorials'],
-    # 'subsection_order': ExplicitOrder(['../examples/sin_func',
-    #                                    '../examples/no_output',
-    #                                    '../tutorials/seaborn']),
+    'subsection_order': ExplicitOrder(['../../examples/basics',
+                                       '../../examples/builtin_modules',
+                                       '../../examples/oop',
+                                       '../../examples/numpy',
+                                       '../../examples/pandas',
+                                       '../../examples/plotting',
+                                       ]),
     #'expected_failing_examples': ['../examples/oop/descriptors.py']
 }
 
@@ -120,15 +124,23 @@ sphinx_gallery_conf = {
 # a list of builtin themes.
 #
 html_theme = 'sphinx_book_theme'
+html_logo = "logo.jpg"
+html_favicon = "logo.jpg"
 
 html_theme_options = {
     "repository_url": "https://github.com/AtrCheema/python-seekho",
+    # add a link to your repository
     "use_repository_button": True,
     "use_download_button": True,
+    # add a button to open an issue about the current page
     "use_issues_button": True,
     "use_edit_page_button": True,
     "path_to_docs": os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'docs'),
     "repository_branch": "master",
+    #  add the landing page of your site to the table of contents
+    "home_page_in_toc": True,
+    # remove the site title below the logo
+    "logo_only": True,
     "launch_buttons": {
         "thebe": True,
         "notebook_interface": "jupyterlab",

@@ -1,17 +1,17 @@
 """
 =============
-1. variables
+1.1 variables
 =============
 This lesson introduces data types and variables in python.
 """
 
 #%%
-# A variable is a way to link some data to a memory location. By memory I mean
-# not the storage such as hard drive or USB etc rather memory such as RAM.
-# How much memory will be allocated for a variable depends on what kind of
-# and how much data is linked. For example variable consisting 10 integers will
+# A variable is a way to link some data to a memory location. The memory here, does not
+# mean the storage such as hard drive or USB etc rather memory such as RAM.
+# The memory size which is allocated for a variable depends on the kind and
+# data linked to that variable. For example, a variable consisting 10 integers will
 # hold less memory as compared to a variable consisting of a million integers.
-# Similary a variable holding an integer will have different type of memory
+# Similary a variable holding an integer will have different amount/size of memory
 # as compared to a variable holding a string say ``Ali``.
 # When we define a variable in python, the python checks the type of the variable
 # and allocates some memory for that variable.
@@ -30,7 +30,7 @@ a = 10
 a = 20
 
 #%% md
-# When I redefined the variable ``a``, it means the location of memory which was
+# When the variable ``a`` is redefined, it means the location of memory which was
 # holding the value 10 before, now holds 20. This means we have changed the contents of memory.
 
 #%%
@@ -62,16 +62,16 @@ d = a + a
 print(d, type(d))
 
 #%% md
-# So what is significant here is that python is able to change the type of new
-# variable based on the kind of value is going to be assigned to it. If a float
-# value is going to be assinged to a vaiable, the python will change the type
+# It is significant to note that the python is able to change the type of new
+# variable based on the kind of value assigned to it. If a float
+# value is assinged to a variable, python will change the type
 # of this variable to float.
 #
 # Another significant thing is that, we can assign any type of data to a variable.
 # For example we can assign ``int`` to variable a, later we can assign ``float``
 # to variable and then we can assign a completly different type like ``string`` to a.
 #
-# This is a blessing (in terms of ease of use) as well as curse (in terms of its
+# This is a blessing (in terms of ease of use) as well as a curse (in terms of its
 # slow speed) of python and for python users.
 
 #%%
@@ -97,7 +97,7 @@ id(a), id(b)
 
 #%% md
 # So when we assigned a differnt data to ``b``, a new object was created and now ``b``
-# refers to this this new object and thus its identity changes now.
+# refers to this new object and thus its identity changes now.
 #
 # Following are valid variable names
 
@@ -109,26 +109,30 @@ Ali9 = 14
 print(아타르)
 
 #%% md
-# variable name must not start from a number.
+# A variable name must not start from a number.
 
 #%%
 
-ali = 29
+# uncomment following line
+# 1_ali = 29
 
-#%% md
+# %% md
 # We can not name certain keywords as variable names. These keywords can
-# be seen [here](https://docs.python.org/2.5/ref/keywords.html)
+# be seen official python docs website [1]_
 
-#%% Data Types
-#-------------
+#%%
+# Data Types
+# -------------
 # Data types signifies the type of operation that can be performed on that
 # data. Python has following data types
 
-### Numbers
+# %% md
+# Numbers
+# -----------
 # To represent numerical values, python has three types
-# * integer
-# * float
-# * complex
+#    * integer
+#    * float
+#    * complex
 
 #%%
 
@@ -162,19 +166,19 @@ print(type(x))
 
 coke = False
 water = True
-type(coke)
-
+print(type(coke))
 
 #%% md
-
-### Sequence
+# Sequence
+#---------
+#
 # * strings
 # * lists
 # * tuple
 
 #%%
 
-s = 'What is the first question that should come to our mind in this life9?'
+s = 'What is the first question that should come to our mind in this life?'
 s2 = "Should Immanual Kannt be condemned for his racist views?"
 
 #%%
@@ -203,8 +207,8 @@ He was kiiled at the age of 45 by Sadam Husain.'''
 print(txt)
 
 #%% md
-
-#### Indexing
+# Indexing
+#------------
 
 #%%
 
@@ -224,16 +228,16 @@ len(s)
 s[len(s)-1], s[-1]
 
 #%% md
-
-#### Slicing
+# Slicing
+#--------
 
 #%%
 
 s[-3:], s[5:8], s[8:]
 
 #%% md
-
-#### Concatenation
+# Concatenation
+#--------------
 
 
 #%%
@@ -242,8 +246,8 @@ a = " Assalam" + " o" " alaikum"
 a
 
 #%% md
-
-#### Repeatition
+# Repeatition
+#---------------
 
 #%%
 
@@ -251,7 +255,7 @@ b = a*3
 b
 
 #%% md
-# We can find the lenght of a sequence object in python using the functin `len`.
+# We can find the length of a sequence object in python using the functin `len`.
 # Since strings are also sequences, their length/size can also be found by `len`.
 
 #%%
@@ -259,8 +263,8 @@ b
 len(a), len(b)
 
 #%% md
-
-#### immutability
+# immutability
+#----------------
 
 #%%
 
@@ -298,9 +302,10 @@ a is b
 a == b
 
 #%% md
-
-### Range
-# It gives immutable sequence. We will further study its use later during in `for loops`.
+# Range
+#--------
+# It gives immutable sequence. We will further study its use later during in
+# :ref:`sphx_glr_auto_examples_basics_for_loops.py`.
 
 #%%
 
@@ -310,3 +315,7 @@ print(a)
 #%%
 
 print(type(a))
+
+#%%
+#
+# .. [1] `<https://docs.python.org/2.5/ref/keywords.html>`_

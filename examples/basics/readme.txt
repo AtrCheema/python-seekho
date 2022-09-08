@@ -1,6 +1,6 @@
 .. _basics:
 
-basics
-------
+1. basics
+---------
 
 Tutorials concerning basics

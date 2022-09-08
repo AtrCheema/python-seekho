@@ -1,7 +1,7 @@
 """
-========
-4. I/O
-========
+====================
+5.4 reading/writing
+====================
 This file describes how to read data from files and write data into files using
 pandas.
 """

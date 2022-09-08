@@ -1,7 +1,7 @@
 """
-=============
-2. operators
-=============
+================
+1.2 operators
+================
 This notebook describes Basic operators in python
 """
 
@@ -93,7 +93,7 @@ print(a)
 
 #########################################
 # If the answer of the truncated division is negative, the answer is rounded to
-# the next smallest iteger (greater negative)
+# the next smallest integer (greater negative)
 
 #########################################
 
@@ -252,7 +252,7 @@ id(a), id(b)
 a is b
 
 #########################################
-# However, python alreay stores some commonly used samaller numbers in memory, so
+# However, python already stores some commonly used samaller numbers in memory, so
 # when they are created, python refers to that same memory location and does not
 # really create them. Thus for smaller numbers (from -5 to 256 integers) `is` returs True.
 

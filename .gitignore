@@ -17,3 +17,4 @@ docs/source/gen_modules/
 *.csv
 *.pq
 *.xlsx
+*.pdf

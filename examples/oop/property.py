@@ -1,7 +1,8 @@
 """
-============
-11. property
-============
+===============
+3.11 property
+===============
+
 """
 # %% md
 # Let's say we have a for human body metabolism which has temperature as one of
