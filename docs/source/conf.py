@@ -75,7 +75,7 @@ class ExampleTitleSortKeyWithNumber(ExampleTitleSortKey):
         return int(number.replace('.', ''))
 
 
-examples_dirs = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'examples')
+examples_dirs = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'scripts')
 
 sphinx_gallery_conf = {
     'backreferences_dir': 'gen_modules/backreferences',
@@ -83,7 +83,7 @@ sphinx_gallery_conf = {
     'reference_url': {
         'sphinx_gallery': None,
     },
-    'examples_dirs': os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'examples'),
+    'examples_dirs': os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'scripts'),
     'gallery_dirs': 'auto_examples',
     'compress_images': ('images', 'thumbnails'),
     #'subsection_order': SubSectionTitleOrder(examples_dirs),
@@ -92,7 +92,7 @@ sphinx_gallery_conf = {
 
     'binder': {'org': 'AtrCheema',
                'repo': 'python-seekho',
-               'branch': 'dev',
+               'branch': 'master',
                'binderhub_url': 'https://mybinder.org',
                'dependencies': os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), '.binder', 'requirements.txt'),
                'notebooks_dir': 'notebooks',
@@ -107,15 +107,16 @@ sphinx_gallery_conf = {
     'image_srcset': ["2x"],
 
     'within_subsection_order': ExampleTitleSortKeyWithNumber,
-    #'examples_dirs': ['../examples', '../tutorials'],
-    'subsection_order': ExplicitOrder(['../../examples/basics',
-                                       '../../examples/builtin_modules',
-                                       '../../examples/oop',
-                                       '../../examples/numpy',
-                                       '../../examples/pandas',
-                                       '../../examples/plotting',
+    #'examples_dirs': ['../scripts', '../tutorials'],
+    'subsection_order': ExplicitOrder(['../../scripts/basics',
+                                       '../../scripts/builtin_modules',
+                                       '../../scripts/oop',
+                                       '../../scripts/numpy',
+                                       '../../scripts/pandas',
+                                       '../../scripts/plotting',
+                                       '../../scripts/advanced',
                                        ]),
-    #'expected_failing_examples': ['../examples/oop/descriptors.py']
+    #'expected_failing_examples': ['../scripts/oop/descriptors.py']
 }
 
 # -- Options for HTML output -------------------------------------------------
