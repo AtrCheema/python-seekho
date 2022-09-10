@@ -79,16 +79,16 @@ examples_dirs = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__f
 
 sphinx_gallery_conf = {
     'backreferences_dir': 'gen_modules/backreferences',
-    #'doc_module': ('sphinx_gallery', 'numpy'),
+    # 'doc_module': ('sphinx_gallery', 'numpy'),
     'reference_url': {
         'sphinx_gallery': None,
     },
     'examples_dirs': os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), 'scripts'),
     'gallery_dirs': 'auto_examples',
     'compress_images': ('images', 'thumbnails'),
-    #'subsection_order': SubSectionTitleOrder(examples_dirs),
+    # 'subsection_order': SubSectionTitleOrder(examples_dirs),
     'filename_pattern': '',
-    #'line_numbers': False,
+    # 'line_numbers': False,
 
     'binder': {'org': 'AtrCheema',
                'repo': 'python-seekho',
@@ -98,8 +98,8 @@ sphinx_gallery_conf = {
                'notebooks_dir': 'notebooks',
                'use_jupyter_lab': True,
                },
-    #'show_memory': True,
-    #'junit': os.path.join('sphinx-gallery', 'junit-results.xml'),
+    # 'show_memory': True,
+    # 'junit': os.path.join('sphinx-gallery', 'junit-results.xml'),
     # capture raw HTML or, if not present, __repr__ of last expression in
     # each code block
     'capture_repr': ('_repr_html_', '__repr__'),
@@ -107,7 +107,7 @@ sphinx_gallery_conf = {
     'image_srcset': ["2x"],
 
     'within_subsection_order': ExampleTitleSortKeyWithNumber,
-    #'examples_dirs': ['../scripts', '../tutorials'],
+    # 'examples_dirs': ['../scripts', '../tutorials'],
     'subsection_order': ExplicitOrder(['../../scripts/basics',
                                        '../../scripts/builtin_modules',
                                        '../../scripts/oop',
@@ -116,7 +116,7 @@ sphinx_gallery_conf = {
                                        '../../scripts/plotting',
                                        '../../scripts/advanced',
                                        ]),
-    #'expected_failing_examples': ['../scripts/oop/descriptors.py']
+    # 'expected_failing_examples': ['../scripts/oop/descriptors.py']
 }
 
 # -- Options for HTML output -------------------------------------------------
@@ -132,6 +132,8 @@ html_theme_options = {
     "repository_url": "https://github.com/AtrCheema/python-seekho",
     # add a link to your repository
     "use_repository_button": True,
+    # To convert your footnotes to instead be sidenotes/marginnotes
+    "use_sidenotes": False,
     "use_download_button": True,
     # add a button to open an issue about the current page
     "use_issues_button": True,
@@ -151,8 +153,8 @@ html_theme_options = {
 
 thebe_config = {
    "always_load": True,
-    "repository_url": "<https://github.com/AtrCheema/python-seekho>",
-    "repository_branch": "<master>",
+   "repository_url": "<https://github.com/AtrCheema/python-seekho>",
+   "repository_branch": "<master>",
 }
 
 html_title = "python-seekho"

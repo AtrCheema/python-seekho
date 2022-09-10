@@ -58,18 +58,28 @@ next(a)
 # Running a for loop on a generator actually calls ``next`` function on the
 # generator until it is exhausted.
 
-for _ in a:
-    pass
+for i in a:
+    print(i)
 
 # %%
 # Since all the iterations are complete, our generator is now exhausted.
 # If we try to get next value from generator, it will throw an error.
 
 # uncomment the following line
-# next(reader)
+# next(a)
 
 # %%
-# Here, when we created generator using tuple comprehension, we were just returning
+for i in a:
+    print(i)
+
+# %%
+# The above for loop was run on exhausted generated, therefore no iteration was run.
+# However, it should be noted that StopIteration exception was not raised by for loop.
+# This is because, for loop automatically detects the StopIteration and stop its iteration
+# instead of raising the error/exception.
+
+# %%
+# Above, when we created generator using tuple comprehension, we were just returning
 # ``i`` but we can do a complicated or computationally heavy stuff e.g. reading a
 # file at each iteration.
 

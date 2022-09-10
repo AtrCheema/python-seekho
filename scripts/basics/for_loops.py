@@ -2,13 +2,15 @@
 =================
 1.10 for loops
 =================
-Just like while loops, `for` loops allow an instruction to be executed
-a certain number of times. How many times? It depends upon iterator.
-As per wikipedia 11 peaple have received Nishan-e-Haider [1]_
-award in Pakistan. Let's say we want to iterate over this list.
+
+This lesson introduces ``for`` loops in python.
 """
 
 # %%
+# Just like while loops, `for` loops allow an instruction to be executed
+# a certain number of times. How many times? It depends upon iterator.
+# As per wikipedia 11 people have received Nishan-e-Haider [1]_
+# award in Pakistan. Let's say we want to iterate over this list.
 
 NH_receivers = ['Saif Ali Janjua', 'Muhammad Sarwar', 'Tufail Muhammad',
                 'Aziz Bhatti', 'Rashid Minhas', 'Muhammad Akran',
@@ -199,7 +201,7 @@ for scholar, dod in zip_longest(scholars, date_of_death):
 # we must start from 1 and end before last item in order to print correct values
 
 for i in range(1, len(NH_receivers) - 1):
-    print(NH_receivers[i], ' cambe before ', NH_receivers[i + 1], ' and after ', NH_receivers[i - 1])
+    print(NH_receivers[i], ' came before ', NH_receivers[i + 1], ' and after ', NH_receivers[i - 1])
 
 # %% md
 # changing loop variable inside loop
@@ -248,12 +250,16 @@ for era in prime_miniters:
     for pm in era:
         all_pms.append(pm)
 
-all_pms
+print(all_pms)
 
 # %%
 
 print(len(all_pms))
 
-#%%
+# %%
+# If you want to dig deep into how the ``for`` loops work in python,
+# you go jump to :ref:`sphx_glr_auto_examples_oop_magical_methods.py`.
+
+# %%
 #
 # .. [1] `<https://en.wikipedia.org/wiki/Nishan-e-Haider>`_

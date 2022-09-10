@@ -88,10 +88,14 @@ with open("NewFile.txt", "w") as fp:
 # with ``w``, the previous file will be overwritten. This can also cause
 # loss of data.
 
-lines = ['His name was Ali.\n', 'He was very brave\n']
+new_lines = ['His name was Hussain.\n', 'He was very brave\n']
 
 with open("NewFile.txt", "w") as fp:
-    fp.writelines(lines)
+    fp.writelines(new_lines)
+
+# %%
+# If we see the `NewFile.txt` we will see that it has `new_lines` and not
+# `lines. This is because the previous file was deleted altogether.
 
 ##############################
 # writing to already existing file
@@ -120,6 +124,9 @@ with open("NewFile", 'w') as fp:
         fp.write(line + '\n')
 
 # %%
+# Even though we have not defined the extension of file i.e., the file name
+# is `NewFile`, but this file is still a text file which can be opened by
+# any text editor.
 # Above we used comma ``,`` to separate each value in a line. However, we can
 # use any other separator that we wish e.g. a tab.
 
@@ -135,30 +142,33 @@ with open("NewFile", 'w') as fp:
 # ``r``. However, the file must exist at the location which is specified.
 
 text = """Nb  C  O Cr 
- 1.0000000000000000
-     9.4616994858000005    0.0000000000000000    0.0000000000000000
-     0.5902497990000000    0.3193300853000000   29.9935537031999999
+ 1.0
+     9.461699    0.0    0.0
+     0.590249    0.31933   29.99
  Nb  C   O   Cr 
   18   9  18   1
 Cartesian
-  0.1336766064210279  1.8753905438790981 11.0741757477844533
- -1.4468814995438639  4.6046320601937234 11.0765284421369312
- -3.0240037164799349  7.3362104723597765 11.0754772280667435
-  3.2848511988924094  1.8556784559463604 11.0401360036995833"""
+  0.13  1.87 11.074
+ -1.44  4.60 11.076
+ -3.02  7.33 11.075
+  3.28  1.85 11.040"""
 
 with open('NewFile', 'w') as fp:
     fp.write(text)
 
 lines = []
 with open('NewFile', 'r') as fp:
-    for idx, line in enumerate(fp.readlines()):
-        if idx > 7:
-            line = ' '.join(line.split()).split(' ')
+    for line_num, line in enumerate(fp.readlines()):
+        if line_num > 6:
+            line = line.split()  # split the line based upon spaces and put all members into a list
             lines.append([float(num) for num in line])
 
+print(lines)
+
 # %%
-# We are using ``readlines`` function for reading all the lines lin the file. Then
-# we are iterating over these lines one by one. Next we are saving the lines in ``lines``
+# We are using ``readlines`` function for reading all the lines lin the file.
+# The ``readlines()`` actually returns us a ``list`` on which we can iterate. Then
+# we are iterating over these lines one by one. Next we are saving the lines in `lines`
 # list after line number 7.  Above the first argument is only file name. This means that the file must exists
 # in current folder (working directory).
 
@@ -188,10 +198,133 @@ with open('NewFile', 'r') as fp:
 with open('NewFile', 'r') as fp:
     lines = fp.readlines()
 
-lines.insert(9, '1.111 2.2222 3.33333\n')
+lines.insert(9, '1.111 2.2222 3.33333\n')  # 9 means line number 10
 
 with open('NewFile', 'w') as fp:
     fp.writelines(lines)
+
+##############################
+# writing json format
+# ---------------------
+# `json` is a human readable file format. This file format is similar to python
+# dictionary.
+
+import json
+
+data = {"name": "Ali", "age": 63, 'is_bold': True}
+
+with open("NewFile.json", "w") as fp:
+    json.dump(data, fp)
+
+# %%
+# The data that we wrote above, was a dictionary but we can write any other
+# data to json file as far as it is of native python type.
+
+with open("NewFile.json", "w") as fp:
+    json.dump([1, 2, 3], fp)
+
+##############################
+# By setting the ``indent`` keyword argument, we can make sure that all the data
+# is not saved on a single line. This makes the json file more readable.
+
+with open("NewFile.json", "w") as fp:
+    json.dump(data, fp, indent=True)
+
+##############################
+# We can sort the keys of saved dictionary in json file by setting ``sort_keys`` to True.
+
+with open("NewFile.json", "w") as fp:
+    json.dump(data, fp, indent=True, sort_keys=True)
+
+##############################
+# However, the json file can save only native python types. If the data
+# is not native python type, we get the ``TypeError``
+
+import numpy as np
+
+np_data = np.array([2])
+
+# uncomment following two lines, they will return in TypeError
+# with open("jsonfile.json", "w") as fp:
+#     json.dump(np_data, fp)  # -> TypeError: Object of type ndarray is not JSON serializable
+
+# %%
+# The error message very explicit says that the data we are trying to save
+# is `ndarray <https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html>`_
+# and it can not be `serialized <https://docs.python-guide.org/scenarios/serialization/>`_ .
+
+##############################
+# We can verify this by checking the type of `data`.
+
+print(type(np_data))
+
+##############################
+# `data` is an array, which means it consists of multiple values.
+# We can get the first value of `data` by slicing it using slice operator ``[]``.
+
+np_data_0 = np_data[0]
+
+print(np_data_0)
+
+# %%
+# Now If we try to save it in json file,
+
+# Uncomment following two lines, they will result in TypeError
+# with open("jsonfile.json", "w") as fp:
+#    json.dump(np_data_0, fp)  # -> TypeError: Object of type int32 is not JSON serializable
+
+##############################
+# The above error message says that ``int32`` is also not serializable. This is
+# because the first member of ``data`` is ``int32`` type which is from numpy library.
+
+print(type(np_data_0))
+
+##############################
+# This is because ``int32`` is also not python's native type but is from numpy library.
+#
+# We can convert ``int32`` into python's ``int`` type and then we can save it into
+# json file format.
+
+np_data_0_int = int(np_data_0)
+
+print(type(np_data_0_int))
+# %%
+
+with open("NewFile.json", "w") as fp:
+    json.dump(np_data_0_int, fp)
+
+##############################
+
+np_data = np.array([2, 3, 4])
+
+# Uncomment following two lines, they will result in TypeError
+# with open("jsonfile.json", "w") as fp:
+#     json.dump(np_data, fp)
+
+##############################
+# The ``tolist`` method of numpy array converts the numpy array into list
+# which is python native type and can be saved as json.
+
+data_list = np_data.tolist()
+
+with open("NewFile.json", "w") as fp:
+    json.dump(data_list, fp)
+
+##############################
+# reading json format
+# ---------------------
+# In order to read the json file, we can make use of ``json.load()`` function.
+# The first argument must be file path.
+
+with open("NewFile.json", "r") as fp:
+    data = json.load(fp)
+
+print(data)
+
+# %%
+# The type of the data is preserved when we load the json file.
+
+print(type(data))
 
 ##############################
 # writing in binary format
@@ -235,7 +368,7 @@ with open("NewFile", "wb") as my_pickle_file:
 # %%
 # Similar we can write ``tuple`` or ``dictionary`` data into binary format.
 
-my_bytes = [120, 3, 255, 0, 1000.0, 'a', (1,2), None]
+my_bytes = [120, 3, 255, 0, 1000.0, 'a', (1, 2), None]
 with open("NewFile", "wb") as my_pickle_file:
     pickle.dump(my_bytes, my_pickle_file)
 
@@ -259,8 +392,6 @@ print(my_bytes)
 # %%
 # The pickle module can read/write a wide range of data types.
 
-import numpy as np
-
 my_bytes = np.array([120, 3, 255, 0, 1000.0])
 with open("NewFile", "wb") as my_pickle_file:
     pickle.dump(my_bytes, my_pickle_file)
@@ -273,111 +404,3 @@ print(type(my_bytes))
 # %%
 # Above we wrote numpy data type which is not python's native data type.
 # Moreover, when we read binary file, we still got numpy data type.
-
-##############################
-# writing json format
-# ---------------------
-# `json` is a human readable file format. This file format is similar to python
-# dictionary.
-
-import json
-
-data = {"name": "Ali", "age": 63, 'is_bold': True}
-
-with open("NewFile.json", "w") as fp:
-    json.dump(data, fp)
-
-##############################
-# By setting the ``indent`` keyword argument, we can make sure that all the data
-# is not saved on a single line. This makes the json file more readable.
-
-with open("NewFile.json", "w") as fp:
-    json.dump(data, fp, indent=True)
-
-##############################
-# We can sort the keys of saved dictionary in json file by setting ``sort_keys`` to True.
-
-with open("NewFile.json", "w") as fp:
-    json.dump(data, fp, indent=True, sort_keys=True)
-
-##############################
-# However, the json file can save only native python types. If the data
-# is not native python type, we get the TypeError
-
-data = np.array([2])
-
-# uncomment following two lines, they will return in TypeError
-# with open("jsonfile.json", "w") as fp:
-#     json.dump(data, fp)  # -> TypeError: Object of type ndarray is not JSON serializable
-
-# %%
-# The error message very explicit says that the data we are trying to save
-# is ``ndarray`` and it can not be `serialized`.
-
-##############################
-# We can verify this by checking the type of ``data``.
-
-print(type(data))
-
-##############################
-# ``data`` is an array, which means it consists of multiple values.
-# If we get the first value of data and try to save it in json file,
-
-data_0 = data[0]
-
-# Uncomment following two lines, they will result in TypeError
-# with open("jsonfile.json", "w") as fp:
-#    json.dump(data_0, fp)  # -> TypeError: Object of type int32 is not JSON serializable
-
-##############################
-# The above error message says that ``int32`` is also not serializable. This is
-# because the first member of ``data`` is ``int32`` type which is from numpy library.
-
-print(type(data_0))
-
-##############################
-# This is because ``int32`` is also not python's native type but is from numpy library.
-#
-# We can convert ``int32`` into python's ``int`` type and then we can save it into
-# json file format.
-
-data_0 = int(data_0)
-
-print(type(data_0))
-# %%
-
-with open("NewFile.json", "w") as fp:
-    json.dump(data_0, fp)
-
-##############################
-
-data = np.array([2, 3, 4])
-
-# Uncomment following two lines, they will result in TypeError
-# with open("jsonfile.json", "w") as fp:
-#     json.dump(data, fp)
-
-##############################
-# The ``tolist`` method of numpy array converts the numpy array into list
-# which is python native type and can be saved as json.
-
-data_list = data.tolist()
-
-with open("NewFile.json", "w") as fp:
-    json.dump(data_list, fp)
-
-##############################
-# reading json format
-# ---------------------
-# In order to read the json file, we can make use of ``json.load()`` function.
-# The first argument must be file path.
-
-with open("NewFile.json", "r") as fp:
-    data = json.load(fp)
-
-print(data)
-
-# %%
-# The type of the data is preserved when we load the json file.
-
-print(type(data))

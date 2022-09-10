@@ -5,8 +5,6 @@
 This lesson shows the usage of exceptions in python
 """
 
-import os
-
 # %%
 # An exception is basically an error which is raised when a statement or command
 # fails in python.
@@ -16,6 +14,7 @@ a = 2
 assert isinstance(a, int)
 
 # %%
+# The function ``isinstance`` is being used here to check the ``type`` of a python object.
 # The above statement did not return anything because the assertion was successful.
 # However if the assertion fails, we get a special kind of error called ``AssertionError``.
 
@@ -24,11 +23,16 @@ assert isinstance(a, int)
 # AssertionError
 # ---------------
 # If we run the code given below, it will result in ``AssertionError`` because
-#  the variable `a` is ``int`` type and not ``float`` type. The function ``isinstance``
-# is being used here to check the ``type`` of a python object.
+#  the variable `a` is ``int`` type and not ``float`` type.
 
 # uncomment following 1 line
 # assert isinstance(a, float)
+
+# %%
+# We can write more useful error messages instead of throwing just ``AssertionError`` as follows,
+
+# uncomment following 1 line
+# assert isinstance(a, float), f"a is not float but is of {type(float)} type"
 
 # %%
 # Similar to ``AssertionError``, there are many other types of errors/exceptions in python
@@ -52,10 +56,10 @@ assert isinstance(a, int)
 # %%
 
 # uncomment following 1 line
-# import tensorflow as tf  # -> ModuleNotFoundError: No module named 'tensorflow'
+# import ai4water as tf  # -> ModuleNotFoundError: No module named 'ai4water'
 
 # %%
-# Since ``tensorflow`` package is not installed, we got ``ModuleNotFoundError`` above.
+# Since ``ai4water`` package is not installed, we got ``ModuleNotFoundError`` above.
 #
 # Whenever we import a variable, function or class or any python object, python
 # searches in all the directories (folders) which are in its ``path``. So when we say
@@ -96,6 +100,8 @@ human = {"name": "Ali"}
 
 f = open('NewFile.txt', 'w')
 
+import os
+
 # uncomment the following line
 # os.remove('NewFile.txt')  # -> PermissionError
 
@@ -109,6 +115,11 @@ os.remove('NewFile.txt')
 # %%
 # Once we close the file using ``f.close()``, then we can delete the file.
 
+# %%
+# ``PermissionError`` is also raised when you are trying to open/create a file
+# but the first argument to ``open`` function is folder instead of file.
+
+
 ##############################
 # FileNotFoundError
 # ---------------------
@@ -117,6 +128,29 @@ os.remove('NewFile.txt')
 
 # uncomment following 1 line
 # open("NonExistingFile", "r")  # -> FileNotFoundError: [Errno 2] No such file or directory: 'NonExistingFile'
+
+# %%
+# IndexError
+# -----------
+# This error is raised when try to access a value from a sequence based upon the index which
+# is not available for that sequence. For example, for a list with three members, if we
+# try to access its fourth member, we will get ``IndexError``.
+
+my_list = [1, 2, 3]
+# uncomment following line
+# my_list[3]  # -> IndexError: list index out of range
+
+# %%
+# Same is true for tuples.
+
+my_tuple = (1, 2, 3)
+
+# uncomment following line
+# my_tuple[3]  # -> IndexError: tuple index out of range
+
+# %%
+# There is another commonly encountered error i.e., ``AttributeError``. We are
+# not introducing it here. It will discussed later in :ref:`sphx_glr_auto_examples_oop___getattr__.py`.
 
 ###########################
 # Error handling
@@ -173,15 +207,15 @@ multiple_exceptions("11_2_5")
 
 # %%
 # Error handling is also used by printing out more useful error messages to the user.
-# Suppose the package ``tensorflow`` is not installed which may be required. Then instead
+# Suppose the package ``ai4water`` is not installed which may be required. Then instead
 # of just throwing ``ModuleNotFoundError``, we can help the user by giving more helpful error message
 
 
 def better_error_message():
     try:
-        import tensorflow
+        import ai4water
     except ModuleNotFoundError as e:
-        raise ModuleNotFoundError(f"You must install tensorflow using pip install tensorflow \n{e}")
+        raise ModuleNotFoundError(f"You must install ai4water using pip install ai4water \n{e}")
     return
 
 # uncomment following line
