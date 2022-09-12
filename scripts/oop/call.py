@@ -106,4 +106,4 @@ class Human:
 human = Human(2)
 
 # uncomment the following line
-# human() -> TypeError: 'Human' object is not callable.
+# human()  # -> TypeError: 'Human' object is not callable.

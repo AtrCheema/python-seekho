@@ -1,5 +1,7 @@
 
 [![Documentation Status](https://readthedocs.org/projects/python-seekho/badge/?version=latest)](https://python-seekho.readthedocs.io/en/latest/?badge=latest)
+![GitHub last commit](https://img.shields.io/github/last-commit/AtrCheema/python-seekho)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/AtrCheema/python-seekho)
 
 A book for python-learners to learn the language by practicing it.
 
