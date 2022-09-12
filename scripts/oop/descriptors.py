@@ -4,6 +4,7 @@
 =================
 """
 
+# %%
 # Descriptors are another way to control, what happens when a value of an attribute
 # is set or accessed. We do it while making a class with at least one of
 # ``__get__``, ``__set__`` and ``__del__`` methods.
