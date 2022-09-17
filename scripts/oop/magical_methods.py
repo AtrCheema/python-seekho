@@ -438,6 +438,39 @@ for child in ali:
     print(child)
 
 # %%
+# However, there is a problem in the above code, if we run the for loop above again,
+# we don't get any output as shown below,
+for child in ali:
+    print(child)
+
+# %%
+class Insan:
+    def __init__(self, num_child):
+        self.children = [f"child_{i}" for i in range(num_child)]
+        self.index = 0
+
+    def __next__(self):
+        try:
+            item = self.children[self.index]
+        except IndexError:
+            self.index = 0
+            raise StopIteration
+
+        self.index += 1
+        return item
+
+    def __iter__(self):
+        return self
+
+ali = Insan(2)
+for child in ali:
+    print(child)
+
+# %%
+for child in ali:
+    print(child)
+    
+# %%
 # ``__len__``
 # ------------
 # This method determines the output of ``len`` function, when applied

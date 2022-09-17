@@ -266,7 +266,8 @@ print(len(all_pms))
 for president in ['clinton', 'bush', 'obama', 'trump', 'biden']:
     if president == 'trump':
         continue
-    print(f"{president} Let's go to war")  # ok sorry they actually wanted to export freedom!
+    # ok sorry they actually wanted to export freedom!
+    print(f"{president}: Let's go to war")
 
 # %%
 # Above we did not want to print "Let's go to war" when the value
