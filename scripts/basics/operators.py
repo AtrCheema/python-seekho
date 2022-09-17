@@ -6,7 +6,9 @@ This lesson describes Basic operators in python
 """
 
 # %%
-# ``+`` for addition
+# Basic operations
+# ---------------------
+# ``+`` is used for addition
 
 #########################################
 
@@ -19,7 +21,7 @@ a += 10
 print(a)
 
 #########################################
-# ``-`` for subtraction
+# ``-`` is used for subtraction
 
 #########################################
 
@@ -27,7 +29,6 @@ a = 20 - 10
 print(a)
 
 #########################################
-
 
 a -= 5
 print(a)
@@ -54,7 +55,7 @@ print(a)
 #########################################
 
 
-14 % 5
+print(14 % 5)
 
 #########################################
 # If one of the value is float, result will be float.
@@ -62,15 +63,14 @@ print(a)
 #########################################
 
 
-17 % 5.0
+print(17 % 5.0)
 
 #########################################
 # The sign of the result will be same as sign of divider.
 
 #########################################
 
-
-17 % -5.0
+print(17 % -5.0)
 
 #########################################
 # ``/`` for division
@@ -82,14 +82,15 @@ a = 20/6
 print(a)
 
 #########################################
-# `//` for truncated division
+# ``//`` is used for truncated division
 
 #########################################
 
-20//6
+print(20//6)
 
 #########################################
-20//6.0
+
+print(20//6.0)
 
 #########################################
 # If the answer of the truncated division is negative, the answer is rounded to
@@ -97,7 +98,7 @@ print(a)
 
 #########################################
 
-20//-6.0, -20//6.0
+print(20//-6.0, -20//6.0)
 
 #########################################
 
@@ -115,11 +116,9 @@ print(a)
 # Comparisons
 # --------------------------
 
-
 #########################################
 
 2 == 3
-
 
 #########################################
 
@@ -156,7 +155,7 @@ capitalism != 'justice'
 #########################################
 # Logical operators
 # --------------------------------
-# `not` results in opposite to what comes after it.
+# ``not`` results in opposite to what comes after it.
 
 #########################################
 
@@ -260,18 +259,18 @@ a is b
 
 a = 256
 b = 254 + 2
-a is b
+print(a is b)
 
 #########################################
 
-id(a), id(b)
+print(id(a), id(b))
 
 #########################################
 
 feudalism = 'slavery'
 capitalism = 'slavery'
 
-feudalism is capitalism
+print(feudalism is capitalism)
 
 #########################################
 
