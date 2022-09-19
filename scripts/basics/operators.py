@@ -2,7 +2,10 @@
 ================
 1.2 operators
 ================
-This lesson describes Basic operators in python
+This lesson describes Basic operators in python.
+
+.. important::
+  This lesson is still under development.
 """
 
 # %%
@@ -105,8 +108,7 @@ print(20//-6.0, -20//6.0)
 -20 // -6.0
 
 #########################################
-# `**` for exponentiation
-# ------------------------------
+# `**`  is used for exponentiation
 
 #########################################
 
@@ -118,11 +120,11 @@ print(20//-6.0, -20//6.0)
 
 #########################################
 
-2 == 3
+print(2 == 3)
 
 #########################################
 
-2 ==2
+print(2 ==2)
 
 #########################################
 
@@ -202,13 +204,13 @@ capitalism is not justice
 
 food = 'bread'
 lunch = food or 'curry'
-lunch
+print(lunch)
 
 #########################################
 
 food = None
 lunch = food or 'curry'
-lunch
+print(lunch)
 
 #########################################
 # If the first argument before ``or`` is ``True``, the value after ``or`` is discarded.
@@ -217,18 +219,17 @@ lunch
 
 food = None
 lunch = 'currey' or food
-lunch
+print(lunch)
 
 #########################################
 
 food = 'bread'
 lunch = 'currey' or food
-lunch
+print(lunch)
 
 #########################################
 # Identity
 # ---------------------
-
 # ``is`` operator compares whether both variables on its right and left side refer
 # to same memory location or not.
 
@@ -236,7 +237,7 @@ lunch
 
 a = 257
 b = 257
-a == b
+print(a == b)
 
 #########################################
 
@@ -248,7 +249,7 @@ id(a), id(b)
 
 #########################################
 
-a is b
+print(a is b)
 
 #########################################
 # However, python already stores some commonly used smaller numbers in memory, so

@@ -438,7 +438,7 @@ for child in ali:
     print(child)
 
 # %%
-# However, there is a problem in the above code, if we run the for loop above again,
+# However, there is a problem in the above code, if we run the abvoe for loop again,
 # we don't get any output as shown below,
 for child in ali:
     print(child)
@@ -469,7 +469,7 @@ for child in ali:
 # %%
 for child in ali:
     print(child)
-    
+
 # %%
 # ``__len__``
 # ------------
@@ -594,6 +594,6 @@ print('sindh' in pak)
 
 # %%
 # ``__all__``
-# ----------
+# ------------
 
 # https://rszalski.github.io/magicmethods/

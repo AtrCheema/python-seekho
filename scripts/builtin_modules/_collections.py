@@ -2,7 +2,8 @@
 ================
 2.5 collections
 ================
-
+.. important::
+  This lesson is still under development.
 """
 
 books = {"AlSadr": ["Our Philosophy", "Our Economy"],

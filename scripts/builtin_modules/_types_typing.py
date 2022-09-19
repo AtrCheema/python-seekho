@@ -3,6 +3,9 @@
 2.6 types and typing
 ======================
 
+.. important::
+  This lesson is still under development.
+
 """
 
 from typing import Any

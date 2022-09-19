@@ -2,6 +2,10 @@
 ============
 2.10 random
 ============
+
+.. important::
+  This lesson is still under development.
+
 """
 
 import random

@@ -3,6 +3,9 @@
 2.3 time and dateandtime
 =========================
 
+.. important::
+  This lesson is still under development.
+
 """
 
 # %% md

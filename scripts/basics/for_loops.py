@@ -126,6 +126,10 @@ for i in range(8, 2, -1):
 for i in range(8, 0, -2):
     print(NH_receivers[i])
 
+# %%
+# nested for loops
+# -----------------
+
 # %% md
 # accessing index
 # ----------------
@@ -256,6 +260,15 @@ print(all_pms)
 # %%
 
 print(len(all_pms))
+
+
+# %%
+# list comprehension
+# -------------------
+
+# %%
+# list comprehension for nested for loops
+# ----------------------------------------
 
 # %%
 # continue

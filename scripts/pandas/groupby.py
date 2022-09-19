@@ -3,6 +3,10 @@
 5.6 groupby
 =============
 This lesson shows the usage of groupby in pandas
+
+.. important::
+  This lesson is still under development.
+
 """
 
 # %% md

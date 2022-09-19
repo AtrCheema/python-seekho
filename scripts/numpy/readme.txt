@@ -1,6 +1,6 @@
 .. _numpy:
 
-5. numpy
+4. numpy
 ---------
 
 Tutorials concerning numpy

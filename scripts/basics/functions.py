@@ -2,6 +2,8 @@
 =================
 1.13 functions
 =================
+.. important::
+  This lesson is still under development.
 """
 # %% md
 # Intro

@@ -4,6 +4,10 @@
 ====================
 This file describes how to read data from files and write data into files using
 pandas.
+
+.. important::
+  This lesson is still under development.
+
 """
 
 #%%
