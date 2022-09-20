@@ -14,10 +14,38 @@ import os
 # %%
 # system()
 
+# %%
+# getcwd()
+
+os.getcwd()
 
 # %%
 # path
+p = os.getcwd()
+os.path.isfile(p)
 
+# %%
+
+os.path.isfile(p)
+
+# %%
+
+os.path.dirname(p)
+
+# %%
+
+os.path.abspath(p)
+
+# %%
+
+os.path.split(p)
+
+# %%
+
+os.path.basename(p)
+
+# %%
+os.path.exists(p)
 
 # %%
 # remove()
@@ -29,10 +57,6 @@ import os
 
 # %%
 # replace()
-
-
-# %%
-# getcwd()
 
 
 # %%
@@ -51,6 +75,7 @@ import os
 # %%
 # listdir
 
+os.listdir(p)
 
 # %%
 # environ
@@ -84,7 +109,7 @@ import os
 for dirpath, dirnames, filenames in os.walk(os.getcwd()):
     print(dirpath, dirnames, filenames)
 
-python_seekho_scripts = os.path.join(os.path.dirname(os.path.dirname(__file__)))
+python_seekho_scripts = os.path.join(os.path.dirname((os.path.abspath(''))))
 for dirpath, dirnames, filenames in os.walk(python_seekho_scripts):
     print(dirpath, dirnames, filenames)
 
