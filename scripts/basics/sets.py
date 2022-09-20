@@ -2,6 +2,8 @@
 ==========
 1.7 sets
 ==========
+.. important::
+  This lesson is still under development.
 """
 
 
@@ -24,7 +26,7 @@ print(urdu)
 #%%
 
 pak_langs = set(["Balochi", "Barohi", "Sindhi", "Balti"])
-pak_langs
+print(pak_langs)
 
 #%% md
 # If our sequence contains repeating objects, only one instance of those repeating
@@ -33,7 +35,7 @@ pak_langs
 #%%
 
 pak_langs = set(("Balochi", "Barohi", "Sindhi", "Balti", "Balochi"))
-pak_langs
+print(pak_langs)
 
 #%% md
 # Although, we can create sets from lists, but a set can not contain a list as an object.
@@ -50,21 +52,22 @@ pak_langs
 pak_langs
 
 #%% md
-# In second case above, we wnat our set to have two lists as objects, so the error was prompted.
+# In second case above, we want our set to have two lists as objects, so the error was prompted.
 # Sets are mutable i.e. they can be changed. We can add new objects in sets as following
 
 #%%
 
 pak_langs = set(["Balochi", "Barohi", "Sindhi"])
 pak_langs.add("Pashto")
-pak_langs
+print(pak_langs)
 
 #%% md
-# There are immutable sets as well with the name `frozensets`.
+# There are immutable sets as well with the name `frozenset`.
 
 #%%
 
 balochistan_langs = frozenset(["Balochi", "Barohi", "Pashto"])
+
 # uncomment following line
 # balochistan_langs.add("punjabi")
 
@@ -75,9 +78,10 @@ balochistan_langs = frozenset(["Balochi", "Barohi", "Pashto"])
 
 
 #%% md
-## adding elements
+# adding elements
+# -----------------
 # We saw, how to add objects in sets with the method `add`. We can not violate
-# aformentioned rules using `add` method.
+# aforementioned rules using `add` method.
 
 #%%
 
@@ -89,12 +93,12 @@ imperialists = {"bbc", "cnn"}
 #%%
 
 imperialists.add('bbc')
-imperialists
+print(imperialists)
 
 #%%
 
 imperialists.update(["voa","dw"])
-imperialists
+print(imperialists)
 
 #%%
 
@@ -102,7 +106,7 @@ imperialists = {"bbc", "cnn"}
 
 # uncomment following line
 # imperialists.update([["voa","dw"]])  # TypeError
-imperialists
+print(imperialists)
 
 #%% md
 # ``|`` operator can also be used to add/concatenate two sets
@@ -119,10 +123,11 @@ imperialists = {"bbc", "cnn"}
 
 imperialists |= {"voa", "dw"}
 
-imperialists
+print(imperialists)
 
 #%% md
-## ``clear``
+# `clear`
+# ----------
 # We can clear the contents of a set by using the method `clear` on a set.
 
 #%%
@@ -130,28 +135,29 @@ imperialists
 dakus = {"musharaf", "nawaz", "benazir"}
 
 dakus.clear()  # after NRO (https://en.wikipedia.org/wiki/National_Reconciliation_Ordinance)
-dakus
+print(dakus)
 
 #%% md
-## Copy
-# The assignment operation `=` does not create a new set.
+# Copy
+# ------
+# The assignment operation ``=`` does not create a new set.
 
 #%%
 
 more_dakus = {"pervaiz elahi", "altaf husain"}
 dakus_backup = more_dakus
 more_dakus.clear()
-dakus_backup
+print(dakus_backup)
 
 #%% md
-# `copy` method creates a shallow copy
+# ``copy`` method creates a shallow copy
 
 #%%
 
 more_dakus = {"pervaiz elahi", "altaf husain"}
 dakus_backup = more_dakus.copy()
 more_dakus.clear()
-dakus_backup
+print(dakus_backup)
 
 #%%
 
@@ -166,8 +172,8 @@ print(imperialists)
 print(more_imperialists)
 
 #%% md
-
-## `difference`
+# ``difference``
+# ----------------
 
 #%%
 
@@ -184,14 +190,15 @@ lotas_2013 = pml_q.difference(pml_q.difference(pml_n))
 print(lotas_2013)
 
 #%% md
-# We can also make use of `-` operator
+# We can also make use of ``-`` operator
 
 #%%
 
-pml_q - pti
+print(pml_q - pti)
 
 #%% md
-## `difference_update`
+# `difference_update`
+# -----------------------
 # This makes change in original set. similar to `x-y` with the exception that `x`
 # is itself changed.
 
@@ -212,19 +219,20 @@ pml_q.difference_update(pti)
 print(pml_q)
 
 #%% md
-## ``discard``
+# ``discard``
+# ---------------
 # removes an element from set if it is present.
 
 #%%
 
 pml_q = {"zafrullah jamali", "fawad hussain", "pervaiz elahi", "umar ayyub"}
 pml_q.discard("zafrullah jamali")
-pml_q
+print(pml_q)
 
 #%%
 
 pml_q.discard("choi nisar")
-pml_q
+print(pml_q)
 
 #%% md
 # `ferdows ashiq` is not present in set `musharaf` but using `discard` did not
@@ -238,34 +246,36 @@ pml_q
 
 pml_q = {"zafrullah jamali", "fawad hussain", "pervaiz elahi", "umar ayyub"}
 pml_q.remove("zafrullah jamali")
-pml_q
+print(pml_q)
 
 #%%
 
 # uncomment following line
 # pml_q.remove("choi nisar")  # KeyError
-pml_q
+print(pml_q)
 
 #%% md
-
-## `pop`
+# ``pop``
+# --------
 
 #%%
 
 pml_q = {"firdows ashiq", "fawad hussain", "pervaiz elahi", "umar ayyub"}
 pml_q.pop()
-pml_q
+print(pml_q)
 
 #%%
 
 pml_q.pop()
-pml_q
+print(pml_q)
 
 #%% md
 # Running the above cell multiple times will eventually raise an error when the
 # set becomes empty.
 
-## `union`
+# %%
+# `union`
+# -------------
 
 #%%
 
@@ -276,7 +286,7 @@ pml_q.union(pml_n)
 
 #%%
 
-pml_q | pml_n
+print(pml_q | pml_n)
 
 #%% md
 
@@ -290,18 +300,18 @@ pti = {"firdows ashiq", "umar ayyub", "asad umar", "fawad hussain"}
 pml_q.intersection(pti)
 
 #%% md
-# We can also use `&` operator
+# We can also use ``&`` operator
 
 #%%
 
-pml_q & pti
+print(pml_q & pti)
 
 #%% md
 # The original set `pml_q` remains unchanged.
 
 #%%
 
-pml_q
+print(pml_q)
 
 #%% md
 # However, if we use `intersection_update`, the original set is changed
@@ -309,7 +319,7 @@ pml_q
 #%%
 
 pml_q.intersection_update(pti)
-pml_q
+print(pml_q)
 
 #%% md
 # If we want to find out intersection between multiple sets, we can do it as following.
@@ -335,7 +345,9 @@ pml_q.intersection(*sets)
 # So we can say that [`umar ayyub`](https://en.wikipedia.org/wiki/Omar_Ayub_Khan)
 # is the most consistent lota.
 
-## `isdisjoint`
+# %%
+# `isdisjoint`
+# --------------
 # returns `True` if the intersection of two sets is not empty set.
 
 #%%
@@ -352,8 +364,9 @@ ppp.isdisjoint(pti)
 
 #%% md
 
-## `issubset`
-# `<` is used for proper seubset and `<=` is used for subset checking.
+# `issubset`
+# ------------
+# ``<`` is used for proper subset and ``<=`` is used for subset checking.
 
 #%%
 
@@ -364,16 +377,16 @@ pml_q.issubset(pml_n)
 
 #%%
 
-pml_q <= pml_n
+print(pml_q <= pml_n)
 
 #%%
 
-pml_q < pml_q
+print(pml_q < pml_q)
 
-#%% md
-
-## `issuperset`
-# `>` is used for proper superset and `>=` is used for superset checking.
+# %% md
+# ``issuperset``
+# --------------
+# ``>`` is used for proper superset and ``>=`` is used for superset checking.
 
 #%%
 
@@ -384,21 +397,21 @@ pml_n.issuperset(pml_q)
 
 #%%
 
-pml_n >= pml_q
+print(pml_n >= pml_q)
 
 #%%
 
-pml_n > pml_n
+print(pml_n > pml_n)
 
 #%% md
 
-# Since sets are unordered, the operation `in` is faster when applied to
+# Since sets are unordered, the operation ``in`` is faster when applied to
 # sets as compared to lists.
 
 #%%
 
-"nawaz" in pml_n
+print("nawaz" in pml_n)
 
 #%%
 
-"nawaz" not in pml_q
+print("nawaz" not in pml_q)

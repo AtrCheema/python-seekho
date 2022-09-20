@@ -2,12 +2,14 @@
 ============
 1.11 print
 ============
+.. important::
+  This lesson is still under development.
 """
 
 #%% md
 # ``print`` is a function in python 3. In general it will print any value given to it as
 # inside argument. If we use two print statements, the next statement is printed on next line.
-
+#
 # Print function converts input to string (if it is not already a string) and adds a
 # space at its start if it is not start of newline and puts new line at its end.
 
@@ -36,9 +38,9 @@ for i in range(5):
     print(i, end=', ')
 
 #%% md
-# The default value of argument `end` is `end=\n`. The print function can take more
+# The default value of argument ``end`` is ``end=\n``. The print function can take more
 # than one argument to print, and we can separate these arguments by a custom separator
-# using the argument `sep`.
+# using the argument ``sep``.
 
 #%%
 
@@ -47,7 +49,7 @@ print('Iqbal was born in', 1877, sep=': ')
 #%% md
 
 # format
-# We can format the output inside print statemtn by either `%` or `format`. While `%`
+# We can format the output inside print statement by either ``%`` or ``format``. While `%`
 # can work both in python 2 and python 3, however, here only `format` is discussed.
 
 #%%
@@ -66,8 +68,8 @@ for river, paras in rivers.items():
     print('River {} is {}  {} long'.format(river, paras[0], paras[1]))
 
 #%% md
-# The number of `{}` must be `<=` number of arguments in `format`. The ordering of
-# arguments in `format` can be customized as shown below.
+# The number of ``{}`` must be ``<=`` number of arguments in ``format``. The ordering of
+# arguments in ``format`` can be customized as shown below.
 
 #%%
 
@@ -82,7 +84,7 @@ for river, paras in rivers.items():
 
 #%% md
 # By default ``{}`` gets as much space as required by it, but we can fix the space used
-# by a particular `{}`. The number of spaces must be defined after ``:`` inside ``{}``.
+# by a particular ``{}``. The number of spaces must be defined after ``:`` inside ``{}``.
 
 #%%
 
@@ -90,9 +92,9 @@ for river, paras in rivers.items():
     print('River {0:20} is {1:15}  {2:15} long'.format(river, paras[0], paras[1]))
 
 #%% md
-# To define the format of the incoming argument in `{}`. For example we can use `f` for
+# To define the format of the incoming argument in ``{}``. For example we can use `f` for
 # fractional numbers (as done below). If we don't want fractional part, we can use `d`.
-# For right alignment, we can use `<`.
+# For right alignment, we can use ``<``.
 
 #%%
 
@@ -118,7 +120,8 @@ for river, paras in rivers.items():
 #%% md
 # ``^`` is used for center alignment.
 # We can truncate long strings as following. If we don't truncate and if incoming
-# string in `{}` is larger than the space specified, then additional space will be assigned to that ``{}``.
+# string in ``{}`` is larger than the space specified, then additional space will be
+# assigned to that ``{}``.
 
 #%%
 
@@ -126,11 +129,12 @@ print('{:.12}'.format('Khayber Pakhtun Khwa'))
 
 #%% md
 # printing list
+# ---------------
 
 #%%
 
-l = [8.364, 0.37, 0.09300000000000003, 7.0849999999999, 9.469999999999999, 0.28600000000000003,
-     0.229, 1e-06, 9.414, 0.98600000000001, 2.1530000000005]
+l = [8.364, 0.37, 0.09303, 7.084999, 9.46999999, 0.28600003,
+     0.229, 1e-06, 9.414, 0.986001, 2.153005]
 
 print(l)
 
@@ -147,6 +151,7 @@ for p in l: print("{:8.5f}".format(p), end=', ')
 
 #%% md
 # dynamic printing
+# ------------------
 
 #%%
 
@@ -185,6 +190,7 @@ print ('complete')
 
 #%% md
 # Customizing print function
+# --------------------------
 
 # We can also add additional features to print function if we wish, by redefining print
 # function, though it will hardly be required.
@@ -208,6 +214,7 @@ MyPrint('Salam')
 
 #%% md
 # Colored printing
+# -----------------
 
 #%%
 

@@ -4,6 +4,9 @@
 =================
 
 This lesson introduces ``for`` loops in python.
+
+.. important::
+  This lesson is still under development.
 """
 
 # %%
@@ -157,8 +160,8 @@ for item in NH_receivers:
 # Iterating over more than one sequences
 # --------------------------------------
 
-scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani', 'Ali Shariati',
-            'Moh Husain Tabatabai']
+scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani',
+            'Ali Shariati', 'Moh Husain Tabatabai']
 date_of_death = [1980, 1979, 1938, 1897, 1977, 1981]
 
 for scholar, dod in zip(scholars, date_of_death):
@@ -175,8 +178,8 @@ for scholar, dod, dob in zip(scholars, date_of_death, date_of_birth):
 
 # %%
 
-scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani', 'Ali Shariati',
-            'Moh Husain Tabatabai']
+scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani',
+            'Ali Shariati', 'Moh Husain Tabatabai']
 date_of_death = [1980, 1979, 1938, 1897, 1977, 1981, 1989]
 
 print(len(scholars), len(date_of_death))
@@ -187,14 +190,14 @@ for scholar, dod in zip(scholars, date_of_death):
 # %% md
 # Simple `zip` will iterate over the point when all lists are equal and
 # ignore if any sequence is larger than the others. If we want to iterate
-# until the longest sequence, we have to use `zip_longest` from `itertools`
+# until the longest sequence, we have to use ``zip_longest`` from ``itertools``
 
 # %%
 
 from itertools import zip_longest
 
-scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani', 'Ali Shariati',
-            'Moh Husain Tabatabai']
+scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani',
+            'Ali Shariati', 'Moh Husain Tabatabai']
 date_of_death = [1980, 1979, 1938, 1897, 1977, 1981, 1989]
 
 for scholar, dod in zip_longest(scholars, date_of_death):

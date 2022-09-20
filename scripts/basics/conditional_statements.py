@@ -2,6 +2,9 @@
 ============================
 1.8 conditional statements
 ============================
+.. important::
+  This lesson is still under development.
+
 """
 
 #%%
@@ -41,7 +44,7 @@ if name == 'nawaz' or name == 'Nawaz':
 #
 # .. code-block:: python
 #
-#  if (cnodition):
+#  if (condition):
 #    do something
 #  elif (condition):
 #    do something
@@ -61,9 +64,10 @@ else:
 
 ###################################
 # ``elif`` vs multiple ``if``
-#-------------------------------
+# -------------------------------
 #
-# Mutiple ifs means, the all the ifs will be checked, while with elif, the code will stop if one of the if is True.
+# Multiple ifs means, the all the ifs will be checked, while with elif, the code
+# will stop if one of the if is True.
 
 ###################################
 
@@ -89,7 +93,7 @@ else:   #Handle all cases where 'age' is negative
 
 ###################################
 # ``in``
-#--------
+# --------
 # We can use `in` statement to compare a variable against multiple variables.
 
 ###################################
@@ -114,7 +118,7 @@ else:
 
 ###################################
 # comparing numbers
-#-------------------
+# -------------------
 
 ###################################
 
@@ -194,8 +198,8 @@ if provinces == 4 and capital == "Islamabad" or pm == "Imran Khan":
 
 ###################################
 # ``if not`` vs ``!=``
-#---------------------
-# Inner working is different but the output is same however `not` is preferred.
+# ---------------------
+# Inner working is different but the output is same however ``not`` is preferred.
 
 ###################################
 
@@ -218,7 +222,7 @@ else:
 
 ###################################
 # ``any`` vs ``all``
-#-------------------
+# -------------------
 
 ###################################
 

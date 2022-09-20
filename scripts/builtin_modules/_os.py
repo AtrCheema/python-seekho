@@ -13,14 +13,18 @@ import os
 
 # %%
 # system()
+# ---------
 
 # %%
 # getcwd()
+# ---------
 
 os.getcwd()
 
 # %%
 # path
+# --------
+
 p = os.getcwd()
 os.path.isfile(p)
 
@@ -49,59 +53,68 @@ os.path.exists(p)
 
 # %%
 # remove()
+# ---------
 
 
 # %%
 # rmdir()
+# ----------
 
 
 # %%
 # replace()
+# ------------
 
 
 # %%
 # open()
+# --------
 
 
 # %%
 # write()
+# ---------
 
 
 # %%
 # close()
+# ---------
 
 
 
 # %%
 # listdir
+# ---------
 
 os.listdir(p)
 
 # %%
 # environ
-
+# -------
 
 # %%
 # wait()
-
+# ----------
 
 # %%
 # rename()
-
+# --------
 
 # %%
 # renames()
-
+# ---------
 
 # %%
 # mkdir()
-
+# ---------
 
 # %%
 # cpu_count()
+# ------------
 
 # %%
 # chdir()
+# ----------
 
 # %%
 # walk

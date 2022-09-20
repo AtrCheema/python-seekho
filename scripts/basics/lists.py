@@ -2,12 +2,15 @@
 ===========
 1.4 lists
 ===========
-This file describes `lists` in python.
+This lesson describes `lists` in python.
+
+.. important::
+  This lesson is still under development.
 """
 
 ##############################################
 # append
-#--------------------------------------------
+# --------------------------------------------
 
 
 imperialists = ['Bush', 'Obama', 'Trump', 'Zuckerberg', 'Bezos', 'coca cola']
@@ -45,7 +48,7 @@ print(imperialists)
 
 ##############################################
 # pop
-#--------------------------------------------
+# --------------------------------------------
 
 ##############################################
 
@@ -76,7 +79,7 @@ print(imperialists)
 
 ##############################################
 # extend
-#---------------------------------------------
+# ---------------------------------------------
 # If we want to add multiple elements to a list, using `append` will put a new
 # list in the previous list
 
@@ -94,7 +97,7 @@ imperialists.extend(uk_imperialists)
 print(imperialists)
 
 ##############################################
-# `extend` actually takes any sequence as input. It must not be a list. It can
+# ``extend`` actually takes any sequence as input. It must not be a list. It can
 # be a string or tuple.
 
 ##############################################
@@ -112,7 +115,7 @@ print(imperialists)
 
 ##############################################
 # using ``+`` operator
-#---------------------------------------------
+# ---------------------------------------------
 # We can also append lists using the `+` operator.
 
 ##############################################
@@ -137,7 +140,7 @@ print(imperialists)
 
 ##############################################
 # remove
-#---------------------------------------------
+# ---------------------------------------------
 
 ##############################################
 
@@ -156,7 +159,7 @@ print(imperialists)
 
 ##############################################
 # insert
-#--------------------------------------------
+# --------------------------------------------
 # puts an the value before the index
 
 ##############################################
@@ -166,7 +169,7 @@ print(imperialists)
 
 ###############################################
 # Finding position/index of a member of a list
-#-----------------------------------------------
+# -----------------------------------------------
 
 ##############################################
 
@@ -197,7 +200,7 @@ imperialists.index(last_value)
 
 ##############################################
 # reverse
-#--------------------------------------------
+# --------------------------------------------
 
 ##############################################
 
@@ -213,7 +216,7 @@ print(imperialists)
 
 ##############################################
 # sort
-#----------------------------
+# ----------------------------
 
 ##############################################
 
@@ -246,10 +249,10 @@ print(numbers)
 
 ##############################################
 # Notes
-#--------------------------------------------
-# I have been using the word function for `append`, `sort` etc, however in Object
+# --------------------------------------------
+# I have been using the word function for ``append``, ``sort`` etc, however in Object
 # Oriented Programming, it can be seen that they are actually called `methods`.
 #
-# There are a lot more much powerful list manipulations which can be done by combining
+# There are a lot more powerful list manipulations which can be done by combining
 # conditional and looping statements. We will come back to them once looping and
 # conditioning statements are covered.
