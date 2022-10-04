@@ -4,6 +4,7 @@
 =================
 """
 
+# %%
 # Descriptors are another way to control, what happens when a value of an attribute
 # is set or accessed. We do it while making a class with at least one of
 # ``__get__``, ``__set__`` and ``__del__`` methods.
@@ -31,45 +32,51 @@ class MyDescriptor(object):
 
 
 class Model(object):
-    temp = MyDescriptor(37)  # Desccriptor is attached at class definition time
+    temp = MyDescriptor(37)  # Descriptor is attached at class definition time
 
 
 body = Model()
 
 # %%
+# When we created an instance of `Model` class, the `MyDescriptor` was initiated. When
+# `MyDescriptor` was initiated, its ``__init__`` method was called and got
+# the string printed.
 
-body.temp  # a function call is hiding here
+print(body.temp)  # a function call from `MyDescriptor` class is hiding here
 
 # %%
+# Above when we ran `body.temp`, the ``__get__`` method of `MyDescriptor`
+# class for `temp` attribute ran.
 
 body.temp = 38  # a function call is hiding here
 
 # %%
 
-body.temp
+print(body.temp)
 
 # %% md
 # Thus we see when we get the value of attribute ``temp``, the method ``__get__`` in
-# ``MyDescriptor`` gets executed and similarly when we set a value to attribute
-# ``temp``, the method `__set__`` in `MyDescriptor` gets executed.
+# `MyDescriptor` gets executed and similarly when we set a value to attribute
+# `temp`, the method ``__set__`` in `MyDescriptor` gets executed.
 
 # %% md
-# In ``__get__`` method, instance is `body` and and owner is ``Model``.
+# In ``__get__`` method of `MyDescriptor` class, instance is `body` and and owner is `Model`.
 
 # %% md
-# If we want to know what attributes are stored in `__dict__` of class and instance, we can do as following
+# If we want to know what attributes are stored in ``__dict__`` of class and instance,
+# we can do as following
 
 # %%
 
-
-body.__dict__
+print(body.__dict__)
 
 # %% md
 # The ``__get__`` and ``__set__`` of descriptor can be applied only on those
 # attributes which are present in ``__dict__`` of owner class i.e. `Model` in this case.
+
 # %%
 
-# alternvative to print(Model.__dict__)
+# alternative to print(Model.__dict__)
 
 
 for key, val in Model.__dict__.items():
@@ -83,24 +90,24 @@ for key, val in MyDescriptor.__dict__.items():
 
 # %% md
 # We can call `get` from class and its instance but `set` can and should only be
-# class from instance. If we do it from class, this means overriding descriptor.
+# called from instance. If we do it from class, this means overriding descriptor.
 
 # %%
 
 
-Model.temp
+print(Model.temp)
 
 # %%
 
 Model.temp = "useless"
-Model.temp
+print(Model.temp)
 
 # %%
 
-body.temp
+print(body.temp)
 
 # %% md
-# This means we should do some type checking before assigning a vlaue to an attribute.
+# This means we should do some type checking before assigning a value to an attribute.
 # Consider `descriptor` from another angle below.
 
 
@@ -122,11 +129,15 @@ class Model(object):
 
 
 body = Model()
-body.temp
 
 # %%
 
-body.temp
+print(body.temp)
+
+# %%
+# Above we we ran `body.temp`, the ``__get__`` method of descriptor was called.
+
+print(body.temp)
 
 # %% md
 # So the first time we referenced temp, it called the descriptor but not the
@@ -135,26 +146,32 @@ body.temp
 # %%
 
 body = Model()
-body.__dict__
+print(body.__dict__)
 
 # %%
 
-body.temp
-body.__dict__
+print(body.temp)
 
 # %%
 
-body.temp
-body.__dict__
+print(body.__dict__)
+
+# %%
+
+print(body.temp)
+
+# %%
+
+print(body.__dict__)
 
 # %% md
-
+#
 # So when we tried to access the value of `x` for the first time, the `key` was
-# not in `obj.__dict__` so the descriptors `__get__` was called but when it is
-# already present, the `__get__` from descriptor was not called. This is
+# not in ``object.__dict__`` so the descriptor's ``__get__`` was called but when it is
+# already present, the ``__get__`` from descriptor was not called. This is
 # because of order in which python looks for attributes of objects. For complete
-# sequence of rules [see](http://simeonfranklin.com/talk/descriptors.html#slide-42)
-# We can acheive exactly same by another way as well.
+# sequence of rules `see this link <http://simeonfranklin.com/talk/descriptors.html#slide-42>`_.
+# We can achieve exactly same by another way as well.
 
 # %%
 
@@ -181,15 +198,15 @@ body = Model()
 
 # %%
 
-body.temp
+print(body.temp)
 
 # %%
 
-body.temp
+print(body.temp)
 
 # %% md
-
-## Usage cases
+# Usage cases
+# -------------
 # Suppose we define a class which takes the `name`, `weight` and `height` as input/for
 # initiation and has a method to calculate body mass index i.e. `bmi`.
 
@@ -253,11 +270,9 @@ ali.bmi()
 # %% md
 # Thus upon negative weight, it threw error. But `height` can still be assigned a negative value.
 
-# %%
-
 ali = Insan('ali', 78, 1.7)
 ali.height = -1.8
-ali.height
+print(ali.height)
 
 # %% md
 # Let's make use of `property` once more.
@@ -306,13 +321,13 @@ ali = Insan('Ali', 78, 1.7)
 # code defines the descriptor `NonNegative`. Then inside class `Insan`, we
 # define class attributes and bind them with the descriptor thus making sure
 # that these attributes will always be non-negative otherwise an error will be thrown.
-# %%
 
+# %%
 
 class NonNegative:
     def __init__(self, name):
         # the name attribute is needed because when the NonNegative object is
-        # created , the assignment to attribute named weigth/height hasn't
+        # created , the assignment to attribute named weight/height hasn't
         # happen yet. Thus, we need to explicitly pass the name weight/height to the
         # initializer of the object to use as the key for the instance's __dict__.
         self.name = name
@@ -413,9 +428,9 @@ ali.bmi()
 # ali.height = -1.8  # ValueError: Cannot be negative
 
 # %% md
-# Let's say, we want to calculate a new quantity say `bmit` which is multiplication of
-# `BMI` with `temperature` in celcius. We can define a property to convert the
-# temperature into celcius, in case the temperature is provided in fahrenheight.
+# Let's say, we want to calculate a new quantity say `bmi` which is multiplication of
+# `BMI` with `temperature` in Celsius. We can define a property to convert the
+# temperature into Celsius, in case the temperature is provided in Fahrenheit.
 
 # %%
 
@@ -460,11 +475,11 @@ ali.bmit()
 
 # %%
 
-ali.celsius
+print(ali.celsius)
 
 # %% md
 # But we can also define it as `descriptor` as follows. Furthermore we are also
-# perorming non-negative check in this descriptor as well.
+# performing non-negative check in this descriptor as well.
 
 
 # %%
@@ -518,11 +533,11 @@ ali.bmit()
 
 # %%
 
-ali.fahrenheit
+print(ali.fahrenheit)
 
 # %%
 
-ali.celsius
+print(ali.celsius)
 
 # %%
 
@@ -530,11 +545,10 @@ ali.celsius
 # ali.celsius = -30  # ValueError
 
 # %% md
-
-## Caveat
-
+# Caveat
+# --------
 # Because the descriptors are linked with class and not with instance, so when we create
-# a new instance, the values get overridden by new isntance if they are not linked with instance.
+# a new instance, the values get overridden by new instance if they are not linked with instance.
 
 # %%
 
@@ -570,7 +584,7 @@ class Model:
         self.temp = temp
 
     def __str__(self):
-        return "{0} with weight {1} has body temperature {2} Celcius.".format(self._name, self.weight, self.temp)
+        return "{0} with weight {1} has body temperature {2} Celsius.".format(self._name, self.weight, self.temp)
 
 
 body1 = Model("Ali", 80, 40)
@@ -578,7 +592,7 @@ print(body1)
 
 # %%
 
-body1.__dict__
+print(body1.__dict__)
 
 # %%
 
@@ -626,7 +640,7 @@ class Model:
         self.temp = temp
 
     def __str__(self):
-        return "{0} with weight {1} has body temperature {2} Celcius.".format(self.name, self.weight, self.temp)
+        return "{0} with weight {1} has body temperature {2} Celsius.".format(self.name, self.weight, self.temp)
 
 
 body1 = Model("Ali", 80, 40)
@@ -634,7 +648,64 @@ print(body1)
 
 # %%
 
-body1.__dict__
+print(body1.__dict__)
+
+# %%
+
+body2 = Model("Hasan", 75, 37)
+print(body2)
+
+# %%
+
+print(body1)
+
+# %% md
+# Using WeakKeyDictionary
+# -------------------------
+# Usually the attributes from descriptors are saved in ``WeakKeyDictionary``. The
+# above code can be implemented using ``WeakKeyDictionary`` as shown below
+
+# %%
+
+from weakref import WeakKeyDictionary
+
+
+class Descriptor:
+    def __init__(self):
+        self.data = WeakKeyDictionary()
+
+    def __get__(self, instance, owner):
+        return self.data[instance]
+
+    def __set__(self, instance, value):
+        if isinstance(float(value), float):
+            print(value)
+        else:
+            raise TypeError("Body Temperature must be float or integer")
+
+        if value < 20:
+            raise ValueError("Body Temperature can never be less than 20")
+
+        self.data[instance] = value
+
+    def __set_name__(self, owner, name):
+        self.name = name
+
+
+class Model:
+    temp = Descriptor()
+
+    def __init__(self, name, weight, temp):
+        self.name = name
+        self.weight = weight
+        self.temp = temp
+
+    def __str__(self):
+        return "{0} with weight {1} has body temperature {2} Celsius.".format(self.name, self.weight, self.temp)
+
+
+body1 = Model("Ali", 80, 40)
+print(body1)
 
 # %%
 
@@ -647,75 +718,13 @@ print(body1)
 
 # %% md
 
-## Using WeakKeyDictionary
-# Usually the attributes from descriptors are saved in ``WeakKeyDictionary``. The
-# above code can be implemented using `WeakKeyDictionary` as shown below
-
 # %%
-
-# from weakref import WeakKeyDictionary
-#
-#
-# class Descriptor:
-#     def __init__(self):
-#         self.data = WeakKeyDictionary()
-#
-#     def __get__(self, instance, owner):
-#         return self.data[instance]
-#
-#     def __set__(self, instance, value):
-#         if isinstance(float(value), float):
-#             print(value)
-#         else:
-#             raise TypeError("Body Temperature must be float or integer")
-#
-#         if value < 20:
-#             raise ValueError("Body Temperature can never be less than 20")
-#
-#         self.data[instance] = value
-#
-#     def __set_name__(self, owner, name):
-#         self.name = name
-#
-#
-# class Model:
-#     temp = Descriptor()
-#
-#     def __init__(self, name, weight, temp):
-#         self.name = name
-#         self.weight = weight
-#         self.temp = temp
-#
-#     def __str__(self):
-#         return "{0} with weight {1} has body temperature {2} Celcius.".format(self.name, self.weight, self.temp)
-#
-#
-# body1 = Model("Ali", 80, 40)
-# print(body1)
-#
-# # %%
-#
-# body2 = Model("Hasan", 75, 37)
-# print(body2)
-#
-# # %%
-#
-# print(body1)
-
-# %% md
-
-## References:
+# **References:**
 # The material in this notebook is inspired from following posts
-# * [talk on descriptors](http://simeonfranklin.com/talk/descriptors.html)
-# * [Python course eu website](https://www.python-course.eu/python3_descriptors.php)
 #
-# * [Encapsulation with descriptors](https://pyvideo.org/pycon-us-2013/encapsulation-with-descriptors.html)
-# * [Some great answers on stackoverflow](https://stackoverflow.com/questions/3798835/understanding-get-and-set-and-python-descriptors)
-#
-# * [A post by Daw Ran Liou](https://dev.to/dawranliou/writing-descriptors-in-python-36)
-#
-# * [DataCamp](https://www.datacamp.com/community/tutorials/python-descriptors)
-
-# %%
-
-
+#    * `talk on descriptors <http://simeonfranklin.com/talk/descriptors.html>`_
+#    * `Python course eu website <https://www.python-course.eu/python3_descriptors.php>`_
+#    * `Encapsulation with descriptors <https://pyvideo.org/pycon-us-2013/encapsulation-with-descriptors.html>`_
+#    * `Some great answers on stackoverflow <https://stackoverflow.com/questions/3798835/understanding-get-and-set-and-python-descriptors>`_
+#    * `A post by Daw Ran Liou <https://dev.to/dawranliou/writing-descriptors-in-python-36>`_
+#    * `DataCamp <https://www.datacamp.com/community/tutorials/python-descriptors>`_

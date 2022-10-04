@@ -2,16 +2,39 @@
 ================
 2.5 collections
 ================
-
+.. important::
+  This lesson is still under development.
 """
 
 books = {"AlSadr": ["Our Philosophy", "Our Economy"],
          "Mutahri": ["Divine Justice", "Man and Destiny"]}
 
+# %%
+# defaultdict
+# --------------
+
 from collections import defaultdict
+
+# %%
+# deque
+# --------------
+
 from collections import  deque
+
+# %%
+# namedtuple
+# --------------
+
 from collections import  namedtuple
+
+# %%
+# OrderedDict
+# --------------
 from collections import  OrderedDict
+
+# %%
+# Counter
+# --------------
 from collections import  Counter
 
 # KeysView

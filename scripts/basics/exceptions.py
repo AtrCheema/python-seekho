@@ -56,7 +56,7 @@ assert isinstance(a, int)
 # %%
 
 # uncomment following 1 line
-# import ai4water as tf  # -> ModuleNotFoundError: No module named 'ai4water'
+# import ai4water  # -> ModuleNotFoundError: No module named 'ai4water'
 
 # %%
 # Since ``ai4water`` package is not installed, we got ``ModuleNotFoundError`` above.

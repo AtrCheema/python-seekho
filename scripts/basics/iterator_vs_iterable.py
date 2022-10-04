@@ -2,6 +2,9 @@
 ============================
 1.16 iterator vs iterable
 ============================
+.. important::
+  This lesson is still under development.
+
 """
 
 #%% md
@@ -18,7 +21,7 @@ for prov in provinces:
 
 #%%
 
-# uncomment followig line
+# uncomment following line
 # next(provinces)  # -> TypeError: 'list' object is not an iterator
 
 #%% md
@@ -43,7 +46,7 @@ next(prov_iterator)
 #    print(next(prov_iterator))
 
 #%%
-# we get ``StopIteration`` exception after we have iterated through all the iterms of list
+# we get ``StopIteration`` exception after we have iterated through all the items of list
 
 #%% md
 # Let's create the iterator again and run this code.
@@ -64,7 +67,7 @@ for i in range(len(provinces)):
 
 #%% md
 # So we can get next item from an iterator until it has returned all items
-# from the iteraable.
+# from the iterable.
 
 #%%
 
@@ -83,7 +86,8 @@ print(type(prov_iterator))
 # Do we need a better way to check if an object is iterator or not?
 
 #%% md
-## `isinstance`
+# ``isinstance``
+# ----------------
 # can also be used if some object is of a particular type or not.
 
 #%%

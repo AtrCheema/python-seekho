@@ -4,6 +4,9 @@
 =================
 
 This lesson introduces ``for`` loops in python.
+
+.. important::
+  This lesson is still under development.
 """
 
 # %%
@@ -126,8 +129,13 @@ for i in range(8, 2, -1):
 for i in range(8, 0, -2):
     print(NH_receivers[i])
 
+# %%
+# nested for loops
+# -----------------
+
 # %% md
 # accessing index
+# ----------------
 # If we want to access index itself, we can do this by using `enumerate`.
 
 # %%
@@ -147,13 +155,13 @@ for item in NH_receivers:
 
 # %% md
 # This is another way to keep track that how many times the loop has been executed.
-#
-# Iterating over more than one sequence
 
 # %%
+# Iterating over more than one sequences
+# --------------------------------------
 
-scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani', 'Ali Shariati',
-            'Moh Husain Tabatabai']
+scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani',
+            'Ali Shariati', 'Moh Husain Tabatabai']
 date_of_death = [1980, 1979, 1938, 1897, 1977, 1981]
 
 for scholar, dod in zip(scholars, date_of_death):
@@ -170,8 +178,8 @@ for scholar, dod, dob in zip(scholars, date_of_death, date_of_birth):
 
 # %%
 
-scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani', 'Ali Shariati',
-            'Moh Husain Tabatabai']
+scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani',
+            'Ali Shariati', 'Moh Husain Tabatabai']
 date_of_death = [1980, 1979, 1938, 1897, 1977, 1981, 1989]
 
 print(len(scholars), len(date_of_death))
@@ -182,14 +190,14 @@ for scholar, dod in zip(scholars, date_of_death):
 # %% md
 # Simple `zip` will iterate over the point when all lists are equal and
 # ignore if any sequence is larger than the others. If we want to iterate
-# until the longest sequence, we have to use `zip_longest` from `itertools`
+# until the longest sequence, we have to use ``zip_longest`` from ``itertools``
 
 # %%
 
 from itertools import zip_longest
 
-scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani', 'Ali Shariati',
-            'Moh Husain Tabatabai']
+scholars = ['Baqir al sadr', 'Murtaza Mutahri', 'Allama Iqbal', 'Jamal ul din Afghani',
+            'Ali Shariati', 'Moh Husain Tabatabai']
 date_of_death = [1980, 1979, 1938, 1897, 1977, 1981, 1989]
 
 for scholar, dod in zip_longest(scholars, date_of_death):
@@ -239,14 +247,14 @@ while i < 10:
 
 # %%
 
-prime_miniters = [['zafrullah jamali', 'chaudhry shujaat', 'shaukat aziz'],
+prime_ministers = [['zafrullah jamali', 'chaudhry shujaat', 'shaukat aziz'],
                   ['yousuf raza gilani', 'raja pervaiz ashraf'],
                   ['nawaz sharif', 'shahid khaqan']]
 
-print(len(prime_miniters))
+print(len(prime_ministers))
 
 all_pms = []
-for era in prime_miniters:
+for era in prime_ministers:
     for pm in era:
         all_pms.append(pm)
 
@@ -256,9 +264,56 @@ print(all_pms)
 
 print(len(all_pms))
 
+
+# %%
+# list comprehension
+# -------------------
+
+# %%
+# list comprehension for nested for loops
+# ----------------------------------------
+
+# %%
+# continue
+# ---------
+# The ``continue`` keyword is used inside the for loop when we want to
+# skip some commands in a particular iteration.
+
+for president in ['clinton', 'bush', 'obama', 'trump', 'biden']:
+    if president == 'trump':
+        continue
+    # ok sorry they actually wanted to export freedom!
+    print(f"{president}: Let's go to war")
+
+# %%
+# Above we did not want to print "Let's go to war" when the value
+# of `president` was equal to `trump` so we used ``continue`` statement.
+#
+# That was a too simple example. We would have better to avoid writing `trump` in
+# the list instead of adding two lines inside the for loop. Usually, the
+# conditioning variable (`president` in our case above) appears after doing
+# some calculations inside for loop.
+
+# %%
+# break
+# ---------
+# The ``break`` keyword is used if we want to stop the iterations of for loop.
+
+def buy_item(_saving):
+    # suppose every item costs 1000
+    return _saving - 1000
+
+saving = 5000
+for items in ['fridge', 'laptop', 'mobile', 'tablet', 'tv', 'fryer']:
+    saving = buy_item(saving)
+    if saving < 0:
+        print("no more purchase please!")
+        break
+
 # %%
 # If you want to dig deep into how the ``for`` loops work in python,
-# you go jump to :ref:`sphx_glr_auto_examples_oop_magical_methods.py`.
+# you can jump to :ref:`sphx_glr_auto_examples_oop_magical_methods.py`.
+
 
 # %%
 #

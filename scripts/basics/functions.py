@@ -1,13 +1,17 @@
 """
 =================
-1.13 functions
+1.12 functions
 =================
+.. important::
+  This lesson is still under development.
+
 """
+
 # %% md
-# Intro
-# A function is a box to which give some input and it gives you output after
+# A function is a box which takes something as input and it gives you output after
 # performing some operations in that input. In python, the input and
 # output arguments are optional. The basic syntax of a minimal function in is as
+# below
 #
 # .. code-block:: python
 #
@@ -15,7 +19,7 @@
 #        commands to find output
 #        return output
 #
-# As said earlier, `InputArguments` and `return` are optional.
+# As said earlier, `InputArguments` and ``return`` are optional.
 
 
 # %%
@@ -31,6 +35,7 @@ print(add_nums)
 type(add_nums)
 
 # %% md
+# If we want to use/run the function, this means we want to **call** it.
 # Following syntax can be used to call the function
 #
 # .. code-block:: python
@@ -112,8 +117,9 @@ z = add_nums(x, y)
 print('The function returns z: ', z)
 
 # %% md
-# ``c`` and ``z`` have same values with the difference that ``c`` exists only inside
-# the function. However, creation of ``c`` is not necessary, we can just return the result as it is.
+# `c` and ``z`` have same values with the difference that `c` exists only inside
+# the function. However, creation of `c` is not necessary, we can just return
+# the result as it is.
 
 # %%
 
@@ -130,7 +136,8 @@ print('The function returns z: ', z)
 
 # %% md
 # Default arguments can be provided to input arguments. The default arguments
-# are only used if we don't provide their values when calling them, otherwise their values are overwritten.
+# are only used if we don't provide their values when calling them, otherwise
+# their values are overwritten.
 
 # %%
 
@@ -166,7 +173,7 @@ z = add_nums(y)
 print('The function returns z: ', z)
 
 # %% md
-# Above: The value from ``y`` will be assigned to ``_a`` while ``_b`` will use its default value.
+# Above, the value from `y` will be assigned to `_a` while `_b` will use its default value.
 
 # %%
 
@@ -181,7 +188,7 @@ z = add_nums(_b=y)
 print('The function returns z: ', z)
 
 # %% md
-# Above: ``_a`` will use its default value while ``_b`` will get value of ``y``.
+# Above, `_a` will use its default value while `_b` will get value of `y`.
 
 # %%
 
@@ -196,7 +203,8 @@ z = add_nums(_a=x)
 print('The function returns z: ', z)
 
 # %% md
-# Above: ``_a`` will use the value of ``x`` i.e. 114 while ``_b`` will use its default value i.e. 14.
+# Above: `_a` will use the value of `x` i.e. 114 while `_b` will use its
+# default value i.e. 14.
 
 # %%
 
@@ -210,7 +218,7 @@ z = add_nums(1)
 print('The function returns z: ', z)
 
 # %% md
-# Above: `1`` will go to ``_a`` while ``_b`` will use its default value.
+# Above, `1` will go to `_a` while `_b` will use its default value.
 # The function cal also be called without providing any input argument
 # because both input arguments are optional. In this case the default values will be used.
 
@@ -227,7 +235,7 @@ print('The function returns z: ', z)
 
 # %% md
 # We can define the optional arguments with obligatory arguments. In function
-# below, ``_c`` is optional, while ``_a`` and ``_b`` are obligatory.
+# below, `_c` is optional, while `_a` and `_b` are obligatory.
 
 # %%
 
@@ -241,7 +249,8 @@ z = add_nums(1, 2)
 print('The function returns z: ', z)
 
 # %% md
-# Above: We have not provided the value for ``_c``. As it was optional argument, its default value was used.
+# Above, we have not provided the value for `_c`. As it was optional argument,
+# its default value was used.
 
 # %% md
 # What will be the output of following function?
@@ -279,7 +288,7 @@ a = print_qatal()
 type(a)
 
 # %% md
-# Even if a function does not return anything explicitly, it returns ``None``.
+# Even if a function does not return anything explicitly, it returns `None`.
 
 # %%
 
@@ -293,7 +302,7 @@ a = print_qatal()
 type(a)
 
 # %% md
-# if a function does not return anything, it returns ``None``.
+# if a function does not return anything, it returns `None`.
 
 # %%
 
@@ -340,7 +349,7 @@ print(yy, type(yy))
 # %%
 
 xx = func(15, 12)[1]
-xx
+print(xx)
 
 # %% md
 
@@ -358,8 +367,8 @@ type(out)
 # %%
 
 
-def return_tuple(a):
-    return (a, a)
+def return_tuple(variable):
+    return (variable, variable)
 
 
 out = return_tuple(10)
@@ -368,8 +377,8 @@ type(out)
 # %%
 
 
-def return_tuple(a):
-    return (a)
+def return_tuple(variable):
+    return (variable)
 
 
 out = return_tuple(10)
@@ -382,17 +391,17 @@ type(out)
 
 # %%
 
-
-def return_tuple(a):
-    return (a, )
+def return_tuple(variable):
+    return (variable, )
 
 
 out = return_tuple(10)
 type(out)
 
 # %% md
-
 # function as input argument
+# ---------------------------
+
 # We can assign a function to a variable and use that variable to call the function.
 
 # %%
@@ -416,15 +425,15 @@ def magic(left, op, right):
     return op(left, right)
 
 
-def my_op(a, b):
-    return a == b
+def my_op(var_a, var_b):
+    return var_a == var_b
 
 
 magic(2, my_op, 2)
 
 # %% md
-
 # break vs return
+# ---------------
 
 # %%
 
@@ -451,13 +460,13 @@ a = add_nums([1, 2, 3, 4, 5], 50)
 print(a)
 
 # %% md
-# Was the `break` statement executed above?
+# Was the ``break`` statement executed above?
 
 # %% md
 
 # docstring
 # The first string inside the functions is usually put for help. This is
-# called `docstring`. It can be called by `__doc__` method
+# called `docstring`. It can be called by ``__doc__`` method
 
 # %%
 

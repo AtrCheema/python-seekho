@@ -3,6 +3,9 @@
 2.7 math
 ==========
 
+.. important::
+  This lesson is still under development.
+
 """
 
 import math

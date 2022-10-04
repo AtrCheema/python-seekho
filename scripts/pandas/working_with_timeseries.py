@@ -3,6 +3,9 @@
 5.3 working with timeseries
 =============================
 
+.. important::
+  This lesson is still under development.
+
 In this file you will learn about following concepts of pandas
 
 - TimeStamp

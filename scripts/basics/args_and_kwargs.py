@@ -1,17 +1,19 @@
 """
 ======================
-1.12 args and kwargs
+1.13 args and kwargs
 ======================
-
+.. important::
+  This lesson is still under development.
 """
 
 
 #################################################
 # ``*args``
-#---------
-# If we want to our function to have variable number of input arguments, one way
-# to do this is to put *args inside () when defining the function. This
-# will allow us to have multiple unnamed input arguments.
+# ---------
+# We have learned about function that they can take one or more input arguments.
+# If we want our function to have variable number of input arguments, one way
+# to do this is to put *args inside ``()`` during function definition. This
+# will allow us to have multiple **unnamed** input arguments.
 
 
 #################################################
@@ -23,7 +25,8 @@ def add_nums(*args):
 add_nums(5, 12.0)
 
 #################################################
-# ``*args`` returns a tuple. Inside the above function 2,3 is taken as `(2,3)`
+# ``*args`` converts all the unnamed input arguments to the function `add_nums`
+# into tuple. Inside the above function, the unnamed input arguments 5 and 12 become `(5, 12)` tuple.
 
 #################################################
 
@@ -76,7 +79,7 @@ def add_nums(*args):
 add_nums(12, 14)
 
 #################################################
-# Above: ``add_nums`` and ``do_add`` are called with exactly same kind of input arguments.
+# Above: `add_nums` and `do_add` are called with exactly same kind of input arguments.
 
 #################################################
 # Following is example of misplaced return statement
@@ -130,8 +133,15 @@ def add_nums(a, b, c):
 
 
 l = [1, 5, 12]
-# if the list `l` contains more than 3 elements, passing it will raise error
+
 add_nums(*l)
+
+# %%
+# if the list `l` contains more than 3 elements, passing it will raise error
+
+# uncomment following line
+# l = [1, 5, 12, 3]
+# add_nums(*l)
 
 #################################################
 # *Although* we can vary the number of arguments by using `*args` but we can not
@@ -264,7 +274,7 @@ def add_nums(xx=1, yy=12, zz=14, **kwargs):
 add_nums(xx=114, yy=313, zz=7, a=1, b=5, c=12, d=14)
 
 #################################################
-# now ``kwargs`` contained ``a``, ``b``, ``c`` and ``d`` only. The above code
+# now `kwargs` contained `a`, `b`, `c` and `d` only. The above code
 # can also be written as following.
 
 
@@ -288,7 +298,7 @@ additional_args = {
 add_nums(xx=114, yy=313, zz=7, **additional_args)
 
 #################################################
-# A misplaced ``return`` can be a cause of many headachs, as in following case.
+# A misplaced `return` can be a cause of many headachs, as in following case.
 
 
 #################################################
@@ -374,7 +384,7 @@ add_nums(2, 3)
 add_nums(2, 3, 4, 5)
 
 #################################################
-# ``4`` and ``5`` goes to args
+# `4` and `5` goes to args
 
 #################################################
 
@@ -382,4 +392,24 @@ add_nums(2, 3, 4, 5, 6, d=5, e=12)
 
 #################################################
 #
-# ``4``, ``5`, ``6`` goes to args and ``d`` and ``e`` goes to kwargs
+# `4`, `5`, `6` goes to args and `d` and `e` goes to kwargs
+
+# %%
+# We can replace the words *args* and *kwargs* with any other variable name.
+# It is just a convention to use the word *args* for unnamed arguments and
+# the word *kwargs* for keyword arguments. The actual packing and unpacking
+# is done by ** `*` ** and ** `**` ** in python. For example, the above function
+# can also be written as below
+
+def add_nums(one, five, *unnamed, **named):
+    _sum = one + five
+    print(len(unnamed), len(named))
+    for arg in unnamed:
+        _sum += arg
+    for key, val in named.items():
+        _sum += val
+
+    return _sum
+
+
+add_nums(1, 5, 12, infallibles=14, messangers=313)

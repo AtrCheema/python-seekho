@@ -2,6 +2,10 @@
 =========================
 5.2 indexing and slicing
 =========================
+
+.. important::
+  This lesson is still under development.
+
 """
 import pandas as pd
 print(pd.__version__)

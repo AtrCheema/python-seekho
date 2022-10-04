@@ -243,16 +243,65 @@ with Insan('Ali', 600, 63) as person:
     print("entered")
 
 # %%
-# If you note the order in which strings are printed,
+# If you note the print order of strings,
 # you will find out that ``__enter__`` method was executed before
 # ``print()`` function was called. Similarly, ``__exit__`` method
 # was executed after ``print()`` function was called i.e. at
 # the time of exiting the context manager. This becomes more
 # clear from following example.
 
-with Insan('Ali', 600, 63) as person:
-    print("entered")
-    person.married('Falima')
+
+# %%
+# what if we implment only ``__exit__`` and not ``__enter__``?
+class Insan:
+    def __init__(self, name, year, age):
+        self.name = name
+        self.year = year
+        self.age = age
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print(f"{self.name} lived until {self.year + self.age} year")
+        return
+
+    def married(self, spouse_name:str):
+        print(f"{self.name} married with {spouse_name}")
+        return
+
+# %%
+# uncomment following three lines
+# with Insan('Ali', 600, 63) as person:
+#     print("entered")
+#     person.married('Falima') # -> AttributeError: __enter__
+
+# %%
+# The error message shows that it is not possible to use `Insan`
+# class with context manager without implementing ``__enter__``
+# method for this class. This is because when we say
+# `with Insan('Ali', 600, 63) as person:`, the ``__enter__`` method
+# of `Insan` class is called implicitly. When the method does not
+# exist, we get the error as shown above.
+
+# %%
+# Same is true if we implement only ``__enter__`` and not ``__exit__``
+class Insan:
+    def __init__(self, name, year, age):
+        self.name = name
+        self.year = year
+        self.age = age
+
+    def __enter__(self):
+        print(f"{self.name} was born in year {self.year}")
+        return self
+
+    def married(self, spouse_name:str):
+        print(f"{self.name} married with {spouse_name}")
+        return
+
+# %%
+# uncomment following three lines
+# with Insan('Ali', 600, 63) as person:
+#     print("entered")
+#     person.married('Falima') # -> AttributeError: __enter__
 
 # %%
 # ``__iter__`` and ``__next__``
@@ -389,6 +438,39 @@ for child in ali:
     print(child)
 
 # %%
+# However, there is a problem in the above code, if we run the abvoe for loop again,
+# we don't get any output as shown below,
+for child in ali:
+    print(child)
+
+# %%
+class Insan:
+    def __init__(self, num_child):
+        self.children = [f"child_{i}" for i in range(num_child)]
+        self.index = 0
+
+    def __next__(self):
+        try:
+            item = self.children[self.index]
+        except IndexError:
+            self.index = 0
+            raise StopIteration
+
+        self.index += 1
+        return item
+
+    def __iter__(self):
+        return self
+
+ali = Insan(2)
+for child in ali:
+    print(child)
+
+# %%
+for child in ali:
+    print(child)
+
+# %%
 # ``__len__``
 # ------------
 # This method determines the output of ``len`` function, when applied
@@ -424,3 +506,94 @@ fam = Family(3)
 
 # uncomment the following line
 # len(fam)  # -> TypeError: object of type 'Family' has no len()
+
+# %%
+# ``__getitem__`` and ``__setitem__``
+# ------------------------------------
+
+class Data:
+    def __init__(self, values):
+        self.values = values
+
+    def __getitem__(self, item):
+        return self.values[item]
+
+data = Data([1, 2, 3, 4])
+
+# %%
+print(data[0])
+
+# %%
+print(data[1])
+
+# %%
+
+# uncomment following two lines
+# for idx in range(5):
+#     print(data[idx])  # -> IndexError: list index out of range
+
+# %%
+class Data:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __getitem__(self, item):
+        return self.x[item], self.y[item]
+
+data = Data([1,2,3], [11, 12, 13])
+print(data[0])
+
+# %%
+
+data = Data([1, 2, 3, 4], [11, 12, 13])
+
+# uncomment following line
+# print(data[3])  # -> IndexError: list index out of range
+
+# %%
+class Data:
+    def __init__(self, x, y):
+        assert len(x) == len(y), 'length of x and y should be equal'
+        self.x = x
+        self.y = y
+    def __getitem__(self, item):
+        return self.x[item], self.y[item]
+
+# uncomment following line
+# data = Data([1, 2, 3, 4], [11, 12, 13])  # -> AssertionError: length of x and y should be equal
+
+# %%
+
+data = Data([1, 2, 3], [11, 12, 13])
+
+# %%
+# ``__del__``
+# ------------
+
+# %%
+# ``__contains__``
+# -----------------
+
+class Country:
+    def __init__(self, provinces):
+        self.provinces = provinces
+    def __contains__(self, item):
+        return item in self.provinces
+
+pak = Country(['balochistan', 'kpk', 'sind', 'punjab', 'gb'])
+
+print('sind' in pak)
+
+# %%
+
+print('sindh' in pak)
+
+# %%
+# ``__copy__`` and ``__deepcopy__``
+# ----------------------------------
+
+# %%
+# ``__all__``
+# ------------
+
+# https://rszalski.github.io/magicmethods/

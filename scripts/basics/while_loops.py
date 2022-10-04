@@ -2,17 +2,19 @@
 =================
 1.9 while loops
 =================
+.. important::
+  This lesson is still under development.
 """
 
 #%% md
 # Suppose we have a list of names of people who have ruled Pakistan with one name
-# in it who has not been the ruler and we want to find out at which psition the
+# in it who has not been the ruler and we want to find out at which position the
 # name of this person is located. One way to solve this problem is to use while loops.
 
 #%%
 
-looters = ['sikandar mirza', 'ayub khan', 'yahya khan', 'zulfiqar bhutto', 'shahid afridi', 'zia-ul-haq',
-           'benazir', 'nawaz sharif', 'musharaf',   'zardari']
+looters = ['sikandar mirza', 'ayub khan', 'yahya khan', 'zulfiqar bhutto', 'shahid afridi',
+           'zia-ul-haq', 'benazir', 'nawaz sharif', 'musharaf',   'zardari']
 
 acc_id = 0
 while acc_id<len(looters):   # this condition must become False at some point.
@@ -30,9 +32,9 @@ while acc_id<len(looters):   # this condition must become False at some point.
 #    while (condition):
 #        do something
 #
-# The condition after `while` must become `False` after some time otherwise the
-# loop will continute indefinitely. Consider not increasing thte value of `acc_id`
-# in upper example and the print statement will continute forever until we have
+# The condition after ``while`` must become `False` after some time otherwise the
+# loop will continue indefinitely. Consider not increasing the value of `acc_id`
+# in upper example and the print statement will continue forever until we have
 # to stop it forcefully by terminating the program. (In case you do do this,
 # you can stop this by going to `Runtime` --> `Interrupt execution`.)
 
@@ -49,8 +51,8 @@ while acc_id<len(looters):   # this condition must become False at some point.
 
 #%%
 
-looters = ['sikandar mirza', 'ayub khan', 'yahya khan', 'zulfiqar bhutto', 'shahid afridi', 'zia-ul-haq',
-           'benazir', 'nawaz sharif', 'musharaf', 'zardari']
+looters = ['sikandar mirza', 'ayub khan', 'yahya khan', 'zulfiqar bhutto', 'shahid afridi',
+           'zia-ul-haq', 'benazir', 'nawaz sharif', 'musharaf', 'zardari']
 
 acc_id = 0
 while acc_id<len(looters):
@@ -64,8 +66,8 @@ else:
 
 #%%
 
-looters = ['sikandar mirza', 'ayub khan', 'yahya khan', 'zulfiqar bhutto', 'shahid afridi', 'zia-ul-haq',
-           'benazir', 'nawaz sharif', 'musharaf', 'zardari']
+looters = ['sikandar mirza', 'ayub khan', 'yahya khan', 'zulfiqar bhutto', 'shahid afridi',
+           'zia-ul-haq', 'benazir', 'nawaz sharif', 'musharaf', 'zardari']
 
 acc_id = 0
 while acc_id<len(looters):
@@ -78,7 +80,7 @@ while acc_id<len(looters):
 print("Search finished from the whole list of 'looters'")
 
 #%% md
-# We may think `what is the use of else statement`? Ofcouse we can achieve same
+# We may think `what is the use of else statement`? Of course we can achieve same
 # thing by just placing the code inside `else` statement, without making use of `else`.
 
 #%% md
@@ -87,13 +89,13 @@ print("Search finished from the whole list of 'looters'")
 
 #%%
 
-looters = ['sikandar mirza', 'ayub khan', 'yahya khan', 'zulfiqar bhutto', 'shahid afridi', 'zia-ul-haq',
-           'benazir', 'nawaz sharif', 'musharaf', 'zardari']
+looters = ['sikandar mirza', 'ayub khan', 'yahya khan', 'zulfiqar bhutto', 'shahid afridi',
+           'zia-ul-haq', 'benazir', 'nawaz sharif', 'musharaf', 'zardari']
 
 acc_id = 0
 while acc_id<len(looters):
     if looters[acc_id] == 'shahid afridi':
-        print('Found a normal person at position', acc_id, '. No need to continute searching anymore')
+        print('Found a normal person at position', acc_id, '. No need to continue searching anymore')
         break
     else:
         print(looters[acc_id], 'was a thug')

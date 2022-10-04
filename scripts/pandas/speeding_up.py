@@ -4,6 +4,9 @@
 ======================
 This file shows the how not to use pandas
 
+.. important::
+  This lesson is still under development.
+
 """
 import time
 from typing import Union

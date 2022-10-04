@@ -2,11 +2,10 @@
 ===================
 1.5 copying lists
 ===================
-
+.. important::
+  This lesson is still under development.
 """
 
-
-## Copying List
 
 #%%
 
@@ -23,7 +22,7 @@ print(id(countries1),id(countries2))
 
 #%%
 
-countries2 = ["Qatar", "Malaysia", "Libanon"]
+countries2 = ["Qatar", "Malaysia", "Lebanon"]
 print(countries1)
 
 print(countries2)
@@ -55,8 +54,8 @@ print(countries2)
 # so the the name `countries2` still points to the same object as `countries1`.
 
 #%% md
-
-### Copying using slicing
+# Copying using slicing
+# ----------------------
 
 # The above problem can be avoided by using the slice operator
 
@@ -135,9 +134,10 @@ print(countries2)
 print(id(countries1[3]), id(countries2[3]))
 
 #%% md
+# Using ``list`` function
+# ------------------------
 
-### Using `list` function
-# The `list` function converts a sequence into list, if it is not already a list
+# The ``list`` function converts a sequence into list, if it is not already a list
 
 #%%
 
@@ -151,8 +151,8 @@ print(id(countries1), id(countries2))
 print(id(countries1[3]), id(countries2[3]))
 
 #%% md
-
-### using copy module
+# using copy module
+# ------------------
 
 #%%
 
@@ -178,7 +178,7 @@ countries2 = deepcopy(countries1)
 print(id(countries1), id(countries2))
 
 #%% md
-# Now `countries1` and `counries2` are different and also the sublists
+# Now `countries1` and `countries2` are different and also the sublists
 # in both lists are different now.
 
 #%%
@@ -204,7 +204,7 @@ print(countries2)
 print(id(countries1[0]), id(countries2[0]))
 
 #%% md
-# So `deepcopy` method from `copy` module is the safest way to copy a list when
+# So ``deepcopy`` method from `copy` module is the safest way to copy a list when
 # it contain sublists but it is also the slowest one among others.
 # But what if the two sublists in a list are themselves same objects?
 

@@ -32,7 +32,7 @@ human = Human("Ali")
 # When we created the instance of `Human` class, it did not have `empathy` attribute.
 
 # uncomment following line
-# human.empathy
+# human.empathy  # -> AttributeError: 'Human' object has no attribute 'empathy'
 
 # %%
 # After executing the `grow` method of `Human` class, the `empathy` attribute is set to
