@@ -51,7 +51,7 @@ print(5 + ns_int)
 # The ``__add__`` method does not determines the addition behavior of a class
 # when the instance of the class is on right side of ``+`` operator.
 # In order to overwrite this behavior i.e., the working of addition operation when
-# the instance of class is on right side of ``+``, the have to write ``__radd__``
+# the instance of class is on right side of ``+``, we have to write ``__radd__``
 # method.
 
 
@@ -73,7 +73,7 @@ print(ns_int + 5)
 print(5 + ns_int)
 
 # %%
-# Above we see that when `ns_int` is on left side, subtraction was performed
+# Above we see that when `ns_int` was on left side, subtraction was performed
 # as we defined in ``__add__`` method and when `ns_int` was on right side,
 # multiplication was performed as we defined inside ``__radd__`` method.
 
@@ -217,7 +217,7 @@ print(5 / ns_int)
 # ``__enter__`` and ``__exit__``
 # ------------------------------
 # The ``__enter__`` and ``__exit__`` methods are used by the context
-# manage i.e. ``with``. They are executed/called when we 'enter' and
+# manager i.e. ``with``. They are executed/called when we 'enter' and
 # 'exit' the context manager.
 
 
@@ -248,8 +248,7 @@ with Insan('Ali', 600, 63) as person:
 # you will find out that ``__enter__`` method was executed before
 # ``print()`` function was called. Similarly, ``__exit__`` method
 # was executed after ``print()`` function was called i.e. at
-# the time of exiting the context manager. This becomes more
-# clear from following example.
+# the time of exiting the context manager.
 
 
 # %%
@@ -272,6 +271,7 @@ ali = Insan('Ali', 600, 63)
 print(type(ali))
 
 # %%
+
 # uncomment following three lines
 # with Insan('Ali', 600, 63) as person:
 #     print("entered")
@@ -282,10 +282,11 @@ print(type(ali))
 # class with context manager without implementing ``__enter__``
 # method for this class. This is because when we say
 # `with Insan('Ali', 600, 63) as person:`, the ``__enter__`` method
-# of `Insan` class is called implicitly. When the method does not
+# of `Insan` class is called implicitly. When this method does not
 # exist, we get the error as shown above.
 
 # %%
+
 # Same is true if we implement only ``__enter__`` and not ``__exit__``
 class Insan:
     def __init__(self, name, year, age):
@@ -301,13 +302,18 @@ class Insan:
         print(f"{self.name} married with {spouse_name}")
         return
 
-ali = Insan('Ali', 600, 63)
-print(ali.age)
 # %%
+
 # uncomment following three lines
 # with Insan('Ali', 600, 63) as person:
 #     print("entered")
 #     person.married('Falima') # -> AttributeError: __enter__
+
+# %%
+# Other than that, we can still use this class as normal python class.
+
+ali = Insan('Ali', 600, 63)
+print(ali.age)
 
 # %%
 # ``__iter__`` and ``__next__``
@@ -356,6 +362,7 @@ ali = Insan(2)
 #     print
 
 # %%
+# This is because `ali` is not an ``iterable`` and we can verify it as below
 
 import collections
 
@@ -435,6 +442,7 @@ class Insan:
 ali = Insan(2)
 
 # %%
+
 # Above we have implemented the ``__next__`` method in a way to raise ``StopIteration``
 # error instead of ``IndexError``. Since the ``for`` loop under the hood runs until ``StopIteration``
 # and then the for loop just bypasses the ``StopIteration``, we can now use the `ali`
@@ -444,12 +452,17 @@ for child in ali:
     print(child)
 
 # %%
+
 # However, there is a problem in the above code, if we run the abvoe for loop again,
 # we don't get any output as shown below,
+
 for child in ali:
     print(child)
 
 # %%
+
+# This is because we are not not resetting ``self.index`` to 0 after raising ``StopIteration`` exception.
+
 class Insan:
     def __init__(self, num_child):
         self.children = [f"child_{i}" for i in range(num_child)]
@@ -473,6 +486,7 @@ for child in ali:
     print(child)
 
 # %%
+
 for child in ali:
     print(child)
 
@@ -556,6 +570,8 @@ data = Data([1, 2, 3, 4], [11, 12, 13])
 _x, _y = data[0]
 
 print(_x, _y)
+
+# %%
 
 # uncomment following line
 # print(data[3])  # -> IndexError: list index out of range
@@ -662,5 +678,5 @@ print(b2.age, b2.chars)
 # ``__all__``
 # ------------
 
-
+# %%
 # For a more comprehensive documentation on magical methods see `this <https://rszalski.github.io/magicmethods/>_`

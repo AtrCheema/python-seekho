@@ -4,18 +4,17 @@
 ===================
 """
 
-# %% md
-# Creating Classes
-# -----------------
+
+# One way of understanding a class is that it is a collection of functions which share
+# some data (attributes). However, a class need not to have functions in it i.e. it can
+# only consist of attributes.
 #
 # We can define a minimal class as follows
 
 # %%
 
-
 class Insan:
     pass
-
 
 # %%
 #

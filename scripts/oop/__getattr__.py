@@ -1,6 +1,6 @@
 """
 ==================
-3.16 __getattr__
+3.15 __getattr__
 ==================
 This lesson describes the usage of ``__getattr__``
 
