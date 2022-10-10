@@ -1,6 +1,6 @@
 """
 =====================
-3.17 magic methods
+3.16 magic methods
 =====================
 
 This file describes the so called magic methods in python. Magic methods are
@@ -20,6 +20,7 @@ we will cover some more.
 # class `NonSenseInteger` below, we
 # are defining ``__add__`` method, so any instance of `NonSenseInteger` class
 # will behave the way we are defining in ``__add__`` method.
+import os
 
 
 class NonSenseInteger(int):
@@ -267,6 +268,9 @@ class Insan:
         print(f"{self.name} married with {spouse_name}")
         return
 
+ali = Insan('Ali', 600, 63)
+print(type(ali))
+
 # %%
 # uncomment following three lines
 # with Insan('Ali', 600, 63) as person:
@@ -297,6 +301,8 @@ class Insan:
         print(f"{self.name} married with {spouse_name}")
         return
 
+ali = Insan('Ali', 600, 63)
+print(ali.age)
 # %%
 # uncomment following three lines
 # with Insan('Ali', 600, 63) as person:
@@ -547,6 +553,10 @@ print(data[0])
 
 data = Data([1, 2, 3, 4], [11, 12, 13])
 
+_x, _y = data[0]
+
+print(_x, _y)
+
 # uncomment following line
 # print(data[3])  # -> IndexError: list index out of range
 
@@ -566,16 +576,43 @@ class Data:
 
 data = Data([1, 2, 3], [11, 12, 13])
 
+_x, _y = data[0]
+
+print(_x, _y)
+
 # %%
 # ``__del__``
 # ------------
+# This method determines what will happen to an object (instance of a class) when
+# ``del object`` is executed.
+
+class File:
+    def __init__(self, name):
+        self.path = os.path.join(os.getcwd(), name)
+        with open(self.path, 'w'):
+            pass
+    def __del__(self):
+        print(f"deleting file {self.path}")
+        os.remove(self.path)
+        return
+
+f = File("test.txt")
+
+# %%
+
+os.path.exists(f.path)
+
+# %%
+
+del f
+
 
 # %%
 # ``__contains__``
 # -----------------
 
 class Country:
-    def __init__(self, provinces):
+    def __init__(self, provinces:list):
         self.provinces = provinces
     def __contains__(self, item):
         return item in self.provinces
@@ -591,9 +628,39 @@ print('sindh' in pak)
 # %%
 # ``__copy__`` and ``__deepcopy__``
 # ----------------------------------
+# Following https://stackoverflow.com/a/15774013
+import copy
+
+class Human(object):
+    def __init__(self):
+        self.age = 10
+        self.chars = ["humble", "empathetic", "patient", "brave"]
+
+    def __copy__(self):
+        cls = self.__class__
+        result = cls.__new__(cls)
+        result.__dict__.update(self.__dict__)
+        return result
+
+    def __deepcopy__(self, memo):
+        cls = self.__class__
+        result = cls.__new__(cls)
+        memo[id(self)] = result
+        for k, v in self.__dict__.items():
+            setattr(result, k, copy.deepcopy(v, memo))
+        return result
+
+a = Human()
+a.age = 11
+b1, b2 = copy.copy(a), copy.deepcopy(a)
+a.age = 12
+a.chars.append("honesty")
+print(b1.age, b1.chars)
+print(b2.age, b2.chars)
 
 # %%
 # ``__all__``
 # ------------
 
-# https://rszalski.github.io/magicmethods/
+
+# For a more comprehensive documentation on magical methods see `this <https://rszalski.github.io/magicmethods/>_`

@@ -542,6 +542,21 @@ men2[1]["iraq"]['person1']['name'] = "baqir al sadr"
 print(men1)
 print(men2)
 
+# %%
+# However, there is simpler solution to this problem. Instead of writting a function
+# like `copy_dict`, which copies each object from dictionary one by one, we can simply
+# use ``deepcopy`` function from ``copy`` module.
+from copy import deepcopy
+
+men1 = {1: {"iraq": {'person1': {'name': 'sadr'}, 'person2': {'name': 'hakim'}},
+            "iran": {'person1': {'name': 'mutahri'}, 'person2': {'name': 'shariati'}}}}
+
+men2 = deepcopy(men1)
+
+men2[1]["iraq"]['person1']['name'] = "baqir al sadr"
+
+print(men1)
+print(men2)
 
 # %% md
 # ``update``
