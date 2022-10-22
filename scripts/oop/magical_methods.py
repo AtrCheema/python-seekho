@@ -216,7 +216,7 @@ print(5 / ns_int)
 # %%
 # ``__enter__`` and ``__exit__``
 # ------------------------------
-# The ``__enter__`` and ``__exit__`` methods are used by the context
+# These methods are used by the context
 # manager i.e. ``with``. They are executed/called when we 'enter' and
 # 'exit' the context manager.
 
@@ -239,6 +239,7 @@ class Insan:
         print(f"{self.name} married with {spouse_name}")
         return
 
+# %%
 
 with Insan('Ali', 600, 63) as person:
     print("entered")
@@ -253,6 +254,7 @@ with Insan('Ali', 600, 63) as person:
 
 # %%
 # what if we implment only ``__exit__`` and not ``__enter__``?
+
 class Insan:
     def __init__(self, name, year, age):
         self.name = name
@@ -266,6 +268,8 @@ class Insan:
     def married(self, spouse_name:str):
         print(f"{self.name} married with {spouse_name}")
         return
+
+# %%
 
 ali = Insan('Ali', 600, 63)
 print(type(ali))
@@ -286,8 +290,8 @@ print(type(ali))
 # exist, we get the error as shown above.
 
 # %%
+# Same is true if we implement only ``__enter__`` method and not ``__exit__`` method.
 
-# Same is true if we implement only ``__enter__`` and not ``__exit__``
 class Insan:
     def __init__(self, name, year, age):
         self.name = name
@@ -369,7 +373,7 @@ import collections
 isinstance(ali, collections.abc.Iterable)
 
 # %%
-# Since `ali` is not an "iterable", due to which we can not use it in ``for`` loop.
+# Since `ali` is not an "iterable", therefore we can not use it in ``for`` loop.
 # The reason is that the ``for`` loop requests an iterator from the iterable object, and then calls
 # ``__next__`` on that iterable until it hits the ``StopIteration`` exception.
 # This happens under the surface which is also the reason why we would want
@@ -442,26 +446,24 @@ class Insan:
 ali = Insan(2)
 
 # %%
-
 # Above we have implemented the ``__next__`` method in a way to raise ``StopIteration``
-# error instead of ``IndexError``. Since the ``for`` loop under the hood runs until ``StopIteration``
-# and then the for loop just bypasses the ``StopIteration``, we can now use the `ali`
-# in ``for`` loop safely.
+# error instead of ``IndexError``. Since the ``for`` loop under the hood runs
+# until ``StopIteration`` and then the for loop just bypasses the ``StopIteration``,
+# we can now use the `ali` in ``for`` loop safely.
 
 for child in ali:
     print(child)
 
 # %%
-
-# However, there is a problem in the above code, if we run the abvoe for loop again,
+# However, there is a problem in the above code, if we run the above for loop again,
 # we don't get any output as shown below,
 
 for child in ali:
     print(child)
 
 # %%
-
-# This is because we are not not resetting ``self.index`` to 0 after raising ``StopIteration`` exception.
+# This is because we are not not resetting ``self.index`` to 0 after raising
+# ``StopIteration`` exception.
 
 class Insan:
     def __init__(self, num_child):
@@ -530,6 +532,8 @@ fam = Family(3)
 # %%
 # ``__getitem__`` and ``__setitem__``
 # ------------------------------------
+# If we define these methods for a class, then we can index the instance of the
+# class using the slice operator i.e., ``[]``.
 
 class Data:
     def __init__(self, values):
@@ -553,6 +557,9 @@ print(data[1])
 #     print(data[idx])  # -> IndexError: list index out of range
 
 # %%
+# The above example was too simple. Following example shows a more useful case for employment
+# of ``__getitem__`` method where we would like to index two arrays simultaneously.
+
 class Data:
     def __init__(self, x, y):
         self.x = x
@@ -572,6 +579,10 @@ _x, _y = data[0]
 print(_x, _y)
 
 # %%
+# Even the lengths of `x` and `y` are not equal in above case, we were still able to slice them.
+# We should have constructed the `Data` class in such a way to raise the error
+# when the lengths are not equal. Without this, the error message becomes more confusing when
+# the item is present in `x` but not in `y`.
 
 # uncomment following line
 # print(data[3])  # -> IndexError: list index out of range
@@ -584,6 +595,9 @@ class Data:
         self.y = y
     def __getitem__(self, item):
         return self.x[item], self.y[item]
+
+# %%
+# Now,if the lengths of `x` and `y` are not equal, we will get more useful error message.
 
 # uncomment following line
 # data = Data([1, 2, 3, 4], [11, 12, 13])  # -> AssertionError: length of x and y should be equal
@@ -626,12 +640,16 @@ del f
 # %%
 # ``__contains__``
 # -----------------
+# This method determines what will happen when we use the instance of a class after ``in`` keyword.
 
 class Country:
     def __init__(self, provinces:list):
         self.provinces = provinces
     def __contains__(self, item):
         return item in self.provinces
+
+# %%
+# `Country` is a class which can have `provinces`. 
 
 pak = Country(['balochistan', 'kpk', 'sind', 'punjab', 'gb'])
 
@@ -641,42 +659,6 @@ print('sind' in pak)
 
 print('sindh' in pak)
 
-# %%
-# ``__copy__`` and ``__deepcopy__``
-# ----------------------------------
-# Following https://stackoverflow.com/a/15774013
-import copy
-
-class Human(object):
-    def __init__(self):
-        self.age = 10
-        self.chars = ["humble", "empathetic", "patient", "brave"]
-
-    def __copy__(self):
-        cls = self.__class__
-        result = cls.__new__(cls)
-        result.__dict__.update(self.__dict__)
-        return result
-
-    def __deepcopy__(self, memo):
-        cls = self.__class__
-        result = cls.__new__(cls)
-        memo[id(self)] = result
-        for k, v in self.__dict__.items():
-            setattr(result, k, copy.deepcopy(v, memo))
-        return result
-
-a = Human()
-a.age = 11
-b1, b2 = copy.copy(a), copy.deepcopy(a)
-a.age = 12
-a.chars.append("honesty")
-print(b1.age, b1.chars)
-print(b2.age, b2.chars)
 
 # %%
-# ``__all__``
-# ------------
-
-# %%
-# For a more comprehensive documentation on magical methods see `this <https://rszalski.github.io/magicmethods/>_`
+# For a more comprehensive documentation on magical methods see `this <https://rszalski.github.io/magicmethods/>`_
