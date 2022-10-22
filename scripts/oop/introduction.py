@@ -6,6 +6,9 @@
 """
 
 # %% md
+# The first thing to understanding in object oriented programming in python
+# is the concept of ``type``.
+#
 # In python everything is an ``object`` and it has a ``type``.
 # The ``type`` of an ``object`` tells, what kind of characteristics it has,
 # or what kind of operations it can perform or can be performed on it.

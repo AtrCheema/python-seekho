@@ -366,7 +366,7 @@ with open("NewFile", "wb") as my_pickle_file:
     pickle.dump(my_bytes, my_pickle_file)
 
 # %%
-# Similar we can write ``tuple`` or ``dictionary`` data into binary format.
+# Similarly we can write ``tuple`` or ``dictionary`` data into binary format.
 
 my_bytes = [120, 3, 255, 0, 1000.0, 'a', (1, 2), None]
 with open("NewFile", "wb") as my_pickle_file:

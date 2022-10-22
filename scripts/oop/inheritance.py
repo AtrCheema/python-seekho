@@ -335,10 +335,7 @@ yakov = Israili()
 # yakov.nationality()  # NotImplementedError
 
 # %% md
-# We can enlist all base classes in a hierarchy of given class?
-
-
-# %%
+# We can enlist all base classes in a hierarchy of given class.
 
 class Human(object):
     pass
@@ -443,6 +440,10 @@ kapil = Human('kapil')
 # %% md
 # Since ``kapil`` is an instance of ``Human`` class which does not have any attribute named
 # ``sect``, thus we could not access this attribute.
+
+# %%
+# multiple-inheritance
+# ---------------------
 # A class can also inherit from multiple classes and this is called ``multiple-inheritance``.
 
 # %%
@@ -463,11 +464,11 @@ class Human(Spirit, Body):
 
 
 ali = Human()
-ali.chastity
+print(ali.chastity)
 
 # %%
 
-ali.weight
+print(ali.weight)
 
 # %% md
 # If an attribute of the child class is called, it is first looked in the child class,
@@ -491,7 +492,7 @@ class Human(Spirit, Body):
 
 
 ali = Human()
-ali.identity
+print(ali.identity)
 
 # %% md
 # Above, ``identity`` attribute exists for ``Body`` and ``Spirit`` class but

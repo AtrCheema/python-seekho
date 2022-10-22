@@ -88,15 +88,14 @@ human(1)
 # %%
 human(1, a=2)
 
+# %%
+# Without writing, ``__call__`` method for the `Human` class, we wouldn't
+# be able to call the `Human` class or its instance `human`.
 
 # %%
 # **Question**:
 # In the code ``Human(1)()``, what does the second braces ``()``, those which
 # come after **(1)** represent?
-
-# %%
-# Without writing, ``__call__`` method for the `Human` class, we wouldn't
-# be able to call the `Human` class or its instance `human`.
 
 class Human:
 
