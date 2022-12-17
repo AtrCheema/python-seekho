@@ -45,7 +45,7 @@ for prod in (itertools.product([1, 2], [11, 12], [21, 23])):
 
 # %%
 # permutations
-# ------
+# -------------
 print([x for x in itertools.permutations([1,2,3])])
 
 # %%

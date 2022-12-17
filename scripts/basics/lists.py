@@ -8,6 +8,40 @@ This lesson describes `lists` in python.
   This lesson is still under development.
 """
 
+# %%
+# A list can be defined as a collection of objects or a container in which we
+# hold different objects.
+
+mylist = []
+
+# %%
+# Above we an empty list. How do we know that it is list? We can always check
+# the type of an object in python as below.
+
+print(type(mylist))
+
+# %%
+# We can also make a list which is not empty as below
+
+imperialists = ['Bush', 'Obama', 'Trump', 'Zuckerberg', 'Bezos', 'coca cola']
+print(type(imperialists))
+
+# %%
+# In above mentioned list, all of its (6) elements are strings. However, the elements/members
+# a list need not to be of same type.
+
+# %%
+imperialists = ["Bush", {"years": 8}, 2000, (2000, 2008)]
+print(type(imperialists))
+
+# %%
+# In abvoe list, the first member is ``string``, the second member is ``dictionary``,
+# the third member is ``integer`` and the fourth member is a ``tuple``. We will
+# study about string, dictionary, integer and tuple in upcoming lessons.
+
+# Once we have a list, we can perform different operations on it. Some of them
+# are given below.
+
 ##############################################
 # append
 # --------------------------------------------
