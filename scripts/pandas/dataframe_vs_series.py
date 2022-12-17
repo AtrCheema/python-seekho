@@ -13,20 +13,20 @@ print(pd.__version__, np.__version__)
 #%%
 
 df = pd.DataFrame(np.random.random((10, 3)))
-df
+print(df)
 
 #%%
 
-df.shape
+print(df.shape)
 
 #%%
 
 df = pd.DataFrame(np.random.random((10, 3)), columns=['a', 'b', 'c'])
-df
+print(df)
 
 #%%
 
-df.columns
+print(df.columns)
 
 #%%
 
@@ -42,31 +42,31 @@ type(df.columns.to_list())
 
 #%%
 
-df.index
+print(df.index)
 
 #%%
 
 df = pd.DataFrame(np.random.random((10, 3)),
                   columns=['a', 'b', 'c'],
                  index=[2000+i for i in range(10)])
-df
+print(df)
 
 #%%
 
-df.index
+print(df.index)
 
 #%%
 
-df.index.name
+print(df.index.name)
 
 #%%
 
 df.index.name = 'years'
-df
+print(df)
 
 #%%
 
-df.index.name
+print(df.index.name)
 
 #%%
 
@@ -77,7 +77,7 @@ type(df)
 df = pd.DataFrame(np.random.randint(0, 10, (10, 1)),
                   columns=['a'],
                  index=[2000+i for i in range(10)])
-df
+print(df)
 
 #%%
 
@@ -85,7 +85,7 @@ type(df)
 
 #%%
 
-df.columns
+print(df.columns)
 
 #%% md
 
@@ -94,7 +94,7 @@ df.columns
 #%%
 
 s = pd.Series(np.random.random(10))
-s
+print(s)
 
 #%%
 
@@ -102,21 +102,21 @@ type(s)
 
 #%%
 
-s.shape
+print(s.shape)
 
 #%%
 
-s.name
+print(s.name)
 
 #%%
 
 s = pd.Series(np.random.random(10),
               name="a")
-s
+print(s)
 
 #%%
 
-s.name
+print(s.name)
 
 #%% md
 
@@ -127,7 +127,7 @@ s.name
 df = pd.DataFrame(np.random.random((10, 3)),
                   columns=['a', 'b', 'c'],
                  index=[2000+i for i in range(10)])
-df
+print(df)
 
 #%%
 
@@ -138,11 +138,11 @@ type(df['a'])
 s = pd.Series(np.random.random(10),
               index=[2000+i for i in range(10)],
               name="a")
-s
+print(s)
 
 #%%
 
-df.values
+print(df.values)
 
 #%%
 
@@ -153,7 +153,7 @@ type(df.values)
 df = pd.DataFrame(np.random.randint(0, 14, (10, 3)),
                   columns=['a', 'b', 'c'],
                  index=[2000+i for i in range(10)])
-df
+print(df)
 
 #%%
 
@@ -161,7 +161,7 @@ type(df.values)
 
 #%%
 
-df.values.shape
+print(df.values.shape)
 
 #%%
 
@@ -203,17 +203,17 @@ df.to_dict('list')
 #%%
 
 df['d'] = np.random.randint(0, 10, (10,))
-df
+print(df)
 
 #%%
 
 df.pop('d')
-df
+print(df)
 
 #%%
 
 df.columns = ['x', 'y', 'z']
-df
+print(df)
 
 #%% md
 
@@ -225,7 +225,7 @@ len(df.index)
 
 #%%
 
-df.shape[0]
+print(df.shape[0])
 
 #%% md
 
@@ -236,7 +236,7 @@ df.shape[0]
 cols = df.columns.tolist()
 cols = cols[-1:] + cols[:-1]
 df = df[cols]
-df
+print(df)
 
 #%% md
 
@@ -245,12 +245,12 @@ df
 #%%
 
 df = pd.DataFrame(np.random.randn(6,3))
-df
+print(df)
 
 #%%
 
 df.iloc[::2,0] = np.nan; df.iloc[::4,2] = np.nan; df.iloc[::3,2] = np.nan
-df
+print(df)
 
 #%%
 
@@ -270,7 +270,7 @@ df[df[2].notna()]
 
 df = pd.DataFrame(np.random.randn(6,3))
 df.iloc[::2,0] = np.nan; df.iloc[::4,2] = np.nan; df.iloc[::3,2] = np.nan
-df
+print(df)
 
 #%%
 
@@ -294,7 +294,7 @@ df.isnull().sum(axis = 1)
 
 df = pd.DataFrame(np.random.randn(6,3))
 df.iloc[::2,0] = np.nan; df.iloc[::4,2] = np.nan; df.iloc[::3,2] = np.nan
-df
+print(df)
 
 #%%
 
@@ -318,8 +318,8 @@ df.isnull().any().any()
 #%%
 
 df = pd.DataFrame(np.random.randn(6,3))
-df.iloc[::2,0] = np.nan; df.iloc[::4,2] = np.nan; df.iloc[::3,2] = np.nan;
-df
+df.iloc[::2,0] = np.nan; df.iloc[::4,2] = np.nan; df.iloc[::3,2] = np.nan
+print(df)
 
 #%%
 
@@ -329,7 +329,7 @@ df.fillna(0)
 
 #To fill the NaNs in only one column
 df[2].fillna(0, inplace=True)
-df
+print(df)
 
 #%% md
 
@@ -338,7 +338,7 @@ df
 #%%
 
 df = pd.DataFrame(np.random.randn(6,3))
-df
+print(df)
 
 #%%
 
@@ -404,7 +404,7 @@ for index, row in df.iterrows():
 
 df = pd.DataFrame(np.random.randint(0, 14, (10, 3)),
                   columns=['a', 'b', 'c'])
-df
+print(df)
 
 #%%
 
@@ -416,7 +416,7 @@ df['a']/df['b']
 #%%
 
 df["d"] = ""
-df
+print(df)
 
 #%%
 
@@ -425,7 +425,7 @@ df['d']
 #%%
 
 df["d"] = np.nan
-df
+print(df)
 
 #%% md
 
@@ -456,12 +456,12 @@ df.replace(np.nan, '')
 #%%
 
 df = pd.DataFrame(np.random.randint(0, 14, (10, 3)), columns=['a', 'b', 'c'])
-df
+print(df)
 
 #%%
 
 df.rename(columns={'a':'log(A)'}, inplace=True)
-df
+print(df)
 
 #%% md
 # print DataFrame without index
@@ -469,7 +469,7 @@ df
 
 #%%
 
-df
+print(df)
 
 #%%
 
@@ -491,7 +491,7 @@ len(df.columns)
 
 #%%
 
-df.shape[1]
+print(df.shape[1])
 
 #%% md
 
@@ -500,17 +500,17 @@ df.shape[1]
 #%%
 
 df = pd.DataFrame(columns=['A','B','C','D','E','F','G'])
-df
+print(df)
 
 #%%
 
-df.shape
+print(df.shape)
 
 #%%
 
 df = pd.DataFrame(index=range(1,8))
-df
+print(df)
 
 #%%
 
-df.shape
+print(df.shape)

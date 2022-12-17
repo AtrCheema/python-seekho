@@ -649,7 +649,7 @@ class Country:
         return item in self.provinces
 
 # %%
-# `Country` is a class which can have `provinces`.
+# `Country` is a class which can have `provinces`. 
 
 pak = Country(['balochistan', 'kpk', 'sind', 'punjab', 'gb'])
 

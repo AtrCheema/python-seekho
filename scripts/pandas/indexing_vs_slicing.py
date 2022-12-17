@@ -55,11 +55,11 @@ df[2:6:2]
 
 #%% md
 # loc
-#-----
-#- only work on index
-#
-#
+# -----
+# - only work on index
 # - label based
+#
+#
 
 # label means columns and index
 
@@ -107,7 +107,7 @@ df.loc[:, 'color':'score':2]
 
 #%% md
 # iloc
-#-------
+# -------
 # - integer location based
 #
 # - work on position
@@ -151,7 +151,7 @@ df.iloc[(df['age'] > 30).values, [2, 4]]
 
 #%% md
 # `at`
-#------
+# ------
 # Selection with .at is nearly identical to .loc but it only selects a single 'cell' in
 # your DataFrame. We usually refer to this cell as a scalar value. To use .at,
 # pass it both a row and column label separated by a comma.
@@ -163,7 +163,7 @@ df.at['Christina', 'color']
 
 #%% md
 # iat
-#-----
+# -----
 # Selection with `iat` is nearly identical to `iloc` but it only selects a single
 # scalar value. You must pass it an integer for both the row and column locations
 

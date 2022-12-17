@@ -78,10 +78,10 @@ print(x.get_temp())
 
 # %% md
 # we were able to decrease the temperature but there are two problems.
-# * First the statement ``x.set_temp(x.get_temp()*0.9)`` does not look so elegant,
-# it would have been much better and clearer if we could do like ``x.temp = x.temp*0.9``.
-# * There are two ways to set and get temperature which is against the
-# zen of python [1]_ which states
+#     * First the statement ``x.set_temp(x.get_temp()*0.9)`` does not look so elegant,
+#        it would have been much better and clearer if we could do like ``x.temp = x.temp*0.9``.
+#     * There are two ways to set and get temperature which is against the
+#        zen of python [1]_ which states
 # **There should be one-- and preferably only one --obvious way to do it**.
 # Based upon above discussion we would have liked ``temp`` to behave like attribute (`x.temp`)
 # but still be able to perform some checks on it behind the scene (which we could do by
