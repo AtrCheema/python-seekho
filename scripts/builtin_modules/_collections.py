@@ -12,8 +12,24 @@ books = {"AlSadr": ["Our Philosophy", "Our Economy"],
 # %%
 # defaultdict
 # --------------
+# In a normal dictionary, when we try to access value of a non-existent
+# key, we will get ``KeyError``.
+man = {}
+
+# uncomment following line
+# man['height'] # KeyError
+
+# If however, we want to avoid this error, we can make use of ``defaultdict``
+# function. The input to ``defaultdict`` must be a callable.
 
 from collections import defaultdict
+
+print(int())
+
+# %%
+
+man = defaultdict(int)
+print(man['height'])
 
 # %%
 # deque

@@ -159,7 +159,7 @@ import time
 
 for i in range(10):
     print('.', end='')
-    time.sleep(0.3)
+    time.sleep(0.3)  # This is just to stop the python for 0.3 seconds.
 
 #%% md
 # ``\r`` removes/deletes what is present on its left side.
@@ -191,7 +191,6 @@ print ('complete')
 #%% md
 # Customizing print function
 # --------------------------
-
 # We can also add additional features to print function if we wish, by redefining print
 # function, though it will hardly be required.
 

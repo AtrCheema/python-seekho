@@ -179,6 +179,7 @@ a = 5
 b = 12
 dictionary = {'a': a, 'b': b}
 
+# %%
 # add_nums(a,b) is invalid, add_nums(dictionary) is invalid as well
 add_nums(**dictionary)
 

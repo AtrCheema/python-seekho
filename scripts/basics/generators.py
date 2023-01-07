@@ -21,7 +21,7 @@ print((i for i in range(10)))
 
 # %%
 a = (i**i for i in range(10))
-
+# %%
 # We can unpack generators using ``*`` as following
 print(*a)
 

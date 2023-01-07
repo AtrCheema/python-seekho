@@ -213,7 +213,7 @@ print(txt)
 # %%
 
 s = "Assalam o alaikum"
-s[0]
+print(s[0])
 
 # %%
 
@@ -225,7 +225,7 @@ len(s)
 
 # %%
 
-s[len(s)-1], s[-1]
+print(s[len(s)-1], s[-1])
 
 # %% md
 # Slicing
@@ -233,7 +233,7 @@ s[len(s)-1], s[-1]
 
 # %%
 
-s[-3:], s[5:8], s[8:]
+print(s[-3:], s[5:8], s[8:])
 
 # %% md
 # Concatenation
@@ -252,7 +252,7 @@ print(a)
 # %%
 
 b = a*3
-b
+print(b)
 
 # %% md
 # We can find the length of a sequence object in python using the function `len`.
@@ -275,17 +275,17 @@ len(a), len(b)
 
 a = "Muhammad"
 b = "Muhammad"
-a is b
+print(a is b)
 
 # %%
 
-a == b
+print(a == b)
 
 # %%
 
 a = "Muhammad!"
 b = "Muhammad!"
-a is b
+print(a is b)
 
 # %%
 
@@ -295,11 +295,11 @@ print(a == b)
 
 a = "Muhammad1"
 b = "Muhammad1"
-a is b
+print(a is b)
 
 #%%
 
-a == b
+print(a == b)
 
 # %% md
 # Range

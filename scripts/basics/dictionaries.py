@@ -7,6 +7,8 @@ This lesson describes a special data structure of python called ``dictionary``.
 
 
 # %% md
+# Intro
+# ========
 # Dictionaries are data containers that store the data as key, value pairs.
 # Each value in a dictionary is associated with a key, and threfore every key must have
 # a value associated with it. Therefore, dictionaries are also sometimes known
@@ -35,12 +37,12 @@ print(type(man))
 
 # %%
 
-man["name"]
+print(man["name"])
 
 # %%
 # Inside the square bracket, we can write any ``key`` which is present
 # in the dicionary and we will get the value associated with it.
-man["citizenship"]
+print(man["citizenship"])
 
 #%%
 # If we try to a access value whose corresponding key does not exist in the dictionary,
@@ -78,7 +80,7 @@ print(man)
 
 man = {}
 
-man
+print(man)
 
 # %%
 
@@ -150,8 +152,8 @@ per_ar = {"mard": "rojol", "zan": "nissa", "tefl": "tefl", "paighambar": "paigha
 print("The Arabic word for aurat is: " + per_ar[ur_per["aurat"]])
 
 # %% md
-# keys and values
-# ==================
+# ``keys`` and ``values`` methods
+# ==================================
 # We can get all the keys of a dictionary using ``.keys()`` method on dictionary.
 # The dot "." here signifies that the ``keys()`` function comes from dictionary.
 # This means any variable which is a dictionary, will have .keys() function in it.
@@ -202,7 +204,7 @@ print(type(items))
 
 books_as_list = list(books.items())
 
-books_as_list
+print(books_as_list)
 
 # %%
 
@@ -277,19 +279,19 @@ len(man)
 # %%
 # ``in``
 # -------
-"died" in man
+print("died" in man)
 
 # %%
 
 del man["died"]
-"died" not in man
+print("died" not in man)
 
 # %% md
 # Repeating the above code will result in error.
 
 # %%
 # We can also combine ``in`` with ``not``
-"city" not in man
+print("city" not in man)
 
 # %% md
 # ``pop``
@@ -306,7 +308,7 @@ man.pop("died")
 
 # %%
 
-man
+print(man)
 
 # %%
 # If we try to remove a non-existing key using ``pop``, it will throw KeyError.
@@ -329,7 +331,7 @@ man.pop("died", None)
 
 # %%
 
-man
+print(man)
 
 # %% md
 # ``poopitem``
@@ -346,7 +348,7 @@ man.popitem()
 
 # %%
 
-man
+print(man)
 
 # %%
 
@@ -354,7 +356,7 @@ man.popitem()
 
 # %%
 
-man
+print(man)
 
 # %% md
 # ``get``
@@ -616,7 +618,7 @@ print(books)
 
 # %%
 
-{'x': 1, **{'y': 2}}
+print({'x': 1, **{'y': 2}})
 
 # %% md
 # For backup compatability, we better use the ``update`` method that can run on versions

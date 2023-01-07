@@ -269,8 +269,8 @@ print('The function returns z: ', z)
 # print('The function returns z: ', z)
 
 # %% md
-
 # Return
+# -------
 # A function returns `None` by default.
 
 # %%
@@ -401,7 +401,6 @@ type(out)
 # %% md
 # function as input argument
 # ---------------------------
-
 # We can assign a function to a variable and use that variable to call the function.
 
 # %%
@@ -463,15 +462,15 @@ print(a)
 # Was the ``break`` statement executed above?
 
 # %% md
-
 # docstring
+# ----------
 # The first string inside the functions is usually put for help. This is
 # called `docstring`. It can be called by ``__doc__`` method
 
 # %%
 
 
-def fahrenheit(T_in_celcius):
+def fahrenheit(T_in_celsius):
     """This function converts temperature from Celsius to Fahrenheit. """
     return (T_in_celsius * 9 / 5) + 32
 

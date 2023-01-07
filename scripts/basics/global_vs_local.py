@@ -73,6 +73,7 @@ def foo(n):
 
 foo(10)
 
+# %%
 # uncomment following line
 # print(var1) NameError
 
@@ -92,6 +93,7 @@ def foo(n):
 
 foo(10)
 
+# %%
 # uncomment following line
 # print(var1)
 
@@ -119,6 +121,7 @@ def foo(n):
     print(var)
     var = 0
 
+# %%
 # uncomment following line
 # foo(10)  # UnboundLocalError
 
