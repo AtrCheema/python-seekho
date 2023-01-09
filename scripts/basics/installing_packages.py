@@ -5,14 +5,15 @@
 
 """
 
+# %%
+# What is meaning of installing a python package?
+
 def foo():
     pass
 
 foo()
 
 # %%
-# What is meaning of installing a python package?
-#
 # Above we used the function `foo` which was defined above in the same file where it was called.
 # However, if the `foo` was defined not in the same file, but in some other file, we would have
 # to ``import`` the `foo` function from that file. That file containing `foo` function can be
@@ -38,7 +39,7 @@ foo()
 
 # %%
 # using site
-#-----------------------
+# -----------------------
 # Putting a lot of libraries/packages in our current working library can clutter
 # current working direcotry. This is because we may need hundred of libraries to work with.
 # One solution is to place those packages at any place in our desired location in our machine,

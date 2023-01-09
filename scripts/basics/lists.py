@@ -35,13 +35,13 @@ imperialists = ["Bush", {"years": 8}, 2000, (2000, 2008)]
 print(type(imperialists))
 
 # %%
-# In abvoe list, the first member is ``string``, the second member is ``dictionary``,
+# In above list, the first member is ``string``, the second member is ``dictionary``,
 # the third member is ``integer`` and the fourth member is a ``tuple``. We will
 # study about string, dictionary, integer and tuple in upcoming lessons.
 #
 # There are two ways to convert a python object into list
-# * using ``[]``
-# % usnig ``list`` function
+#    * using ``[]``
+#    * usnig ``list`` function
 
 # %%
 a = 1,2

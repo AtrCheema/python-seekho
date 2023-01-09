@@ -14,42 +14,45 @@ print(pd.__version__)
 
 df = pd.DataFrame({'age':[30, 2, 12, 4, 32, 33, 69],
                    'color':['blue', 'green', 'red', 'white', 'gray', 'black', 'red'],
-                   'food':['Steak', 'Lamb', 'Mango', 'Apple', 'Cheese', 'Melon', 'Beans'],
+                   'food':['Steak', 'Lamb', 'Mango', 'Apple', 'Cheese', 'Melon', 'Mango'],
                    'height':[165, 70, 120, 80, 180, 172, 150],
                    'score':[4.6, 8.3, 9.0, 3.3, 1.8, 9.5, 2.2],
-                   'state':['NY', 'TX', 'FL', 'AL', 'AK', 'TX', 'TX']
+                   'city':['LHR', 'KRH', 'RWP', 'ISL', 'SKT', 'PSH', 'QTA']
                    },
-                  index=['Jane', 'Nick', 'Aaron', 'Penelope', 'Dean', 'Christina', 'Cornelia'])
-df
+                  index=['Ali', 'Hasan', 'Husain', 'Fatima', 'Zainab', 'Musa', 'Raza'])
+print(df)
 
 #%% md
-# The indexing operator, `[]`, can slice can select rows and columns too but not simultaneously.
+# The indexing operator, `[]`, can be used for slicing and for selecting rows and columns.
+# However, it can not be used for both purposes (slicing and selecting rows/columns) simultaneously.
+
+#%%
+# We can select a single column from dataframe as below
+
+print(df['food'])
+
+#%% md
+# For selecting multiple columns, we must pass a list of columns.
 
 #%%
 
-df['food']
-
-#%% md
-# Selecting multiple columns in a dataframe
-
-#%%
-
-df[['food', 'score']]
+print(df[['food', 'score']])
 
 #%% md
 # when slice notation is used, then selection happens by row labels or by integer location
 
 #%%
 
-df['Penelope':'Christina']
+print(df['Fatima':'Musa'])
 
 #%%
 
-df[2:6:2]
+print(df[2:6:2])
 
 #%% md
-#
-#`at` and `iat` a meant to access a scalar, that is, a single element in the dataframe,
+# However, there are more specific methods for indexing and slicing a dataframe. These
+# are ``loc``, ``iloc``, ``at`` and ``iat``.
+# ``at`` and ``iat`` a meant to access a scalar, that is, a single element in the dataframe,
 # while `loc` and `iloc` are ments to access several elements at the same time,
 # potentially to perform vectorized operations
 
@@ -61,49 +64,79 @@ df[2:6:2]
 #
 #
 
-# label means columns and index
+# It is used when we want to select rows or columns from a dataframe using the names of columns
+# or the name of index.
 
 #%% md
-# To select a single row of data, place the index label inside of the brackets following `loc`.
+# The index operator ``[]`` after ``.loc`` can have two values/identifiers separated by comma ",".
+# The first identifier tells which row/rows we want to select and second identifier tells,
+# which columns we want to select.
 
 #%%
+# For example if we want to select a row whose index is "Fatima", we can use ``loc``.
 
-df.loc['Penelope']
+print(df.loc['Fatima'])
 
 #%% md
 # Selecting multiple rows with .loc with a list of strings
 
 #%%
 
-df.loc[['Cornelia', 'Jane', 'Dean']]
+print(df.loc[['Raza', 'Ali', 'Zainab']])
 
 #%% md
 # Selecting multiple rows with .loc with slice notation
 
 #%%
 
-df.loc['Aaron':'Dean']
+print(df.loc['Husain':'Zainab'])
 
 #%% md
-# Simultaneous selection of rows and columns
+# In following code, we simultaneously select rows and columns by their labels.
 
 #%%
-
-df.loc[['Jane', 'Dean'], 'height':]
-
-#%% md
-# boolean selection
-
-#%%
-
-df.loc[df['age'] > 30, ['food', 'score']]
+print(df.loc[['Ali', 'Zainab'], 'height':])
 
 #%% md
 # selecting all rows
 
 #%%
 
-df.loc[:, 'color':'score':2]
+print(df.loc[:, 'color':'score':2])
+
+#%% md
+# We can also select rows/columns with conditions. For example if we want
+# rows where `age` is above 30, we can do as below
+
+# %%
+print(df.loc[df['age']>30])
+
+# %%
+# In above code, ``df['age']>30``, is the condition. The output of ``df['age']>30`` is
+# a boolean array. Thus when we pass a boolean array to loc, it returns us rows based
+# upon the specified condition.
+#
+# We can have multiple conditions as well
+
+print(df.loc[(df['age']>30) & (df['height']>100)])
+
+# %%
+# We can not do above conditioning with strings. What if we want
+# all rows where `color` is either blue or green or red. In such
+# a case we can provide all the values as a list inside the ``isin``
+# method.
+
+print(df.loc[df['color'].isin(['blue', 'green', 'red'])])
+
+#%%
+# We can even combine boolean indexing/condition with label based indexing.
+
+print(df.loc[df['age'] > 30, ['food', 'score']])
+
+# %%
+# **Question**:
+# Which person/people eat mango? Write code using loc and conditions.
+#
 
 #%% md
 # iloc
@@ -114,32 +147,43 @@ df.loc[:, 'color':'score':2]
 
 
 #%% md
-# Selecting a single row with .iloc with an integer
+# ``iloc`` is used to select rows and columns from dataframe by their location/index value.
+# If we don't know the actual names of columns and just want the columns by their locations,
+# we can use iloc. For example if we want the last row from dataframe, we can do as below
+
+# %%
+print(df.iloc[-1])
+
+# %%
+# If we want the last column, we can do as below
+print(df.iloc[:, -1])
 
 #%%
-
-df.iloc[4]
+# The ``:`` above tells that we want all rows.
+#
+# If we want 5th row, we can dow as below
+print(df.iloc[4])
 
 #%% md
-# Selecting multiple rows with .iloc with a list of integers
+# If we want to select multiple rows, we need to pass a list.
 
 #%%
 
-df.iloc[[2, -2]]
+print(df.iloc[[2, -2]])
 
 #%% md
 # Selecting multiple rows with .iloc with slice notation
 
 #%%
 
-df.iloc[:5:3]
+print(df.iloc[:5:3])
 
 #%% md
 # Simultaneous selection of rows and columns
 
 #%%
 
-df.iloc[[1,4], 2]
+print(df.iloc[[1,4], 2])
 
 #%% md
 
@@ -147,7 +191,7 @@ df.iloc[[1,4], 2]
 
 #%%
 
-df.iloc[(df['age'] > 30).values, [2, 4]]
+print(df.iloc[(df['age'] > 30).values, [2, 4]])
 
 #%% md
 # `at`
@@ -159,7 +203,7 @@ df.iloc[(df['age'] > 30).values, [2, 4]]
 
 #%%
 
-df.at['Christina', 'color']
+print(df.at['Musa', 'color'])
 
 #%% md
 # iat
@@ -169,26 +213,26 @@ df.at['Christina', 'color']
 
 #%%
 
-df.iat[2, 5]
+print(df.iat[2, 5])
 
 #%% md
 # select rows from a DataFrame based on column values
 
 #%%
 
-df.loc[df['food'] == 'Cheese']
+print(df.loc[df['food'] == 'Cheese'])
 
 #%%
 
-df.loc[df['food'].isin(['Cheese', 'Melon'])]
+print(df.loc[df['food'].isin(['Cheese', 'Melon'])])
 
 #%%
 
-df[df['food'].isin(['Cheese', 'Melon'])]
+print(df[df['food'].isin(['Cheese', 'Melon'])])
 
 #%%
 
-df[~df['food'].isin(['Cheese', 'Melon'])]
+print(df[~df['food'].isin(['Cheese', 'Melon'])])
 
 #%%
 

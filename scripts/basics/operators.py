@@ -6,8 +6,8 @@ This lesson describes Basic operators in python.
 
 The traiditional mathematical operations can be performed
 on python objects just by using their symbels. This means addition, subtraction,
-multiplication and divition can be perfomred just by using ``+``, ``-``, ``/`` and
-``*`` symbols/operators between two objects respectively.
+multiplication and divitsion can be perfomred just by using ``+``, ``-``, ``*`` and
+``/`` symbols/operators between two objects respectively.
 """
 
 # %%
@@ -128,6 +128,7 @@ print(a + b)
 # not subtract two strings.
 
 # %%
+
 # uncomment following line
 # a - b # -> TypeError
 

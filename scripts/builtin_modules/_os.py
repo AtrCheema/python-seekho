@@ -19,7 +19,7 @@ import os
 # getcwd()
 # ---------
 
-os.getcwd()
+print(os.getcwd())
 
 # %%
 # path
@@ -128,7 +128,7 @@ for dirpath, dirnames, filenames in os.walk(python_seekho_scripts):
 
 # %%
 # finding files
-#---------------
+# ---------------
 # Let's create few files first.
 
 for i in range(5):
