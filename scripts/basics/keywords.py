@@ -1,7 +1,7 @@
 """
-================
-1.21. functions
-================
+========================
+1.21. builtin functions
+========================
 This file shows the usage of builtin functions available in python.
 
 

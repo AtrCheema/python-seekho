@@ -18,22 +18,22 @@ import os
 # %%
 # getcwd()
 # ---------
-
+# It returns the current working directory.
 print(os.getcwd())
 
 # %%
 # path
 # --------
-
+# Find out whether the path `p` exists or not
 p = os.getcwd()
+os.path.isdir(p)
+
+# %%
+# Find out whther `p` is a file or not
 os.path.isfile(p)
 
 # %%
-
-os.path.isfile(p)
-
-# %%
-
+# Find the parent directory of `p`.
 os.path.dirname(p)
 
 # %%
@@ -85,7 +85,7 @@ os.path.exists(p)
 # %%
 # listdir
 # ---------
-
+# Returns a list of folders/directories in a given path.
 os.listdir(p)
 
 # %%
@@ -107,14 +107,38 @@ os.listdir(p)
 # %%
 # mkdir()
 # ---------
+# creates a directory if all its upper/parent directories are present.
+p = os.path.join(os.getcwd(), "NonExistentFolder", "InsideNonExistentFolder")
+
+print(os.path.exists(p))
+
+# %%
+# uncomment following line
+# os.mkdir(p)  # FileNotFoundError
+
+# %%
+# os.makedirs
+# -------------
+os.makedirs(p)
+print(os.path.exists(p))
 
 # %%
 # cpu_count()
 # ------------
 
+print(os.cpu_count())
+
 # %%
 # chdir()
 # ----------
+original_wd = os.getcwd()
+print(original_wd)
+print(len(os.listdir(os.getcwd())))
+new_wd = os.path.join(os.path.dirname(original_wd))
+os.chdir(new_wd)
+print(len(os.listdir(os.getcwd())))
+# now changing back to original
+os.chdir(original_wd)
 
 # %%
 # walk

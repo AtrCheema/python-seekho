@@ -399,7 +399,7 @@ add_nums(2, 3, 4, 5, 6, d=5, e=12)
 # We can replace the words *args* and *kwargs* with any other variable name.
 # It is just a convention to use the word *args* for unnamed arguments and
 # the word *kwargs* for keyword arguments. The actual packing and unpacking
-# is done by ** `*` ** and ** `**` ** in python. For example, the above function
+# is done by **`*`** and **`**`** in python. For example, the above function
 # can also be written as below
 
 def add_nums(one, five, *unnamed, **named):

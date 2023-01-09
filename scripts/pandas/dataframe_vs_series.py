@@ -87,10 +87,9 @@ type(df)
 
 print(df.columns)
 
-#%% md
-
-## Series
-
+# %% md
+# Series
+# =========
 #%%
 
 s = pd.Series(np.random.random(10))

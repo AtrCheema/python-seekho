@@ -124,7 +124,7 @@ b = "injustice."
 print(a + b)
 
 # %%
-# However we can not do same for ``-`` operatore. This means we can
+# However we can not do same for ``-`` operator. This means we can
 # not subtract two strings.
 
 # %%
@@ -137,12 +137,12 @@ print(a * 2)
 
 # %%
 # Above we are multiplying a string with an integer because `a` is a string and `2` is integer.
-# If hwoever, we do ``a +2``, we will again get ``TypeError``.
+# If however, we do ``a +2``, we will again get ``TypeError``.
 #
 # What kind of mathematical operations can be applied on an object or between two objects,
 # depends purely upon the objects. To our surprise, we can even modify the behavior of these
 # mathematical operators in python. More about this will come later in
-# :ref:`sphx_glr_auto_examples_oop_magic_methods.py`.
+# :ref:`sphx_glr_auto_examples_oop_magical_methods.py`.
 
 #########################################
 # Comparisons
