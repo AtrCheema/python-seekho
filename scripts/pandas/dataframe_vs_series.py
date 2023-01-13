@@ -87,10 +87,9 @@ type(df)
 
 print(df.columns)
 
-#%% md
-
-## Series
-
+# %% md
+# Series
+# =========
 #%%
 
 s = pd.Series(np.random.random(10))
@@ -260,7 +259,7 @@ df.dropna()
 #%%
 
 #dropping NaN in specific columns
-df[df[2].notna()]
+print(df[df[2].notna()])
 
 #%% md
 
@@ -408,7 +407,7 @@ print(df)
 
 #%%
 
-df['a']/df['b']
+print(df['a']/df['b'])
 
 #%% md
 # add an empty column to a dataframe?
@@ -420,7 +419,7 @@ print(df)
 
 #%%
 
-df['d']
+print(df['d'])
 
 #%%
 

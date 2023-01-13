@@ -13,7 +13,7 @@
 import os
 import re
 from sphinx_gallery.sorting import ExampleTitleSortKey, ExplicitOrder
-# import sys
+import sys
 # sys.path.insert(0, os.path.abspath('.'))
 
 
@@ -60,6 +60,14 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = []
 
+# intersphinx configuration
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/{.major}'.format(
+        sys.version_info), None),
+    'numpy': ('https://docs.scipy.org/doc/numpy/', None),
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference', None),
+    'pandas': ('https://pandas.pydata.org/pandas-docs/stable/', None),
+}
 
 class ExampleTitleSortKeyWithNumber(ExampleTitleSortKey):
     """Sort examples in src_dir by example title considering that the title

@@ -43,13 +43,13 @@ print(pak_langs)
 #%%
 
 pak_langs = set((("Balochi", "Barohi"), ("punbabi", "siraiki")))
-pak_langs
+print(pak_langs)
 
 #%%
 
 # uncomment following line
 # pak_langs = set((["Balochi", "Barohi"], ["punbabi", "siraiki"]))
-pak_langs
+print(pak_langs)
 
 #%% md
 # In second case above, we want our set to have two lists as objects, so the error was prompted.

@@ -14,26 +14,32 @@ import os
 # %%
 # system()
 # ---------
+# It is used to execute commands that we would otherwise execute using
+# command prompt on windows or on terminal. For example on Windows we can
+# do ``os.system(dir)`` where ``dir`` is a command for Windows command prompt
 
 # %%
 # getcwd()
 # ---------
-
-os.getcwd()
+# It returns the current working directory.
+print(os.getcwd())
 
 # %%
 # path
 # --------
-
+# The ``path`` submodule of ``os`` module contains several helpful functions
+# to manipulate path.
+#
+# Find out whether the path `p` exists or not
 p = os.getcwd()
+os.path.isdir(p)
+
+# %%
+# Find out whther `p` is a file or not
 os.path.isfile(p)
 
 # %%
-
-os.path.isfile(p)
-
-# %%
-
+# Find the parent directory of `p`.
 os.path.dirname(p)
 
 # %%
@@ -54,11 +60,6 @@ os.path.exists(p)
 # %%
 # remove()
 # ---------
-
-
-# %%
-# rmdir()
-# ----------
 
 
 # %%
@@ -85,12 +86,15 @@ os.path.exists(p)
 # %%
 # listdir
 # ---------
-
+# Returns a list of folders/directories in a given path.
 os.listdir(p)
 
 # %%
 # environ
 # -------
+environ = os.environ
+print(type(environ))
+print(len(environ))
 
 # %%
 # wait()
@@ -107,14 +111,54 @@ os.listdir(p)
 # %%
 # mkdir()
 # ---------
+# creates a directory if all its upper/parent directories are present.
+new_folder = os.path.join(os.getcwd(), "NewFolder")
+
+print(os.path.exists(new_folder))
+os.mkdir(new_folder)
+
+print(os.path.exists(new_folder))
+
+# %%
+p = os.path.join(os.getcwd(), "NonExistentFolder", "InsideNonExistentFolder")
+
+print(os.path.exists(p))
+
+# %%
+# uncomment following line
+# os.mkdir(p)  # FileNotFoundError
+
+# %%
+# os.makedirs
+# -------------
+os.makedirs(p)
+print(os.path.exists(p))
+
+# %%
+# rmdir()
+# ----------
+
+print(os.path.exists(new_folder))
+os.rmdir(new_folder)
+print(os.path.exists(new_folder))
 
 # %%
 # cpu_count()
 # ------------
 
+print(os.cpu_count())
+
 # %%
 # chdir()
 # ----------
+original_wd = os.getcwd()
+print(original_wd)
+print(len(os.listdir(os.getcwd())))
+new_wd = os.path.join(os.path.dirname(original_wd))
+os.chdir(new_wd)
+print(len(os.listdir(os.getcwd())))
+# now changing back to original
+os.chdir(original_wd)
 
 # %%
 # walk
@@ -128,7 +172,7 @@ for dirpath, dirnames, filenames in os.walk(python_seekho_scripts):
 
 # %%
 # finding files
-#---------------
+# ---------------
 # Let's create few files first.
 
 for i in range(5):
@@ -140,8 +184,6 @@ for i in range(5):
 
 # %%
 # If we want to find all files and folders within a specific path
-
-import os
 
 path_to_look = os.getcwd()
 

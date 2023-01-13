@@ -2,7 +2,7 @@
 ======================
 5.8 efficient pandas
 ======================
-This file shows the how not to use pandas
+This file shows the how to efficiently use pandas
 
 .. important::
   This lesson is still under development.
@@ -16,6 +16,9 @@ import pandas as pd
 
 print(pd.__version__, np.__version__)
 
+# %%
+# Define a function which prints memory used by a dataframe
+
 def memory_usage(dataframe):
     return round(dataframe.memory_usage().sum() / 1024**2, 4)
 
@@ -25,10 +28,10 @@ def memory_usage(dataframe):
 #-----------------------------
 
 def dump_and_load(dataframe:pd.DataFrame):
-    start = time.time()
+    st = time.time()
     dataframe.to_csv("File.csv")
     pd.read_csv("File.csv")
-    return round(time.time() - start, 3)
+    return round(time.time() - st, 3)
 
 df = pd.DataFrame(np.random.random((100, 10)))
 
@@ -55,13 +58,14 @@ def dump_and_load_parquet(dataframe:pd.DataFrame):
 
     dataframe.columns = dataframe.columns.map(str)  # parquet expects column names to be string
 
-    start = time.time()
+    st = time.time()
     dataframe.to_parquet("File.pq")
     pd.read_parquet("File.pq")
-    return round(time.time() - start, 3)
+    return round(time.time() - st, 3)
 
 dump_and_load_parquet(df)
 
+# %%
 # categorical type instead of string type
 
 
@@ -71,7 +75,7 @@ dump_and_load_parquet(df)
 # don't think in terms of rows, but in terms columns
 #---------------------------------------------------
 df = pd.DataFrame(np.random.random((5000, 4)), columns=['a', 'b', 'c', 'd'])
-df
+print(df)
 #%%
 
 start = time.time()
@@ -82,7 +86,7 @@ for idx, i in enumerate(range(len(df))):
 print(time.time() - start)
 
 #%%
-df
+print(df)
 #%%
 
 start = time.time()
@@ -92,37 +96,49 @@ print(time.time() - start)
 
 #%%
 # reduce memory consuption
-#--------------------------
-
+# --------------------------
+# Let's create a dataframe with column which contains only integers
 df = pd.DataFrame(np.random.randint(0, 256, 10000000))
 
 print(df.dtypes)
 #%%
-
+# The default type fo the column is ``object`` which means pandas does not
+# know that the data in column is only integer.
+#
+# The memory consumed by the dataframe currently is:
 print(f"{memory_usage(df)} Mb")
 
 #%%
+# However when we check the maximum and minimum value of integers in our dataframe
+# they range between 0 and 255.
 
 print(df[0].min(), df[0].max())
 
 #%%
-
+# This means we can store our data as int16. With ``object`` type, we are
+# assigning a lot of memory to our data, which is even not necessary.
+#
+# We can verify that the maximum and minium value in the column is between the
+# lower and upper limit of of np.int16.
 print(df[0].min() > np.iinfo(np.int16).min and df[0].max() < np.iinfo(np.int16).max)
 
 #%%
+# So now let's convert our the data type of our column into np.int16 and check the
+# memory consuption now.
 
 df[0] = df[0].astype(np.int16)
 
 print(f"{memory_usage(df)} Mb")
 
 #%%
-# we see the memory usage has been reduced by almost half
+# we see the memory usage has been reduced significantly.
+# Now let's do same with floats.
 
 df = pd.DataFrame(np.random.random(10000000))
 
 print(df.dtypes)
 
-print(f"Initial memory {memory_usage(df)} Mb")
+print(f"Initial memory: {memory_usage(df)} Mb")
 
 print(f"min: {df[0].min()} max:  {df[0].max()}")
 
@@ -130,9 +146,13 @@ print(df[0].min() > np.iinfo(np.int16).min and df[0].max() < np.iinfo(np.int16).
 
 df[0] = df[0].astype(np.float16)
 
-print(f"Final memory {memory_usage(df)} Mb")
+print(f"Final memory:  {memory_usage(df)} Mb")
 
-
+# %%
+# We can write helper functions to convert the column types in dataframe.
+# Below, we write functions, which check the data in each column of a dataframe,
+# and assign the the dtype (read as assign the memory) which is just enough for the data in column.
+# It means we assign the memory enough for the column but not more than what is required.
 
 def int8(array:Union[np.ndarray, pd.Series])->bool:
     return array.min() > np.iinfo(np.int8).min and array.max() < np.iinfo(np.int8).max
@@ -201,6 +221,9 @@ def maybe_reduce_memory(dataframe:pd.DataFrame, hints=None)->pd.DataFrame:
     print(f"memory reduced from {init_memory} to {memory_usage(dataframe)}")
     return dataframe
 
+# %%
+# Now we can test our function that how much memory it reduces.
+
 df = pd.DataFrame(np.column_stack([
     np.random.randint(-126, 126, 100_000),
     np.random.randint(-31000, 32760, 100_000),
@@ -209,6 +232,7 @@ df = pd.DataFrame(np.column_stack([
 
 print(df.shape)
 #%%
+# Print the original dtypes
 
 print(df.dtypes)
 #%%
@@ -216,10 +240,12 @@ print(df.dtypes)
 maybe_reduce_memory(df)
 
 #%%
+# print the converted dtypes
 
 print(df.dtypes)
 
 #%%
+# Test with dataframe containing floats
 
 df = pd.DataFrame(np.column_stack([
     np.random.randint(-126, 65000, 100_000) * 1.0,
@@ -260,6 +286,7 @@ maybe_reduce_memory(df, hints={0: "int", 1: "int", 2: "int",
 print(df.dtypes)
 
 #%%
+# For smaller dataframes, teh differene may not seem much but
 # when we try to scale things up, the difference is very significant
 
 df = pd.DataFrame(np.column_stack([

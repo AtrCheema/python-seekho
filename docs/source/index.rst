@@ -9,6 +9,7 @@ Welcome to phthon-seekho book!
 .. toctree::
    :maxdepth: 2
 
+   foreword
    auto_examples/index
 
 Indices and tables

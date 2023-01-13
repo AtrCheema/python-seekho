@@ -5,11 +5,17 @@
 """
 
 # %%
-# Sequential data types
+# A sequential data is the data type with one or more than one value/object in it.
+#
+# Four major sequential data types
 #    * Strings
 #    * Lists
 #    * Tuple
 #    * Range
+
+# %%
+# Since a sequential data type consists of more than one value, we can check the length
+# of a sequential data using ``len`` function.
 
 # %%
 # Lists
@@ -40,7 +46,7 @@ type(a[0]), type(a[1])
 # All elements in above list were of type `int` but a list can hold any kind of
 # objects all in same list. The following list contains, `int`, `float`, `str`
 # and a `list` type in it. Yes a list can have a list inside it as well. That
-# is why is called a **collection of objects**.
+# is why it is called a **collection of objects**.
 
 # %%
 
@@ -67,7 +73,7 @@ type(a[0]), type(a[1]), type(a[2]), type(a[3])
 print(a)
 
 # %% md
-# Unlike strings, we can change contents of lists using indexing.
+# We can change contents of lists using indexing.
 
 # %%
 
@@ -83,10 +89,10 @@ print(a)
 print(a[0:3])
 
 a[0:3] = [2.0, 2]
-a
+print(a)
 
 # %% md
-# So we see the size of list is changed automatically
+# So we see the size of list is changed automatically/dynamically.
 
 # %% md
 # nested lists
@@ -99,7 +105,8 @@ a
 pakistan = [[['Nawakali', 'Alamdar Road', 'Killi Ismail', 'Kharotabad'],
              'Kallat', 'Ziarat', 'Gawadar'],
             ['Sukkur', 'Rohri', 'Hayderabad', 'Karachi'],
-            ['Peshawar', 'Hangue', 'Mardan', 'Charsadda'], ['Lahore', ['ugoki', 'sambrial', 'pasrur', 'daska'], 'Sadiqabad', 'Multan']]
+            ['Peshawar', 'Hangue', 'Mardan', 'Charsadda'],
+            ['Lahore', ['ugoki', 'sambrial', 'pasrur', 'daska'], 'Sadiqabad', 'Multan']]
 
 len(pakistan)
 
@@ -113,28 +120,28 @@ len(pakistan[0]), len(pakistan[1]), len(pakistan[2]), len(pakistan[3])
 
 # %%
 
-pakistan[0][0][0:]
+print(pakistan[0][0][0:])
 
 # %%
 
-pakistan[3][0][:]
+print(pakistan[3][0][:])
 
 # %%
 
-pakistan[3][1][-3:]
+print(pakistan[3][1][-3:])
 
 # %%
 
-pakistan[3][1][3][3:]
+print(pakistan[3][1][3][3:])
 
 # %%
 
 enigma = 'IRtu diysa rtdo oK icpolnivnegn iweanst  at ow hbiet ea  sluipbeerrmaalc!i s t'
-enigma[::2]
+print(enigma[::2])
 
 # %%
 
-enigma[1::2]
+print(enigma[1::2])
 
 # %% md
 # concatenation
@@ -144,18 +151,18 @@ enigma[1::2]
 # %%
 
 provinces = ['sind', 'balochistan', 'kpk', 'punjab'] + ['janubi punjab', 'kashmir', 'potohar']
-provinces
+print(provinces)
 
 # %%
 
 provinces += ['hazara', 'karachi']
-provinces
+print(provinces)
 
 # %% md
 # Tuples
 # ==========
-
-# In contrast to lists, tuples are immutables.
+# In contrast to lists, tuples are immutables which means, once they are created,
+# we can not change/modify their content.
 
 # %%
 
@@ -163,9 +170,9 @@ a = (1, 2, 3)
 type(a)
 
 # %%
-
+# Just like lists, the contents of tuples can also be of different types.
 a = (1, 2.0, 'a', pakistan)
-a
+print(a)
 
 # %% md
 # We can not change a value in a tuple.
@@ -182,29 +189,28 @@ a
 # %% md
 # `in`
 # -------
-
 # The `in` keyword is used to check whether an element is present in a
 # sequence or not.
 
 # %%
 
-"Bahawalpur" in provinces
+print("Bahawalpur" in provinces)
 
 # %%
 
-"Multan" not in provinces
+print("Multan" not in provinces)
 
 # %%
 
-"pubjab" in provinces
+print("pubjab" in provinces)
 
 # %%
 
-'a' in a
+print('a' in a)
 
 # %%
 
-'at' in enigma
+print('at' in enigma)
 
 # %% md
 # Repetition
@@ -214,19 +220,19 @@ a
 
 text = ["Gaza is an open air prison. "]
 t = [text] * 3
-t
+print(t)
 
 # %% md
 # Caveat
 
 #%%
 
-t[0][0]
+print(t[0][0])
 
 # %%
 
 t[0][0] = "Yemen is an open air prison. "
-t
+print(t)
 
 # %% md
 # Indexing

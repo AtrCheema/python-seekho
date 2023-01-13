@@ -39,15 +39,19 @@ a = a + 10
 print(a)
 
 # %% md
-# What kind of object python creates, depends upon the type of data. We can check
-# the type of a variable by using the command ``type(VariableName)``
+# The ``print`` is a (builtin) function in python which we can use to `print the value
+# of a variable`. This is not always true but more about it will come in
+# :ref:`sphx_glr_auto_examples_basics_print_function.py` and :ref:`sphx_glr_auto_examples_oop_magical_methods.py`.
+# The kind of object python creates, depends upon the type of data. We can check
+# the type of a variable by using the command/function ``type(VariableName)``
 
 # %%
 
 print(type(a))
 
 # %%
-
+# The function ``type`` is the most important function in python. Whenver you don't know about
+# some object in python, the first thing you should do is to check its ``type`` using ``type(object)``
 b = 2.0
 print(type(b))
 
@@ -213,7 +217,7 @@ print(txt)
 # %%
 
 s = "Assalam o alaikum"
-s[0]
+print(s[0])
 
 # %%
 
@@ -225,7 +229,7 @@ len(s)
 
 # %%
 
-s[len(s)-1], s[-1]
+print(s[len(s)-1], s[-1])
 
 # %% md
 # Slicing
@@ -233,7 +237,7 @@ s[len(s)-1], s[-1]
 
 # %%
 
-s[-3:], s[5:8], s[8:]
+print(s[-3:], s[5:8], s[8:])
 
 # %% md
 # Concatenation
@@ -252,7 +256,7 @@ print(a)
 # %%
 
 b = a*3
-b
+print(b)
 
 # %% md
 # We can find the length of a sequence object in python using the function `len`.
@@ -275,17 +279,17 @@ len(a), len(b)
 
 a = "Muhammad"
 b = "Muhammad"
-a is b
+print(a is b)
 
 # %%
 
-a == b
+print(a == b)
 
 # %%
 
 a = "Muhammad!"
 b = "Muhammad!"
-a is b
+print(a is b)
 
 # %%
 
@@ -295,11 +299,11 @@ print(a == b)
 
 a = "Muhammad1"
 b = "Muhammad1"
-a is b
+print(a is b)
 
 #%%
 
-a == b
+print(a == b)
 
 # %% md
 # Range

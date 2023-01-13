@@ -13,7 +13,7 @@ print(np.__version__)
 
 #%%
 # stack
-#=============
+# =============
 # all arrays must have same shape
 
 #%%
@@ -298,7 +298,7 @@ print(np.row_stack([a,b]).shape)
 
 ###################################################
 # dstack
-#==========
+# ==========
 # depth wise stacking
 
 a = np.random.random(10)

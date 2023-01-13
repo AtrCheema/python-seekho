@@ -35,10 +35,42 @@ imperialists = ["Bush", {"years": 8}, 2000, (2000, 2008)]
 print(type(imperialists))
 
 # %%
-# In abvoe list, the first member is ``string``, the second member is ``dictionary``,
+# In above list, the first member is ``string``, the second member is ``dictionary``,
 # the third member is ``integer`` and the fourth member is a ``tuple``. We will
 # study about string, dictionary, integer and tuple in upcoming lessons.
+#
+# There are two ways to convert a python object into list
+#    * using ``[]``
+#    * usnig ``list`` function
 
+# %%
+a = 1,2
+print(type(a))
+a_as_list_using_slice_op = [a]
+print(type(a_as_list_using_slice_op))
+
+# %%
+a_as_list_using_list_fn = list(a)
+print(type(a_as_list_using_list_fn))
+
+# %%
+# However there is a major difference in these two. ``[]`` converts the whole object *as it is*
+# into a list. On the other hand, ``list`` function is more like `element wise` operator.
+# This can be verified by printing the converted lists created above.
+
+print(a_as_list_using_slice_op)
+print(a_as_list_using_list_fn)
+
+# %%
+print(len(a_as_list_using_slice_op))
+print(len(a_as_list_using_list_fn))
+
+# %%
+# Then length of list using slice operator ``[]`` is always 1, while
+# the length of list created using ``list`` function depends upon the number of values
+# in the object.
+
+# %%
 # Once we have a list, we can perform different operations on it. Some of them
 # are given below.
 

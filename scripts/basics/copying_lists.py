@@ -21,6 +21,9 @@ print(countries2)
 print(id(countries1),id(countries2))
 
 #%%
+# Both the lists `countries1` and `countries2` point to same object in memory.
+# This means, even though we have two list variables, in reality we have only
+# one object.
 
 countries2 = ["Qatar", "Malaysia", "Lebanon"]
 print(countries1)
@@ -33,7 +36,7 @@ print(id(countries1),id(countries2))
 
 #%% md
 # So the `countries2` list became different from `countries1` when we assigned
-# a new different object to it.
+# a different object to it.
 # What happens when we change the contents of list
 
 #%%
@@ -48,7 +51,7 @@ print(countries1)
 print(countries2)
 
 #%% md
-# The list `countries1` changed automatically. This is because, we don't have two
+# Even though we only changed `countries2`, the list `countries1` changed automatically. This is because, we don't have two
 # lists in reality. We have one list with two names. What we did was `in place`
 # change in `countries2` list and did not assign a new object to `countries2`,
 # so the the name `countries2` still points to the same object as `countries1`.

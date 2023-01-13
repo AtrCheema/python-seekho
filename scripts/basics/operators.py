@@ -4,8 +4,10 @@
 ================
 This lesson describes Basic operators in python.
 
-.. important::
-  This lesson is still under development.
+The traiditional mathematical operations can be performed
+on python objects just by using their symbels. This means addition, subtraction,
+multiplication and divitsion can be perfomred just by using ``+``, ``-``, ``*`` and
+``/`` symbols/operators between two objects respectively.
 """
 
 # %%
@@ -19,14 +21,17 @@ a = 10 + 20
 print(a)
 
 #########################################
-
-a += 10
+# If we want to add something to variable 'a', one way of doint it is using ``+=``.
+a +=10
 print(a)
 
 #########################################
-# ``-`` is used for subtraction
+# Above we added 10 to `a` and assigned the new value again to `a`. In this way, the
+# value of `a` is updated.
+
 
 #########################################
+# Similarly we can use ``-`` for subtracting one object from another\
 
 a = 20 - 10
 print(a)
@@ -37,7 +42,7 @@ a -= 5
 print(a)
 
 #########################################
-# ``*`` for multiplication
+# ``*`` is used for for multiplication
 
 #########################################
 
@@ -51,9 +56,7 @@ a *= 2
 print(a)
 
 #########################################
-# ``%`` modulo
-
-# returns remainder
+# The modulo operator ``%`` returns remainder
 
 #########################################
 
@@ -76,7 +79,7 @@ print(17 % 5.0)
 print(17 % -5.0)
 
 #########################################
-# ``/`` for division
+# ``/`` is used for division
 
 #########################################
 
@@ -85,7 +88,7 @@ a = 20/6
 print(a)
 
 #########################################
-# ``//`` is used for truncated division
+# `//` is used for truncated division
 
 #########################################
 
@@ -97,7 +100,7 @@ print(20//6.0)
 
 #########################################
 # If the answer of the truncated division is negative, the answer is rounded to
-# the next smallest integer (greater negative)
+# the next smallest iteger (greater negative)
 
 #########################################
 
@@ -105,54 +108,86 @@ print(20//-6.0, -20//6.0)
 
 #########################################
 
--20 // -6.0
+print(-20 // -6.0)
 
 #########################################
-# `**`  is used for exponentiation
+# `**` is used for exponentiation i.e. to raise one object over another.
 
-#########################################
+print(2**3)
 
-2**3
+# %%
+# The application of basic mathematical operators is not limited to floats or integers.
+# We can also apply ``+`` to strings in python
+
+a = "Materialism leads to "
+b = "injustice."
+print(a + b)
+
+# %%
+# However we can not do same for ``-`` operator. This means we can
+# not subtract two strings.
+
+# %%
+
+# uncomment following line
+# a - b # -> TypeError
+
+# %%
+print(a * 2)
+
+# %%
+# Above we are multiplying a string with an integer because `a` is a string and `2` is integer.
+# If however, we do ``a +2``, we will again get ``TypeError``.
+#
+# What kind of mathematical operations can be applied on an object or between two objects,
+# depends purely upon the objects. To our surprise, we can even modify the behavior of these
+# mathematical operators in python. More about this will come later in
+# :ref:`sphx_glr_auto_examples_oop_magical_methods.py`.
 
 #########################################
 # Comparisons
 # --------------------------
+# If we want to compare one object with another and tell whether both are
+# equal or not, we make use of ``==`` operator.
 
 #########################################
 
 print(2 == 3)
 
 #########################################
-
+# The ``==`` operator returns either True or False depending upon the values being compared.
 print(2 ==2)
 
 #########################################
 
-2.2 == 1.1 + 1.1
+print(2.2 == 1.1 + 1.1)
 
 #########################################
+# However, we should avoid comparing floats in this way. This is because
+# `computers can not represent accurate values of floats <https://stackoverflow.com/q/21895756/14411830>`_.
 # 1.1 + 2.2 results in an approximated answer so we avoid comparing floats.
 
 #########################################
 
-3.3 == 1.1 + 2.2
+print(3.3 == 1.1 + 2.2)
 
 #########################################
 
-abs((1.1 + 2.2) - 3.3) < 1e-15
+print(abs((1.1 + 2.2) - 3.3) < 1e-15)
 
 #########################################
-# Check if a number lies between two numbers
+# If we want to check whether a number lies between two numbers or not
+# we can make use of ``<`` or ``>`` operators twice.
 
 #########################################
 
-8<10<12
+print(8<10<12)
 
 #########################################
 
 capitalism = 'a system based on individualism'
 
-capitalism != 'justice'
+print(capitalism != 'justice')
 
 #########################################
 # Logical operators
@@ -161,40 +196,40 @@ capitalism != 'justice'
 
 #########################################
 
-not True
+print(not True)
 
 #########################################
 
-not False
+print(not False)
 
 #########################################
 
 x = 5.2
-not x <= 10
+print(not x<=10)
 
 #########################################
 
 capitalism = False
 communism = False
 justice = True
-capitalism and communism
+print(capitalism and communism)
 
 #########################################
 
-capitalism or communism
+print(capitalism or communism)
 
 
 #########################################
 
-capitalism and justice
+print(capitalism and justice)
 
 #########################################
 
-capitalism or justice
+print(capitalism or justice)
 
 #########################################
 
-capitalism is not justice
+print(capitalism is not justice)
 
 #########################################
 # Default values
@@ -278,19 +313,20 @@ print(feudalism is capitalism)
 feudalism = 'a system of slavery'
 capitalism = 'a system of slavery'
 
-feudalism is capitalism
+print(feudalism is capitalism)
 
 #########################################
 # Order of operations
 # ------------------------------------
 
 #########################################
-
-20 + 4 * 10
+# The multiplication ``*`` is performed before addition ``+`` even if ``+`` appears
+# before ``*``.
+print(20 + 4 * 10)
 
 #########################################
-
-2 * 3 ** 4 * 5
+# Similarly `exponentiation` (``**``) is performed before multiplication.
+print(2 * 3 ** 4 * 5)
 
 #########################################
 # Complete order of precedence of operators in python can be found from
