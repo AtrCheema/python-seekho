@@ -8,7 +8,7 @@ This lesson discusses the concept of method in python.
 
 
 # %% md
-# Forget for the time being what the word `methods` mean in English, method here means
+# Forget for the time being what the word `methods` mean in English. The term `method` here means
 # `functions associated with classes` Let's write a simple function which takes an
 # `object` as input and prints the `name` attribute of that object"
 
@@ -19,19 +19,17 @@ def say_salam(obj):
     return
 
 # %% md
-# We also define a simple class named `Insan` as we did in previous examples.
+# Let's also define a simple class named `Insan` as we did in previous examples.
 
 # %%
-
 
 class Insan:
     pass
 
 # %% md
-# We can use the function ``salam`` by using the instance of class ``Insan`` which is ``x``.
+# We can use the function `salam` by using the instance of class `Insan` which is `x`.
 
 # %%
-
 
 x = Insan()
 x.name = "Ali"
@@ -50,7 +48,6 @@ type(say_salam)
 
 # %%
 
-
 def say_salam(obj):
     print("Salam, I am " + obj.name)
 
@@ -58,13 +55,11 @@ def say_salam(obj):
 class Insan:
     taruf = say_salam
 
-
 # %% md
 # Now we can make use of the function ``say_salam`` which is linked to class
 # ``Insan`` as following
 
 # %%
-
 
 x = Insan()
 
@@ -75,20 +70,19 @@ Insan.taruf(x)
 # %% md
 # attributes in the ``Insan`` class are:
 
-
 # %%
 
 print(Insan.__dict__)
 
 # %% md
-# ``taruf`` is a method and can be called as
+# `taruf` is a method and can be called as
 
 # %%
 
 x.taruf()
 
 # %% md
-# so ``Insan.taruf`` and ``x.taruf` are equivalent. Although the method ``say_salam``
+# so `Insan.taruf` and `x.taruf` are equivalent. Although the method `say_salam`
 # takes one argument ``obj`` as input but we did not provide any input argument while
 # calling it through ``x.taruf()`` and no error was thrown? This is because when the
 # function ``say_salam`` was linked to the class ``Insan``, and when we call this method,
@@ -101,7 +95,6 @@ x.taruf()
 
 # %%
 
-
 class Insan:
     def say_salam(self):
         print("Salam, I am " + self.name)
@@ -110,6 +103,7 @@ class Insan:
 
 ali = Insan()
 
+# %%
 # uncomment following line
 # ali.say_salam()  # AttributeError
 
@@ -119,7 +113,7 @@ ali = Insan()
 
 # %%
 
-ali.__dict__
+print(ali.__dict__)
 
 # %% md
 #  Lets define the attribute before using the method ``say_salam``
@@ -138,7 +132,7 @@ ali.say_salam()
 
 # %%
 
-ali.__dict__
+print(ali.__dict__)
 
 # %% md
 # so whats the difference btw ``method`` and ``function``?

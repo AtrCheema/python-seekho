@@ -100,6 +100,13 @@ print(df.index)
 
 #%%
 # So now the type of index of the dataframe is date/time.
+# Now we can perform slicing based upon time, for example we can ask pandas to return rows
+# which are after 15 January 2011 as below
+
+print(df[df.index>pd.Timestamp("20110115")])
+
+# %%
+# Had we done it earlier (before converting our index to pd.DateTimeIndex, we would have got error
 
 ##################################
 # creating datetime index

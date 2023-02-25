@@ -12,7 +12,6 @@
 
 # %%
 
-
 class Insan(object):
     pass
 
@@ -23,7 +22,7 @@ print(str(ali))
 repr(ali)
 
 # %% md
-# If a class does not have explicit definition of `str` or `repr` methods, python will
+# If a class does not have explicit definition of ``str`` or ``repr`` methods, python will
 # used the default output.
 
 # %%
@@ -38,7 +37,7 @@ str(name)
 repr(name)
 
 # %% md
-# `name` belongs to class `int` and this class has `str` and `repr` methods so python
+# `name` belongs to class ``int`` and this class has ``str` and `repr` methods so python
 # did not give default output rather used the methods from `int` class.
 # but until here we see no apparent difference.
 
@@ -98,13 +97,13 @@ repr(name)
 
 name2 = eval(repr(name))
 
-name2 == name
+print(name2 == name)
 
 # %%
 
 name3 = eval(str(name))
 
-name3 == name
+print(name3 == name)
 
 # %% md
 # ``repr`` is such a representation of an object that by evaluating it (by using ``eval``)
@@ -195,12 +194,12 @@ import datetime
 
 aaj = datetime.datetime.now()
 aaj_str = str(aaj)
-aaj_str
+print(aaj_str)
 
 # %%
 
 aaj_repr = repr(aaj)
-aaj_repr
+print(aaj_repr)
 
 # %%
 

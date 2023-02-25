@@ -720,7 +720,8 @@ print(body1)
 
 # %%
 # **References:**
-# The material in this notebook is inspired from following posts
+#
+# The material in this lesson is inspired from following posts
 #
 #    * `talk on descriptors <http://simeonfranklin.com/talk/descriptors.html>`_
 #    * `Python course eu website <https://www.python-course.eu/python3_descriptors.php>`_

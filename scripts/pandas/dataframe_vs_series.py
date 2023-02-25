@@ -11,15 +11,30 @@ import pandas as pd
 print(pd.__version__, np.__version__)
 
 #%%
+# Suppose we have an array [0.4, 0.3, 0.5, 0.2, 0.6, 0.3]. Let's say
+# the values in this array represent concentrations in water measured
+# every hour from 13 pm to 19 pm. However, with just an array, we don't
+# have the ability to encode this information. If we want to add the (temporal) reference of each value
+# we have to add it ourself for example by saving that in a separate array.
+# Pandas comes with this in-built ability that we can add reference or labels to arrays.
+# Every array in pandas has two kinds of references. The reference for the rows which
+# is called ``index`` and the reference for the columns which is called ``columns``.
+# Therefore we can call pandas a library which have referenced/labelled arrays.
+#
+# The core data structure in pandas is ``DataFrame`` which consists of one or more
+# columns. A single column in a DataFrame is a ``Series``.
 
 df = pd.DataFrame(np.random.random((10, 3)))
 print(df)
 
 #%%
-
+# The data in columns is stored as numpy arrays. Therefore, a DataFrames and Series
+# have a lot of characteristics similar to that of numpy arrays.
 print(df.shape)
 
 #%%
+# By default the columns names are just integers starting from 0, however
+# we can define the column names ourselves as well.
 
 df = pd.DataFrame(np.random.random((10, 3)), columns=['a', 'b', 'c'])
 print(df)
@@ -29,11 +44,11 @@ print(df)
 print(df.columns)
 
 #%%
-
+# The columns are list like structures. However they are not exactly lists.
 type(df.columns)
 
 #%%
-
+# We can however, convert the columns to list though.
 df.columns.to_list()
 
 #%%
@@ -41,10 +56,11 @@ df.columns.to_list()
 type(df.columns.to_list())
 
 #%%
-
+# The default label for the rows i.e. ``index`` consists of numbers starting from 0.
 print(df.index)
 
 #%%
+# However, we can set ``index`` of our choice as well.
 
 df = pd.DataFrame(np.random.random((10, 3)),
                   columns=['a', 'b', 'c'],
@@ -56,11 +72,11 @@ print(df)
 print(df.index)
 
 #%%
-
+# The default name of ``index`` is ``None``.
 print(df.index.name)
 
 #%%
-
+# However, we can set the name of index as well.
 df.index.name = 'years'
 print(df)
 
@@ -90,7 +106,7 @@ print(df.columns)
 # %% md
 # Series
 # =========
-#%%
+# A Series consists of a single column. It can be constructed using ``pd.Series``.
 
 s = pd.Series(np.random.random(10))
 print(s)
@@ -118,7 +134,6 @@ print(s)
 print(s.name)
 
 #%% md
-
 # the Series is literally the data structure for a single column of a DataFrame.
 
 #%%
@@ -129,8 +144,9 @@ df = pd.DataFrame(np.random.random((10, 3)),
 print(df)
 
 #%%
+# A single column in a DataFrame is a Series.
 
-type(df['a'])
+print(type(df['a']))
 
 #%%
 
@@ -140,7 +156,8 @@ s = pd.Series(np.random.random(10),
 print(s)
 
 #%%
-
+# Since pandas is based upon numpy arrays. We can extract actual numpy
+# arrays from DataFrame using `.values` method.
 print(df.values)
 
 #%%
@@ -175,7 +192,6 @@ df.head()
 df.head(8)
 
 #%% md
-
 # Get the last N rows of a DataFrame
 
 #%%
@@ -215,7 +231,6 @@ df.columns = ['x', 'y', 'z']
 print(df)
 
 #%% md
-
 # row count of pandas dataframe
 
 #%%
@@ -227,7 +242,6 @@ len(df.index)
 print(df.shape[0])
 
 #%% md
-
 # change the order of DataFrame columns
 
 #%%
@@ -238,8 +252,7 @@ df = df[cols]
 print(df)
 
 #%% md
-
-##  drop rows of Pandas DataFrame whose value in a certain column is NaN
+#  drop rows of Pandas DataFrame whose value in a certain column is NaN
 
 #%%
 
@@ -252,18 +265,15 @@ df.iloc[::2,0] = np.nan; df.iloc[::4,2] = np.nan; df.iloc[::3,2] = np.nan
 print(df)
 
 #%%
-
-#dropping all rows having NaN values
+# dropping all rows having NaN values
 df.dropna()
 
 #%%
-
-#dropping NaN in specific columns
+# dropping NaN in specific columns
 print(df[df[2].notna()])
 
 #%% md
-
-## count the NaN values in a column in DataFrame
+# count the NaN values in a column in DataFrame
 
 #%%
 
@@ -276,18 +286,15 @@ print(df)
 df.isna().sum()
 
 #%%
-
-#for columns
+# for columns
 df.isnull().sum(axis = 0)
 
 #%%
-
-#for rows
+# for rows
 df.isnull().sum(axis = 1)
 
 #%% md
-
-## check if any value is NaN in a DataFrame
+# check if any value is NaN in a DataFrame
 
 #%%
 
@@ -296,23 +303,19 @@ df.iloc[::2,0] = np.nan; df.iloc[::4,2] = np.nan; df.iloc[::3,2] = np.nan
 print(df)
 
 #%%
-
-#how many NaN
+# how many NaN
 df.isnull()
 
 #%%
-
-#column wise
+# column wise
 df.isnull().any()
 
 #%%
-
-#if there is any NaN in entire data
+# if there is any NaN in entire data
 df.isnull().any().any()
 
 #%% md
-
-## replace NaN values by Zeroes in a column of a Dataframe?
+# replace NaN values by Zeroes in a column of a Dataframe?
 
 #%%
 
@@ -325,14 +328,13 @@ print(df)
 df.fillna(0)
 
 #%%
+# To fill the NaNs in only one column
 
-#To fill the NaNs in only one column
 df[2].fillna(0, inplace=True)
 print(df)
 
 #%% md
-
-## check if a column exists in Pandas
+# check if a column exists in Pandas
 
 #%%
 
@@ -344,10 +346,8 @@ print(df)
 if 0 in df.columns:
      print("true")
 
-
 #%% md
-
-## Python dict into a dataframe
+# Python dict into a dataframe
 
 #%%
 
@@ -376,8 +376,10 @@ pd.DataFrame(d.items())
 pd.DataFrame(d.items(), columns=['Date', 'DateValue'])
 
 #%%
-
+# uncomment following line
 # pd.DataFrame(d) # ValueError: If using all scalar values, you must pass an index
+
+# %%
 pd.DataFrame([d])
 
 #%%
@@ -427,7 +429,6 @@ df["d"] = np.nan
 print(df)
 
 #%% md
-
 # What does axis in pandas mean?
 
 #%%
@@ -493,8 +494,8 @@ len(df.columns)
 print(df.shape[1])
 
 #%% md
-
-### create empty DataFrame
+# We can create empty DataFrame by telling
+# how many columns should exist or how many rows should exist.
 
 #%%
 

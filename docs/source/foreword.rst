@@ -3,40 +3,48 @@ Foreword
 
 A self-paced beginner-level book for python-learners.
 
-Backgournd
+Background
 ===========
+Honestly, I am not expert enough to say I can write a book on python.
+When I started my journey to learn python from the internet, I found plenty of material
+on the internet. Whenever I found some example useful enough to clear a concept, I put
+that copied code in one place. Slowly, this copied material grew larger, and I started organizing
+it so that other people could also benefit from the code snippets which I found
+useful and which were scattered here and there. Moreover, as I was learning python,
+I found that learning by practicing is the best approach. However, there are
+very few books/sites which offer their code material to be downloaded. This gave rise
+to what you have in your hand or on your screen right now!
 
 Purpose
 ==========
-The purpose of this book is to provide the prospective learners a self-taught material
-with executable notebooks. This book can be considered as practical code exercises when the
-(python) infrastructure is available. However, the version_
-of it can also be used as ebook. The book is more closely related to python section of tutorialspoint_
-website. However, this book covers many topics which are not discussed there. More importantly, the code examples
-here can be downloaded as either jupyter notebook or .py files. Therefore, the user can access the complete material
+The purpose of this book is to provide prospective learners a self-taught material
+with executable notebooks. You can consider this book as a collection of practical code exercises when the
+(python) infrastructure is available. However, the pdf_ version
+of it can also be used as an ebook. The book is more closely related to the python section of the tutorialspoint_
+website. However, this book covers many topics which are not discussed there. More importantly,  the user can download the code examples
+here as either Jupyter notebook or as .py files. Therefore, the user can access the complete material
 which is more helpful for practical purposes.
 
 Who should read this book
 ============================
 
-This book is intended for absolute beginners, those who have no knowledge of python.
+This book is intended for absolute beginners, those who have no background in python.
 A very little knowledge of programming can be helpful for the readers. The advanced
 python users may find advanced topics within each chapter in this book useful.
 
 Installation
 ================
-If you have internet connection, you have two options
-  - Download the ipython notebook of a lesson and upload it on any cloud servers such as colab_  , binder_ or studiolab_ .
-  - click on launch binder button and start running the code, cell by cell.
+If you have internet connection, you can download the ipython notebook of a
+lesson and upload it on any cloud servers such as colab_  , binder_ or studiolab_ .
 
-For offline users; first install python, the libraries mentioned in requirements.txt
+For offline users; first install python, the libraries mentioned in requirements_
 file and jupyter. Then the user can run any jupyter notebook which again can be downloaded
 all at once from website_ .
 
 How to read this book?
 ==========================
-This book consists of jupyter notebooks. Each jupyter notebook consists of multiple cells.
-Each cell consists of code snippets. The best way to get maximum out of this book is to
+This book consists of Jupyter notebooks. Each Jupyter notebook consists of multiple cells.
+Each cell consists of code snippets. The best way to get the maximum out of this book is to
 follow following two tips
 
 1) Predict the output from a cell before running the cell, then run the cell and see whether
@@ -52,11 +60,11 @@ Conventions
 ===============
 Since this is an executable book, which means all the code in this book is executed
 during the creation of the book. There is some code in the book which throws errors and
-has been commented out. The code which raises errors is for demonstrative purpose
-only and does not mean that it is a bug in the book. The readers are explicitly advised
-to uncomment those lines and run the code to see the error. For example, following code
-illustrates the working of ``TypeError``. However, the code which actually
-raises the ``TypeError`` is commented out. When the user uncomment the line and runs it,
+has been commented out. The code which raises errors is only for demonstration purpose
+and does not represent a bug in the book. The readers are explicitly advised
+to uncomment those lines and run the code to see the error. For example, the following code
+illustrates the working of ``TypeError``. However, the code which
+raises the ``TypeError`` is commented out. When the user uncomments the line and runs it,
 he/she can see the error.
 
 .. code-block:: python
@@ -84,8 +92,11 @@ You can expect improvement in the book with time.
 .. _website:
     https://python-seekho.readthedocs.io
 
-.. _version:
+.. _pdf:
     https://python-seekho.readthedocs.io/_/downloads/en/latest/pdf/
 
 .. _tutorialspoint:
     https://www.tutorialspoint.com/python/index.htm
+
+.. _requirements:
+    https://github.com/AtrCheema/python-seekho/blob/master/requirements.txt

@@ -31,9 +31,7 @@ x.legs
 # function for it anymore) got executed.
 # The proper way to add `taruf` method to our Insan class is:
 
-
 # %%
-
 
 class Insan:
 
@@ -51,15 +49,15 @@ class Insan:
 # %%
 
 x = Insan()
-x.taruf()  # >> Salam, I am an Insan without a name
+x.taruf()
 
 # %%
 
 y = Insan("Ali", legs='1 leg')
-y.taruf()  # >> Salam, I am Ali
+y.taruf()
 
 # %% md
-# notice how we passed the string ``Ali`` when we were creating class instance and
+# Notice how we passed the string ``Ali`` when we were creating class instance and
 # got it transferred to the method ``taruf`` without being explicitly doing it.
 # The method ``taruf`` takes no input arguments (actually it takes one, which it
 # does implicitly) however it prints the value of `name` which we provided to

@@ -29,11 +29,10 @@ a_name = 'Ali'
 print(type(a_name))
 
 # %%
-
+# Even the functions have their types
 
 def print_name(the_name):
     print('name is: ', the_name)
-
 
 print(type(print_name))
 
@@ -59,8 +58,8 @@ for key, val in insan.items():
     print(type(key), type(val))
 
 # %% md
-# Since `insan` is an instance of class ``dict`` therefore we can access all functions (methods)
-# ``dict`` class through its instance `insan`. These methods include ``pop`` or ``update`` etc.
+# Since `insan` is an instance of class ``dict``, therefore we can access all functions (methods)
+# of ``dict`` class through its instance `insan`. These methods include ``pop`` or ``update`` etc.
 
 # %%
 
@@ -80,7 +79,7 @@ print(dir(insan))
 # Any method/attribute that starts with single or double underscore "_" is not
 # for public use. Considering this, we can use any attribute/method of an `insan`
 # which we printed above. For example, we can do `insan.update` or `insan.vlaues` or `insan.keys`
-# etc. For ``methods``, we have to 'call' them like insan.values() and for other
+# etc. For ``methods``, we have to `call` them like insan.values() and for other
 # attributes, we don't need to call them.
 
 print(dir(a_name))
@@ -91,6 +90,6 @@ print(dir(a_name))
 
 # %%
 # **Question**:
-# What methods/functions can be applied on `a_int` and `a_float` objects defined above?
+# What methods/functions can be applied on `a_int` and `a_float` objects defined at the start of this lesson?
 # Give examples of five such functions
 # by applying them.

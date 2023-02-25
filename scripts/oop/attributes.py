@@ -57,7 +57,6 @@ print(y.__dict__)
 # %% md
 # We can also bind attributes to class names as well.
 
-
 class Insan(object):
     pass
 
@@ -67,7 +66,7 @@ x = Insan()
 Insan.cast = "Jat"
 
 # %%
-# attribute ``cast`` associated with instance `x` currently
+# attribute `cast` is currently associated with instance `x`.
 
 print(x.cast)
 
@@ -91,9 +90,9 @@ y = Insan()
 print(y.cast)  # what is attribute `cast` associated with instance `y`?
 
 # %% md
-# ``y`` was never assigned an attributed named ``cast`` still it threw a value, why?
+# `y` was never assigned an attributed named `cast`. Still it threw a value, why?
 #
-# Let's make the attribute ``cast`` associated with `Insan` as `Insaniyat` now
+# Let's make the attribute `cast` associated with `Insan` as `Insaniyat` now
 
 # %%
 
@@ -125,7 +124,7 @@ print(Insan.__dict__)
 # already had attribute named `cast` so it did not get attribute from class `Insan`.
 
 # %% md
-# if we try to get an attribute which is non-existing, we will get an ``AttributeError``
+# If we try to get an attribute which is non-existing, we will get an ``AttributeError``
 
 # %%
 
@@ -133,7 +132,7 @@ print(Insan.__dict__)
 # x.age  # >> AttributeError: `Insan` object has no attribute `age`
 
 # %% md
-# one way to prevent such error is to provide a default value for the attribute by
+# One way to prevent such error is to provide a default value for the attribute by
 
 # %%
 
@@ -151,10 +150,10 @@ def chor(name):
 
 
 chor.age = 61
-print(chor.age)  # >> 61
+print(chor.age)
 
 # %% md
-# we can use this trick to count number of function calls
+# We can use this trick to count number of function calls
 
 # %%
 
@@ -172,5 +171,5 @@ for i in range(10):
 print(chor.no_of_calls)
 
 # %% md
-# to properly create class instances we need to define `methods` in the class body,
+# To properly create class instances we need to define `methods` in the class body,
 # which we will learn next

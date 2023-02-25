@@ -51,3 +51,22 @@ print([x for x in itertools.permutations([1,2,3])])
 # %%
 
 print([x for x in itertools.permutations([1,2,3], 2)])
+
+# %%
+# repeat
+# -------
+# Repeats a value n times
+
+value = 10
+n = 4
+
+rep = itertools.repeat(value, n)
+print(rep)
+
+# %%
+print(type(rep))
+
+# %%
+for val in rep:
+    print(val)
+

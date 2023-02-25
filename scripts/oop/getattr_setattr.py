@@ -1,6 +1,6 @@
 """
 ========================
-3.99 getattr vs setattr
+3.17 getattr vs setattr
 ========================
 
 This lesson shows the usage of ``setattr`` and ``getattr``

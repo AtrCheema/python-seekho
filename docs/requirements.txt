@@ -3,6 +3,9 @@ matplotlib
 scipy
 pyarrow
 openpyxl
+git+https://github.com/Sara-Iftikhar/easy_mpl.git@8ed17a66f59284503be0456dc74794c9f0dffa2f
+joblib
+
 sphinx
 sphinx-prompt
 sphinx_copybutton

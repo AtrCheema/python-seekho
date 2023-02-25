@@ -1,2 +1,2 @@
-7. Advanced
------------
+7. Advanced Topics
+-------------------

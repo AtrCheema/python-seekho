@@ -4,8 +4,8 @@
 ===================
 """
 
-
-# One way of understanding a class is that it is a collection of functions which share
+# %%
+# A class in python can be considered as a collection of functions which share
 # some data (attributes). However, a class need not to have functions in it i.e. it can
 # only consist of attributes.
 #
@@ -19,6 +19,7 @@ class Insan:
 # %%
 #
 # A ``class`` definition consists of two parts:
+#
 #    * header: keyword ``class`` and name of class and then listing of other classes from which this class inherits i.e. superclasses. 3rd argument is optional.
 #    * body: indented statements, Above we have only one statement i.e. ``pass``.
 

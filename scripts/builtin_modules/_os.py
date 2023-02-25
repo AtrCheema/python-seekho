@@ -60,7 +60,7 @@ os.path.exists(p)
 # %%
 # remove()
 # ---------
-
+# delete a file from disk
 
 # %%
 # replace()

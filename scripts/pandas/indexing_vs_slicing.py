@@ -154,7 +154,7 @@ print(df.loc[df['age'] > 30, ['other', 'YoM']])
 
 # %%
 # **Question**:
-# Write the names of the people who eat mango? Write code using loc and conditions.
+# Write the names of the people who were in 'umayad' dynasty using loc?
 #
 
 #%% md
