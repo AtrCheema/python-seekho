@@ -1,17 +1,19 @@
-pandas
+pandas<2.0   # to run it on readthedocs because of jinja >=3.1.2
 matplotlib
 scipy
 pyarrow
 openpyxl
-git+https://github.com/Sara-Iftikhar/easy_mpl.git@8ed17a66f59284503be0456dc74794c9f0dffa2f
+easy_mpl>=0.21.4
 joblib
+seaborn
 
-sphinx
+sphinx==4.5.0
 sphinx-prompt
 sphinx_copybutton
 sphinx_toggleprompt
 sphinx_rtd_theme
-sphinx-gallery
+sphinx-gallery==0.11.1
 sphinx_issues
-sphinx-book-theme
+sphinx-book-theme==0.3.3
 sphinx-thebe
+pydata-sphinx-theme==0.8.1

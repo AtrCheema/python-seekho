@@ -1,6 +1,6 @@
 """
 ==========================
-7.8 Regular expressions
+7.1 Regular expressions
 ==========================
 
 """

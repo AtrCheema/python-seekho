@@ -26,11 +26,15 @@ import sys
 # %%
 # version
 
+print(sys.version)
+
 # %%
 # prefix
 
 # %%
 # executable
+
+print(sys.executable)
 
 # %%
 # stdin

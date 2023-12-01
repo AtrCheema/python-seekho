@@ -1,6 +1,6 @@
 """
 ==========================
-6.14 parallel coordinates
+6.14 parallel_coordinates
 ==========================
 
 """

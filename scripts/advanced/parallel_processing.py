@@ -1,6 +1,6 @@
 """
 =========================
-7.1. Parallel Processing
+7.2. Parallel Processing
 =========================
 
 This lesson demonstrates various ways of parallelizing the python code on cpu cores.
@@ -22,14 +22,13 @@ from joblib import Parallel, delayed
 print(cpu_count())
 
 # %%
-# Decide the number of cpu processes to use to paralllize the code
+# Decide the number of cpu processes to use to paralllize the code.
+# Parallelizing the code makes sense if we have at least 2 cores.
 
 cpus = max(2, cpu_count()//2)
 print(cpus)
 
 # %%
-# We want to parallelize a function which calculates correlation between two
-# categorical/nominal arrays using `Cramers' method <https://stackoverflow.com/a/39266194>`_ .
 # We have two versions of `cramers_v` function. The first version takes a single
 # argument `indices` as input. This function then uses the ``data`` from global scope
 # to get two arrays (x and y) and calculates Cramers' v value.The second function,

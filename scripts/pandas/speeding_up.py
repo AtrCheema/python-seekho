@@ -69,15 +69,31 @@ dump_and_load_parquet(df)
 # categorical type instead of string type
 
 
-
-
 #%%
 # don't think in terms of rows, but in terms columns
 #---------------------------------------------------
 df = pd.DataFrame(np.random.random((5000, 4)), columns=['a', 'b', 'c', 'd'])
 print(df)
 #%%
+# Iterating over rows is a lot slower than iterating over columns.
+# This is mainly because pandas is built around column major format. 
+# This means consective values in columns are stored next to each other in memory.
 
+start = time.time()
+for col in df.columns:
+    for val in df[col]:
+        pass
+print(time.time() - start)
+
+# %%
+
+start = time.time()
+for row_idx in range(len(df)):
+    for val in df.iloc[row_idx]:
+        pass
+print(time.time() - start)
+
+# %%
 start = time.time()
 for idx, i in enumerate(range(len(df))):
     row = df.iloc[idx]
@@ -93,6 +109,11 @@ start = time.time()
 df['a'] = df['a'] + df['b']
 print(time.time() - start)
 
+# %%
+# Use vectorized operations instead of iterating or using ``apply`` method
+
+# %%
+# Use chaining instead of creating new dataframes after every operation
 
 #%%
 # reduce memory consuption

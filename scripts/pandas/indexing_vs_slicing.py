@@ -229,13 +229,10 @@ print(df.at['sixth', 'duration'])
 
 #%% md
 # ``iat``
-# -----
+# -------
 # Selection with `iat` is nearly identical to `iloc` but it only selects a single
 # scalar value. You must pass it an integer for both the row and column locations
 
 #%%
 
 print(df.iat[2, 5])
-
-
-

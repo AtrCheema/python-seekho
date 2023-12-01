@@ -5,15 +5,16 @@ A self-paced beginner-level book for python-learners.
 
 Background
 ===========
-Honestly, I am not expert enough to say I can write a book on python.
-When I started my journey to learn python from the internet, I found plenty of material
-on the internet. Whenever I found some example useful enough to clear a concept, I put
-that copied code in one place. Slowly, this copied material grew larger, and I started organizing
+I must confess that I do not consider myself an expert capable of writing an entire book on Python. 
+As I embarked on my journey to learn Python through online resources, 
+I encountered a wealth of materials readily available on the internet. 
+Whenever I stumbled upon a particularly insightful example that helped clarify a concept, 
+I copied and saved that code snippet in a centralized location. Slowly, this copied material grew larger, and I started organizing
 it so that other people could also benefit from the code snippets which I found
 useful and which were scattered here and there. Moreover, as I was learning python,
-I found that learning by practicing is the best approach. However, there are
-very few books/sites which offer their code material to be downloaded. This gave rise
-to what you have in your hand or on your screen right now!
+I discovered that hands-on practice is the most effective approach. However, there are
+very few resources which offer their code material for download. This led to the creation
+of the resource that you have in your hand or on your screen right now!
 
 Purpose
 ==========
@@ -37,9 +38,9 @@ Installation
 If you have internet connection, you can download the ipython notebook of a
 lesson and upload it on any cloud servers such as colab_  , binder_ or studiolab_ .
 
-For offline users; first install python, the libraries mentioned in requirements_
-file and jupyter. Then the user can run any jupyter notebook which again can be downloaded
-all at once from website_ .
+For offline users; first install python, then install all the libraries mentioned in requirements_
+file as well as jupyter. Then the user can run any jupyter notebook which again can be downloaded
+from website_ .
 
 How to read this book?
 ==========================
@@ -47,13 +48,11 @@ This book consists of Jupyter notebooks. Each Jupyter notebook consists of multi
 Each cell consists of code snippets. The best way to get the maximum out of this book is to
 follow following two tips
 
-1) Predict the output from a cell before running the cell, then run the cell and see whether
-your prediction matches with the output of the cell or not!
+1) Predict the output from a cell before running the cell, then run the cell and see whether your prediction matches with the output of the cell or not!
 
-2) Change the contents of the cell and predict the output and then run the cell and compare your
-prediction with actual output.
+2) Change the contents of the cell and predict the output and then run the cell and compare your prediction with actual output.
 
-3) Answer the questions in the lessons.
+3) Answer the questions asked in the lessons.
 
 
 Conventions
@@ -62,7 +61,7 @@ Since this is an executable book, which means all the code in this book is execu
 during the creation of the book. There is some code in the book which throws errors and
 has been commented out. The code which raises errors is only for demonstration purpose
 and does not represent a bug in the book. The readers are explicitly advised
-to uncomment those lines and run the code to see the error. For example, the following code
+to uncomment those lines and run the code to see and understand the error. For example, the following code
 illustrates the working of ``TypeError``. However, the code which
 raises the ``TypeError`` is commented out. When the user uncomments the line and runs it,
 he/she can see the error.

@@ -1,6 +1,6 @@
 """
 =====================================
-7.7 testing your code
+7.8 testing your code
 =====================================
 
 This lesson describes various types of testing in python.

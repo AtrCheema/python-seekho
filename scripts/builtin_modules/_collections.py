@@ -59,6 +59,12 @@ print(a)
 a.appendleft(1)
 print(a)
 
+# %%
+my_deque = deque([1, 2, 3], maxlen=3)
+
+my_deque.append(4)
+
+print(my_deque)
 
 # %%
 # namedtuple
@@ -105,12 +111,14 @@ except ImportError:  # python>3.9
 # similarly for dictionary values
 isinstance(books.values(), ValuesView)  # -> True
 
+# %%
 # Reversible
 try:
     from collections import Reversible
 except ImportError:  # python>3.9
     from collections.abc import Reversible
 
+# %%
 # Set
 # ---------
 
@@ -119,6 +127,7 @@ try:
 except ImportError:  # python>3.9
     from collections.abc import Set
 
+# %%
 # Sequence
 # ---------
 
@@ -126,15 +135,3 @@ try:
     from collections import Sequence
 except ImportError:  # python>3.9
     from collections.abc import Sequence
-
-# %%
-# deque
-# --------
-
-from collections import deque
-
-my_deque = deque([1, 2, 3], maxlen=3)
-
-my_deque.append(4)
-
-print(my_deque)

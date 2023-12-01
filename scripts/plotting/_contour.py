@@ -4,6 +4,7 @@
 ====================
 
 """
+
 from easy_mpl import contour
 import numpy as np
 from easy_mpl.utils import version_info

@@ -6,6 +6,9 @@
 .. important::
   This lesson is still under development.
 
+When python is installed, several modules/packages are pre-installed in it. These modules provide
+some very basic functionality to the user. The ``os`` is such a built-in module which provides
+the functionalities about paths or operating system.
 """
 
 import os
@@ -126,6 +129,7 @@ print(os.path.exists(p))
 
 # %%
 # uncomment following line
+
 # os.mkdir(p)  # FileNotFoundError
 
 # %%
@@ -145,6 +149,7 @@ print(os.path.exists(new_folder))
 # %%
 # cpu_count()
 # ------------
+# Cound the number of cpus/cores/processes available.
 
 print(os.cpu_count())
 
@@ -152,11 +157,12 @@ print(os.cpu_count())
 # chdir()
 # ----------
 original_wd = os.getcwd()
-print(original_wd)
-print(len(os.listdir(os.getcwd())))
+print("Current working directory is \n", original_wd)
+print(f"It has {len(os.listdir(os.getcwd()))} sub-directories/folders in it.")
 new_wd = os.path.join(os.path.dirname(original_wd))
 os.chdir(new_wd)
-print(len(os.listdir(os.getcwd())))
+print("Now we have changed working directory to \n", new_wd)
+print(f"This new directory has {len(os.listdir(os.getcwd()))} sub-directories/folders in it")
 # now changing back to original
 os.chdir(original_wd)
 
@@ -166,6 +172,7 @@ os.chdir(original_wd)
 for dirpath, dirnames, filenames in os.walk(os.getcwd()):
     print(dirpath, dirnames, filenames)
 
+# %%
 python_seekho_scripts = os.path.join(os.path.dirname((os.path.abspath(''))))
 for dirpath, dirnames, filenames in os.walk(python_seekho_scripts):
     print(dirpath, dirnames, filenames)

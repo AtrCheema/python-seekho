@@ -58,13 +58,13 @@ df.to_excel("arg_busan.xlsx", index=False, sheet_name="data")
 # to read the excel file as dataframe we can make use of read_excel function
 
 df = pd.read_excel("arg_busan.xlsx")
-df
+print(df)
 
 #%%
 # we can tell which column should be used as index for the dataframe
 
 df = pd.read_excel("arg_busan.xlsx", index_col="index")
-df
+print(df)
 
 #%%
 print(type(df.index))
@@ -75,7 +75,7 @@ print(type(df.index))
 
 df = pd.read_excel("arg_busan.xlsx", index_col="index", parse_dates=True)
 
-df
+print(df)
 
 #%%
 # Now the index of dataframe is read as ``DateTimeIndex``

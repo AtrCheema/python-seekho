@@ -17,6 +17,12 @@ import time
 # %%
 # time()
 
+start = time.time()
+
+# do something
+
+print(time.time() - start, "seconds")
+
 
 # %%
 # sleep()
