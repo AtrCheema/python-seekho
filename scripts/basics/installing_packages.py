@@ -56,13 +56,17 @@ site.addsitedir('path/to/my/package')
 # ``pip``. We can do this in the command prompt. Remember that ``pip`` installs
 # the package in ``site_packages`` directory of python.
 
-#  pip install mypackage
+# %%
+#  pip install easy_mpl
 
-# pip install mypackage==0.1
+# %%
+# pip install easy_mpl==0.21.3
 
-# pip install -update mypackage
+# %%
+# pip install -update easy_mpl
 
-# pip install mypackage[InstallOptions]
+# %%
+# pip install easy_mpl[all]
 
 # %%
 # conda

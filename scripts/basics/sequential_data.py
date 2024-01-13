@@ -1,6 +1,6 @@
 """
 =====================
-1.3 sequential data
+1.2 sequential data
 =====================
 """
 
@@ -16,6 +16,167 @@
 # %%
 # Since a sequential data type consists of more than one value, we can check the length
 # of a sequential data using ``len`` function.
+
+# %%
+# Strings
+# =======
+# In python, a string is a data type which does not have a numeric value and
+# is therefore treated as a text.
+
+s = 'Ali'
+print(type(s))
+
+# %%
+# The value/data of string need not to be only English language characters. They
+# can be anythin such as numbers unless they are defined as string.
+s = '23'
+print(type(s))
+
+# %%
+# Although, ``23`` above is a numeric value, but since is enclosed inside quotation marks
+# ``''``, python considers it a string and not a number.
+#
+# There are four common ways to define a string in python:
+#    * single quotation ``'I am a string'``
+#    * double quotation ``"I am a string"``
+#    * triple doubel quotations ``"""I am a string"""``
+#    * triple quotation  ``'''I am a string'''``
+
+s1 = 'I am a string'
+s2 = "I am a string"
+s3 = """I am a string"""
+s4 = '''I am a string'''
+print(type(s1), type(s2), type(s3), type(s4))
+
+# %%
+# A string can be as long as we wish!
+
+s = 'What is the first question that should come to our mind in this life?'
+s2 = "Should Immanuel Kant be condemned for his racist views?"
+
+print(type(s), type(s2))
+
+# %%
+s3 = 'Why the colonization isn\'t considered a crime?'
+print(s3)
+
+# %%
+
+s3 = "Why the colonization isn't considered a crime?"
+print(s3)
+
+# %% md
+# If we want to quote something with double strings inside a double quoted string,
+# we can do it as following.
+
+# %%
+
+txt = "He said: \"It doesn't matter, if you enclose a string in single or double quotes!\""
+print(txt)
+
+# %%
+
+txt = '''Baqir al sadr was an Iraqi scholar.
+He was born in 1935 and wrote his famous book "our philosophy" just at the age of 25.
+He was killed at the age of 45 by Saddam Husain.'''
+print(txt)
+
+# %% md
+# Indexing
+# ------------
+# Indexing refers to selecting a value at a certain position from a sequential data.
+# It shhould be noted that in python, the indexing starts from 0 and not from 1. This
+# means, 0 refers to 1st position and 1 refers to second position.
+# %%
+
+s = "Assalam o alaikum"
+print(s[0])
+
+# %%
+
+print(s[7])
+
+# %%
+
+len(s)
+
+# %%
+
+print(s[len(s)-1], s[-1])
+
+# %% md
+# Slicing
+# --------
+
+# %%
+
+print(s[-3:], s[5:8], s[8:])
+
+# %% md
+# Concatenation
+# --------------
+
+
+# %%
+
+a = " Assalam" + " o" " alaikum"
+print(a)
+
+# %% md
+# Repetition
+# ---------------
+
+# %%
+
+b = a*3
+print(b)
+
+# %% md
+# We can find the length of a sequence object in python using the function `len`.
+# Since strings are also sequences, their length/size can also be found by `len`.
+
+# %%
+
+len(a), len(b)
+
+# %% md
+# immutability
+# ----------------
+
+# %%
+
+# uncomment following line
+# a[-1] = ". "  # TypeError
+
+# %%
+
+a = "Muhammad"
+b = "Muhammad"
+print(a is b)
+
+# %%
+
+print(a == b)
+
+# %%
+
+a = "Muhammad!"
+b = "Muhammad!"
+print(a is b)
+
+# %%
+
+print(a == b)
+
+# %%
+
+a = "Muhammad1"
+b = "Muhammad1"
+print(a is b)
+
+#%%
+
+print(a == b)
 
 # %%
 # Lists
@@ -263,3 +424,20 @@ print(a[::-1])    # all items in the sequence, reversed
 print(a[1::-1])   # the first two items, reversed
 print(a[:-3:-1])  # the last two items, reversed
 print(a[-3::-1])  # everything ex
+
+
+
+# %% md
+# Range
+# ======
+# It gives immutable sequence. We will further study its use later during in
+# :ref:`sphx_glr_auto_examples_basics_for_loops.py`.
+
+# %%
+
+a = range(4)
+print(a)
+
+# %%
+
+print(type(a))

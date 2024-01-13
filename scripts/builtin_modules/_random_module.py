@@ -14,7 +14,7 @@ import random
 # %%
 # random
 # --------------
-# Generate a random number between 0 and 1.
+# We can use random function to generate a random number between 0 and 1.
 print(random.random())
 
 # %%
@@ -57,7 +57,9 @@ random.choices([1,2,3,4,5], k=2)
 
 # %%
 # sample()
-#--------------
+# --------------
+# The sample function is very much similar to ``choices`` function.
+
 random.sample([1,2,3,4,5], k=2)
 
 dakoos = ['generals', 'siyasatdan', 'bureaucracy', 'saiths', 'anchors']
@@ -66,23 +68,29 @@ random.sample(dakoos, k=2)
 # %%
 # seed()
 # --------------
+# Suppose someone is making use of ``random.random()`` function in his script and getting
+# some results. If you use the same script, your result will be different because
+# we have seen that ``random()`` function generates a different number upon every
+# call.
+#
+# How can we make use of random() function and still get reproducible results?
+#
 # The seed function from random module is used to generate reproducible results.
-# Let's call generate five random numbers using random.random() inside the loop.
+# Let's generate five random numbers using random.random() function inside a for loop.
 
 for i in range(5):
   print(random.random())
 
 # %%
-# The above five numbers are ""completely"" random in the sense that we can not
-# predict that what would be the next number. If we call the random.random() again,
-# the new generated random numbers will again be random.
+# The above five numbers are `completely` random in the sense that we can not
+# predict, what would be the next number. If we call the random.random() again,
+# the newly generated random numbers will again be random and unpredictable.
 
 for i in range(5):
   print(random.random())
 
 # %%
-# However, if se set the random seed and then generate the random numbers using random.random()
-# the results will be reproducible.
+# Now, Let's set the random seed and then generate the random numbers using random.random()
 
 random.seed(313)
 
@@ -92,7 +100,7 @@ for i in range(5):
 # %%
 # We have generated 5 random numbers so far after setting the ranomd seed with 313.
 # If we reset the random seed again, the next five random numbers that will be
-# generated will be exactly same as the first five random numbers that were generated
+# generated will be exactly same as the first five random numbers that were generated (above)
 # when we had set the seed to 313 initially.
 
 random.seed(313)
@@ -103,7 +111,16 @@ for i in range(5):
 # %%
 # This means, every time we set the random seed, the generated numbers will be
 # random but reproducible.
-#
+
+# %%
+# **Question**:
+# (Can you) Predict the random numbers generated as a result of following code?
+
+# random.seed(92)
+# for i in range(5):
+#   print(random.random())
+
+# %%
 # Consider for example a function which uses random numbers in it using ``random.random()``.
 # Now every time we run the function, the results will be different. This means the output
 # of our function will not be reproducible. We can set the random seed either globally (at the start of script)
@@ -136,9 +153,12 @@ random.seed(313)
 
 for _ in range(3):
   print(random.choice(dakoos))
+
 # %%
 # shuffle()
 # --------------
+print(dakoos)
+
 random.shuffle(dakoos)
 
 print(dakoos)
@@ -147,6 +167,14 @@ print(dakoos)
 random.shuffle(dakoos)
 
 print(dakoos)
+
+# %%
+# **Question**:
+# Write a function called ``pseudo_shuffle``, which suffles the `dakoos` list, but
+# the order of values in the returned/shuffled list is always same. This means
+# calling ``pseudo_shuffle(dakoos)`` multile times return same order in the list.
+# It should be noted that the function ``pseudo_shuffle`` must make use of ``random.suffle`` function
+# inside it.
 
 # %%
 # randrange

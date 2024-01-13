@@ -7,11 +7,11 @@ This lesson introduces data types and variables in python.
 
 # %%
 # A variable is a way to link some data to a memory location. The memory here, does not
-# mean the storage such as hard drive or USB etc rather memory such as RAM.
-# The memory size which is allocated for a variable depends on the kind and
-# data linked to that variable. For example, a variable consisting 10 integers will
+# mean the storage such as hard drive or USB etc. rather memory such as RAM.
+# The memory size which is allocated for a variable depends on the `kind` and
+# the amount of data linked to that variable. For example, a variable consisting 10 integers will
 # hold less memory as compared to a variable consisting of a million integers.
-# Similarly a variable holding an integer will have different amount/size of memory
+# Similarly, a variable holding an integer (e.g. 92) will have different amount/size of memory
 # as compared to a variable holding a string say ``Ali``.
 # When we define a variable in python, the python checks the type of the variable
 # and allocates some memory for that variable.
@@ -22,7 +22,7 @@ a = 10
 
 # %% md
 # So what has been done above is that a variable named ``a`` is assigned a value
-# of 10. Behind the scenes python created an ``object`` and and the variable
+# of 10. Behind the scenes python created an ``object`` and the variable
 # name ``a`` is a reference for that object.
 
 # %%
@@ -50,10 +50,22 @@ print(a)
 print(type(a))
 
 # %%
-# The function ``type`` is the most important function in python. Whenver you don't know about
+# A ``function`` is a different creature in python. We will cover more about it later in
+# :ref:`sphx_glr_auto_examples_basics_functions.py` . At this point, just keep in mind that
+# when some object is a function, we can `call` by appending paranthesis ``()`` after its name
+# Above we have called the ``print`` function. Don't worry if you don't understand the meaning
+# of calling a function at this point.
+
+# %%
+# The function ``type`` is **the most important function in python**. Whenver you don't know about
 # some object in python, the first thing you should do is to check its ``type`` using ``type(object)``
-b = 2.0
+b = 30.0
 print(type(b))
+
+# %%
+# **Question**
+#
+# Both ``a`` and ``b`` contained the value `thirty`, then why they had different types?
 
 # %%
 
@@ -66,14 +78,15 @@ d = a + a
 print(d, type(d))
 
 # %% md
-# It is significant to note that the python is able to change the type of new
+# It is important to note that the python is able to change the type of new
 # variable based on the kind of value assigned to it. If a float
 # value is assigned to a variable, python will change the type
 # of this variable to float.
 #
 # Another significant thing is that, we can assign any type of data to a variable.
-# For example we can assign ``int`` to variable a, later we can assign ``float``
-# to variable and then we can assign a completely different type like ``string`` to a.
+# For example, we can assign ``int`` to variable ``a``, later we can assign ``float``
+# to the variable ``a`` and then we can assign a completely different type like ``string``
+# to the variable  ``a``.
 #
 # This is a blessing (in terms of ease of use) as well as a curse (in terms of its
 # slow speed) of python and for python users.
@@ -82,6 +95,12 @@ print(d, type(d))
 
 a = 'Ali'
 print(type(a))
+
+# %%
+# **Question**
+#
+# Find out 14 different ``types`` in python. We have already seen three types above
+# i.e. ``str``, ``int`` and ``float``.
 
 # %% md
 # When we assign a value to a variable and then assign that variable to a new
@@ -128,7 +147,7 @@ print(아타르)
 # Data Types
 # -------------
 # Data types signifies the type of operation that can be performed on that
-# data. Python has following data types
+# data. Python has the following data types
 
 # %% md
 # Numbers
@@ -171,154 +190,6 @@ print(type(x))
 coke = False
 water = True
 print(type(coke))
-
-# %% md
-# Sequence
-# ---------
-#
-# * strings
-# * lists
-# * tuple
-
-# %%
-
-s = 'What is the first question that should come to our mind in this life?'
-s2 = "Should Immanuel Kant be condemned for his racist views?"
-
-# %%
-
-s3 = 'Why the colonization isn\'t considered a crime?'
-print(s3)
-
-# %%
-
-s3 = "Why the colonization isn't considered a crime?"
-print(s3)
-
-# %% md
-# If we want to quote something with double strings inside a double quoted string, we can do it as following.
-
-# %%
-
-txt = "He said: \"It doesn't matter, if you enclose a string in single or double quotes!\""
-print(txt)
-
-# %%
-
-txt = '''Baqir al sadr was an Iraqi scholar.
-He was born in 1935 and wrote his famous book "our philosophy" just at the age of 25.
-He was killed at the age of 45 by Saddam Husain.'''
-print(txt)
-
-# %% md
-# Indexing
-# ------------
-
-# %%
-
-s = "Assalam o alaikum"
-print(s[0])
-
-# %%
-
-print(s[7])
-
-# %%
-
-len(s)
-
-# %%
-
-print(s[len(s)-1], s[-1])
-
-# %% md
-# Slicing
-# --------
-
-# %%
-
-print(s[-3:], s[5:8], s[8:])
-
-# %% md
-# Concatenation
-# --------------
-
-
-# %%
-
-a = " Assalam" + " o" " alaikum"
-print(a)
-
-# %% md
-# Repetition
-# ---------------
-
-# %%
-
-b = a*3
-print(b)
-
-# %% md
-# We can find the length of a sequence object in python using the function `len`.
-# Since strings are also sequences, their length/size can also be found by `len`.
-
-# %%
-
-len(a), len(b)
-
-# %% md
-# immutability
-# ----------------
-
-# %%
-
-# uncomment following line
-# a[-1] = ". "  # TypeError
-
-# %%
-
-a = "Muhammad"
-b = "Muhammad"
-print(a is b)
-
-# %%
-
-print(a == b)
-
-# %%
-
-a = "Muhammad!"
-b = "Muhammad!"
-print(a is b)
-
-# %%
-
-print(a == b)
-
-# %%
-
-a = "Muhammad1"
-b = "Muhammad1"
-print(a is b)
-
-#%%
-
-print(a == b)
-
-# %% md
-# Range
-# --------
-# It gives immutable sequence. We will further study its use later during in
-# :ref:`sphx_glr_auto_examples_basics_for_loops.py`.
-
-# %%
-
-a = range(4)
-print(a)
-
-# %%
-
-print(type(a))
 
 # %%
 #

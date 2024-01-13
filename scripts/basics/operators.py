@@ -1,6 +1,6 @@
 """
 ================
-1.2 operators
+1.3 operators
 ================
 This lesson describes Basic operators in python.
 
