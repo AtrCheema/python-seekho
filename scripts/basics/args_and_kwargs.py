@@ -414,3 +414,38 @@ def add_nums(one, five, *unnamed, **named):
 
 
 add_nums(1, 5, 12, infallibles=14, messangers=313)
+
+# %%
+# **Question**:
+# Write a function named `func` which can be called as below and always returns 10.
+# Remember, it should be the same function, but we will call it in five different
+# ways, and it should always return 10.
+#
+# func(1)
+#
+# func(a=1, b=2)
+#
+# func(1, b=2)
+#
+# func(1,2,3,4)
+#
+# func(a=1, b=2, c=3, d=4)
+
+# %%
+# **Question**:
+#  In the above function, what are the number of ``args`` and ``kwargs`` at each of the
+# five calls that we have made above?
+
+# %%
+# **Question**:
+# Write a function `func` which receives x and y along with ``args`` and ``kwargs`` and
+# call this function with 5 input arguments in such a way that it returns 10.
+# Inside the function, print the length of args and kwargs and it must be equal to 1.
+# Remember, the as per above instructions, the signature of `func` must be as below
+#
+# def func(x, y, *args, **kwargs)
+
+# %%
+# **Question**:
+# Call the above defined function (without modifying the function) so that the length of ``args``
+# and ``kwargs`` is greater than 1. Remember that the function must return 10.
