@@ -421,15 +421,17 @@ add_nums(1, 5, 12, infallibles=14, messangers=313)
 # Remember, it should be the same function, but we will call it in five different
 # ways, and it should always return 10.
 #
-# func(1)
+# .. code-block:: python
 #
-# func(a=1, b=2)
+#    func(1)
 #
-# func(1, b=2)
+#    func(a=1, b=2)
 #
-# func(1,2,3,4)
+#    func(1, b=2)
 #
-# func(a=1, b=2, c=3, d=4)
+#    func(1,2,3,4)
+#
+#    func(a=1, b=2, c=3, d=4)
 
 # %%
 # **Question**:
@@ -449,3 +451,18 @@ add_nums(1, 5, 12, infallibles=14, messangers=313)
 # **Question**:
 # Call the above defined function (without modifying the function) so that the length of ``args``
 # and ``kwargs`` is greater than 1. Remember that the function must return 10.
+
+# %%
+# **Question**:
+#
+# .. code-block:: python
+#
+#    def foo(**suggestionsf):
+#        pass
+#
+#    foo([1,2]) # -> error
+# 
+# Running the above code will raise error. Why?
+
+
+
