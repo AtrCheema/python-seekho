@@ -445,7 +445,11 @@ add_nums(1, 5, 12, infallibles=14, messangers=313)
 # Inside the function, print the length of args and kwargs and it must be equal to 1.
 # Remember, the as per above instructions, the signature of `func` must be as below
 #
-# def func(x, y, *args, **kwargs)
+# .. code-block:: python
+#
+#    def func(x, y, *args, **kwargs):
+#        ...
+#
 
 # %%
 # **Question**:
