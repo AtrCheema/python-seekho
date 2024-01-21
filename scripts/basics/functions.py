@@ -430,6 +430,11 @@ print(junk)
 
 var, *_ = return_tuple(2)
 
+# %% md
+# **Question**:
+# What will be the length of ``_`` above?
+#
+
 # %%
 # Above we were interested in only `var` and wanted to ignore everything else
 # returned by `return_tuple` function.

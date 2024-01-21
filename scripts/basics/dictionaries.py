@@ -142,7 +142,7 @@ print(persons)
 # persons[[0, 1]] = ["Adam", "Eva"]  # TypeError
 
 # %% md
-## Making a real practical dictionary
+# Making a real practical dictionary
 
 # %%
 
@@ -190,6 +190,18 @@ values = list(values)
 print(values)
 
 print(type(values))
+
+# %% md
+# **Question:**
+# Consider the following two dictionries:
+#
+# .. code-block:: python
+#
+#    a = {"Ali": 661, "Hassan": 670, "Hussain": 680, "Abid": 712, "Baqir": 733, "Jafar": 765}
+#
+#    b = {"Musa": 799, "Raza": 818, "Taqi": 835, "Naqi": 868, "Hassan": 874, "Hussain": None}
+#
+# Write the code which will return a single list of values from both dictionaries.
 
 # %%
 # The function ``items()`` when applied on a dictionay, returns both keys and values.
