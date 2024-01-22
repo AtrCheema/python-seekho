@@ -3,6 +3,8 @@
 1.21. builtin functions
 ========================
 This lesson shows the usage of builtin functions available in python.
+These functions are available in python without importing any module.
+These are not all the builtin functions but only those which are used frequently.
 
 
 .. important::
@@ -40,7 +42,10 @@ a = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e'}
 
 # %%
 # Indeed, any python object which can be sliced using ``[]`` operator, can also be sliced
-# using ``slice`` function.
+# using ``slice`` function. 
+# Although, ``[]`` operator and ``slice`` function look similar however they differ in
+# their behavior. ``[]`` operator returns the values whereas ``slice`` function returns
+# a ``slice`` object. Moreover, ``slice`` function is more readable and flexible.
 
 # %%
 # zip
@@ -51,11 +56,7 @@ for i,j in zip([1,2,3], [11, 12, 13, 14]):
     print(i, j)
 
 # %%
-# hash
-# =====
-
-# %%
-# all
+# any
 # ======
 vals = [1,2,3]
 print(any([val>3 for val in vals]))
