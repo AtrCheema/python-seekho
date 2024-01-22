@@ -9,6 +9,9 @@ This lesson shows how to select rows or columns from pandas dataframe.
 import pandas as pd
 print(pd.__version__)
 
+# %%
+pd.set_option('display.max_columns', 11)
+
 #%%
 # Let's create a dataframe
 
@@ -247,4 +250,6 @@ print(df.iat[2, 5])
 
 # %% md
 # **Question**:
-# Calculate the `years in office` by subtracting YoM_H from YoB_H and find out which one had the longest and shortest stay in office?
+# Calculate the `years in office` by subtracting `YoM_H` from `YoM_H` of the above 
+# row and find out which one had the longest and shortest stay in office? Since
+# there is no row above the first row, consider 11 as the `YoM_H` of the row above.
