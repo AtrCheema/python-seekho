@@ -13,16 +13,19 @@ print(pd.__version__)
 # Let's create a dataframe
 
 df = pd.DataFrame({
-    'name': ['Ali', 'Hasan', 'Husain', 'Ali', 'Muhammad', 'Jafar', 'Musa', 'Raza', 'Naqi'],
-    'age':   [63,     47,      57,       57,     57,         65,      55,     55,      40],
-    'other': ['muavia','muavia','yazid',  'walid','hisham', 'mansur', 'harun',  'mamun',  'mutaz'],
-    'cityb': ['MKH', 'MAD',   'MAD',   'MAD',  'MAD',   'MAD',  'MAD',  'MAD', 'MAD'],
-    'duration':[29,   10,      11,       34,     19,         32,      35,     20,      34],
-    'YoM':   [40,     50,      61,       95,     114,        148,     183,    203,     254],
-    'dynasty':[None, 'umayad', 'umayad', 'umayad', 'umayad', 'abbasid', 'abbasid', 'abbasid', 'abbasid'],
-    'cityd':  ['NJF',  'MAD',   'KBL',    'MAD',  'MAD',      'MAD',   'BGD',  'MAS',   'SAM']
+    'name':  ['Ali', 'Hasan', 'Husain', 'Ali', 'Muhammad', 'Jafar', 'Musa', 'Raza', 'Taqi', 'Naqi', 'Askari'],
+    'age':   [63,     47,      57,       57,     57,         65,      55,     55,    24,     40,     27],
+    'other': ['muavia','muavia','yazid','walid','hisham','mansur','harun','mamun','Mutasim','Mutasim','mutaz'],
+    'cityb': ['MKH',    'MAD',   'MAD',  'MAD',  'MAD',   'MAD',   'MAD',  'MAD',  'MAD',    'MAD',   'MAD'],
+    'duration':[29,      10,      11,       34,     19,    32,      35,     20,     16,      34,       6],
+    'YoB_H': [-22,       3,       4,        38,     56,    83,      128,    148,    195,     212,      232],
+    'YOB_G': [600,       625,     626,      659,    676,   702,     745,    766,    811,     828,      844],
+    'YoM_H': [40,        50,      61,       95,     114,   148,     183,    203,    220,     254,      260],
+    'YoM_G': [661,       670,     680,      712,    733,   765,     799,    818,    835,     868,      874],
+    'dynasty':[None,'umayad','umayad','umayad','umayad','abbasid','abbasid','abbasid','abbasid','abbasid','abbasid'],
+    'cityd':  ['NJF',  'MAD',   'KBL',    'MAD',  'MAD',      'MAD',   'BGD',  'MAS',  'BGH',   'SAM',    'SAM']
 },
-    index=['first', 'second', 'third', 'fourth', 'fifth',  'sixth', 'seventh', 'eigth', 'tenth']
+    index=['first', 'second', 'third', 'fourth', 'fifth',  'sixth', 'seventh', 'eigth', 'ninth', 'tenth', 'eleventh']
 )
 print(df)
 
@@ -45,7 +48,7 @@ print(df['name'])
 
 #%%
 
-print(df[['other', 'YoM']])
+print(df[['other', 'YoM_H']])
 
 #%% md
 # when slice notation ``:`` is used, then selection happens either by row labels
@@ -150,11 +153,11 @@ print(df.loc[df['other'].isin(['muavia', 'yazid'])])
 #%%
 # We can even combine boolean indexing/condition with label based indexing.
 
-print(df.loc[df['age'] > 30, ['other', 'YoM']])
+print(df.loc[df['age'] > 30, ['other', 'YoM_H']])
 
 # %%
 # **Question**:
-# Write the names of the people who were in 'umayad' dynasty using loc?
+# Write the names of the people who were in `umayad` dynasty using loc?
 #
 
 #%% md
@@ -236,3 +239,12 @@ print(df.at['sixth', 'duration'])
 #%%
 
 print(df.iat[2, 5])
+
+# %% md
+# **Question**:
+# Calculate the average age of people in `umayad` and `abbasid` dynasties using ``loc`` and ``iloc``?
+
+
+# %% md
+# **Question**:
+# Calculate the `years in office` by subtracting YoM_H from YoB_H and find out which one had the longest and shortest stay in office?
