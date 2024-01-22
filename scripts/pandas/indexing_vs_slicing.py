@@ -253,3 +253,7 @@ print(df.iat[2, 5])
 # Calculate the `years in office` by subtracting `YoM_H` from `YoM_H` of the above 
 # row and find out which one had the longest and shortest stay in office? Since
 # there is no row above the first row, consider 11 as the `YoM_H` of the row above.
+
+# %% md
+# **Question**:
+# Who lived the longest and shortest?
