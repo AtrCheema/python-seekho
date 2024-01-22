@@ -13,6 +13,35 @@ This lesson shows the usage of builtin functions available in python.
 # slice
 # =======
 
+a = [1,2,3,4,5,6,7,8,9,10]
+print(a[slice(2)])
+
+# %%
+print(a[slice(2, 8)])
+
+# %%
+print(a[slice(2, 8, 2)])
+
+# %%
+a = "This is a string"
+print(a[slice(2)])
+print(a[slice(2, 8)])
+print(a[slice(2, 8, 2)])
+
+# %%
+a = (1,2,3,4,5,6,7,8,9,10)
+print(a[slice(2)])
+print(a[slice(2, 8)])
+print(a[slice(2, 8, 2)])
+
+# %%
+a = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e'}
+# print(a[slice(2)])
+
+# %%
+# Indeed, any python object which can be sliced using ``[]`` operator, can also be sliced
+# using ``slice`` function.
+
 # %%
 # zip
 # =====
