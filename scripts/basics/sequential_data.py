@@ -29,11 +29,11 @@ print(type(s))
 # %%
 # The value/data of string need not to be only English language characters. They
 # can be anythin such as numbers unless they are defined as string.
-s = '23'
+s = '12'
 print(type(s))
 
 # %%
-# Although, ``23`` above is a numeric value, but since is enclosed inside quotation marks
+# Although, ``12`` above is a numeric value, but since is enclosed inside quotation marks
 # ``''``, python considers it a string and not a number.
 #
 # There are four common ways to define a string in python:
@@ -42,10 +42,10 @@ print(type(s))
 #    * triple doubel quotations ``"""I am a string"""``
 #    * triple quotation  ``'''I am a string'''``
 
-s1 = 'I am a string'
-s2 = "I am a string"
-s3 = """I am a string"""
-s4 = '''I am a string'''
+s1 = 'Only persons really changed history those who changed men`s thinking about themselves'
+s2 = "Only persons really changed history those who changed men's thinking about themselves"
+s3 = """Only persons really changed history those who changed men's thinking about themselves"""
+s4 = '''Only persons really changed history those who changed men's thinking about themselves'''
 print(type(s1), type(s2), type(s3), type(s4))
 
 # %%

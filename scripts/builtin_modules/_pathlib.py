@@ -7,9 +7,15 @@
   This lesson is still under development.
 
 """
-
-import pathlib
+import os
+from pathlib import Path
 
 # %%
 # Path
+# -----
 
+path = Path(os.getcwd())
+print(path)
+
+# %%
+print(type(path))

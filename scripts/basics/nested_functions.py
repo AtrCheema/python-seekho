@@ -40,10 +40,10 @@ def percent(x, n):
 percent(120, 10)
 
 # %% md
-# It is more clear now that inner function can make use of variables from inner functions.
+# It is more clear now that inner function can make use of variables from outer functions.
 
 #%%
-# In above example, the outer function returns the inner function which can be used later on.
+# In following example, the outer function returns the inner function which can be used later on.
 
 
 # %%

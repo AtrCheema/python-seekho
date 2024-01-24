@@ -18,24 +18,24 @@ This lesson introduces data types and variables in python.
 
 # %%
 
-a = 10
+a = 12
 
 # %% md
 # So what has been done above is that a variable named ``a`` is assigned a value
-# of 10. Behind the scenes python created an ``object`` and the variable
+# of 12. Behind the scenes python created an ``object`` and the variable
 # name ``a`` is a reference for that object.
 
 # %%
 
-a = 20
+a = 14
 
 # %% md
 # When the variable ``a`` is redefined, it means the location of memory which was
-# holding the value 10 before, now holds 20. This means we have changed the contents of memory.
+# holding the value 12 before, now holds 14. This means we have changed the contents of memory.
 
 # %%
 
-a = a + 10
+a = a + 12
 print(a)
 
 # %% md
@@ -43,7 +43,7 @@ print(a)
 # of a variable`. This is not always true but more about it will come in
 # :ref:`sphx_glr_auto_examples_basics_print_function.py` and :ref:`sphx_glr_auto_examples_oop_magical_methods.py`.
 # The kind of object python creates, depends upon the type of data. We can check
-# the type of a variable by using the command/function ``type(VariableName)``
+# the `type` of a variable by using the command/function ``type(VariableName)``
 
 # %%
 

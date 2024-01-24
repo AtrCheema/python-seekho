@@ -3,4 +3,4 @@
 1. basics
 ---------
 
-Tutorials concerning basics
+Tutorials concerning python basics

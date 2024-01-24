@@ -56,7 +56,7 @@ site.addsitedir('path/to/my/package')
 # ``pip`` command. We can do this in the terminal and not in python console.
 # However, since ipython console allows us to run terminal commands by prefixing
 # them with ``!``, we can also use ``pip`` in ipython console.
-#  Remember that ``pip`` installs  the package in ``site_packages`` directory of python.
+# Remember that ``pip`` installs  the package in ``site_packages`` directory of python.
 # Also note that the built-in python modules can not be installed using ``pip``.
 # Following examples show how to use ``pip`` to install a package called ``easy_mpl``.
 

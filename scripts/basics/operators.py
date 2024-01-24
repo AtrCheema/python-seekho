@@ -17,12 +17,12 @@ multiplication and divitsion can be perfomred just by using ``+``, ``-``, ``*`` 
 
 #########################################
 
-a = 10 + 20
+a = 5 + 12
 print(a)
 
 #########################################
 # If we want to add something to variable 'a', one way of doint it is using ``+=``.
-a +=10
+a +=14
 print(a)
 
 #########################################
@@ -33,7 +33,7 @@ print(a)
 #########################################
 # Similarly we can use ``-`` for subtracting one object from another\
 
-a = 20 - 10
+a = 14 - 12
 print(a)
 
 #########################################
@@ -46,7 +46,7 @@ print(a)
 
 #########################################
 
-a = 2*10
+a = 2*12
 print(a)
 
 
@@ -64,7 +64,7 @@ print(a)
 print(14 % 5)
 
 #########################################
-# If one of the value is float, result will be float.
+# If one of the value is float, result will be a float.
 
 #########################################
 
@@ -165,7 +165,7 @@ print(2.2 == 1.1 + 1.1)
 #########################################
 # However, we should avoid comparing floats in this way. This is because
 # `computers can not represent accurate values of floats <https://stackoverflow.com/q/21895756/14411830>`_.
-# 1.1 + 2.2 results in an approximated answer so we avoid comparing floats.
+# 1.1 + 2.2 results in an approximated answer, so we avoid comparing floats.
 
 #########################################
 
@@ -176,7 +176,7 @@ print(3.3 == 1.1 + 2.2)
 print(abs((1.1 + 2.2) - 3.3) < 1e-15)
 
 #########################################
-# If we want to check whether a number lies between two numbers or not
+# If we want to check whether a numerical value lies between two numbers or not
 # we can make use of ``<`` or ``>`` operators twice.
 
 #########################################
@@ -289,7 +289,7 @@ print(a is b)
 #########################################
 # However, python already stores some commonly used smaller numbers in memory, so
 # when they are created, python refers to that same memory location and does not
-# really create them. Thus for smaller numbers (from -5 to 256 integers) `is` returns True.
+# really create them. Thus, for smaller numbers (from -5 to 256 integers) `is` returns True.
 
 #########################################
 

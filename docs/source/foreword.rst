@@ -46,7 +46,7 @@ How to read this book?
 ==========================
 This book consists of Jupyter notebooks. Each Jupyter notebook consists of multiple cells.
 Each cell consists of code snippets. The best way to get the maximum out of this book is to
-follow following two tips
+follow following tips
 
 1) Predict the output from a cell before running the cell, then run the cell and see whether your prediction matches with the output of the cell or not!
 
