@@ -23,12 +23,12 @@ y = Insan()
 # We can bind attributes to class instances as follows:
 
 x.name = "Ali"
-x.dob = "1601"
+x.dob = "600"
 
 # %%
 
 y.name = "Hasan"
-y.dob = "1624"
+y.dob = "625"
 
 # %%
 # We can now check that the attributes have been associated with `x` and `y`.
@@ -71,7 +71,7 @@ Insan.cast = "Jat"
 print(x.cast)
 
 # %%
-# change the attribute cast associated with instance `x`
+# We can change the attribute `cast`` associated with instance `x` as below
 
 x.cast = "cheema"
 

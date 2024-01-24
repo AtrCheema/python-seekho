@@ -15,12 +15,12 @@
 
 # %%
 
-a_int = 23
+a_int = 12
 print(type(a_int))
 
 # %%
 
-a_float = 2.5
+a_float = 12.0
 print(type(a_float))
 
 # %%

@@ -7,7 +7,7 @@
 # %%
 # A sequential data is the data type with one or more than one value/object in it.
 #
-# Four major sequential data types
+# There are four major built-in sequential data types in python
 #    * Strings
 #    * Lists
 #    * Tuple
@@ -37,10 +37,10 @@ print(type(s))
 # ``''``, python considers it a string and not a number.
 #
 # There are four common ways to define a string in python:
-#    * single quotation ``'I am a string'``
-#    * double quotation ``"I am a string"``
-#    * triple doubel quotations ``"""I am a string"""``
-#    * triple quotation  ``'''I am a string'''``
+#    * single quotation ``'The wretched of the earth'``
+#    * double quotation ``"The wretched of the earth"``
+#    * triple doubel quotations ``"""The wretched of the earth"""``
+#    * triple quotation  ``'''The wretched of the earth'''``
 
 s1 = 'Only persons really changed history those who changed men`s thinking about themselves'
 s2 = "Only persons really changed history those who changed men's thinking about themselves"

@@ -342,8 +342,8 @@ sets = [pml_n, pti]
 pml_q.intersection(*sets)
 
 #%% md
-# So we can say that [`umar ayyub`](https://en.wikipedia.org/wiki/Omar_Ayub_Khan)
-# is the most consistent lota.
+# So we can say that `umar ayyub <https://en.wikipedia.org/wiki/Omar_Ayub_Khan>`_
+# is the most consistent turncoat.
 
 # %%
 # `isdisjoint`

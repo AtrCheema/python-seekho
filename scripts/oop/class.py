@@ -27,7 +27,9 @@ class Insan:
 # %% md
 # Using classes
 # --------------
-# We can use this simple class as following
+# To use a class, we first have to initiate or instantiate it. This is done by 
+# calling the class as if it were a function. For example, we can create an 
+# object of ``Insan`` class as follows
 
 # %%
 
