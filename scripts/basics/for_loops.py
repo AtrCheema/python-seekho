@@ -346,6 +346,20 @@ for items in ['fridge', 'laptop', 'mobile', 'tablet', 'tv', 'fryer']:
 # you can jump to :ref:`sphx_glr_auto_examples_oop_magical_methods.py`.
 
 
+# %% md
+# **Question:**
+#
+# What will be the output of following code?
+#
+# .. code-block:: python
+# 
+#    for i in range(0, 3):
+#        print(a)
+#        for j in range(0, 2):
+#            print(j)
+#            for k in range(0, 1):
+#                print(k)
+    
 # %%
 #
 # .. [1] `<https://en.wikipedia.org/wiki/Nishan-e-Haider>`_

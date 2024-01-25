@@ -415,6 +415,19 @@ def add_nums(one, five, *unnamed, **named):
 
 add_nums(1, 5, 12, infallibles=14, messangers=313)
 
+# %% md
+# **Question**:
+# What will be the output of following code?
+# 
+# .. code-block:: python
+#    def foo(a = 12, b=14):
+#        b = a
+#        a += b
+#        print(a, ' ', b)
+#
+#    foo(b=12, a=14)
+#
+
 # %%
 # **Question**:
 # Write a function named `func` which can be called as below and always returns 10.

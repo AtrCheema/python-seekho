@@ -529,3 +529,15 @@ help(fahrenheit)
 converter = fahrenheit
 
 print(converter.__name__)
+
+# %% md
+# **Question**:
+# What will be the output of following code?
+#
+# .. code-block:: python
+# 
+#    def foo(a,b):
+#        if a==0:
+#            return b
+#        else:
+#            return foo(a-1, a+b)
