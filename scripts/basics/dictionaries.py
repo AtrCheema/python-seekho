@@ -662,3 +662,11 @@ print(books)
 # .. code-block:: python
 #
 #    x = {1: "ali", 2: "hassan", 3: "hussain"}
+
+# %%
+# **Question**
+# Write code to tell the date of bir and death of the 'Ali' from the following dictionary.
+#
+# .. code-block:: python
+#
+#    x = {"Ali": {"born": 600, "died": 661}, "Hassan": {"born": 625, "died": 670}, "Hussain": {"born": 626, "died": 680}}

@@ -313,6 +313,16 @@ print(numbers)
 # imperialists = ['bbc', 1, 'cnn', 3, 'voa', 2]
 # imperialists.sort()
 
+# %%
+# **Question**
+# What will be the output of the following code
+#
+# .. code-block:: python
+#
+#    x = [1,2]
+#    y = [3,4, 5]
+#    print(len(x + y))
+
 ##############################################
 # Notes
 # --------------------------------------------
