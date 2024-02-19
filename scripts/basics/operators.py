@@ -328,6 +328,10 @@ print(20 + 4 * 10)
 # Similarly `exponentiation` (``**``) is performed before multiplication.
 print(2 * 3 ** 4 * 5)
 
+# %%
+# **Question**
+# Write the code to convert 1000 seconds into hours.
+
 #########################################
 # Complete order of precedence of operators in python can be found from
 # :ref:`here <https://docs.python.org/3/reference/expressions.html#operator-precedence>` .

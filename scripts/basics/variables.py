@@ -192,5 +192,9 @@ water = True
 print(type(coke))
 
 # %%
+# **Question**
+# What will the suitable data type to store currency values? Explain your reasoning.
+
+# %%
 #
 # .. [1] `<https://docs.python.org/2.5/ref/keywords.html>`_

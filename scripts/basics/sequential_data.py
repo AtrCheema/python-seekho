@@ -81,6 +81,11 @@ He was born in 1935 and wrote his famous book "our philosophy" just at the age o
 He was killed at the age of 45 by Saddam Husain.'''
 print(txt)
 
+# %%
+# **Question**
+# Print the following sentence including the double quotations
+# "The one who controls his desires is a free man. Ali ibn Abi Talib"
+
 # %% md
 # Indexing
 # ------------
