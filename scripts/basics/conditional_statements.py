@@ -235,3 +235,14 @@ if any(a):
 a = [False, 2>4, 2!=1]
 if all(a):
     print('go ahead')
+
+# %%
+# **Question**
+#
+# What will be the output of following code?
+#
+# .. code-block:: python
+#
+#     a = [True, 2>4, 2!=1]
+#     if any(a):
+#         print('go ahead')

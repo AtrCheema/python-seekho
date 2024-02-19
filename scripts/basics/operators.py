@@ -110,6 +110,22 @@ print(20//-6.0, -20//6.0)
 
 print(-20 // -6.0)
 
+# %%
+# **Question**
+# What is the output of the following code
+#
+# .. code-block:: python
+#
+#    print(20//-6.0, -20//6.0)
+
+# %%
+# **Question**
+# What is the output of the following code
+#
+# .. code-block:: python
+#
+#    print( 20//60, 20/60)
+
 #########################################
 # `**` is used for exponentiation i.e. to raise one object over another.
 

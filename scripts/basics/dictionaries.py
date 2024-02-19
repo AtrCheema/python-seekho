@@ -654,3 +654,11 @@ new_books = {"Legenhausen": ["Religious pluralism", "Hegel's ethics"]}
 
 books = dict(list(old_books.items()) + list(new_books.items()))
 print(books)
+
+# %%
+# **Question**
+# Write the code to print the value of second key of the following dictionary i.e. "Hassan".
+#
+# .. code-block:: python
+#
+#    x = {1: "ali", 2: "hassan", 3: "hussain"}
