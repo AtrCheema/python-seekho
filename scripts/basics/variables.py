@@ -114,15 +114,23 @@ b = a
 id(a), id(b)
 
 # %%
+# Above we have checked the identity of both ``a`` and ``b``. The identity of an object
+# in python is the memory address of that object. It means the address in memory (RAM) where that
+# objected is stored/put. Since both ``a`` and ``b`` refer to the same object,
+# they have the same memory address. We can also say that since both ``a`` and ``b`` have
+# the same memory address, that means they are same objects.
 
+# %%
 b = 14
 id(a), id(b)
 
 # %% md
 # So when we assigned a different data to ``b``, a new object was created and now ``b``
-# refers to this new object and thus its identity changes now.
+# refers to this new object and thus its identity (memory address) changes now.
 #
-# Following are valid variable names
+# Just as there are conventions for naming people in a society, there is convention
+# and rules for naming variables in python. The name of a variable can be any alpha-numeric
+# combination with some exceptions. Following are valid variable names
 
 # %%
 
@@ -138,6 +146,10 @@ print(아타르)
 
 # uncomment following line
 # 1_ali = 29
+
+# %%
+# **Question:**
+# Explain the error which will result from the above code.
 
 # %% md
 # We can not name certain keywords as variable names. These keywords can

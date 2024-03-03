@@ -66,11 +66,48 @@ print(len(a_as_list_using_slice_op))
 print(len(a_as_list_using_list_fn))
 
 # %%
-# Then length of list using slice operator ``[]`` is always 1, while
+# Then length of list which is created using slice operator ``[]`` is always 1, while
 # the length of list created using ``list`` function depends upon the number of values
 # in the object.
 
 # %%
+# **Question**
+# Write code to prove the above statement.
+
+# %%
+# slicing a list
+# ===============
+# Since the list is a sequence, we can slice it as well. The slicing of a list
+# can be done using the slice operator ``[]``.
+# Consider the following list
+
+imperialists = ['Bush', 'Obama', 'Trump', 'Zuckerberg', 'Bezos', 'coca cola']
+print(imperialists[0])
+
+# %%
+print(imperialists[2])
+
+# %%
+print(imperialists[-1])
+
+# %%
+print(imperialists[2:4])
+
+# %%
+# **Question:**
+# What will be the output of the following code
+#
+# .. code-block:: python
+#
+#    a = [1,5, 7,14]
+#    a[2] = 12
+#    print(a)
+
+
+
+# %%
+# Operations on a list
+# =====================
 # Once we have a list, we can perform different operations on it. Some of them
 # are given below.
 
@@ -325,7 +362,7 @@ print(numbers)
 
 ##############################################
 # Notes
-# --------------------------------------------
+# ============================================
 # I have been using the word function for ``append``, ``sort`` etc, however in Object
 # Oriented Programming, it can be seen that they are actually called `methods`.
 #

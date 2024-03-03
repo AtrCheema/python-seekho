@@ -82,8 +82,8 @@ He was killed at the age of 45 by Saddam Husain.'''
 print(txt)
 
 # %%
-# **Question**
-# Print the following sentence including the double quotations
+# **Question:**
+# Print the following sentence including the double quotations \n.
 # "The one who controls his desires is a free man. Ali ibn Abi Talib"
 
 # %% md
@@ -91,41 +91,73 @@ print(txt)
 # ------------
 # Indexing refers to selecting a value at a certain position from a sequential data.
 # It shhould be noted that in python, the indexing starts from 0 and not from 1. This
-# means, 0 refers to 1st position and 1 refers to second position.
+# means, 0 refers to 1st position and 1 refers to second position. The slice operator ``[]``
+# is used to index a sequential data.
 # %%
 
 s = "Assalam o alaikum"
 print(s[0])
 
 # %%
+# Above we have selected the first character of the string ``s``. We can select any
+# character by changing the index in the slice operator.
 
 print(s[7])
 
 # %%
+# We can find the length of a sequence object in python using the function `len`.
+# For strings, we can check the number of characters ``len``.
+# The length of a string is the number of characters in it including the empty spaces if they are present.
+# When we check the length of a string using ``len`` function, it returns an integer.
 
 len(s)
 
 # %%
+# We can also select the last character of a string using negative indexing.
 
 print(s[len(s)-1], s[-1])
+
+# %%
+# **Question:**
+#
+# Explain the difference between ``s[len(s)-1]`` and ``s[-1]``.
+#
+# Select the last character of the string ``s`` using positive indexing.
 
 # %% md
 # Slicing
 # --------
+# We can select a sequence of characters from a string using slice ``:`` operator.
 
 # %%
-
 print(s[-3:], s[5:8], s[8:])
+
+# %%
+# Above we are selecting and printing three three different slices of the string ``s``.
+# In the first slice, we have selected the last three characters of the string ``s`` using negative indexing.
+# In the second slice, we have selected the characters from 6th to 8th position of the string ``s`` using positive indexing.
+# In the third slice, we have selected the characters from 9th position to the end of the string ``s`` using positive indexing.
 
 # %% md
 # Concatenation
 # --------------
-
+# Concatenation in strings string refers to joining two or more strings together. This can be done using
+# the ``+`` operator.
 
 # %%
 
 a = " Assalam" + " o" " alaikum"
 print(a)
+
+
+# %%
+# **Question:**
+#
+# Write a code so that following two lines become a single sentence.
+# 
+# "The one who controls his desires"
+# 
+# "is a free man"
 
 # %% md
 # Repetition
@@ -136,13 +168,11 @@ print(a)
 b = a*3
 print(b)
 
-# %% md
-# We can find the length of a sequence object in python using the function `len`.
-# Since strings are also sequences, their length/size can also be found by `len`.
-
 # %%
-
-len(a), len(b)
+# **Question:**
+# Print the following string 10 times by making use of ``*``.
+# 
+# "Black skin, white masks. "
 
 # %% md
 # immutability
