@@ -277,6 +277,8 @@ print(a)
 
 # %% md
 # We can change contents of lists using indexing operator ``[]``.
+# We have already seen that teh ``[]`` operator is used to create a list.
+# It is also used to index a list and to change its contents.
 
 # %%
 
@@ -373,13 +375,13 @@ print(provinces)
 
 # %%
 
-a = (1, 2, 3)
-type(a)
+panjtan = (1,2,3,4,5)
+type(panjtan)
 
 # %%
 # Just like lists, the contents of tuples can also be of different types.
-a = (1, 2.0, 'a', pakistan)
-print(a)
+panjtan = (1, 2, 'three', 4.0, [5])
+print(panjtan)
 
 # %% md
 # We can not change a value in a tuple.
@@ -387,7 +389,13 @@ print(a)
 # %%
 
 # uncomment following line
-# a[2] = 'last'  # TypeError
+# panjtan[2] = 'Musa'  # TypeError
+
+# %% md
+# **Question:**
+#
+# Explain what were trying to acheive by ``panjtan[2] = 'Musa'`` and why it resulted in error.
+# On the otherhand, if we do ``panjtan[2]``, why it will not result in error?
 
 # %% md
 # Tuples are used to store data where we know it will not change. This also
@@ -395,8 +403,8 @@ print(a)
 
 # %% md
 # `in`
-# -------
-# The `in` keyword is used to check whether an element is present in a
+# =====
+# The `in` is a buil-tin keyword which is used to check whether an element is present in a
 # sequence or not.
 
 # %%
@@ -404,6 +412,10 @@ print(a)
 print("Bahawalpur" in provinces)
 
 # %%
+# We had created a list `provinces` above. We are checking if "Bahawalpur" is 
+# present in it or not in the above code.
+# The output from above code will be `False` because "Bahawalpur" is not present
+# in the list `provinces`. 
 
 print("Multan" not in provinces)
 
@@ -412,11 +424,13 @@ print("Multan" not in provinces)
 print("pubjab" in provinces)
 
 # %%
-
-print('a' in a)
+# We are checking if "pubjab" is present in the list `provinces` or not.
+#
+# We can also use `in` to check if a string is present in a tuple or not.
+print('three' in panjtan)
 
 # %%
-
+# Similarly we can use `in` to check if a string is present in a string or not.
 print('at' in enigma)
 
 # %% md
