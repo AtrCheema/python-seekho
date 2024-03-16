@@ -345,8 +345,12 @@ print(20 + 4 * 10)
 print(2 * 3 ** 4 * 5)
 
 # %%
-# **Question**
+# **Question:**
 # Write the code to convert 1000 seconds into hours.
+
+# %%
+# **Question:**
+# Why the output of ``2/3+4`` and ``2/(3+4)`` is different?
 
 #########################################
 # Complete order of precedence of operators in python can be found from

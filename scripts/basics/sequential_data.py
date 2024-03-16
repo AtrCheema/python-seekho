@@ -437,9 +437,9 @@ print('at' in enigma)
 # **Question:**
 # Consider the following python list.
 #
-# ``
-# scoundrels = ['asim', 'kakar', 'mohsin']
-# ``
+# .. code-block:: python
+#
+#    scoundrels = ['asim', 'kakar', 'mohsin']
 #
 # Write code to using `in` to check if `bajwa` is a scoundrel or not?.
 
