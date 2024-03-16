@@ -433,6 +433,16 @@ print('three' in panjtan)
 # Similarly we can use `in` to check if a string is present in a string or not.
 print('at' in enigma)
 
+# %%
+# **Question:**
+# Consider the following python list.
+#
+# ```python
+# scoundrels = ['asim', 'kakar', 'mohsin']
+# ```
+#
+# Use `in` to check if `bajwa` is a scoundrel or not?.
+
 # %% md
 # Repetition
 # -----------
