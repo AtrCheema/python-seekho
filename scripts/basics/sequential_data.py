@@ -83,7 +83,8 @@ print(txt)
 
 # %%
 # **Question:**
-# Print the following sentence including the double quotations \n.
+# Print the following sentence including the double quotations.
+#
 # "The one who controls his desires is a free man. Ali ibn Abi Talib"
 
 # %% md
@@ -190,10 +191,16 @@ b = "Muhammad"
 print(a is b)
 
 # %%
+# This above line uses the ``is`` operator to check if the two variables ``a`` 
+# and ``b`` refer to the same object in memory. The ``is`` operator returns 
+# True if they do and False otherwise.
 
 print(a == b)
 
 # %%
+# In the above line, we are using the ``==`` operator to check if the two variables
+# ``a`` and ``b`` have the same value. The ``==`` operator returns True if they do
+# and False otherwise.
 
 a = "Muhammad!"
 b = "Muhammad!"
@@ -269,7 +276,7 @@ type(a[0]), type(a[1]), type(a[2]), type(a[3])
 print(a)
 
 # %% md
-# We can change contents of lists using indexing.
+# We can change contents of lists using indexing operator ``[]``.
 
 # %%
 
@@ -277,6 +284,10 @@ a[3] = 'a new element'
 print(a)
 
 # %% md
+# Above we have replaced the 4th element of list `a` with a new element. 
+# If you have not understoop this, don't worry, more of this wil come 
+# in the chapter of :ref:`sphx_glr_auto_examples_basics_lists.py`.
+#
 # We can replace a sequence of elements in a list with a new sequence and the new
 # sequence does not have to be of same length and type as old sequence.
 
