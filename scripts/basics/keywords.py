@@ -171,3 +171,20 @@ list(map(power, vals1, vals2))
 # Map has several advantages over an explicit for loop e.g
 #    * It is fast since it is written in C
 #    * It is memory efficient as it returns an iterator
+
+# %%
+# What will be the output of the following code?
+#
+# .. code-block:: python
+#
+#    names = ['jamaludin', 'zayn aldin', 'nurullah shustari', 'kamil dehlavi', 'baqir sadr]
+#    years = ['1385', '1558', '1610', '1809', '1979']
+#    for (idx,name), year in zip(enumerate(names), years):
+#        print(idx, name, year)
+
+# %%
+# **Question:**
+# Consider the following list
+# dob_years = ['1334', '1506', '1542', '1700s', '1935']
+# Now modify the ``for`` loop in the previous example to also iterate over 
+# ``dob_years`` list along with ``names`` and ``years``.
