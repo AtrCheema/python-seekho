@@ -437,11 +437,11 @@ print('at' in enigma)
 # **Question:**
 # Consider the following python list.
 #
-# ```python
+# ``
 # scoundrels = ['asim', 'kakar', 'mohsin']
-# ```
+# ``
 #
-# Use `in` to check if `bajwa` is a scoundrel or not?.
+# Write code to using `in` to check if `bajwa` is a scoundrel or not?.
 
 # %% md
 # Repetition
