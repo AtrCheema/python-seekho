@@ -10,7 +10,7 @@
 
 # %% md
 # time
-# -------------
+# ======
 
 import time
 
@@ -26,6 +26,10 @@ print(time.time() - start, "seconds")
 
 # %%
 # sleep()
+
+for i in range(5):
+    time.sleep(0.5)
+    print(i, end = " ")
 
 
 # %%
@@ -59,9 +63,9 @@ print(time.time() - start, "seconds")
 
 # %% md
 # datetime
-# -------------
+# =========
 
-import datetime
+from datetime import datetime
 
 
 # %%
@@ -71,10 +75,15 @@ import datetime
 # %%
 # datetime.now()
 
+now = datetime.now()
+
+print(now)
+
 
 # %%
 # datetime.strftime()
 
+print(datetime.strftime(now, "%Y-%m-%d %H:%M:%S"))
 
 # %%
 # datetime.strptime()

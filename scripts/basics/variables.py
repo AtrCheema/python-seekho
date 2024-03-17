@@ -52,7 +52,7 @@ print(type(a))
 # %%
 # A ``function`` is a different creature in python. We will cover more about it later in
 # :ref:`sphx_glr_auto_examples_basics_functions.py` . At this point, just keep in mind that
-# when some object is a function, we can `call` by appending paranthesis ``()`` after its name
+# when some object is a function, we can `call` it by appending paranthesis ``()`` after its name
 # Above we have called the ``print`` function. Don't worry if you don't understand the meaning
 # of calling a function at this point.
 
@@ -157,9 +157,12 @@ print(아타르)
 
 # %%
 # Data Types
-# -------------
-# Data types signifies the type of operation that can be performed on that
-# data. Python has the following data types
+# ==========
+# Data type signifies the type of operation that can be performed on that
+# data. The three common data types in python are as follows
+#    * numeric
+#    * sequence
+#    * boolean
 
 # %% md
 # Numbers
@@ -214,6 +217,14 @@ print(type(coke))
 # %%
 # **Question**
 # What will the suitable data type to store currency values? Explain your reasoning.
+
+# %%
+# Sequence
+# ---------
+
+# %%
+# boolean
+# --------
 
 # %%
 #

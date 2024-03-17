@@ -209,4 +209,4 @@ list(map(power, vals1, vals2))
 
 # %%
 #
-# .. [1] `<https://github.com/dralshehri/hijridate`>_
+# .. [1] `<https://github.com/dralshehri/hijridate>`_
