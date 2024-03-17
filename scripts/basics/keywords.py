@@ -84,6 +84,11 @@ vals = [1,2,3,4,'5.0']
 print(all([isinstance(val, (int, float)) for val in vals]))
 
 # %%
+# **Question:**
+# 
+# What is the ``type`` of the output returned by ``any`` and ``all`` functions?
+
+# %%
 # sorted
 # ========
 vals = ['a', 'b', 'c']
@@ -122,7 +127,7 @@ for idx, val in enumerate(vals):
 # .. code-block:: python
 #
 #    names = ['jamaludin', 'zaynaldin', 'nurullah shustari', 'kamil dehlavi', 'baqir sadr]
-#    years = ['1385', '1558', '1610', '1809', '1979']
+#    years = ['1385', '1558', '1610', '1809', '1980']
 #    for (idx,name), year in zip(enumerate(names), years):
 #        print(idx, name, year)
 
