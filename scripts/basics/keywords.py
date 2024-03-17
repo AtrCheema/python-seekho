@@ -113,6 +113,31 @@ for val in reversed(vals):
 vals = ['a', 'b', 'c']
 for idx, val in enumerate(vals):
     print(idx, val)
+
+# %%
+# **Question:**
+#
+# What will be the output of the following code?
+#
+# .. code-block:: python
+#
+#    names = ['jamaludin', 'zaynaldin', 'nurullah shustari', 'kamil dehlavi', 'baqir sadr]
+#    years = ['1385', '1558', '1610', '1809', '1979']
+#    for (idx,name), year in zip(enumerate(names), years):
+#        print(idx, name, year)
+
+# %%
+# **Question:**
+#
+# Consider the following list
+#
+# .. code-block:: python
+#
+#    dob_years = ['1334', '1506', '1542', '1700s', '1935']
+#
+# Now modify the ``for`` loop in the previous example to also iterate over 
+# ``dob_years`` list along with ``names`` and ``years``.
+
 # %%
 # map
 # =====
@@ -132,13 +157,13 @@ for val in vals:
     print(square(val))
 
 # %%
-# an alternative to calling the function in an explicit for loop
+# An alternative to calling the function in an explicit for loop
 # is to make use of ``map`` function.
 
 mapper = map(square, vals)
 
 # %%
-# THe ``map`` function returns an iterator which we can convert into a list
+# The ``map`` function returns an iterator which we can be converted into a ``list``
 
 print(type(mapper))
 
@@ -173,18 +198,15 @@ list(map(power, vals1, vals2))
 #    * It is memory efficient as it returns an iterator
 
 # %%
-# What will be the output of the following code?
+# **Question:**
+#
+# Convert the years in following list from Hijri to Gregorian [1]_ calenden using ``map`` function
 #
 # .. code-block:: python
 #
-#    names = ['jamaludin', 'zayn aldin', 'nurullah shustari', 'kamil dehlavi', 'baqir sadr]
-#    years = ['1385', '1558', '1610', '1809', '1979']
-#    for (idx,name), year in zip(enumerate(names), years):
-#        print(idx, name, year)
+#    hijri_years = [40, 50, 61, 95, 114, 148, 183, 203, 220, 254, 260]
+
 
 # %%
-# **Question:**
-# Consider the following list
-# dob_years = ['1334', '1506', '1542', '1700s', '1935']
-# Now modify the ``for`` loop in the previous example to also iterate over 
-# ``dob_years`` list along with ``names`` and ``years``.
+#
+# .. [1] `<https://github.com/dralshehri/hijridate`>_
