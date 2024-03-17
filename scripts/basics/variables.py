@@ -194,6 +194,14 @@ print(type(a))
 
 # %%
 
+# %%
+# **Question:**
+#
+# Define variables to store the information on your ID card and print each of them.
+# The variables should not be of same type.
+
+# %%
+
 x = 3 + 4j  # consist of real and imaginary part
 print(type(x))
 
