@@ -390,6 +390,12 @@ print(man.get("city"))
 
 man.get("city", "Baghdad")
 
+# %%
+# If a key is not present in a dictionary, and we try to access
+# its value, we can avoid the KeyError by setting the default value
+# of that key
+print(man.get('age', 44))
+
 # %% md
 # ``copy``
 # ---------
@@ -670,3 +676,25 @@ print(books)
 # .. code-block:: python
 #
 #    x = {"Ali": {"born": 600, "died": 661}, "Hassan": {"born": 625, "died": 670}, "Hussain": {"born": 626, "died": 680}}
+
+
+# %%
+# **Question**
+# What will be output of following code?
+#
+# .. code-block:: python
+#
+#    x = {1: "ali", 2: "hassan", 3: "hussain"}
+#    y = {1: "ali", 2: "hassan", 3: "hussain", 4: "Ali"}
+#    print(x.get(4, y.get(4))
+
+# %%
+# **Question**
+# Change the contents of dictionary `y` in such a way the following
+# code throws ``KeyError``
+#
+# .. code-block:: python
+#
+#    x = {1: "ali", 2: "hassan", 3: "hussain"}
+#    y = ??
+#    print(x.get(4, y.get(4))  # should throw KeyError

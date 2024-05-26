@@ -15,8 +15,8 @@ This lesson describes `lists` in python.
 mylist = []
 
 # %%
-# Above we an empty list. How do we know that it is list? We can always check
-# the type of an object in python as below.
+# Above we defined an empty list. How do we know that it is list? We can always check
+# the type of object in python as below.
 
 print(type(mylist))
 
@@ -27,8 +27,8 @@ imperialists = ['Bush', 'Obama', 'Trump', 'Zuckerberg', 'Bezos', 'coca cola']
 print(type(imperialists))
 
 # %%
-# In above mentioned list, all of its (6) elements are strings. However, the elements/members
-# a list need not to be of same type.
+# In above-mentioned list, all of its (6) elements are strings. However, the elements/members
+# a list are not required to be of same `type`.
 
 # %%
 imperialists = ["Bush", {"years": 8}, 2000, (2000, 2008)]
@@ -360,11 +360,21 @@ print(numbers)
 #    y = [3,4, 5]
 #    print(len(x + y))
 
+# ``*``
+# ---------
+a = ['Najaf']
+print(a * 3)
+
+# %%
+
+a = ['Najaf', '->', 'Karbala']
+print(a * 3)
+
 ##############################################
 # Notes
 # ============================================
-# I have been using the word function for ``append``, ``sort`` etc, however in Object
-# Oriented Programming, it can be seen that they are actually called `methods`.
+# I have been using the word function for ``append``, ``sort`` etc. However, in
+# Object-Oriented Programming, it can be seen that they are actually called `methods`.
 #
 # There are a lot more powerful list manipulations which can be done by combining
 # conditional and looping statements. We will come back to them once looping and

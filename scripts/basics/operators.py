@@ -68,10 +68,12 @@ print(14 % 5)
 
 #########################################
 
-
 print(17 % 5.0)
 
 #########################################
+# Above `17` was integer and `5.0` was float. Since one value was float, the result
+# is also a float
+#
 # The sign of the result will be same as sign of divider.
 
 #########################################
@@ -127,7 +129,8 @@ print(-20 // -6.0)
 #    print( 20//60, 20/60)
 
 #########################################
-# `**` is used for exponentiation i.e. to raise one object over another.
+# ``**`` is used for exponentiation i.e. to raise one object over another.
+# For example two to the power of three can be done as below
 
 print(2**3)
 
@@ -149,6 +152,8 @@ print(a + b)
 # a - b # -> TypeError
 
 # %%
+# But when we multiply a ``string`` by an ``integer``, the
+# string is repeated.
 print(a * 2)
 
 # %%
@@ -181,8 +186,12 @@ print(2.2 == 1.1 + 1.1)
 #########################################
 # However, we should avoid comparing floats in this way. This is because
 # `computers can not represent accurate values of floats <https://stackoverflow.com/q/21895756/14411830>`_.
-# 1.1 + 2.2 results in an approximated answer, so we avoid comparing floats.
+# 1.1 + 2.2 results in an approximated answer, so we better avoid comparing floats.
 
+# %%
+# **Question**
+# Find out the type of the output returned by ``==`` operator.
+# type(2==3)
 #########################################
 
 print(3.3 == 1.1 + 2.2)
@@ -192,6 +201,8 @@ print(3.3 == 1.1 + 2.2)
 print(abs((1.1 + 2.2) - 3.3) < 1e-15)
 
 #########################################
+# ``>`` can be read as `greater than` or `smaller than`` depending upon its direction.
+#
 # If we want to check whether a numerical value lies between two numbers or not
 # we can make use of ``<`` or ``>`` operators twice.
 
@@ -200,6 +211,7 @@ print(abs((1.1 + 2.2) - 3.3) < 1e-15)
 print(8<10<12)
 
 #########################################
+# ``!=`` can be considered as opposite of ``==`` and can be read as `not equal to`
 
 capitalism = 'a system based on individualism'
 
@@ -232,20 +244,41 @@ print(capitalism and communism)
 
 #########################################
 
-print(capitalism or communism)
 
+print(capitalism or communism)
 
 #########################################
 
 print(capitalism and justice)
 
 #########################################
+# Above, since one statement on left side of ``and`` is
+# False, the output is False. For ``and`` to return True, both statements/expressions
+# on its right and left side, must return True. If one is True and one is False, the
+# output will be False. However, for ``or``, even if one side evaluates to True, the
+# output is True. This becomes clear if you understand, why the output of below
+# code is True.
 
 print(capitalism or justice)
 
 #########################################
 
 print(capitalism is not justice)
+
+# %%
+# **Question**
+# The above code ``print(capitalism is not justice)`` printed
+# True. This is because ``justice`` was True and thus ``not justice``
+# becomes False. Therefore, what we are implicitly saying `False is False`, which is True.
+# Now reset the values of variables `capitalism` and `justice` in such a way
+# that the code ``print(capitalism is not justice)`` should return False.
+# This is shown below
+#
+# .. code-block:: python
+#
+#    capitalism =
+#    justice =
+#    print(capitalism is not justice)  # must print False
 
 #########################################
 # Default values
@@ -258,13 +291,15 @@ lunch = food or 'curry'
 print(lunch)
 
 #########################################
+# The statement on left of ``or`` was not False/None, therefore, variable `lunch`
+# became `bread` .
 
 food = None
 lunch = food or 'curry'
 print(lunch)
 
 #########################################
-# If the first argument before ``or`` is ``True``, the value after ``or`` is discarded.
+# If the first argument before ``or`` is ``True`` or not None, the value after ``or`` is discarded.
 
 #########################################
 
@@ -296,14 +331,18 @@ id(a), id(b)
 
 #########################################
 # Because ali and hasan are stored at different location at different location,
-# thus and answer
+# thus the answer is False
 
 #########################################
 
 print(a is b)
 
 #########################################
-# However, python already stores some commonly used smaller numbers in memory, so
+# **Note**
+# If the above code prints ``True``, it could be that the python
+# version that you are using saves even large integers in memory.
+#
+# Actually, python already stores some commonly used smaller numbers in memory, so
 # when they are created, python refers to that same memory location and does not
 # really create them. Thus, for smaller numbers (from -5 to 256 integers) `is` returns True.
 
