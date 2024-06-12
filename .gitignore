@@ -14,9 +14,19 @@ docs/source/gen_modules/
 
 envs/
 
+build/
+dist/
+
 *.txt
 *.json
 *.csv
 *.pq
 *.xlsx
 *.pdf
+
+*.pyx
+*.c
+*.so
+*.cpp
+*.h
+*.spec
