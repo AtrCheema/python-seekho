@@ -7,6 +7,8 @@ easy_mpl>=0.21.4
 joblib
 seaborn
 
+numba
+
 sphinx==4.5.0
 sphinx-prompt
 sphinx_copybutton
