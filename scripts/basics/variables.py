@@ -185,17 +185,32 @@ print(x, type(x))
 print(y, type(y))
 
 # %%
+# `0b101`, `0o14` and `0xe` are examples of integers represented in binary, octal and hexadecimal
+# bases respectively. We can convert a number to binary, octal and hexadecimal using
+# the functions ``bin``, ``oct`` and ``hex`` respectively as follows
 
 print(bin(5))
 print(oct(12))
 print(hex(14))
 
 # %%
+# However, if you don't understand the meaning of binary, octal and hexadecimal bases, don't worry.
+# This is not important at this point. Just keep in mind that we can represent numbers in different
+# bases in python.
 
 a = 12.5e3
 print(type(a))
 
 # %%
+# Since the value of ``a`` is a float, the type of ``a`` is float. The value of ``a`` is
+# 12.5 times 10 raised to the power 3. This is called scientific notation. We can also
+# represent a number in scientific notation as follows
+
+a = 12.5e-3
+
+# %%
+# **Question**
+# What is the value of ``a`` in the above code?
 
 # %%
 # **Question:**

@@ -99,7 +99,7 @@ class CSVRow(ctypes.Structure):
                 ("floatValue", ctypes.c_float)]
 
 # Load the shared library
-csv_reader = ctypes.CDLL(f'./{output_library}')   # Use the correct path for your .so/.dll file
+csv_reader = ctypes.CDLL(f'{output_library}')   # Use the correct path for your .so/.dll file
 
 # Define the argument and return types of the functions
 csv_reader.processCSVFileFast.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_uint), ctypes.POINTER(ctypes.c_size_t), ctypes.POINTER(ctypes.c_size_t)]
