@@ -30,6 +30,7 @@ def main(path, start:int=26):
     else:
         print(f"No duplicates found in {path}")
 
+# %%
 
 if __name__ == "__main__":
 

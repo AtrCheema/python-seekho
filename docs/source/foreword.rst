@@ -100,5 +100,5 @@ You can expect improvement in the book with time.
 .. _requirements:
     https://github.com/AtrCheema/python-seekho/blob/master/requirements.txt
 
-.. _Jupyter notebook:
+.. _notebook:
     https://realpython.com/jupyter-notebook-introduction/
