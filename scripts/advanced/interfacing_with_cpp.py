@@ -102,6 +102,9 @@ class CSVRow(ctypes.Structure):
                 ("floatValue", ctypes.c_float)]
 
 # %%
+print(os.getcwd())
+
+# %%
 print(os.listdir(os.getcwd()))
 
 # Load the shared library

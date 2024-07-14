@@ -76,7 +76,7 @@ he/she can see the error.
 
 Note
 ========
-This is a living book which is currently being maintained actively on its GitHub repository.
+This is a living book which is currently being maintained actively on its GitHub repository_.
 You can expect improvement in the book with time.
 
 .. _colab:
@@ -102,3 +102,6 @@ You can expect improvement in the book with time.
 
 .. _notebook:
     https://realpython.com/jupyter-notebook-introduction/
+
+.. _repository:
+    https://github.com/AtrCheema/python-seekho 

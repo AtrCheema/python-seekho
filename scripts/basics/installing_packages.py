@@ -61,16 +61,28 @@ site.addsitedir('path/to/my/package')
 # Following examples show how to use ``pip`` to install a package called ``easy_mpl``.
 
 # %%
-#  pip install easy_mpl
+# 
+# .. code-block:: python
+#
+#    pip install easy_mpl
 
 # %%
-# pip install easy_mpl==0.21.3
+# 
+# .. code-block:: python
+#
+#    pip install easy_mpl==0.21.3
 
 # %%
-# pip install -update easy_mpl
+# 
+# .. code-block:: python
+#
+#    pip install -update easy_mpl
 
 # %%
-# pip install easy_mpl[all]
+# 
+# .. code-block:: python
+#
+#    pip install easy_mpl[all]
 
 # %%
 # conda
