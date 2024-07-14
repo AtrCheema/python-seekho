@@ -20,7 +20,7 @@ import sys
 # -- Project information -----------------------------------------------------
 
 project = 'phthon-seekho'
-copyright = '2023, Ather Abbas'
+copyright = '2024, Ather Abbas'
 author = 'Ather Abbas'
 
 

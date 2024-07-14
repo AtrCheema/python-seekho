@@ -92,7 +92,13 @@ output_library = 'read_csv_gpt.so'
 
 # Compile the C++ code as a library
 compile_command = f'g++ -shared -o {output_library}  -fPIC {cpp_source_file}'
-subprocess.run(compile_command, shell=True)
+process = subprocess.run(compile_command, shell=True, text=True, capture_output=True)
+
+if process.returncode != 0:
+    print(process.stderr)
+
+# %%
+print(process.stdout)
 
 # %%
 
