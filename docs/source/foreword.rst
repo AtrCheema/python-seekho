@@ -23,7 +23,7 @@ with executable notebooks. You can consider this book as a collection of practic
 (python) infrastructure is available. However, the pdf_ version
 of it can also be used as an ebook. The book is more closely related to the python section of the tutorialspoint_
 website. However, this book covers many topics which are not discussed there. More importantly,  the user can download the code examples
-here as either Jupyter notebook or as .py files. Therefore, the user can access the complete material
+here as either Jupyter notebook_ or as .py files. Therefore, the user can access the complete material
 which is more helpful for practical purposes.
 
 Who should read this book
@@ -99,3 +99,6 @@ You can expect improvement in the book with time.
 
 .. _requirements:
     https://github.com/AtrCheema/python-seekho/blob/master/requirements.txt
+
+.. _Jupyter notebook:
+    https://realpython.com/jupyter-notebook-introduction/

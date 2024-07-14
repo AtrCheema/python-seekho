@@ -6,6 +6,7 @@ openpyxl
 easy_mpl>=0.21.4
 joblib
 seaborn
+numpy<2
 
 numba
 

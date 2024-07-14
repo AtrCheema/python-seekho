@@ -2,3 +2,4 @@ pandas
 openpyxl
 easy_mpl>=0.21.4
 joblib
+numpy<2
