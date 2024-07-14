@@ -78,6 +78,7 @@ This lesson describes how to call functions/modules written in C++ into python a
 
 # %%
 
+import os
 import time
 import ctypes
 import pandas as pd
@@ -98,44 +99,47 @@ class CSVRow(ctypes.Structure):
     _fields_ = [("date", ctypes.c_char * 20),
                 ("floatValue", ctypes.c_float)]
 
+# %%
+print(os.listdir(os.getcwd()))
+
 # Load the shared library
-csv_reader = ctypes.CDLL(f'{output_library}')   # Use the correct path for your .so/.dll file
+# csv_reader = ctypes.CDLL(f'{output_library}')   # Use the correct path for your .so/.dll file
 
-# Define the argument and return types of the functions
-csv_reader.processCSVFileFast.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_uint), ctypes.POINTER(ctypes.c_size_t), ctypes.POINTER(ctypes.c_size_t)]
-csv_reader.processCSVFile.restype = ctypes.c_void_p
+# # Define the argument and return types of the functions
+# csv_reader.processCSVFileFast.argtypes = [ctypes.c_char_p, ctypes.POINTER(ctypes.c_uint), ctypes.POINTER(ctypes.c_size_t), ctypes.POINTER(ctypes.c_size_t)]
+# csv_reader.processCSVFile.restype = ctypes.c_void_p
 
-csv_reader.freeCSVRowsFast.argtypes = [ctypes.c_void_p]
-csv_reader.freeCSVRowsFast.restype = None
+# csv_reader.freeCSVRowsFast.argtypes = [ctypes.c_void_p]
+# csv_reader.freeCSVRowsFast.restype = None
 
 
-def read_csvFast(file_path):
-    # Call the processCSVFileFast function
-    total = ctypes.c_uint(0)
-    size = ctypes.c_size_t(0)
-    row_size = ctypes.c_size_t(0)
-    ptr = csv_reader.processCSVFileFast(file_path, ctypes.byref(total), ctypes.byref(size), ctypes.byref(row_size))
+# def read_csvFast(file_path):
+#     # Call the processCSVFileFast function
+#     total = ctypes.c_uint(0)
+#     size = ctypes.c_size_t(0)
+#     row_size = ctypes.c_size_t(0)
+#     ptr = csv_reader.processCSVFileFast(file_path, ctypes.byref(total), ctypes.byref(size), ctypes.byref(row_size))
 
-    # # Check if the pointer is NULL
-    # if not ptr:
-    #     raise MemoryError("Failed to allocate memory for CSV data")
+#     # # Check if the pointer is NULL
+#     # if not ptr:
+#     #     raise MemoryError("Failed to allocate memory for CSV data")
 
-    # Convert the pointer to a numpy array
-    buffer = (ctypes.c_char * (size.value * row_size.value)).from_address(ptr)
-    data = np.frombuffer(buffer, dtype=[('date', 'S20'), (str(total.value), 'f4')])
+#     # Convert the pointer to a numpy array
+#     buffer = (ctypes.c_char * (size.value * row_size.value)).from_address(ptr)
+#     data = np.frombuffer(buffer, dtype=[('date', 'S20'), (str(total.value), 'f4')])
 
-    # Create a pandas DataFrame from the numpy array
-    df = pd.DataFrame(data)
+#     # Create a pandas DataFrame from the numpy array
+#     df = pd.DataFrame(data)
 
-    # Convert the 'date' column to string
-    df.index = df['date'].str.decode('utf-8')
+#     # Convert the 'date' column to string
+#     df.index = df['date'].str.decode('utf-8')
 
-    # Free the allocated memory
-    csv_reader.freeCSVRowsFast(ptr)
-    return df
+#     # Free the allocated memory
+#     csv_reader.freeCSVRowsFast(ptr)
+#     return df
 
-start = time.time()
-for i in range(50):
-    df = read_csvFast(b'daily_q.csv')
+# start = time.time()
+# for i in range(50):
+#     df = read_csvFast(b'daily_q.csv')
 
-print(f"Time taken to read the CSV file 5 times: {time.time() - start:.2f} seconds")
+# print(f"Time taken to read the CSV file 5 times: {time.time() - start:.2f} seconds")
