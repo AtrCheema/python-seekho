@@ -94,6 +94,8 @@ output_library = 'read_csv_gpt.so'
 compile_command = f'g++ -shared -o {output_library}  -fPIC {cpp_source_file}'
 subprocess.run(compile_command, shell=True)
 
+# %%
+
 # Define the CSVRow structure
 class CSVRow(ctypes.Structure):
     _fields_ = [("date", ctypes.c_char * 20),

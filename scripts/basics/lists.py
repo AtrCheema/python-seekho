@@ -2,10 +2,8 @@
 ===========
 1.4 lists
 ===========
-This lesson describes `lists` in python.
+This lesson describes the concept of `list` in python.
 
-.. important::
-  This lesson is still under development.
 """
 
 # %%
@@ -91,6 +89,10 @@ print(imperialists[2])
 print(imperialists[-1])
 
 # %%
+# The ``:`` operator/symbol is used to slice a list. The syntax is as follows
+# ``list[start:stop:step]``. The default value of ``start`` is 0, of ``stop`` is
+# length of list and of ``step`` is 1.
+
 print(imperialists[2:4])
 
 # %%
@@ -102,7 +104,6 @@ print(imperialists[2:4])
 #    a = [1,5, 7,14]
 #    a[2] = 12
 #    print(a)
-
 
 
 # %%
@@ -148,6 +149,15 @@ print(imperialists)
 imperialists.append('netanyahu')
 print(imperialists)
 
+# %%
+# **Question:**
+# What will be the output of the following code?
+#
+# .. code-block:: python
+#
+#    a = [1,5, 7,14]
+#    a.append(12)
+#    print(a[-1])
 
 ##############################################
 # pop
@@ -179,6 +189,17 @@ print(imperialists)
 
 # uncomment following 1 line
 # imperialists.pop('Bush')
+
+# %%
+# **Question:**
+# What will be the output of the following code?
+#
+# .. code-block:: python
+#
+#    a = [1,5, 7,14]
+#    a.pop(2)
+#    print(len(a))  # ??
+#    a.pop(2)   # ??
 
 ##############################################
 # extend
@@ -216,6 +237,16 @@ capitalists = ('Zuckerberg', 'Bezos', 'coca cola')
 imperialists.extend(capitalists)
 print(imperialists)
 
+# %%
+# **Question:**
+# What will be the output of the following code?
+#
+# .. code-block:: python
+#
+#    a = [1,5, 7,14]
+#    b = [2, 3]
+#    print(len(a.extend(b)))  # ?
+
 ##############################################
 # using ``+`` operator
 # ---------------------------------------------
@@ -240,6 +271,17 @@ print(imperialists)
 morons = ['sam haris', 'richard dawkins', 'baghdadi', 'bin ladan']
 imperialists += morons
 print(imperialists)
+
+# %%
+# **Question:**
+# What will be the output of the following code?
+#
+# .. code-block:: python
+#
+#    a = [1,5, 7,14]
+#    b = [2, 3]
+#    print(len(a + b))  # ?
+
 
 ##############################################
 # remove
@@ -301,6 +343,16 @@ print(imperialists)
 
 imperialists.index(last_value)
 
+# %%
+# **Question:**
+# What will be the output of the following code?
+#
+# .. code-block:: python
+#
+#    a = [1,5, 7,14]
+#    a.insert(2, 12)
+#    print(a)  # ?
+
 ##############################################
 # reverse
 # --------------------------------------------
@@ -316,6 +368,16 @@ imperialists.reverse()
 ##############################################
 
 print(imperialists)
+
+# %%
+# **Question:**
+# What will be the output of the following code?
+#
+# .. code-block:: python
+#
+#    a = [1,5, 7,14]
+#    a.reverse()
+#    print(a)  # ?
 
 ##############################################
 # sort

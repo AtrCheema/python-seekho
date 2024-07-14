@@ -662,16 +662,16 @@ books = dict(list(old_books.items()) + list(new_books.items()))
 print(books)
 
 # %%
-# **Question**
-# Write the code to print the value of second key of the following dictionary i.e. "Hassan".
+# **Question:**
+# Write code to print the value of second key of the following dictionary i.e. "Hassan".
 #
 # .. code-block:: python
 #
 #    x = {1: "ali", 2: "hassan", 3: "hussain"}
 
 # %%
-# **Question**
-# Write code to tell the date of bir and death of the 'Ali' from the following dictionary.
+# **Question:**
+# Write code to tell the date of birth and death of the `Ali` from the following dictionary.
 #
 # .. code-block:: python
 #
@@ -679,7 +679,7 @@ print(books)
 
 
 # %%
-# **Question**
+# **Question:**
 # What will be output of following code?
 #
 # .. code-block:: python
@@ -689,7 +689,7 @@ print(books)
 #    print(x.get(4, y.get(4))
 
 # %%
-# **Question**
+# **Question:**
 # Change the contents of dictionary `y` in such a way the following
 # code throws ``KeyError``
 #
