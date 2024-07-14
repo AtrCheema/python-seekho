@@ -76,7 +76,7 @@ extern "C" void freeCSVRows(CSVRow* rows) {
 // **************************************************
 
 
-vector<CSVRow> readCSV(const string& filePath, unsigned& intValue) {
+vector<CSVRow> readCSVFast(const string& filePath, unsigned& intValue) {
     vector<CSVRow> data;
     ifstream file(filePath);
 
@@ -118,7 +118,7 @@ vector<CSVRow> readCSV(const string& filePath, unsigned& intValue) {
 }
 
 extern "C" void* processCSVFileFast(const char* filePath, unsigned* total, size_t* size, size_t* rowSize) {
-    vector<CSVRow> csvData = readCSV(filePath, *total);
+    vector<CSVRow> csvData = readCSVFast(filePath, *total);
     *size = csvData.size();
     *rowSize = sizeof(CSVRow);
 

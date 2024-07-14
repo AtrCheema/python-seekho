@@ -96,6 +96,8 @@ process = subprocess.run(compile_command, shell=True, text=True, capture_output=
 
 if process.returncode != 0:
     print(process.stderr)
+else:
+    print('Compilation successful')
 
 # %%
 print(process.stdout)
