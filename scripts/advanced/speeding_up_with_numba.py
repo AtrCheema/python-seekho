@@ -92,6 +92,7 @@ num_inputs {num_inputs} + num_outputs {num_outputs} != total features {features}
 
     return x, y
 
+# %%
 
 @jit(nopython=True)
 def prepare_data1(
@@ -143,6 +144,8 @@ def prepare_data1(
 
     return x, y
 
+# %%
+
 @jit(nbTuple((float32[:, :, :], float32[:, :, :]))(float32[:, :], int32, int32, int32, int32, int32, int32), nopython=True)
 def prepare_data2(
         data: np.ndarray,
@@ -185,6 +188,7 @@ def prepare_data2(
 
     return x, y
 
+# %%
 
 @jit(nbTuple((float32[:, :, :], float32[:, :, :]))(float32[:, :], int32, int32, int32, int32, int32, int32), nopython=True, parallel=True)
 def prepare_data3(
@@ -227,7 +231,6 @@ def prepare_data3(
     y = np.transpose(y, (0, 2, 1)).astype(np.float32)
 
     return x, y
-
 
 
 # %%
