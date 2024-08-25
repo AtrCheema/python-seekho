@@ -23,12 +23,10 @@
 # a valid function in python without input arguments or a function which does not
 # return something.
 
-
 # %%
 
 def add_nums():
     pass
-
 
 print(add_nums)
 
@@ -56,11 +54,9 @@ add_nums()
 
 # %%
 
-
 def add_nums(a, b):  # for brevity, we can not write add_nums(a+b):
     print('a: ', a, ' b:', b)
     a + b
-
 
 add_nums(1, 5)
 
@@ -69,11 +65,9 @@ add_nums(1, 5)
 
 # %%
 
-
 def add_nums(a, b):
     print('a: ', a, ' b:', b)
     a + b
-
 
 x = 12
 y = 14
@@ -88,12 +82,10 @@ add_nums(x, y)
 
 # %%
 
-
 def add_nums(a, b):
     print('a: ', a, ' b:', b)
     c = a + b
     return c
-
 
 x = 12
 y = 14
@@ -268,11 +260,9 @@ print('The function returns z: ', z)
 
 # %%
 
-
 def add_nums(a=12, b=14):
     print('a: ', a, ' b:', b)
     return a + b
-
 
 x = 114
 y = 313
@@ -289,11 +279,9 @@ print('The function returns z: ', z)
 
 # %%
 
-
 def add_nums(a=12, b=14):
     print('a: ', a, ' b:', b)
     return a + b
-
 
 y = 313
 z = add_nums(y)
@@ -304,11 +292,9 @@ print('The function returns z: ', z)
 
 # %%
 
-
 def add_nums(a=12, b=14):
     print('a: ', a, ' b:', b)
     return a + b
-
 
 y = 313
 z = add_nums(b=y)
@@ -324,7 +310,6 @@ def add_nums(a=12, b=14):
     print('a: ', a, ' b:', b)
     return a + b
 
-
 x = 114
 z = add_nums(a=x)
 print('The function returns z: ', z)
@@ -335,11 +320,9 @@ print('The function returns z: ', z)
 
 # %%
 
-
 def add_nums(a=12, b=14):
     print('a: ', a, ' b:', b)
     return a + b
-
 
 z = add_nums(1)
 print('The function returns z: ', z)
@@ -355,7 +338,6 @@ def add_nums(a=12, b=14):
     print('a: ', a, ' b:', b)
     return a + b
 
-
 z = add_nums()
 print('The function returns z: ', z)
 
@@ -368,7 +350,6 @@ print('The function returns z: ', z)
 def add_nums(a, b, c=14):
     print('a:', a, '  b:', b, '  c:', c)
     return a + b
-
 
 z = add_nums(1, 2)
 print('The function returns z: ', z)
@@ -410,7 +391,6 @@ def func(a, b):
     v = b
     return u, v
 
-
 xx = func(5, 12)
 print(xx, type(xx))
 
@@ -450,7 +430,6 @@ print(xx)
 
 # %%
 
-
 def retun_list(a):
     return [a]
 
@@ -463,7 +442,6 @@ print(type(out))
 def return_tuple(variable):
     return variable, variable
 
-
 out = return_tuple(10)
 print(type(out))
 # %%
@@ -471,15 +449,12 @@ print(type(out))
 def return_tuple(variable):
     return variable,
 
-
 out = return_tuple(10)
 print(type(out))
 # %%
 
-
 def return_tuple(variable):
     return (variable)
-
 
 out = return_tuple(10)
 print(type(out))
@@ -493,7 +468,6 @@ print(type(out))
 
 def return_tuple(variable):
     return (variable, )
-
 
 out = return_tuple(10)
 type(out)
@@ -531,10 +505,8 @@ var, *_ = return_tuple(2)
 
 # %%
 
-
 def print_me(to_print):
     print(to_print)
-
 
 x = print_me
 
@@ -545,18 +517,33 @@ x('This goes into print_me')
 
 # %%
 
-
 def magic(left, op, right):
     return op(left, right)
-
 
 def my_op(var_a, var_b):
     return var_a == var_b
 
-
 magic(2, my_op, 2)
 
-
+# %%
+# **Question**:
+# .. code-block:: python
+#
+#    def add_nums(a, b):
+#        return a + b
+#
+#    def sub_nums(a, b):
+#        return a - b
+#
+#    def multiply_nums(a, b):
+#        return a * b
+#
+#    def divide_nums(a, b):
+#        return a / b
+#
+# Write a function named `foo` in such a way that you call all the 
+# above four functions inside `foo` function. The `foo` function should take
+# two input arguments and return 100. You can create intermediate variables as well.
 
 # %% 
 # positioning of ``return`` statement
@@ -646,7 +633,6 @@ print(x)
 # called `docstring`. It can be called by ``__doc__`` method
 
 # %%
-
 
 def fahrenheit(T_in_celsius):
     """This function converts temperature from Celsius to Fahrenheit. """
