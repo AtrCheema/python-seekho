@@ -439,124 +439,145 @@ print(thugs, 'outside')
 # In general: variables in python are local unless declared otherwise.
 
 # %%
+# Questions
+# =========
+# Answer the following questions without running the code above them.
+
+def foo():
+    number = 2
+    return number
+
+# %%
+# **Question:** What value will be printed by the following code?
+#
+# .. code-block:: python
+#
+#    foo()
+#    print(number)
+
+# %%
+# **Question:** Did you get any error in the above code? If yes, then explain the error?
+
+# %%
 
 num = 1
 
-def add_two(var):
+def add_something(var):
     return var + num
 
-def multipy_two(var):
+def multipy_something(var):
     return var * num
 
-a = add_two(5)
-b = multipy_two(a)
+a = add_something(5)
+b = multipy_something(a)
 
 # %%
-# **Question:** What will be the value of `b`?
+# **Question:** What will be the value of ``b`` in above code?
 
 
 # %%
 num = 1
 
-def add_two(var):
+def add_something(var):
     return var + num
 
-def multipy_two(var):
+def multipy_something(var):
     return var * num
 
-a = add_two(5)
+a = add_something(5)
 num = 12
-b = multipy_two(a)
+b = multipy_something(a)
 
 # %%
-# **Question:** What will be the value of `b` and why?
+# **Question:** What will be the value of ``b`` in above code and why?
 
 # %%
 
 num = 1
 
-def add_two(var):
+def add_something(var):
     num = 14
     return var + num
 
-def multipy_two(var):
+def multipy_something(var):
     return var * num
 
-a = add_two(5)
+a = add_something(5)
 num = 12
-b = multipy_two(a)
+b = multipy_something(a)
 
 # %%
-# **Question:** What will be the value of `b` and why?
+# **Question:** What will be the value of ``b`` in above and why?
 
 # %%
 num = 1
 
-def add_two(var):
+def add_something(var):
     global num
     num = 14
     return var + num
 
-def multipy_two(var):
+def multipy_something(var):
     return var * num
 
-a = add_two(5)
-b = multipy_two(a)
+a = add_something(5)
+b = multipy_something(a)
 
 # %%
-# **Question:** What will be the value of `b` and why?
+# **Question:** What will be the value of ``b`` in above code and why?
 
 # %%
 num = 1
 
-def add_two(var):
+def add_something(var):
     global num
     num = 14
 
-def multipy_two(var):
+def multipy_something(var):
     return var * num
 
-add_two(5)
-b = multipy_two(12)
+add_something(5)
+b = multipy_something(12)
 
 # %%
-# **Question:** What will be the value of `b` and why?
+# **Question:** What will be the value of `b` in above code and why?
 
 # %%
 
 num = 1
 
-def add_two(var):
+def add_something(var):
     global num
     num = 14
 
-def multipy_two(var):
+def multipy_something(var):
+    num = 12
     return var * num
 
-add_two(5)
-num = 92
-multipy_two(12)
+add_something(5)
+num = num + 92
+multipy_something(12)
 
 # %%
-# **Question:** What will be the value of `b` and why?
+# **Question:** What will be the value of ``num`` in above code and why?
 
 # %%
 num = 1
 
-def add_two(var):
+def add_something(var):
     global num
     num = 14
 
-def multipy_two(var):
+def multipy_something(var):
     global num
     num = num * var
 
-add_two(5)
-num = 92
-multipy_two(12)
+add_something(5)
+num = num + 92
+multipy_something(12)
 
 # %%
-# **Question:** What will be the value of `num` and why?
+# **Question:** What will be the value of ``num`` in above code and why?
 
 # %%
 book = "black"
@@ -592,7 +613,7 @@ add_info()
 change_info()
 
 # %%
-# **Question:** What will be the value of `book` and why?
+# **Question:** What will be the value of ``book['name']`` and why?
 
 #%% md
 # .. [1] `<http://wiki.c2.com/?GlobalVariablesAreBad>`_
