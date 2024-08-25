@@ -80,8 +80,11 @@ y = 14
 add_nums(x, y)
 
 # %% md
+# It is important to understant that the variable `a` and `b` are
+# created once we are inside the function ``add_nums``.
+#
 # Outside function `12` is `x` but inside function, `12` is `a`. The
-# variable `a` is not available outside the function.
+# variables `a` and `b` are not available outside the function.
 
 # %%
 
@@ -98,14 +101,60 @@ add_nums(x, y)
 
 # %% md
 # Above we we created `c` inside the function and returned it using the ``return`` statement. Outside the function when
-# we `called`` the function `add_nums` by executing ``add_nums(x,y), this value of `c` is printed. The variable named `c`
-# is not available itself outside the function. We can assign this value to a new variable whose
-# name is `z` as shown below below. It can be any legal variable name.
+# we `called` the function `add_nums` by executing ``add_nums(x,y)``, this value of `c` is printed. The variable named `c`
+# itself is not available outside the function. 
 # The variables which can be seen inside the function and which can be seen outside
 # the function will be covered in :ref:`sphx_glr_auto_examples_basics_global_vs_local.py`.
 
 # %%
 
+# %% md
+# Return
+# -------
+# A function returns ``None`` by default. The value returned by a function can 
+# be assigned to a new variable for example to `x` in following example.
+# It can be any legal variable name though.
+
+# %%
+
+import random  # ignore this line if you don't know what it does
+qatleen = ['winsten churchil', 'rana sanaullah', 'obama', 'musharaf']
+
+def print_qatal():
+    print(random.choice(qatleen))
+    return None
+
+x = print_qatal()
+print('type of x: ', type(x))
+
+# %% md
+# Even if a function does not return anything explicitly, it still returns ``None``.
+
+# %%
+
+def print_qatal():
+    print(random.choice(qatleen))
+    return
+
+
+x = print_qatal()
+print('type of x: ', type(x))
+
+# %% md
+# If a function does not have ``return`` statement, it still returns ``None``.
+
+# %%
+
+def print_qatal():
+    print(random.choice(qatleen))
+
+x = print_qatal()
+print('type of x: ', type(x))
+
+# %% md
+# So it is impossible in python to write a function which returns absolutely nothing.
+
+# %%
 
 def add_nums(a, b):
     print('a: ', a, ' b:', b)
@@ -123,55 +172,9 @@ print('The function returns z: ', z)
 # the function. Moreover, the creation of `c` is not necessary, we can just return
 # the result as it is.
 
-# %% md
-# Return
-# -------
-# A function returns ``None`` by default.
-
-# %%
-
-import random  # ignore this line if you don't know what it does
-qatleen = ['winsten churchil', 'rana sanaullah', 'obama', 'musharaf']
-
-def print_qatal():
-    print(random.choice(qatleen))
-    return None
-
-x = print_qatal()
-type(x)
-
-# %% md
-# Even if a function does not return anything explicitly, it still returns `None`.
-
-# %%
-
-def print_qatal():
-    print(random.choice(qatleen))
-    return
-
-
-x = print_qatal()
-type(x)
-
-# %% md
-# If a function does not have ``return`` statement, it still returns ``None``.
-
-# %%
-
-def print_qatal():
-    print(random.choice(qatleen))
-
-x = print_qatal()
-type(x)
-
-# %% md
-# So it is impossible in python to write a function which returns absolutely nothing.
-# %%
-
 def add_nums(a, b):
     print('a: ', a, ' b:', b)
-    return a + b
-
+    return a + b  # no intermediate variable c
 
 x = 12
 y = 14
@@ -379,19 +382,22 @@ print('The function returns z: ', z)
 # What will be the output of following function?
 
 # %%
-
-# z = add_nums()
-# print('The function returns z: ', z)
+# .. code-block:: python
+#
+#    z = add_nums()
+#    print('The function returns z: ', z)
 
 # %% md
 # **Question**:
 # Guess the output from following cell.
 
 # %%
-
-# z = add_nums(a=1, c=313)
-# print('The function returns z: ', z)
-
+# 
+# .. code-block:: python
+#
+#    z = add_nums(a=1, c=313)
+#     print('The function returns z: ', z)
+#
 
 # %%
 # Returning multiple values
@@ -439,7 +445,8 @@ xx = func(15, 12)[1]
 print(xx)
 
 # %% md
-# return a tuple from function
+# Above, we are slicing the output of `func` using `[1]` to get the second value.
+# The type of the returned value will be the same as the type of the value returned by the function.
 
 # %%
 
@@ -451,7 +458,7 @@ out = retun_list(10)
 print(type(out))
 
 # %%
-
+# A function can return a tuple in following ways
 
 def return_tuple(variable):
     return variable, variable
@@ -478,7 +485,7 @@ out = return_tuple(10)
 print(type(out))
 
 # %% md
-# The reason is that it is comma ``,`` which makes something a tuple not the brackets.
+# The type of `out` is ``int`` because it is comma ``,`` which makes something a tuple not the brackets.
 # So in order to get a tuple from function, we must put comma even if
 # there is only one object in the tuple as shown below.
 
@@ -498,8 +505,8 @@ def return_tuple(variable):
 
 var, *junk = return_tuple(2)
 
-print(var)
-print(junk)
+print(type(var), var)
+print(type(junk), junk)
 
 # %%
 # A common way to ignore the unncessary output from a function is to use underscore
@@ -518,6 +525,8 @@ var, *_ = return_tuple(2)
 # %% md
 # function as input argument
 # ---------------------------
+# The input arguments to a function can be any python object. This includes
+# functions as well. 
 # We can assign a function to a variable and use that variable to call the function.
 
 # %%
@@ -547,12 +556,24 @@ def my_op(var_a, var_b):
 
 magic(2, my_op, 2)
 
-# %% md
-# break vs return
-# ---------------
+
+
+# %% 
+# positioning of ``return`` statement
+# -----------------------------------
+#
+# It is important to understand that the function will exit as soon as it encounters
+# a ``return`` statement. This means that the code after the ``return`` statement
+# will not be executed.
 
 # %%
+def add_nums(a, b):
+    return a + b
+    print('This will not be printed')
 
+add_nums(1, 2)
+
+# %%
 
 def add_nums(a_list, break_point=5):
     _sum = 0.0
@@ -567,8 +588,8 @@ x = add_nums([1, 2, 3, 4, 5])
 print(x)
 
 # %% md
-# As soon as the value of `_sum` became greater than `break_point`, the function
-# exited and we got the value of _sum at that point.
+# As soon as the value of `_sum` became greater than `break_point`, the ``for`` loop
+# exited and we got the value of `_sum` at that point.
 
 # %%
 
@@ -576,7 +597,47 @@ x = add_nums([1, 2, 3, 4, 5], 50)
 print(x)
 
 # %% md
+# **Question:** 
 # Was the ``break`` statement executed above?
+
+# %%
+# **Question**:
+# What will be the output of following code?
+#
+# .. code-block:: python
+#
+#    def foo(a,b):
+#        c = a+b
+#        return c
+#        c = a-b
+#    z = foo(1,2)
+#    print(z)
+
+# %%
+# **Question**:
+# What will be the output of following code?
+#
+# .. code-block:: python
+#
+#    def foo(a,b):
+#        c = a+b
+#        return c
+#        c = a-b
+#        return c 
+#    z = foo(1,2)
+#    print(z)
+
+# %% md
+# **Question**:
+# What will be the output of following code?
+#
+# .. code-block:: python
+# 
+#    def foo(a,b):
+#        if a==0:
+#            return b
+#        else:
+#            return foo(a-1, a+b)
 
 # %% md
 # docstring
@@ -605,15 +666,3 @@ help(fahrenheit)
 converter = fahrenheit
 
 print(converter.__name__)
-
-# %% md
-# **Question**:
-# What will be the output of following code?
-#
-# .. code-block:: python
-# 
-#    def foo(a,b):
-#        if a==0:
-#            return b
-#        else:
-#            return foo(a-1, a+b)
