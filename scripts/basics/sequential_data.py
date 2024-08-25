@@ -349,8 +349,14 @@ enigma = 'IRtu diysa rtdo oK icpolnivnegn iweanst  at ow hbiet ea  sluipbeerrmaa
 print(enigma[::2])
 
 # %%
+# ``enigma[::2]`` indicates start from first value until the end with a jump of two. 
+# Note that empty space is also a valid string of length one.
 
 print(enigma[1::2])
+
+# %%
+# Similarly ``enigma[1::2]`` indicates that start from second value of ``enigma`` until 
+# the end with a jump. Here also empty space indicates a valid string of length one.
 
 # %% md
 # concatenation
@@ -464,6 +470,19 @@ print(t[0][0])
 
 t[0][0] = "Yemen is an open air prison. "
 print(t)
+
+# %%
+# `t[0][0]` points to first member of the first member of `t`. So when we did 
+# `t[0][0]=something`, we were assigning new value at that position.
+#  Therefore, the original contents of `t` also changed.
+#
+# However, since all the three members of `t` are pointing to the same memory location.
+# So if we change any of the members, all will change. This is called **shallow copy**.
+# This is because because `t[1]` is same as `t[0]` and not a `deep copy` of `t[0]`. 
+# `t[1]` and `t[0]` are indeed same objects and points to same position in memory. 
+# We can say that `t[1]`, `t[0]` and `[t2]` are all ``text``. This is because of the way we created t. 
+# By [text]*3 did not (make a deep) copy (of) the conents of the list `text`.
+# We will study more about this in the chapter of :ref:`sphx_glr_auto_examples_basics_copying_lists.py`.
 
 # %% md
 # Indexing

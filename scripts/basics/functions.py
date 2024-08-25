@@ -97,12 +97,12 @@ y = 14
 add_nums(x, y)
 
 # %% md
-# Above we we created `c` inside the function and returned it. Outside the function when
-# we called the function, this value of `c` is printed. The variable named `c`
-# is not available itself. We can assign this value to a new variable whose
+# Above we we created `c` inside the function and returned it using the ``return`` statement. Outside the function when
+# we `called`` the function `add_nums` by executing ``add_nums(x,y), this value of `c` is printed. The variable named `c`
+# is not available itself outside the function. We can assign this value to a new variable whose
 # name is `z` as shown below below. It can be any legal variable name.
 # The variables which can be seen inside the function and which can be seen outside
-# the function will be covered under the topic :ref:`sphx_glr_auto_examples_basics_global_vs_local.py`.
+# the function will be covered in :ref:`sphx_glr_auto_examples_basics_global_vs_local.py`.
 
 # %%
 
@@ -123,8 +123,50 @@ print('The function returns z: ', z)
 # the function. Moreover, the creation of `c` is not necessary, we can just return
 # the result as it is.
 
+# %% md
+# Return
+# -------
+# A function returns ``None`` by default.
+
 # %%
 
+import random  # ignore this line if you don't know what it does
+qatleen = ['winsten churchil', 'rana sanaullah', 'obama', 'musharaf']
+
+def print_qatal():
+    print(random.choice(qatleen))
+    return None
+
+x = print_qatal()
+type(x)
+
+# %% md
+# Even if a function does not return anything explicitly, it still returns `None`.
+
+# %%
+
+def print_qatal():
+    print(random.choice(qatleen))
+    return
+
+
+x = print_qatal()
+type(x)
+
+# %% md
+# If a function does not have ``return`` statement, it still returns ``None``.
+
+# %%
+
+def print_qatal():
+    print(random.choice(qatleen))
+
+x = print_qatal()
+type(x)
+
+# %% md
+# So it is impossible in python to write a function which returns absolutely nothing.
+# %%
 
 def add_nums(a, b):
     print('a: ', a, ' b:', b)
@@ -136,7 +178,87 @@ y = 14
 z = add_nums(x, y)
 print('The function returns z: ', z)
 
+# %%
+# **Question**:
+# What value will be printed as a result of code in following cell?
+#
+# .. code-block:: python
+#
+#    def add_nums(a, b):
+#        print('a: ', a, ' b:', b)
+#        z = a + b
+#
+#    x = 12
+#    y = 14
+#    z = add_nums(x, y)
+#    print('The function returns z: ', z)
+
+# %%
+# **Question**:
+# What value will be printed as a result of code in following cell?
+#
+# .. code-block:: python
+#
+#    def add_nums(a, b):
+#        print('a: ', a, ' b:', b)
+#        c = a + b
+#
+#    x = 12
+#    y = 14
+#    add_nums(x, y)
+#    print('The value of c is: ', c)
+
+# %%
+# **Question**:
+# What value will be printed as a result of code in following cell?
+#
+# .. code-block:: python
+#
+#    def add_nums(a, b):
+#        print('a: ', a, ' b:', b)
+#        c = a + b
+#        return c
+#
+#    x = 12
+#    y = 14
+#    add_nums(x, y)
+#    print('The value of c is: ', c)
+
+# %%
+# **Question**:
+# What value will be printed as a result of code in following cell?
+#
+# .. code-block:: python
+#
+#    def add_nums(a, b):
+#        print('a: ', a, ' b:', b)
+#        c = a + b
+#        return c
+#
+#    x = 12
+#    y = 14
+#    z = add_nums(x, y)
+#    print('The value of c is: ', c)
+
+# %%
+# **Question**:
+# What value will be printed as a result of code in following cell?
+#
+# .. code-block:: python
+#
+#    def add_nums(a, b):
+#        print('a: ', a, ' b:', b)
+#        c = a + b
+#        return c
+#
+#    x = 12
+#    y = 14
+#    z = add_nums(x, y)
+#    print('The value of z is: ', c)
+
 # %% md
+# Default values of input arguments
+# ---------------------------------
 # We can provide default values to input arguments. The default values of input arguments
 # are only used if we don't provide their values when calling them, otherwise
 # their values are overwritten.
@@ -270,56 +392,10 @@ print('The function returns z: ', z)
 # z = add_nums(a=1, c=313)
 # print('The function returns z: ', z)
 
-# %% md
-# Return
-# -------
-# A function returns ``None`` by default.
 
 # %%
-
-import random
-qatleen = ['winsten churchil', 'rana sanaullah', 'obama', 'musharaf']
-
-
-def print_qatal():
-    print(random.choice(qatleen))
-    return None
-
-
-x = print_qatal()
-type(x)
-
-# %% md
-# Even if a function does not return anything explicitly, it still returns `None`.
-
-# %%
-
-
-def print_qatal():
-    print(random.choice(qatleen))
-    return
-
-
-x = print_qatal()
-type(x)
-
-# %% md
-# Ff a function does not have ``return`` statement, it still returns ``None``.
-
-# %%
-
-
-def print_qatal():
-    print(random.choice(qatleen))
-
-
-x = print_qatal()
-type(x)
-
-# %% md
-# So it is impossible in python to write a function which returns absolutely nothing.
-
-# %%
+# Returning multiple values
+# -------------------------
 # If a function returns more than one object/variables, and we assign it
 # to a single variable, then this new variable will be ``tuple``.
 

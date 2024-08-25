@@ -596,7 +596,7 @@ change_book2()
 book = book + " masks"
 
 # %%
-# **Question:** What will be the value of `book` and why?
+# **Question:** What will be the value of `book` in above code and why?
 
 # %%
 book = {'name': 'black skin white masks'}
@@ -613,7 +613,7 @@ add_info()
 change_info()
 
 # %%
-# **Question:** What will be the value of ``book['name']`` and why?
+# **Question:** What will be the value of ``book['name']`` in above code and why?
 
 #%% md
 # .. [1] `<http://wiki.c2.com/?GlobalVariablesAreBad>`_
