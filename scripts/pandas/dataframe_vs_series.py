@@ -45,7 +45,7 @@ print(df.columns)
 
 #%%
 # The columns are list like structures. However they are not exactly lists.
-type(df.columns)
+print(type(df.columns))
 
 #%%
 # We can however, convert the columns to list though.
@@ -53,7 +53,7 @@ df.columns.to_list()
 
 #%%
 
-type(df.columns.to_list())
+print(type(df.columns.to_list()))
 
 #%%
 # The default label for the rows i.e. ``index`` consists of numbers starting from 0.
@@ -86,7 +86,7 @@ print(df.index.name)
 
 #%%
 
-type(df)
+print(type(df))
 
 #%%
 
@@ -97,7 +97,7 @@ print(df)
 
 #%%
 
-type(df)
+print(type(df))
 
 #%%
 
@@ -113,7 +113,7 @@ print(s)
 
 #%%
 
-type(s)
+print(type(s))
 
 #%%
 
@@ -162,7 +162,7 @@ print(df.values)
 
 #%%
 
-type(df.values)
+print(type(df.values))
 
 #%%
 
@@ -173,7 +173,7 @@ print(df)
 
 #%%
 
-type(df.values)
+print(type(df.values))
 
 #%%
 
@@ -376,6 +376,7 @@ pd.DataFrame(d.items())
 pd.DataFrame(d.items(), columns=['Date', 'DateValue'])
 
 #%%
+#
 # uncomment following line
 # pd.DataFrame(d) # ValueError: If using all scalar values, you must pass an index
 

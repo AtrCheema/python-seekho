@@ -550,7 +550,8 @@ baz(1)
 #        return a / b
 #
 # Write a function named `foo` in such a way that you call all the 
-# above four functions inside `foo` function. The `foo` function should take
+# above four functions (`add_nums`, `sub_nums`, `multiply_nums`, `divide_nums`) 
+# from inside `foo`. The `foo` function should take
 # two input arguments and return 100. You can create intermediate variables as well.
 
 # %% md
