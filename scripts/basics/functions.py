@@ -496,6 +496,63 @@ var, *_ = return_tuple(2)
 # Above we were interested in only `var` and wanted to ignore everything else
 # returned by `return_tuple` function.
 
+# %%
+# calling a function from another function
+# ----------------------------------------
+
+def foo(a):
+    return a + 1
+
+def bar(a):
+    return foo(a) + 1
+
+bar(1)
+
+# %%
+# Above we are calling function `foo` from inside function `bar`. The output of `foo` is
+# added with 1 and returned by `bar`.
+
+# %%
+
+def foo(a):
+    return a + 1
+
+def bar(a):
+    return a+100
+
+def baz(a):
+    b = foo(a)
+    b = bar(b)
+    return b
+
+baz(1)
+
+# %%
+# Above we are calling function `foo` from inside function `baz`. The output of `foo` is
+# assigned to variable `b` and then `bar` is called with `b` as input argument.
+# The output of `bar` is again assigned to `b` and returned by `baz`.
+
+# %%
+# **Question**:
+#
+# .. code-block:: python
+#
+#    def add_nums(a, b):
+#        return a + b
+#
+#    def sub_nums(a, b):
+#        return a - b
+#
+#    def multiply_nums(a, b):
+#        return a * b
+#
+#    def divide_nums(a, b):
+#        return a / b
+#
+# Write a function named `foo` in such a way that you call all the 
+# above four functions inside `foo` function. The `foo` function should take
+# two input arguments and return 100. You can create intermediate variables as well.
+
 # %% md
 # function as input argument
 # ---------------------------
@@ -525,25 +582,6 @@ def my_op(var_a, var_b):
 
 magic(2, my_op, 2)
 
-# %%
-# **Question**:
-# .. code-block:: python
-#
-#    def add_nums(a, b):
-#        return a + b
-#
-#    def sub_nums(a, b):
-#        return a - b
-#
-#    def multiply_nums(a, b):
-#        return a * b
-#
-#    def divide_nums(a, b):
-#        return a / b
-#
-# Write a function named `foo` in such a way that you call all the 
-# above four functions inside `foo` function. The `foo` function should take
-# two input arguments and return 100. You can create intermediate variables as well.
 
 # %% 
 # positioning of ``return`` statement
