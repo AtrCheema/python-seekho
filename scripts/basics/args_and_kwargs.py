@@ -13,8 +13,8 @@
 # We have learned about functions that they can take one or more input arguments.
 # If we want our function to have variable number of input arguments, one way
 # to do this is to put asterik ``*`` before a variable name inside ``()`` during function definition.
-# The common practice is use ``args`` as variable name in this case. Thus it becomes ``*args`` This
-# will allow us to have multiple **unnamed** input arguments.
+# The common practice is to use ``args`` as variable name in this case. Thus it becomes ``*args`` This
+# allows us to have multiple **unnamed** input arguments.
 
 
 #################################################
