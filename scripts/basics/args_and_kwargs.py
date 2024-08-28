@@ -12,8 +12,8 @@
 # ---------
 # We have learned about functions that they can take one or more input arguments.
 # If we want our function to have variable number of input arguments, one way
-# to do this is to put asterik ``*`` before a variable name inside ``()`` during function definition.
-# The common practice is to use ``args`` as variable name in this case. Thus it becomes ``*args`` This
+# to do this is to put asterik ``*`` before the `InputArgument` name inside ``()`` during function definition.
+# The common practice is to use ``args`` as `InputArgument` name in this case. Thus it becomes ``*args``. This
 # allows us to have multiple **unnamed** input arguments.
 
 
@@ -28,6 +28,8 @@ add_nums(5, 12.0)
 #################################################
 # Above ``*args`` is essentially converting all the unnamed input arguments to the function `add_nums`
 # into tuple. Inside the above function, the unnamed input arguments 5 and 12 become `(5, 12)` tuple.
+#
+# We can also say that ``*args`` is packing all the unnamed input arguments into a tuple.
 
 #################################################
 
@@ -35,7 +37,9 @@ l = [2, 3, 4]
 add_nums(l)
 
 #################################################
-# Inside the function `add_nums`, the input argument `[2,3,4]` which is a list,
+# Above we provided a single unnamed input argument `l` to the function `add_nums`.
+# THerefore the length of `args` is 1. 
+# Inside the function `add_nums`, the input argument `[2,3,4]` which was a list,
 # is taken as `([2,3,4],)` which is tuple.
 #
 #
@@ -45,14 +49,14 @@ add_nums(l)
 #################################################
 
 def do_add(*args):
-    print(len(args), 'in do_add')
+    print(len(args), 'is length of args in do_add')
     for arg in args:
         print(arg)
     return
 
 def add_nums(*args):
     # we get a tuple i.e. (12,14)
-    print(len(args), 'in add_nums')
+    print(len(args), 'is length of args in add_nums')
 
     # we pass the tuple (12,14) as input argument and NOT 12,14 as two input arguments
     return do_add(args)
@@ -62,8 +66,25 @@ add_nums(12, 14)
 
 
 #################################################
+# There was just one iteration in the ``for`` in `do_add` function above.
+# This is because the input argument to `do_add` was a tuple `(12,14)` and not two
+# input arguments `12, 14`.
+#
+# We have seen that ``*args`` is used to pack all the unnamed input arguments into a tuple.
+# It can also unpack a tuple/list into individual unnamed input arguments as shown below.
 
 def do_add(*args):
+    print(len(args), 'in do_add')
+    return
+
+inputs = [1,2,3]
+
+do_add(*inputs)
+
+# %%
+# Above, the list `inputs` is unpacked into individual input arguments `1`, `2` and `3`.
+
+def do_add(*args): # packing all unnamed input arguments into a tuple
     print(len(args), 'in do_add')
     a = 0
     for arg in args:
@@ -71,21 +92,23 @@ def do_add(*args):
     return a
 
 
-def add_nums(*args):
+def add_nums(*args):  # packing all unnamed input arguments into a tuple
     print(len(args), 'in add_nums')
     # we get a tuple i.e. (12,14) as input
 
     # we are again providing input as 2,3 which means we are providing two inputs
-    return do_add(*args)
+    return do_add(*args)  # unpacking tuple into individual input arguments
 
 
 add_nums(12, 14)
 
 #################################################
 # Above: `add_nums` and `do_add` are called with exactly same kind of input arguments.
+#
+# Note that how the packing and unpacking is being done in the above code using ``*args``.
 
 #################################################
-# Following is example of misplaced return statement
+# Following is an example of misplaced return statement
 
 
 #################################################
@@ -116,15 +139,15 @@ def do_add(a, *args):
     return a
 
 
-def add_nums(_a, *args):
+def add_nums(a, *args):
     print(len(args), "in add_nums")
-    return do_add(_a, *args)
+    return do_add(a, *args)
 
 
 add_nums(5, 12, 14)
 
 #################################################
-# ``a`` is the positional argument which takes 5, while while 12 and 14 are given
+# In the above cell `a` is the positional argument which takes 5, while while 12 and 14 are given
 # as tuple to the function
 
 #################################################
@@ -140,20 +163,20 @@ l = [1, 5, 12]
 add_nums(*l)
 
 # %%
+# In above code, the list `l` is unpacked into individual input arguments `1`, `5` and `12`.
+# The function `add_nums` is called with exactly 3 input arguments.
+#
 # if the list `l` contains more than 3 elements, passing it will raise error
+# because in this case the number of input arguments will be more than 3.
 
 # uncomment following line
 # l = [1, 5, 12, 3]
 # add_nums(*l)
 
-#################################################
-# *Although* we can vary the number of arguments by using `*args` but we can not
-# know the name of input arguments.
-
 # %%
 # **Question:**
 #
-# What will be the output of following code?
+# What will be printed when we execute the following code!
 #
 # .. code-block:: python
 #
@@ -164,8 +187,21 @@ add_nums(*l)
 #    foo(*inputs)
 
 #################################################
+# *Although* we can vary the number of arguments by using `*args` but we can not
+# know the name of input arguments.
+
+
+#################################################
 # ``**kwargs``
 #-----------------
+# We saw that ``*args`` is used to pack all the unnamed input arguments into a tuple.
+# It can also unpack a tuple/list into individual unnamed input arguments.
+# If we want our function to have variable number of **named** input arguments, 
+# we can achieve this by putting double asterik ``**`` before the `InputArgument` 
+# name inside ``()`` during function definition.
+# The common practice is to use ``kwargs`` as `InputArgument` name in this case. Thus it becomes ``**kwargs``.
+# ``**kwargs`` is used to pack all the named input arguments into a dictionary.
+# Similarly, it can also unpack a dictionary into individual named input arguments.
 
 #################################################
 
@@ -415,7 +451,7 @@ add_nums(2, 3, 4, 5, 6, d=5, e=12)
 # We can replace the words *args* and *kwargs* with any other variable name.
 # It is just a convention to use the word *args* for unnamed arguments and
 # the word *kwargs* for keyword arguments. The actual packing and unpacking
-# is done by **`*`** and **`**`** in python. For example, the above function
+# is done by **``*``** and **``**``** in python. For example, the above function
 # can also be written as below
 
 def add_nums(one, five, *unnamed, **named):
@@ -431,7 +467,7 @@ def add_nums(one, five, *unnamed, **named):
 
 add_nums(1, 5, 12, infallibles=14, messangers=313)
 
-# %% md
+# %%
 # **Question**:
 # What will be the output of following code?
 # 
@@ -496,6 +532,3 @@ add_nums(1, 5, 12, infallibles=14, messangers=313)
 #    foo([1,2]) # -> error
 # 
 # Running the above code will raise error. Why?
-
-
-
