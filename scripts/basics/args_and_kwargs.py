@@ -12,7 +12,8 @@
 # ---------
 # We have learned about function that they can take one or more input arguments.
 # If we want our function to have variable number of input arguments, one way
-# to do this is to put *args inside ``()`` during function definition. This
+# to do this is to put asterik ``*`` before a variable name inside ``()`` during function definition.
+# The common practice is use ``args`` as variable name in this case. Thus it becomes ``*args`` This
 # will allow us to have multiple **unnamed** input arguments.
 
 
@@ -25,7 +26,7 @@ def add_nums(*args):
 add_nums(5, 12.0)
 
 #################################################
-# ``*args`` converts all the unnamed input arguments to the function `add_nums`
+# Above ``*args`` is essentially converting all the unnamed input arguments to the function `add_nums`
 # into tuple. Inside the above function, the unnamed input arguments 5 and 12 become `(5, 12)` tuple.
 
 #################################################
@@ -36,7 +37,10 @@ add_nums(l)
 #################################################
 # Inside the function `add_nums`, the input argument `[2,3,4]` which is a list,
 # is taken as `([2,3,4],)` which is tuple.
-
+#
+#
+# Since ``*args`` is converting all the unnamed input arguments to tuple, which
+# is a sequence, so we can iterate over it as shown below.
 
 #################################################
 
@@ -45,7 +49,6 @@ def do_add(*args):
     for arg in args:
         print(arg)
     return
-
 
 def add_nums(*args):
     # we get a tuple i.e. (12,14)
@@ -145,7 +148,20 @@ add_nums(*l)
 
 #################################################
 # *Although* we can vary the number of arguments by using `*args` but we can not
-# know the name of input args.
+# know the name of input arguments.
+
+# %%
+# **Question:**
+#
+# What will be the output of following code?
+#
+# .. code-block:: python
+#
+#    def foo(a, *b):
+#        print(len(b))
+#
+#    inputs = [1,2,3,4]
+#    foo(*inputs)
 
 #################################################
 # ``**kwargs``
