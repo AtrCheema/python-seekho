@@ -245,7 +245,7 @@ main()
 #%% md
 # We should normaly avoid sharing variables among different functions with the
 # help of ``global``. The alternative to do this, is to make use of functions with
-#  ``return`` statement. The above code can be written as follows.
+# ``return`` statement. The above code can be written as follows.
 
 #%%
 

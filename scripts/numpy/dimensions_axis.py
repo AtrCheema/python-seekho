@@ -88,7 +88,6 @@ print(np.mean(a, axis=0).shape)
 print(np.mean(a, axis=1).shape)
 
 # %%
-
 # If we do np.mean(a, axis=2), it will calculate the mean along the axis 2.
 
 print(np.mean(a, axis=2).shape)

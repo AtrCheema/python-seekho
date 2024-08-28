@@ -193,7 +193,7 @@ add_nums(*l)
 
 #################################################
 # ``**kwargs``
-#-----------------
+# -----------------
 # We saw that ``*args`` is used to pack all the unnamed input arguments into a tuple.
 # It can also unpack a tuple/list into individual unnamed input arguments.
 # If we want our function to have variable number of **named** input arguments, 
@@ -213,6 +213,8 @@ add_nums(a=5, b=12)  # we can not do add_nums(2,3) here
 
 
 #################################################
+# It is just a convention to use the word `kwargs` for keyword arguments.
+# We can put any other name as well. For example, the above function can also be written as below.
 
 def add_nums(**dictionary):
     print(type(dictionary), len(dictionary))
@@ -232,7 +234,23 @@ b = 12
 dictionary = {'a': a, 'b': b}
 
 # %%
-# add_nums(a,b) is invalid, add_nums(dictionary) is invalid as well
+# If a function has only `**kwargs` as input argument, we can not provide unnamed input
+# arguments to the function. For example, following code will raise error.
+
+# uncomment following line to see the error
+#
+# add_nums(a,b)
+
+# %%
+# uncomment following line to see the error
+
+# add_nums(dictionary)
+
+# %%
+# `add_nums(a,b)` is invalid because we are providing two unnamed input arguments.
+# However, `add_nums(dictionary)`` is invalid because we are providing a single 
+# unnamed input argument.
+
 add_nums(**dictionary)
 
 
@@ -418,6 +436,9 @@ add_nums(2, 3, 4, d=12, e=14)
 
 
 #################################################
+# We can make use of ``*args`` and ``**kwargs`` together in a function definition.
+# In this case , our function can receive any number of unnamed and named input 
+# arguments.
 
 def add_nums(a, b, *args, **kwargs):
     _sum = a + b
@@ -500,7 +521,7 @@ add_nums(1, 5, 12, infallibles=14, messangers=313)
 
 # %%
 # **Question**:
-#  In the above function, what are the number of ``args`` and ``kwargs`` at each of the
+# In the above functions, what are the number of ``args`` and ``kwargs`` at each of the
 # five calls that we have made above?
 
 # %%
