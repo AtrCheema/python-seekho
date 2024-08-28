@@ -26,12 +26,12 @@ def foo():
 # %%
 # The variable ``var1`` has local scope. We can access, use and modify it only 
 # insdie the function ``foo``. We can not access it from outside the function
-# ``foo``. If we try to access it, python will give us an error. Hence the variable
-# ``var`` has local scope.
+# ``foo``. If we try to access it from outside the function, python will give us an error. Hence the variable
+# ``var1`` has local scope.
 
 #%%
 # If a variable is defined outside the function and a variable with same name is
-# defined and(or) being modified inside a function, then that definition inside
+# defined and(or) being modified inside a function, then that definition/modification inside
 # the function will have no effect on the variable outside the function.
 
 #%%
@@ -49,7 +49,7 @@ print(var, 'outside foo')
 
 #%% md
 # `var` inside the `foo` is different than the `var` outside the `foo`.
-# If we try to access value of variable which is defined only outside the
+# If we try to modify the value of a variable (with some exceptions) which is defined only outside the
 # function, it will result in error.
 
 #%%
@@ -63,6 +63,7 @@ def foo(n):
 
 # %%
 # uncomment follwoing line
+
 # foo(10)  # UnboundLocalError
 
 #%% md
