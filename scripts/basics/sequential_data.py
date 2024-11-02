@@ -349,14 +349,20 @@ enigma = 'IRtu diysa rtdo oK icpolnivnegn iweanst  at ow hbiet ea  sluipbeerrmaa
 print(enigma[::2])
 
 # %%
-# ``enigma[::2]`` indicates start from first value until the end with a jump of two. 
-# Note that empty space is also a valid string of length one.
+# Above ``enigma`` is a string by ``enigma[::2]`` we start from first value until the end with a jump of two. 
+# Note that empty space is also a valid string of length one. For example we start with ``I`` and then jump 
+# to the second position after ``I`` which is ``t``. Then we again jump to the second position after ``t`` which is an empty space.
+# This continues until we reach ``!``. Note that there are two empty spaces when we print the output of ``enigma[::2]``.
 
 print(enigma[1::2])
 
 # %%
 # Similarly ``enigma[1::2]`` indicates that start from second value of ``enigma`` until 
-# the end with a jump. Here also empty space indicates a valid string of length one.
+# the end with a jump of two. Here also empty space indicates a valid string of length one.
+# So we start with the second member of ``enigma`` which is ``R`` and then jump to the second
+# position after ``R`` which is ``u``. This continues until we reach the last member of ``enigma``.
+# Here we started with the second member of ``enigma`` and not the first member because we are
+# using ``1`` in the slice operator.
 
 # %% md
 # concatenation
@@ -510,11 +516,7 @@ print(a[:-2])   # whole sequence
 # %%
 
 print(a[::-1])    # all items in the sequence, reversed
-print(a[1::-1])   # the first two items, reversed
-print(a[:-3:-1])  # the last two items, reversed
-print(a[-3::-1])  # everything ex
-
-
+print(a[-3::-1])  # starting with the 3rd item from the end, all items in the sequence, reversed
 
 # %% md
 # Range

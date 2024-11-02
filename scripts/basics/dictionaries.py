@@ -201,7 +201,8 @@ print(type(values))
 #
 #    b = {"Musa": 799, "Raza": 818, "Taqi": 835, "Naqi": 868, "Hassan": 874, "Hussain": None}
 #
-# Write the code which will return a single list of values from both dictionaries.
+# Write the code which will return a single list of values from both dictionaries i.e. the code should return
+# ``[661, 670, 680, 712, 733, 765, 799, 818, 835, 868, 874, None]``.
 
 # %%
 # The function ``items()`` when applied on a dictionay, returns both keys and values.
@@ -219,6 +220,7 @@ books_as_list = list(books.items())
 print(books_as_list)
 
 # %%
+# Each member of ``books_as_list`` is a tuple of two elements (keys and values).
 
 print(type(books_as_list[0]))
 
@@ -229,15 +231,28 @@ print(books_as_list[0])
 # %% md
 # dictionaries from lists
 # =======================
-# We can convert a list into dictionary if each member in the list is a tuple.
+# If we have two lists and we want to convert them into a dictionary, 
+# in such a way that the first list becomes keys and the second list becomes values,
+# we can do this as follows
+
+provinces_capitals_dict = dict(
+    list(zip(["Balochistan", "Sindh", "KPK", "Punjab"], ["Quetta", "Karachi", "Peshawar", "Lahore"])))
+
+print(provinces_capitals_dict)
 
 # %%
+# We can also use the following code to achieve the same result
 
 capitals = ["Quetta", "Karachi", "Peshawar", "Lahore"]
 provinces = ["Balochistan", "Sindh", "KPK", "Punjab"]
 
+dict(zip(provinces, capitals))
+
 # %%
-# We can make use of ``zip`` function to convert these two lists into
+# In above code, we are making use of ``zip``, ``list`` and ``dict`` functions together.
+# This working cab be broken down into following steps:
+# 
+# First we make use of ``zip`` function to convert these two lists into
 # a generator. More about generators and zip will come later.
 
 provinces_capitals_iterator = zip(provinces, capitals)
@@ -256,19 +271,8 @@ provinces_capitals_dict = dict(provinces_capitals)
 print(provinces_capitals_dict)
 
 # %%
-# We can do all this in one step as follows
 
-capitals = ["Quetta", "Karachi", "Peshawar", "Lahore"]
-provinces = ["Balochistan", "Sindh", "KPK", "Punjab", "FATA"]
 
-dict(zip(provinces, capitals))
-
-# %%
-
-provinces_capitals_dict = dict(
-    list(zip(["Balochistan", "Sindh", "KPK", "Punjab"], ["Quetta", "Karachi", "Peshawar", "Lahore"])))
-
-print(provinces_capitals_dict)
 
 # %% md
 # Operations on dictionaries
@@ -456,10 +460,10 @@ print(men2)
 
 # %% md
 # Even though we made a copy of ``men1`` dictionary using ``copy`` method
-# but its contents are still changed when we change ``men2``.
+# and changed only ``men2`` dictionary, but contents of ``men1`` are still changed when we change ``men2``.
 #
-# This is because ``copy``  method still makes a shallow copy for dictionary
-# inside the dictionary.
+# This is because ``copy`` method still makes a shallow copy of the dictionaries (1,2)
+# which are inside the dictionary (men1).
 #
 # Same is true for `list` in the dictionaries.
 

@@ -60,13 +60,20 @@ print(a_as_list_using_slice_op)
 print(a_as_list_using_list_fn)
 
 # %%
+# `a_as_list_using_list_fn` is a list with two members while `a_as_list_using_slice_op` is a list
+# with only one member. This can be verified by checking the length of both lists.
+
 print(len(a_as_list_using_slice_op))
 print(len(a_as_list_using_list_fn))
 
 # %%
 # Then length of list which is created using slice operator ``[]`` is always 1, while
 # the length of list created using ``list`` function depends upon the number of values
-# in the object.
+# in the object. The slice operator is creating a list with one member and that one member
+# is a tuple in this case.
+# 
+# Spend some minutes on understanding the difference between these two ways of creating a list.
+# Try with different objects and see the difference.
 
 # %%
 # **Question**
@@ -258,6 +265,8 @@ media_houses = ['bbc', 'cnn', 'reuters', 'springer']
 print(imperialists + media_houses)
 
 ##############################################
+# So when we use `+` operator between two lists, a new list is created which
+# contains all the members of both lists. The original lists remain unchanged.
 
 print(imperialists)
 
@@ -267,10 +276,15 @@ imperialists = imperialists + media_houses
 print(imperialists)
 
 ##############################################
+# Above we are recreating the list `imperialists` by adding `media_houses` to it.
 
 morons = ['sam haris', 'richard dawkins', 'baghdadi', 'bin ladan']
 imperialists += morons
 print(imperialists)
+
+# %%
+# `+=` operator means that the list on the left side of `+=` operator is updated
+# by adding the list on the right side of `+=` operator.
 
 # %%
 # **Question:**
@@ -382,12 +396,16 @@ print(imperialists)
 ##############################################
 # sort
 # ----------------------------
-
+# We can sort the list using the `sort` function. 
+# If the contents of the list strings, then the list will be sorted in
+# lexicographical order. If the contents are numbers, then the list will be
+# sorted in ascending order.
 ##############################################
 
 print(imperialists)
 
 ##############################################
+# The function does not return anything itself but the original list is sorted.
 
 imperialists.sort()
 

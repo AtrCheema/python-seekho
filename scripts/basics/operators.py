@@ -85,7 +85,6 @@ print(17 % -5.0)
 
 #########################################
 
-
 a = 20/6
 print(a)
 
@@ -203,6 +202,11 @@ print(abs((1.1 + 2.2) - 3.3) < 1e-15)
 #########################################
 # ``>`` can be read as `greater than` or `smaller than`` depending upon its direction.
 #
+# %%
+# If you are getting the output as ``True`` for the above code, it is because
+# of the subtle differences in floating point implementation in your hardware.
+
+# %%
 # If we want to check whether a numerical value lies between two numbers or not
 # we can make use of ``<`` or ``>`` operators twice.
 

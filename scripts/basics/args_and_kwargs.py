@@ -130,6 +130,13 @@ add_nums(2, 12, 14)
 
 
 #################################################
+# Above, *args is packing all the unnamed input arguments (12 and 14) into a tuple.
+# After that by the statement ``do_add(_a, *args)`` the tuple (12,14) is unpacked 
+# into individual input arguments by the asterik. The function `do_add` is called 
+# with exactly 3 input arguments. In the function `do_add`, the asterik is used to 
+# pack all the three input arguments into a tuple whose length is three. The `return` 
+# statement in `do_add` function is misplaced in the function `do_add` which is 
+# causing the function to return after first iteration of the loop.
 
 def do_add(a, *args):
     print(len(args), 'in do_add')
