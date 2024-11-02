@@ -2,14 +2,18 @@
 ===================
 1.5 copying lists
 ===================
+
+This lessor describes how to copy a list in Python.
+
 .. important::
   This lesson is still under development.
 """
 
 
 #%%
+# Suppose we have a list of countries
 
-countries1 = ["Pakistan", "Iran", "Turkey"]
+countries1 = ["Iraq", "Iran", "Lebanon"]
 countries2 = countries1
 
 print(countries1)
@@ -17,6 +21,9 @@ print(countries1)
 print(countries2)
 
 #%%
+# Above we have created a new list `countries2` and assigned the list `countries1`
+# to it. Now both the lists `countries1` and `countries2` are same. We
+# can check this by checking their memory address.
 
 print(id(countries1),id(countries2))
 
@@ -25,7 +32,7 @@ print(id(countries1),id(countries2))
 # This means, even though we have two list variables, in reality we have only
 # one object.
 
-countries2 = ["Qatar", "Malaysia", "Lebanon"]
+countries2 = ["Qatar", "Malaysia", "Turkey"]
 print(countries1)
 
 print(countries2)
@@ -55,6 +62,20 @@ print(countries2)
 # lists in reality. We have one list with two names. What we did was `in place`
 # change in `countries2` list and did not assign a new object to `countries2`,
 # so the the name `countries2` still points to the same object as `countries1`.
+
+# %%
+# **Question:**
+# What will be the output of the following code?
+#
+# ```python
+# nasalkush_countries = ["us", "uk", "germany"]
+# istemari_countries = nasalkush_countries
+#
+# nasalkush_countries.extend(["france"])
+#
+# print(istemari_countries)
+#
+# ```
 
 #%% md
 # Copying using slicing
@@ -243,3 +264,8 @@ c[0] is countries1
 #%%
 
 c[0] is c[1]
+
+# %%
+# If you don't understand the above code, don't worry. We will discuss it later.
+# For now, just remember that if you have a list containing lists, then
+# `deepcopy` method will not work as expected.

@@ -16,20 +16,28 @@ import os
 
 # %%
 # system()
-# ---------
+# ========
 # It is used to execute commands that we would otherwise execute using
 # command prompt on windows or on terminal. For example on Windows we can
 # do ``os.system(dir)`` where ``dir`` is a command for Windows command prompt
+#
+# .. code-block:: python
+#
+#    os.system(dir)
+#
 
 # %%
 # getcwd()
-# ---------
+# ========
 # It returns the current working directory.
 print(os.getcwd())
 
 # %%
+print(type(os.getcwd()))
+
+# %%
 # path
-# --------
+# =====
 # The ``path`` submodule of ``os`` module contains several helpful functions
 # to manipulate path.
 #
@@ -42,22 +50,28 @@ os.path.isdir(p)
 os.path.isfile(p)
 
 # %%
+# ---
+
 # Find the parent directory of `p`.
 os.path.dirname(p)
 
 # %%
+# ---
 
 os.path.abspath(p)
 
 # %%
+# ----
 
 os.path.split(p)
 
 # %%
-
+# ---
 os.path.basename(p)
 
 # %%
+# ---
+
 os.path.exists(p)
 
 # %%
@@ -67,53 +81,38 @@ os.path.exists(p)
 
 # %%
 # replace()
-# ------------
-
-
-# %%
-# open()
-# --------
-
-
-# %%
-# write()
-# ---------
-
-
-# %%
-# close()
-# ---------
-
+# =========
 
 
 # %%
 # listdir
-# ---------
+# =======
 # Returns a list of folders/directories in a given path.
 os.listdir(p)
 
 # %%
 # environ
-# -------
+# =======
 environ = os.environ
+print(environ)
 print(type(environ))
 print(len(environ))
 
 # %%
 # wait()
-# ----------
+# =======
 
 # %%
 # rename()
-# --------
+# =========
 
 # %%
 # renames()
-# ---------
+# =========
 
 # %%
 # mkdir()
-# ---------
+# ========
 # creates a directory if all its upper/parent directories are present.
 new_folder = os.path.join(os.getcwd(), "NewFolder")
 
@@ -134,13 +133,13 @@ print(os.path.exists(p))
 
 # %%
 # os.makedirs
-# -------------
+# ===========
 os.makedirs(p)
 print(os.path.exists(p))
 
 # %%
 # rmdir()
-# ----------
+# =========
 
 print(os.path.exists(new_folder))
 os.rmdir(new_folder)
@@ -148,14 +147,14 @@ print(os.path.exists(new_folder))
 
 # %%
 # cpu_count()
-# ------------
+# ===========
 # Cound the number of cpus/cores/processes available.
 
 print(os.cpu_count())
 
 # %%
 # chdir()
-# ----------
+# ========
 original_wd = os.getcwd()
 print("Current working directory is \n", original_wd)
 print(f"It has {len(os.listdir(os.getcwd()))} sub-directories/folders in it.")
@@ -168,7 +167,7 @@ os.chdir(original_wd)
 
 # %%
 # walk
-# -------
+# ====
 for dirpath, dirnames, filenames in os.walk(os.getcwd()):
     print(dirpath, dirnames, filenames)
 
@@ -179,7 +178,7 @@ for dirpath, dirnames, filenames in os.walk(python_seekho_scripts):
 
 # %%
 # finding files
-# ---------------
+# =============
 # Let's create few files first.
 
 for i in range(5):
@@ -197,7 +196,7 @@ path_to_look = os.getcwd()
 print(os.listdir(path_to_look))
 
 # %%
-# If want to find only files and not folders/directories, we can do following
+# If we want to find only files and not folders/directories, we can do following
 # list comprehension.
 
 print([f for f in os.listdir(path_to_look) if os.path.isfile(f)])

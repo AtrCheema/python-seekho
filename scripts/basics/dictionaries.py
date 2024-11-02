@@ -142,7 +142,7 @@ print(persons)
 # persons[[0, 1]] = ["Adam", "Eva"]  # TypeError
 
 # %% md
-## Making a real practical dictionary
+# Making a real practical dictionary
 
 # %%
 
@@ -191,6 +191,19 @@ print(values)
 
 print(type(values))
 
+# %% md
+# **Question:**
+# Consider the following two dictionries:
+#
+# .. code-block:: python
+#
+#    a = {"Ali": 661, "Hassan": 670, "Hussain": 680, "Abid": 712, "Baqir": 733, "Jafar": 765}
+#
+#    b = {"Musa": 799, "Raza": 818, "Taqi": 835, "Naqi": 868, "Hassan": 874, "Hussain": None}
+#
+# Write the code which will return a single list of values from both dictionaries i.e. the code should return
+# ``[661, 670, 680, 712, 733, 765, 799, 818, 835, 868, 874, None]``.
+
 # %%
 # The function ``items()`` when applied on a dictionay, returns both keys and values.
 
@@ -207,6 +220,7 @@ books_as_list = list(books.items())
 print(books_as_list)
 
 # %%
+# Each member of ``books_as_list`` is a tuple of two elements (keys and values).
 
 print(type(books_as_list[0]))
 
@@ -217,15 +231,28 @@ print(books_as_list[0])
 # %% md
 # dictionaries from lists
 # =======================
-# We can convert a list into dictionary if each member in the list is a tuple.
+# If we have two lists and we want to convert them into a dictionary, 
+# in such a way that the first list becomes keys and the second list becomes values,
+# we can do this as follows
+
+provinces_capitals_dict = dict(
+    list(zip(["Balochistan", "Sindh", "KPK", "Punjab"], ["Quetta", "Karachi", "Peshawar", "Lahore"])))
+
+print(provinces_capitals_dict)
 
 # %%
+# We can also use the following code to achieve the same result
 
 capitals = ["Quetta", "Karachi", "Peshawar", "Lahore"]
 provinces = ["Balochistan", "Sindh", "KPK", "Punjab"]
 
+dict(zip(provinces, capitals))
+
 # %%
-# We can make use of ``zip`` function to convert these two lists into
+# In above code, we are making use of ``zip``, ``list`` and ``dict`` functions together.
+# This working cab be broken down into following steps:
+# 
+# First we make use of ``zip`` function to convert these two lists into
 # a generator. More about generators and zip will come later.
 
 provinces_capitals_iterator = zip(provinces, capitals)
@@ -244,19 +271,8 @@ provinces_capitals_dict = dict(provinces_capitals)
 print(provinces_capitals_dict)
 
 # %%
-# We can do all this in one step as follows
 
-capitals = ["Quetta", "Karachi", "Peshawar", "Lahore"]
-provinces = ["Balochistan", "Sindh", "KPK", "Punjab", "FATA"]
 
-dict(zip(provinces, capitals))
-
-# %%
-
-provinces_capitals_dict = dict(
-    list(zip(["Balochistan", "Sindh", "KPK", "Punjab"], ["Quetta", "Karachi", "Peshawar", "Lahore"])))
-
-print(provinces_capitals_dict)
 
 # %% md
 # Operations on dictionaries
@@ -378,6 +394,12 @@ print(man.get("city"))
 
 man.get("city", "Baghdad")
 
+# %%
+# If a key is not present in a dictionary, and we try to access
+# its value, we can avoid the KeyError by setting the default value
+# of that key
+print(man.get('age', 44))
+
 # %% md
 # ``copy``
 # ---------
@@ -438,10 +460,10 @@ print(men2)
 
 # %% md
 # Even though we made a copy of ``men1`` dictionary using ``copy`` method
-# but its contents are still changed when we change ``men2``.
+# and changed only ``men2`` dictionary, but contents of ``men1`` are still changed when we change ``men2``.
 #
-# This is because ``copy``  method still makes a shallow copy for dictionary
-# inside the dictionary.
+# This is because ``copy`` method still makes a shallow copy of the dictionaries (1,2)
+# which are inside the dictionary (men1).
 #
 # Same is true for `list` in the dictionaries.
 
@@ -642,3 +664,41 @@ new_books = {"Legenhausen": ["Religious pluralism", "Hegel's ethics"]}
 
 books = dict(list(old_books.items()) + list(new_books.items()))
 print(books)
+
+# %%
+# **Question:**
+# Write code to print the value of second key of the following dictionary i.e. "Hassan".
+#
+# .. code-block:: python
+#
+#    x = {1: "ali", 2: "hassan", 3: "hussain"}
+
+# %%
+# **Question:**
+# Write code to tell the date of birth and death of the `Ali` from the following dictionary.
+#
+# .. code-block:: python
+#
+#    x = {"Ali": {"born": 600, "died": 661}, "Hassan": {"born": 625, "died": 670}, "Hussain": {"born": 626, "died": 680}}
+
+
+# %%
+# **Question:**
+# What will be output of following code?
+#
+# .. code-block:: python
+#
+#    x = {1: "ali", 2: "hassan", 3: "hussain"}
+#    y = {1: "ali", 2: "hassan", 3: "hussain", 4: "Ali"}
+#    print(x.get(4, y.get(4))
+
+# %%
+# **Question:**
+# Change the contents of dictionary `y` in such a way the following
+# code throws ``KeyError``
+#
+# .. code-block:: python
+#
+#    x = {1: "ali", 2: "hassan", 3: "hussain"}
+#    y = ??
+#    print(x.get(4, y.get(4))  # should throw KeyError

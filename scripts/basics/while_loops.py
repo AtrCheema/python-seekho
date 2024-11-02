@@ -102,3 +102,15 @@ while acc_id<len(looters):
     acc_id += 1
 else:
     print("Search finished from the whole list of 'looters'")
+
+# %%
+# **Question**
+# What is the output of the following code
+#
+# .. code-block:: python
+#
+#    x = 0
+#    y = 5
+#    while x+y<10:
+#        x += 1
+#        print(x)

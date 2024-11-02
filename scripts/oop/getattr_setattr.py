@@ -128,4 +128,17 @@ human.grow()
 
 print(human.info())
 
-
+# %%
+# **Question:**
+# What will be the output of following code?
+#
+# .. code-block:: python
+#
+#    class Man:
+#        def __init__(self, weight, height):
+#            self.bmi = weight / height**2
+#
+#    ali = Man(77, 1.71)
+#    bmi = getattr(ali, 'bmi')
+#    setattr(ali, 'bmi', bmi - 1.33288875)
+#    print(ali.bmi)

@@ -40,6 +40,14 @@ for podcast in ("Hujjat", "The east is the podcast", "Philosophise this"):
     print("I am listening to: ", podcast)
 
 # %%
+# The variable `podcast` is assigned a new value from the sequence (tuple in this case).
+
+# %%
+# **Question:**
+# Print first 5 natural numbers using for loop.
+
+
+# %%
 # We can also run a for loop on items of a dictionary. If we want to
 # iterate over both keys and values of a dictions, we would do as below
 
@@ -54,6 +62,18 @@ scholars = {
 
 for scholar, date_of_death in scholars.items():
     print(scholar, "died in ", date_of_death)
+
+# %%
+# **Question:**
+# 
+# .. code-block:: python
+#
+#    for a in range(0, 10):
+#        if a>5:
+#            a = a + 100
+#
+# print(a)
+# What will be the output of above code?
 
 # %% md
 # `for` with else
@@ -160,6 +180,17 @@ for item in NH_receivers:
 
 # %% md
 # This is another way to keep track that how many times the loop has been executed.
+
+# %%
+# **Question:**
+#
+# .. code-block:: python
+#
+#    for i in enumerate(range(5)):
+#        pass
+# print(type(i))
+
+# What will be the output of above code?
 
 # %%
 # Iterating over more than one sequences
@@ -320,23 +351,23 @@ for president in ['clinton', 'bush', 'obama', 'trump', 'biden']:
 # Above we did not want to print "Let's go to war" when the value
 # of `president` was equal to `trump` so we used ``continue`` statement.
 #
-# That was a too simple example. We would have better to avoid writing `trump` in
+# That was a too simple example. We had better avoid writing `trump` in
 # the list instead of adding two lines inside the for loop. Usually, the
 # conditioning variable (`president` in our case above) appears after doing
 # some calculations inside for loop.
+
+# %%
+# **Question:**
+# Print all the prime numbers between 1 and 100 using for loop.
 
 # %%
 # break
 # ---------
 # The ``break`` keyword is used if we want to stop the iterations of for loop.
 
-def buy_item(_saving):
-    # suppose every item costs 1000
-    return _saving - 1000
-
 saving = 5000
 for items in ['fridge', 'laptop', 'mobile', 'tablet', 'tv', 'fryer']:
-    saving = buy_item(saving)
+    saving = saving - 1000
     if saving < 0:
         print("no more purchase please!")
         break
@@ -346,6 +377,20 @@ for items in ['fridge', 'laptop', 'mobile', 'tablet', 'tv', 'fryer']:
 # you can jump to :ref:`sphx_glr_auto_examples_oop_magical_methods.py`.
 
 
+# %% md
+# **Question:**
+#
+# What will be the output of following code?
+#
+# .. code-block:: python
+# 
+#    for i in range(0, 3):
+#        print(a)
+#        for j in range(0, 2):
+#            print(j)
+#            for k in range(0, 1):
+#                print(k)
+    
 # %%
 #
 # .. [1] `<https://en.wikipedia.org/wiki/Nishan-e-Haider>`_

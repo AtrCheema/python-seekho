@@ -23,7 +23,7 @@ assert isinstance(a, int)
 # AssertionError
 # ---------------
 # If we run the code given below, it will result in ``AssertionError`` because
-#  the variable `a` is ``int`` type and not ``float`` type.
+# the variable `a` is ``int`` type and not ``float`` type.
 
 # uncomment following 1 line
 # assert isinstance(a, float)
@@ -250,3 +250,13 @@ value = 1000
 # Uncomment following two lines
 # if value>256:
 #     raise IllegalValue(value)
+
+# %% md
+# **Note**
+# 
+# Error messages are blessings in disguise. Whenever you get an error, 
+# you should consider yourself very lucky. Most of the learning happens
+# in the process of understanding and resolving the errors. Without
+# errors (and resolving them), the process of coding will look like
+# copy paste and anything you learn will be forgotten very soon.
+# So don't be afraid of errors. Embrace them with open heart and learn from them.

@@ -82,7 +82,7 @@ def without_pp():
 # %%
 # Parallel Implementations
 # =============================
-# We will 4 different ways ways of parallelizing the code.
+# We will compare 4 different ways of parallelizing the code.
 
 # %%
 # ProcessPoolExecutor from concurrent

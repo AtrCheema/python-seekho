@@ -3,6 +3,8 @@
 1.21. builtin functions
 ========================
 This lesson shows the usage of builtin functions available in python.
+These functions are available in python without importing any module.
+These are not all the builtin functions but only those which are used frequently.
 
 
 .. important::
@@ -13,6 +15,38 @@ This lesson shows the usage of builtin functions available in python.
 # slice
 # =======
 
+a = [1,2,3,4,5,6,7,8,9,10]
+print(a[slice(2)])
+
+# %%
+print(a[slice(2, 8)])
+
+# %%
+print(a[slice(2, 8, 2)])
+
+# %%
+a = "This is a string"
+print(a[slice(2)])
+print(a[slice(2, 8)])
+print(a[slice(2, 8, 2)])
+
+# %%
+a = (1,2,3,4,5,6,7,8,9,10)
+print(a[slice(2)])
+print(a[slice(2, 8)])
+print(a[slice(2, 8, 2)])
+
+# %%
+a = {1: 'a', 2: 'b', 3: 'c', 4: 'd', 5: 'e'}
+# print(a[slice(2)])
+
+# %%
+# Indeed, any python object which can be sliced using ``[]`` operator, can also be sliced
+# using ``slice`` function. 
+# Although, ``[]`` operator and ``slice`` function look similar however they differ in
+# their behavior. ``[]`` operator returns the values whereas ``slice`` function returns
+# a ``slice`` object. Moreover, ``slice`` function is more readable and flexible.
+
 # %%
 # zip
 # =====
@@ -22,11 +56,7 @@ for i,j in zip([1,2,3], [11, 12, 13, 14]):
     print(i, j)
 
 # %%
-# hash
-# =====
-
-# %%
-# all
+# any
 # ======
 vals = [1,2,3]
 print(any([val>3 for val in vals]))
@@ -52,6 +82,11 @@ print(all([isinstance(val, (int, float)) for val in vals]))
 # %%
 vals = [1,2,3,4,'5.0']
 print(all([isinstance(val, (int, float)) for val in vals]))
+
+# %%
+# **Question:**
+# 
+# What is the ``type`` of the output returned by ``any`` and ``all`` functions?
 
 # %%
 # sorted
@@ -83,6 +118,31 @@ for val in reversed(vals):
 vals = ['a', 'b', 'c']
 for idx, val in enumerate(vals):
     print(idx, val)
+
+# %%
+# **Question:**
+#
+# What will be the output of the following code?
+#
+# .. code-block:: python
+#
+#    names = ['jamaludin', 'zaynaldin', 'nurullah shustari', 'kamil dehlavi', 'baqir sadr]
+#    years = ['1385', '1558', '1610', '1809', '1980']
+#    for (idx,name), year in zip(enumerate(names), years):
+#        print(idx, name, year)
+
+# %%
+# **Question:**
+#
+# Consider the following list
+#
+# .. code-block:: python
+#
+#    dob_years = ['1334', '1506', '1542', '1700s', '1935']
+#
+# Now modify the ``for`` loop in the previous example to also iterate over 
+# ``dob_years`` list along with ``names`` and ``years``.
+
 # %%
 # map
 # =====
@@ -102,13 +162,13 @@ for val in vals:
     print(square(val))
 
 # %%
-# an alternative to calling the function in an explicit for loop
+# An alternative to calling the function in an explicit for loop
 # is to make use of ``map`` function.
 
 mapper = map(square, vals)
 
 # %%
-# THe ``map`` function returns an iterator which we can convert into a list
+# The ``map`` function returns an iterator which we can be converted into a ``list``
 
 print(type(mapper))
 
@@ -141,3 +201,17 @@ list(map(power, vals1, vals2))
 # Map has several advantages over an explicit for loop e.g
 #    * It is fast since it is written in C
 #    * It is memory efficient as it returns an iterator
+
+# %%
+# **Question:**
+#
+# Convert the years in following list from Hijri to Gregorian [1]_ calenden using ``map`` function
+#
+# .. code-block:: python
+#
+#    hijri_years = [40, 50, 61, 95, 114, 148, 183, 203, 220, 254, 260]
+
+
+# %%
+#
+# .. [1] `<https://github.com/dralshehri/hijridate>`_

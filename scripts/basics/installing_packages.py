@@ -53,20 +53,36 @@ site.addsitedir('path/to/my/package')
 # pip
 # -------
 # An easy and one of the most commonly used tool to install a package is using
-# ``pip``. We can do this in the command prompt. Remember that ``pip`` installs
-# the package in ``site_packages`` directory of python.
+# ``pip`` command. We can do this in the terminal and not in python console.
+# However, since ipython console allows us to run terminal commands by prefixing
+# them with ``!``, we can also use ``pip`` in ipython console.
+# Remember that ``pip`` installs  the package in ``site_packages`` directory of python.
+# Also note that the built-in python modules can not be installed using ``pip``.
+# Following examples show how to use ``pip`` to install a package called ``easy_mpl``.
 
 # %%
-#  pip install easy_mpl
+# 
+# .. code-block:: python
+#
+#    pip install easy_mpl
 
 # %%
-# pip install easy_mpl==0.21.3
+# 
+# .. code-block:: python
+#
+#    pip install easy_mpl==0.21.3
 
 # %%
-# pip install -update easy_mpl
+# 
+# .. code-block:: python
+#
+#    pip install -update easy_mpl
 
 # %%
-# pip install easy_mpl[all]
+# 
+# .. code-block:: python
+#
+#    pip install easy_mpl[all]
 
 # %%
 # conda

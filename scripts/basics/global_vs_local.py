@@ -3,10 +3,35 @@
 1.14 global vs local
 ======================
 """
+# %%
+# It is very important to understand the difference between global scope and local
+# scope of a variable/object in python. A variable defined outside a function has global
+# scope while a variable defined inside a function has local scope. 
+
+# %%
+var = 1
+def foo():
+    return
+
+# %%
+# Above the variable ``var`` has global scope. We can access it from anywhere in the
+# script. 
+
+
+# %%
+def foo():
+    var1 = 1
+    return
+
+# %%
+# The variable ``var1`` has local scope. We can access, use and modify it only 
+# insdie the function ``foo``. We can not access it from outside the function
+# ``foo``. If we try to access it from outside the function, python will give us an error. Hence the variable
+# ``var1`` has local scope.
 
 #%%
 # If a variable is defined outside the function and a variable with same name is
-# defined and(or) being modified inside a function, then that definition inside
+# defined and(or) being modified inside a function, then that definition/modification inside
 # the function will have no effect on the variable outside the function.
 
 #%%
@@ -23,8 +48,8 @@ foo(10)
 print(var, 'outside foo')
 
 #%% md
-# `var` inside the `foo` is different than the `var` outdie the `foo`.
-# If we try to access value of variable which is defined only outside the
+# `var` inside the `foo` is different than the `var` outside the `foo`.
+# If we try to modify the value of a variable (with some exceptions) which is defined only outside the
 # function, it will result in error.
 
 #%%
@@ -36,7 +61,9 @@ def foo(n):
     var = var + n
     return var
 
+# %%
 # uncomment follwoing line
+
 # foo(10)  # UnboundLocalError
 
 #%% md
@@ -44,7 +71,7 @@ def foo(n):
 # is one of the best ways to master a programming language.
 # So the variable `var` which is defined outside `foo` can not be accessed (actually
 # it can be accessed but not changed/reassigned, discussion follows) inside `foo`.
-# If we want to do so, we need to use the keyword `global`.
+# If we want to do so, we need to use the keyword ``global``.
 
 #%%
 
@@ -60,7 +87,7 @@ def foo(n):
 foo(10)
 
 #%% md
-# by making use of `global` statement, we are saying that the variable `var`
+# By making use of ``global`` statement, we are saying that the variable `var`
 # inside the function is same object as the variable `var` outside the function `foo`.
 # Similarly if a variable is defined inside the function, we can not access that
 # variable outside the function.
@@ -74,7 +101,9 @@ def foo(n):
 foo(10)
 
 # %%
+
 # uncomment following line
+
 # print(var1) NameError
 
 #%% md
@@ -82,7 +111,7 @@ foo(10)
 # as the function execution finishes at `return` statement. (Why I used `var1`
 # instead of `var` for this example?)
 # If we want to access a variable -which is defined inside the function- outside the
-# function, we have to make this variable global by declaring the it.
+# function, we have to make this variable global by making use of ``global`` statement.
 
 #%%
 
@@ -94,6 +123,7 @@ def foo(n):
 foo(10)
 
 # %%
+
 # uncomment following line
 # print(var1)
 
@@ -122,6 +152,7 @@ def foo(n):
     var = 0
 
 # %%
+
 # uncomment following line
 # foo(10)  # UnboundLocalError
 
@@ -133,7 +164,7 @@ def foo(n):
 # local variable and is different than `var` outside the `foo`. Python then creates
 # the local variable `var`. At this point python makes the variable `var`, **local**.
 # (You can say, python forgets what `var` in outer scope is). As we tried to use
-# `var` before declaring it, hence the error message.
+# `var` before declaring it global, hence the error message.
 
 #%%
 
@@ -153,12 +184,45 @@ print_var()
 #%% md
 # **Takeaway:** We need to declare a variable as `global` in a function which assigns
 # a value of it. If we want to ONLY USE a global variable in local scope, we can
-# do this without declaring it global.
+# do this without declaring it global. However, this is error prone and should be
+# avoided. For example, following code works but it is not recommended.
+
+var = 1
+def foo(n):
+    return n+var
+
+foo(10)
+
+# %%
+# The above code works but it is not recommended. It is better to declare the variable
+# as global if we want to use it in local scope. Or we can pass the variable as
+# argument to the function.
+
+var = 1
+def foo(n, var):
+    return n+var
+
+foo(10, var)
+
+# %%
+# The above code is better than the previous one. We are passing the variable `var`
+# as argument to the function `foo`. However, the name of the variable `var` inside
+# the function `foo` is same as the name of the variable `var` outside the function.
+# This is also not recommended since it is error prone and many modern IDEs
+# will raise warnings. We should use different names for variables in different
+# scopes. The following code is better than the previous one.
+
+var = 1
+def foo(n, var1):
+    return n+var1
+
+foo(10, var)
 
 #%% md
 # *alternative to global*
+# =======================
 # If we want to share a variable between two functions, and the outer scope, we
-# have to make use of `global` statement in both functions.
+# have to make use of ``global`` statement in both functions.
 
 #%%
 
@@ -180,28 +244,32 @@ main()
 
 #%% md
 # We should normaly avoid sharing variables among different functions with the
-# help of `global`. The alternative to do this, is to make use of functions with `return`.
+# help of ``global``. The alternative to do this, is to make use of functions with
+# ``return`` statement. The above code can be written as follows.
 
 #%%
 
 def foo1(parameter):
     return parameter + 5
 
-def main():
+def main(var):
+    print(var)
     var = 10
     print(var)
     var = foo1(var)
     print(var)
 
-main()
+main(0)
 
 #%% md
 # existence of a vriable
-# Now the variable `var` exists in memory. We can print its value.
+# =======================
+# We have already created the variable `var` previously. Now the variable `var` 
+# exists in memory. We can print its value.
 
 #%%
 
-var
+print(var)
 
 #%% md
 # We can delete the variable from memory by making use of `del` statement.
@@ -219,9 +287,17 @@ del var
 # uncomment following line
 # var  # NameError
 
+# %%
+# If we try to delete a variable which does not exist in memory, python will raise
+# an error. 
+
+# uncomment following line
+#
+# del var  # NameError
+
 #%% md
-# If we want to safely remove/delte a variable, we can first check whether it is
-# present in memory or not and delete it only if it is present.
+# If we want to safely remove/delete a variable, we can first check whether it is
+# present in memory or not and delete it only if it is present as shown below.
 
 #%%
 
@@ -251,7 +327,7 @@ else:
     print('it was not in memory')
 
 #%% md
-# `globals()` returns a dictionary of all global variables while `locals()` returns a
+# ``globals()`` returns a dictionary of all global variables while ``locals()`` returns a
 # dictionary of all local variables. The names of variables are keys of these
 # dictionaries and values of these variables are values of these keys in these dictionaries.
 
@@ -273,8 +349,8 @@ else:
 #
 
 #%% md
-# calling a function by its string name
-# With the help of `globals()` function, we can call a method by its string name.
+# We can call a function by its string name With the help of 
+# ``globals()``` function. In this way we can call a method by its ``string`` name.
 
 #%%
 
@@ -284,6 +360,9 @@ def qatal(a):
 func_as_string = 'qatal'
 
 globals()[func_as_string]('rana') # qatal().
+
+# %%
+# ``globals()[func_as_string]('rana')`` is equivalent to ``qatal('rana')``.
 
 #%% md
 # Normally global variables are considered bad see this [1]_  and this [2]_ .
@@ -295,9 +374,8 @@ globals()[func_as_string]('rana') # qatal().
 # are using a global variable even though if it is not required.
 
 #%% md
-# modifying global variable with same name as local
 # If there is a local variable with same name as global variable and we want to modify
-# global variable, we can make use of `globals()`.
+# global variable, we can make use of ``globals()``.
 
 #%%
 
@@ -311,13 +389,17 @@ def commision(accused):
     return
 
 print('global thug before: ', thug)
-commision('diesel')
+commision('bajwa')
 print('global thug later:', thug)
 
 #%% md
 # Mutable objects
-# We can change/modify the values of mutable objects such as that of dictionaries
-# inside the function without declaring them global.
+# ===============
+# Above, we saw that if we want to modify the value of a variable which is defined
+# outside the function, we have to use the keyword `global`. However, this is not
+# the case with mutable objects. Mutable objects can be modified without using the
+# keyword `global`.  We can change/modify the values of mutable objects such as 
+# that of dictionaries from inside the function without declaring them global.
 
 #%%
 
@@ -347,7 +429,7 @@ thugs = set(thugs)
 def commision(accused):
     thugs.add(accused)
 
-commision('diesel')
+commision('bajwa')
 thugs
 
 #%% md
@@ -367,8 +449,11 @@ commision('pervailz elahi')
 print(thugs_tuple)
 
 #%% md
+# `thugs_tuple` is a tuple but its first element is a list. We have modified the list
+# inside the tuple without using the keyword ``global``.
+#
 # What will happen if we do assignment to a global variable inside function/local
-# scope. The variable inside the local scope will be new created while the
+# scope. The variable inside the local scope will be newly created while the
 # immutable object outside the function will remain same.
 
 #%%
@@ -377,14 +462,15 @@ thugs = ['musharaf', 'zardari']
 
 def commision(accused):
     thugs = [accused]
+    print(thugs, 'inside')
     return
 
-print(thugs)
+print(thugs, 'outside')
 commision('nawaz')
-thugs
+print(thugs, 'outside')
 
 #%% md
-# However, as said earlier, if we used the keyword `global`, this will affect
+# However, as said earlier, if we used the keyword ``global``, this will affect
 # the variable from global scope.
 
 #%%
@@ -394,14 +480,193 @@ thugs = ['musharaf', 'zardari']
 def commision(accused):
     global thugs
     thugs = [accused]
+    print(thugs, 'inside')
     return
 
-print(thugs)
+print(thugs, 'outside')
 commision('nawaz')
-thugs
+print(thugs, 'outside')
 
 #%% md
 # In general: variables in python are local unless declared otherwise.
+
+# %%
+# Questions
+# =========
+# Answer the following questions without running the code above them.
+
+def foo():
+    number = 2
+    return number
+
+# %%
+# **Question:** What value will be printed by the following code?
 #
+# .. code-block:: python
+#
+#    foo()
+#    print(number)
+
+# %%
+# **Question:** Did you get any error in the above code? If yes, then explain the error?
+
+# %%
+
+num = 1
+
+def add_something(var):
+    return var + num
+
+def multipy_something(var):
+    return var * num
+
+a = add_something(5)
+b = multipy_something(a)
+
+# %%
+# **Question:** What will be the value of ``b`` in above code?
+
+
+# %%
+num = 1
+
+def add_something(var):
+    return var + num
+
+def multipy_something(var):
+    return var * num
+
+a = add_something(5)
+num = 12
+b = multipy_something(a)
+
+# %%
+# **Question:** What will be the value of ``b`` in above code and why?
+
+# %%
+
+num = 1
+
+def add_something(var):
+    num = 14
+    return var + num
+
+def multipy_something(var):
+    return var * num
+
+a = add_something(5)
+num = 12
+b = multipy_something(a)
+
+# %%
+# **Question:** What will be the value of ``b`` in above and why?
+
+# %%
+num = 1
+
+def add_something(var):
+    global num
+    num = 14
+    return var + num
+
+def multipy_something(var):
+    return var * num
+
+a = add_something(5)
+b = multipy_something(a)
+
+# %%
+# **Question:** What will be the value of ``b`` in above code and why?
+
+# %%
+num = 1
+
+def add_something(var):
+    global num
+    num = 14
+
+def multipy_something(var):
+    return var * num
+
+add_something(5)
+b = multipy_something(12)
+
+# %%
+# **Question:** What will be the value of `b` in above code and why?
+
+# %%
+
+num = 1
+
+def add_something(var):
+    global num
+    num = 14
+
+def multipy_something(var):
+    num = 12
+    return var * num
+
+add_something(5)
+num = num + 92
+multipy_something(12)
+
+# %%
+# **Question:** What will be the value of ``num`` in above code and why?
+
+# %%
+num = 1
+
+def add_something(var):
+    global num
+    num = 14
+
+def multipy_something(var):
+    global num
+    num = num * var
+
+add_something(5)
+num = num + 92
+multipy_something(12)
+
+# %%
+# **Question:** What will be the value of ``num`` in above code and why?
+
+# %%
+book = "black"
+
+def change_book1():
+    book = "white"
+    return
+
+def change_book2():
+    global book
+    book = book + " white"
+
+change_book1()
+book = book + " skin"
+change_book2()
+book = book + " masks"
+
+# %%
+# **Question:** What will be the value of `book` in above code and why?
+
+# %%
+book = {'name': 'black skin white masks'}
+
+def add_info():
+    book['author'] = 'frantz fanon'
+    return
+
+def change_info():
+    book['name'] = 'white skin black masks'
+    return
+
+add_info()
+change_info()
+
+# %%
+# **Question:** What will be the value of ``book['name']`` in above code and why?
+
+#%% md
 # .. [1] `<http://wiki.c2.com/?GlobalVariablesAreBad>`_
 # .. [2] `<https://en.wikipedia.org/wiki/Side_effect_(computer_science)>`_

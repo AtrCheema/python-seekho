@@ -7,7 +7,7 @@
 # %%
 # A sequential data is the data type with one or more than one value/object in it.
 #
-# Four major sequential data types
+# There are four major built-in sequential data types in python
 #    * Strings
 #    * Lists
 #    * Tuple
@@ -29,23 +29,23 @@ print(type(s))
 # %%
 # The value/data of string need not to be only English language characters. They
 # can be anythin such as numbers unless they are defined as string.
-s = '23'
+s = '12'
 print(type(s))
 
 # %%
-# Although, ``23`` above is a numeric value, but since is enclosed inside quotation marks
+# Although, ``12`` above is a numeric value, but since is enclosed inside quotation marks
 # ``''``, python considers it a string and not a number.
 #
 # There are four common ways to define a string in python:
-#    * single quotation ``'I am a string'``
-#    * double quotation ``"I am a string"``
-#    * triple doubel quotations ``"""I am a string"""``
-#    * triple quotation  ``'''I am a string'''``
+#    * single quotation ``'The wretched of the earth'``
+#    * double quotation ``"The wretched of the earth"``
+#    * triple doubel quotations ``"""The wretched of the earth"""``
+#    * triple quotation  ``'''The wretched of the earth'''``
 
-s1 = 'I am a string'
-s2 = "I am a string"
-s3 = """I am a string"""
-s4 = '''I am a string'''
+s1 = 'Only persons really changed history those who changed men`s thinking about themselves'
+s2 = "Only persons really changed history those who changed men's thinking about themselves"
+s3 = """Only persons really changed history those who changed men's thinking about themselves"""
+s4 = '''Only persons really changed history those who changed men's thinking about themselves'''
 print(type(s1), type(s2), type(s3), type(s4))
 
 # %%
@@ -81,46 +81,84 @@ He was born in 1935 and wrote his famous book "our philosophy" just at the age o
 He was killed at the age of 45 by Saddam Husain.'''
 print(txt)
 
+# %%
+# **Question:**
+# Print the following sentence including the double quotations.
+#
+# "The one who controls his desires is a free man. Ali ibn Abi Talib"
+
 # %% md
 # Indexing
 # ------------
 # Indexing refers to selecting a value at a certain position from a sequential data.
 # It shhould be noted that in python, the indexing starts from 0 and not from 1. This
-# means, 0 refers to 1st position and 1 refers to second position.
+# means, 0 refers to 1st position and 1 refers to second position. The slice operator ``[]``
+# is used to index a sequential data.
 # %%
 
 s = "Assalam o alaikum"
 print(s[0])
 
 # %%
+# Above we have selected the first character of the string ``s``. We can select any
+# character by changing the index in the slice operator.
 
 print(s[7])
 
 # %%
+# We can find the length of a sequence object in python using the function `len`.
+# For strings, we can check the number of characters ``len``.
+# The length of a string is the number of characters in it including the empty spaces if they are present.
+# When we check the length of a string using ``len`` function, it returns an integer.
 
 len(s)
 
 # %%
+# We can also select the last character of a string using negative indexing.
 
 print(s[len(s)-1], s[-1])
+
+# %%
+# **Question:**
+#
+# Explain the difference between ``s[len(s)-1]`` and ``s[-1]``.
+#
+# Select the last character of the string ``s`` using positive indexing.
 
 # %% md
 # Slicing
 # --------
+# We can select a sequence of characters from a string using slice ``:`` operator.
 
 # %%
-
 print(s[-3:], s[5:8], s[8:])
+
+# %%
+# Above we are selecting and printing three three different slices of the string ``s``.
+# In the first slice, we have selected the last three characters of the string ``s`` using negative indexing.
+# In the second slice, we have selected the characters from 6th to 8th position of the string ``s`` using positive indexing.
+# In the third slice, we have selected the characters from 9th position to the end of the string ``s`` using positive indexing.
 
 # %% md
 # Concatenation
 # --------------
-
+# Concatenation in strings string refers to joining two or more strings together. This can be done using
+# the ``+`` operator.
 
 # %%
 
 a = " Assalam" + " o" " alaikum"
 print(a)
+
+
+# %%
+# **Question:**
+#
+# Write a code so that following two lines become a single sentence.
+# 
+# "The one who controls his desires"
+# 
+# "is a free man"
 
 # %% md
 # Repetition
@@ -131,13 +169,11 @@ print(a)
 b = a*3
 print(b)
 
-# %% md
-# We can find the length of a sequence object in python using the function `len`.
-# Since strings are also sequences, their length/size can also be found by `len`.
-
 # %%
-
-len(a), len(b)
+# **Question:**
+# Print the following string 10 times by making use of ``*``.
+# 
+# "Black skin, white masks. "
 
 # %% md
 # immutability
@@ -155,10 +191,16 @@ b = "Muhammad"
 print(a is b)
 
 # %%
+# This above line uses the ``is`` operator to check if the two variables ``a`` 
+# and ``b`` refer to the same object in memory. The ``is`` operator returns 
+# True if they do and False otherwise.
 
 print(a == b)
 
 # %%
+# In the above line, we are using the ``==`` operator to check if the two variables
+# ``a`` and ``b`` have the same value. The ``==`` operator returns True if they do
+# and False otherwise.
 
 a = "Muhammad!"
 b = "Muhammad!"
@@ -234,7 +276,9 @@ type(a[0]), type(a[1]), type(a[2]), type(a[3])
 print(a)
 
 # %% md
-# We can change contents of lists using indexing.
+# We can change contents of lists using indexing operator ``[]``.
+# We have already seen that teh ``[]`` operator is used to create a list.
+# It is also used to index a list and to change its contents.
 
 # %%
 
@@ -242,6 +286,10 @@ a[3] = 'a new element'
 print(a)
 
 # %% md
+# Above we have replaced the 4th element of list `a` with a new element. 
+# If you have not understoop this, don't worry, more of this wil come 
+# in the chapter of :ref:`sphx_glr_auto_examples_basics_lists.py`.
+#
 # We can replace a sequence of elements in a list with a new sequence and the new
 # sequence does not have to be of same length and type as old sequence.
 
@@ -301,8 +349,20 @@ enigma = 'IRtu diysa rtdo oK icpolnivnegn iweanst  at ow hbiet ea  sluipbeerrmaa
 print(enigma[::2])
 
 # %%
+# Above ``enigma`` is a string by ``enigma[::2]`` we start from first value until the end with a jump of two. 
+# Note that empty space is also a valid string of length one. For example we start with ``I`` and then jump 
+# to the second position after ``I`` which is ``t``. Then we again jump to the second position after ``t`` which is an empty space.
+# This continues until we reach ``!``. Note that there are two empty spaces when we print the output of ``enigma[::2]``.
 
 print(enigma[1::2])
+
+# %%
+# Similarly ``enigma[1::2]`` indicates that start from second value of ``enigma`` until 
+# the end with a jump of two. Here also empty space indicates a valid string of length one.
+# So we start with the second member of ``enigma`` which is ``R`` and then jump to the second
+# position after ``R`` which is ``u``. This continues until we reach the last member of ``enigma``.
+# Here we started with the second member of ``enigma`` and not the first member because we are
+# using ``1`` in the slice operator.
 
 # %% md
 # concatenation
@@ -327,13 +387,13 @@ print(provinces)
 
 # %%
 
-a = (1, 2, 3)
-type(a)
+panjtan = (1,2,3,4,5)
+type(panjtan)
 
 # %%
 # Just like lists, the contents of tuples can also be of different types.
-a = (1, 2.0, 'a', pakistan)
-print(a)
+panjtan = (1, 2, 'three', 4.0, [5])
+print(panjtan)
 
 # %% md
 # We can not change a value in a tuple.
@@ -341,7 +401,13 @@ print(a)
 # %%
 
 # uncomment following line
-# a[2] = 'last'  # TypeError
+# panjtan[2] = 'Musa'  # TypeError
+
+# %% md
+# **Question:**
+#
+# Explain what were trying to acheive by ``panjtan[2] = 'Musa'`` and why it resulted in error.
+# On the otherhand, if we do ``panjtan[2]``, why it will not result in error?
 
 # %% md
 # Tuples are used to store data where we know it will not change. This also
@@ -349,8 +415,8 @@ print(a)
 
 # %% md
 # `in`
-# -------
-# The `in` keyword is used to check whether an element is present in a
+# =====
+# The `in` is a buil-tin keyword which is used to check whether an element is present in a
 # sequence or not.
 
 # %%
@@ -358,6 +424,10 @@ print(a)
 print("Bahawalpur" in provinces)
 
 # %%
+# We had created a list `provinces` above. We are checking if "Bahawalpur" is 
+# present in it or not in the above code.
+# The output from above code will be `False` because "Bahawalpur" is not present
+# in the list `provinces`. 
 
 print("Multan" not in provinces)
 
@@ -366,12 +436,24 @@ print("Multan" not in provinces)
 print("pubjab" in provinces)
 
 # %%
-
-print('a' in a)
+# We are checking if "pubjab" is present in the list `provinces` or not.
+#
+# We can also use `in` to check if a string is present in a tuple or not.
+print('three' in panjtan)
 
 # %%
-
+# Similarly we can use `in` to check if a string is present in a string or not.
 print('at' in enigma)
+
+# %%
+# **Question:**
+# Consider the following python list.
+#
+# .. code-block:: python
+#
+#    scoundrels = ['asim', 'kakar', 'mohsin']
+#
+# Write code to using `in` to check if `bajwa` is a scoundrel or not?.
 
 # %% md
 # Repetition
@@ -394,6 +476,19 @@ print(t[0][0])
 
 t[0][0] = "Yemen is an open air prison. "
 print(t)
+
+# %%
+# `t[0][0]` points to first member of the first member of `t`. So when we did 
+# `t[0][0]=something`, we were assigning new value at that position.
+#  Therefore, the original contents of `t` also changed.
+#
+# However, since all the three members of `t` are pointing to the same memory location.
+# So if we change any of the members, all will change. This is called **shallow copy**.
+# This is because because `t[1]` is same as `t[0]` and not a `deep copy` of `t[0]`. 
+# `t[1]` and `t[0]` are indeed same objects and points to same position in memory. 
+# We can say that `t[1]`, `t[0]` and `[t2]` are all ``text``. This is because of the way we created t. 
+# By [text]*3 did not (make a deep) copy (of) the conents of the list `text`.
+# We will study more about this in the chapter of :ref:`sphx_glr_auto_examples_basics_copying_lists.py`.
 
 # %% md
 # Indexing
@@ -421,11 +516,7 @@ print(a[:-2])   # whole sequence
 # %%
 
 print(a[::-1])    # all items in the sequence, reversed
-print(a[1::-1])   # the first two items, reversed
-print(a[:-3:-1])  # the last two items, reversed
-print(a[-3::-1])  # everything ex
-
-
+print(a[-3::-1])  # starting with the 3rd item from the end, all items in the sequence, reversed
 
 # %% md
 # Range
