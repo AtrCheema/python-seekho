@@ -3,26 +3,21 @@
 5.9 pivot vs melt
 ============================
 """
-
+import time
 import pandas as pd
+
+print(time.asctime())
+print(pd.__version__)
+
+# %%
 
 url = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_hydrologiczne/dobowe/2020/codz_2020_01.zip"
 
 df = pd.read_csv(
     url, compression='zip', encoding="ISO-8859-1",  engine='python', 
-    error_bad_lines=False,
-    names=[
-            'stn_id', 
-            'stn_name',
-            'river_name',
-            'year',
-            'hyd_month',
-            'day',
-            'water_level_cm',
-            'q_cms',
-            'temp_C',
-            'month'
-    ]
+    on_bad_lines="skip",
+    names=['stn_id', 'year', 'day', 'q_cms', 'month'],
+    usecols=[0, 3, 5, 7, 9]
     )
 
 df.index = pd.to_datetime(pd.DataFrame({
@@ -53,6 +48,10 @@ pivoted_table.shape
 # %%
 
 pivoted_table.columns
+
+# %%
+
+len(pivoted_table.columns)
 
 # %%
 # Melt

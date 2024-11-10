@@ -3,4 +3,4 @@
 5. pandas
 ---------
 
-Tutorials concerning pandas
+Tutorials concerning pandas `library <pandas.pydata.org>`_
