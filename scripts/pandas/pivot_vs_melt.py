@@ -33,9 +33,11 @@ df
 print(df.shape)
 
 # %%
+# The above dataframe consists of data for 480 stations, each stacked on top of the other.
 len(df['stn_id'].unique())
 
 # %%
+# If we want data for each station in a separate column, we can use the `pivot_table` method.
 
 pivoted_table = df.pivot_table(index=df.index, columns="stn_id", values="q_cms")
 
@@ -56,6 +58,7 @@ len(pivoted_table.columns)
 # %%
 # Melt
 # ====
+# Melt is kind of opposite to that of pivot. It stacks the columns on top of each other.
 
 melted_table = df.melt(id_vars=["stn_id"], value_vars=["q_cms"])
 

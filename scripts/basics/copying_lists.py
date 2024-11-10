@@ -28,9 +28,11 @@ print(countries2)
 print(id(countries1),id(countries2))
 
 #%%
-# Both the lists `countries1` and `countries2` point to same object in memory.
+# We can see, both the lists `countries1` and `countries2` point to same object in memory.
 # This means, even though we have two list variables, in reality we have only
 # one object.
+#
+# What will happen if we redfine the list `countries2`?
 
 countries2 = ["Qatar", "Malaysia", "Turkey"]
 print(countries1)
@@ -42,6 +44,7 @@ print(countries2)
 print(id(countries1),id(countries2))
 
 #%% md
+# Now `countries1` and `countries2` are different objects. 
 # So the `countries2` list became different from `countries1` when we assigned
 # a different object to it.
 # What happens when we change the contents of list
@@ -58,8 +61,8 @@ print(countries1)
 print(countries2)
 
 #%% md
-# Even though we only changed `countries2`, the list `countries1` changed automatically. This is because, we don't have two
-# lists in reality. We have one list with two names. What we did was `in place`
+# Even though we only changed `countries2`, the list `countries1` changed automatically. This is because, we did't have two
+# lists to begin with. We have one list with two names. What we did was `in place`
 # change in `countries2` list and did not assign a new object to `countries2`,
 # so the the name `countries2` still points to the same object as `countries1`.
 
@@ -67,20 +70,18 @@ print(countries2)
 # **Question:**
 # What will be the output of the following code?
 #
-# ```python
-# nasalkush_countries = ["us", "uk", "germany"]
-# istemari_countries = nasalkush_countries
+# .. code-block:: python
 #
-# nasalkush_countries.extend(["france"])
+#    nasalkush_countries = ["us", "uk", "germany"]
+#    istemari_countries = nasalkush_countries
 #
-# print(istemari_countries)
+#    nasalkush_countries.extend(["france"])
 #
-# ```
+#    print(istemari_countries)
 
 #%% md
 # Copying using slicing
 # ----------------------
-
 # The above problem can be avoided by using the slice operator
 
 #%%
@@ -99,6 +100,15 @@ print(id(countries1), id(countries2))
 
 #%% md
 # Now `countries1` and `countries2` are not same objects.
+#%% md
+# The same can be achieved by using `copy` method of `list` object.
+
+#%%
+
+countries1 = ["Pakistan", "Iran", "Turkey"]
+countries2 = countries1.copy()
+
+print(id(countries1), id(countries2))
 
 # What about sublists in a list?
 
@@ -132,11 +142,11 @@ print(countries2)
 
 
 #%%
-
+# We can check that the sublists in both lists (countries1 and countries1) are same objects.
 print(id(countries1[3]), id(countries2[3]))
 
 #%% md
-# The same can be achieved by using `copy` method of `list` object.
+# The same can problem arisis when use `copy` method of `list` object.
 
 #%%
 
@@ -160,7 +170,6 @@ print(id(countries1[3]), id(countries2[3]))
 #%% md
 # Using ``list`` function
 # ------------------------
-
 # The ``list`` function converts a sequence into list, if it is not already a list
 
 #%%
