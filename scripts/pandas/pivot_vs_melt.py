@@ -19,14 +19,12 @@ df = pd.read_csv(
     url, compression='zip', encoding="ISO-8859-1",  engine='python', 
     on_bad_lines="skip",
     names=['stn_id', 'year', 'day', 'q_cms', 'month'],
-    usecols=[0, 3, 5, 7, 9]
+    usecols=[0, 3, 5, 7, 9],
+    dtype={'stn_id': 'str', 'year': 'int', 'day': 'int', 'q_cms': 'float', 'month': 'int'},
+    parse_dates={'date': ['year', 'month', 'day']},
+    index_col='date'
     )
 
-df.index = pd.to_datetime(pd.DataFrame({
-    'year': df.pop('year'),
-    'month': df.pop('month'),
-    'day': df.pop('day'),
-}))
 
 df
 

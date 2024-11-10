@@ -17,6 +17,10 @@ import time
 # %%
 # time()
 
+time.time()
+
+# %%
+
 start = time.time()
 
 # do something
@@ -47,6 +51,7 @@ asctime()
 # %%
 # localtime()
 
+print(time.localtime())
 
 # %%
 # timezone
@@ -55,7 +60,7 @@ asctime()
 # %%
 # ctime()
 
-
+print(time.ctime())
 
 # %% md
 # datetime

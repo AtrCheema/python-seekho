@@ -4,10 +4,11 @@
 ==================
 """
 #%%
-
+import time
 import numpy as np
 import pandas as pd
 
+print(time.asctime())
 print(pd.__version__, np.__version__)
 
 #%%
