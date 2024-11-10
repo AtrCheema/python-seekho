@@ -10,6 +10,8 @@ print(time.asctime())
 print(pd.__version__)
 
 # %%
+# Let's consider a dataframe which consists of daily streamflow data from 840 polish stations for the month of January 2020.
+# The data is available in a zip file. We can read the data using the `read_csv` method.
 
 url = "https://danepubliczne.imgw.pl/data/dane_pomiarowo_obserwacyjne/dane_hydrologiczne/dobowe/2020/codz_2020_01.zip"
 

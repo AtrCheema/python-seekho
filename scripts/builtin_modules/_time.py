@@ -38,7 +38,8 @@ for i in range(5):
 
 # %%
 # asctime()
-
+from time import asctime
+asctime()
 
 # %%
 # clock()
@@ -79,6 +80,9 @@ now = datetime.now()
 
 print(now)
 
+# %%
+
+print(type(now))
 
 # %%
 # datetime.strftime()
@@ -99,3 +103,24 @@ print(datetime.strftime(now, "%Y-%m-%d %H:%M:%S"))
 
 # %%
 # datetime.fromtimestamp()
+
+# %%
+# timedelta
+
+from datetime import timedelta
+
+current_time = datetime.now()
+
+current_time + timedelta(seconds=10)
+
+# %%
+
+current_time + timedelta(days=10)
+
+# %%
+
+current_time + timedelta(weeks=10)
+
+# %%
+
+current_time - timedelta(hours=10)
