@@ -26,9 +26,7 @@ summation = add(2,2)
 assert summation==4
 
 # %%
-# Above we have testing the ``add`` function. But we have tested it only with integers
+# Above we are testing the ``add`` function. But we have tested it only with integers
 # as input. We should probably check it with float or other types as well.
 
 assert add(2.0, 2.0)==4.0
-
-# %%

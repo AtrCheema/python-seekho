@@ -8,6 +8,8 @@ joblib
 seaborn
 numpy<2
 
+numba
+
 sphinx==4.5.0
 sphinx-prompt
 sphinx_copybutton
